@@ -1,0 +1,5 @@
+package com.spring.travel_planner.controller;
+
+public class MainController {
+
+}
