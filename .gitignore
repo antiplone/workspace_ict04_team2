@@ -5,6 +5,7 @@
 target/
 Tomcat v9.0 Server at localhost-config/
 .metadata/.plugins/org.eclipse.wst.server.core/servers.xml
+.metadata/.plugins/org.eclipse.wst.server.core/tmp0/logs
 
 ## 필요 #
 ### Git ###
