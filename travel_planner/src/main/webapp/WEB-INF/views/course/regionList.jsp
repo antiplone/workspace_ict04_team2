@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>추천 코스</title>
+<title>지역 목록</title>
 </head>
 <body>
+	
+	<h1> 고객 </h1>
+	
 	<img src="resources/images/추천코스_지역.png" alt="추천코스">
 	
 </body>

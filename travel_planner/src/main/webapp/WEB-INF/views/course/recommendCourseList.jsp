@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>추천코스 목록</title>
 </head>
 <body>
-	<img src="resources/images/추천코스_선택.png" alt="추천코스선택">
+
+	<h1> 고객 </h1>
+	
+	<img src="resources/images/추천코스_목록.png" alt="추천코스선택">
+	
 </body>
 </html>

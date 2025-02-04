@@ -33,12 +33,12 @@ public class RecommendCourseController {
 		return "course/selectRegion";
 	}
 	
-	@RequestMapping("/selectRecommendCourse.rc")
-	public String selectRecommendCourse(HttpServletRequest request, HttpServletResponse response, Model model)
+	@RequestMapping("/recommendCourseList.rc")
+	public String recommendCourseList(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
-		logger.info("<<< url => selectRecommendCourse >>>");
+		logger.info("<<< url => recommendCourseList >>>");
 		
-		return "course/selectRecommendCourse";
+		return "course/recommendCourseList";
 	}
 	
 	@RequestMapping("/recommendCourseDetail.rc")

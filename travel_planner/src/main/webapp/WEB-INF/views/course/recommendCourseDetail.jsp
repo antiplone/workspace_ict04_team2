@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>추천 코스 상세페이지</title>
 </head>
 <body>
 	
+	<h1> 고객 </h1>
 	
 	<div align="center">
-		<img src="resources/images/추천코스_상세.png" alt="추천코스상세">
-		<img src="resources/images/추천코스_장소.png" width="950px" alt="추천코스장소">
+		<img src="resources/images/추천코스_상세_1.png" alt="추천코스상세1">
+		<img src="resources/images/추천코스_상세_2.png" alt="추천코스상세2">
+		<img src="resources/images/추천코스_상세_3.png" alt="추천코스상세3">
+		
 	</div>
 	
 </body>

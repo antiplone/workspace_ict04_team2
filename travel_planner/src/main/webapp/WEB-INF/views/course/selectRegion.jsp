@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>선택 지역</title>
 </head>
 <body>
+
+	<h1> 고객 </h1>
+	
 	<img src="resources/images/지역선택_제주.png" alt="선택지역">
+	
 </body>
 </html>
