@@ -6,10 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 파비콘 -->
-<link rel="icon" href="${path}/resources/images/common/logo.svg"/>
-<link rel="trip-icon" href="${path}/resources/images/common/logo.svg"/>
-
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
