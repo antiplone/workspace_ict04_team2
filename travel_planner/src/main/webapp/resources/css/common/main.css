@@ -2,7 +2,7 @@
 
 /* -----------------추천코스----------------- */
 .recom {
-	font-family: 'Pretendard Regular', '맑은 고딕';
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	background: #D7E3FC;
 	height: 160px; 
 
@@ -12,7 +12,7 @@
 }
 .recom div:first-child {
 	font-size: 20px;
-	font-family: 'Pretendard SemiBold', '맑은 고딕';
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
 }
 .recom div:nth-child(2) {
 	font-size: 14px;
@@ -66,11 +66,11 @@
 }
 
 .rev_title div:first-child {				/* 여행후기 title */
-	font-family: 'Pretendard SemiBold', '맑은 고딕';
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
 	font-size: 20px;
 }
 .rev_title div:nth-child(2) {			/* 더보기 버튼 */
-	font-family: 'Pretendard Regular', '맑은 고딕';
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	font-size: 14px;
 	display: flex;
 	align-items: flex-end;
@@ -100,11 +100,11 @@
 	align-items: center;
 }
 .revs_notice div:first-child {
-	font-family: 'Pretendard SemiBold', '맑은 고딕';
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
 	font-size: 16px;
 }
 .revs_notice div:nth-child(2) {
-	font-family: 'Pretendard Regular', '맑은 고딕';
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	font-size: 14px;
 	margin-left: 20px;
 }
