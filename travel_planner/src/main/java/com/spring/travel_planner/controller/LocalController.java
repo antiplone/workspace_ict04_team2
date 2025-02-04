@@ -17,12 +17,12 @@ public class LocalController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LocalController.class);
 	
-	@RequestMapping("/local_main.lc")
+	@RequestMapping("/location_main.lc")
 	public String local_main(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
-		logger.info("<<< url => local_main.lc >>>");
+		logger.info("<<< url => location_main.lc >>>");
 		
-		return "local/local_main1";
+		return "location/location_main";
 	}
 	
 }
