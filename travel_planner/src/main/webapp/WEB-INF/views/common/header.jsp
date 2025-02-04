@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>header</title>
 </head>
 <body>
-<h1> 어서오세요! </h1>
-
-<P>  Welcome page view. </P>
 
 </body>
 </html>
