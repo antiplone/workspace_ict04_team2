@@ -22,7 +22,7 @@ public class LocalController {
 			throws ServletException, IOException {
 		logger.info("<<< url => local_main.lc >>>");
 		
-		return "local/local_main";
+		return "local/local_main1";
 	}
 	
 }
