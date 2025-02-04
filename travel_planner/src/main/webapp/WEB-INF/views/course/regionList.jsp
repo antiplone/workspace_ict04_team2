@@ -12,5 +12,12 @@
 	
 	<img src="resources/images/추천코스_지역.png" alt="추천코스">
 	
+	<hr>
+	<br><br>
+	-- 지역 목록 조회 <br> 
+	SELECT * <br>
+  	  FROM travel_tourInfo_tbl <br>
+     ORDER BY ti_area DESC; <br>
+	
 </body>
 </html>
