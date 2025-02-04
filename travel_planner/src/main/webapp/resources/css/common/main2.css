@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#contents {
+	max-width: 1240px;
+	min-width: 1240px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.section2 a {
+	text-decoration: none;
+	color: black;
+}
+
+.section2 ul {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0px;
+}
+
+.section2 ul li img {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.2);
+}
+
+.section2 .content_name {
+	padding-top: 10px;
+	font-weight: bold;
+	color: #555555;
+} 
+
+.content_detail {
+	margin-bottom: 40px;
+	padding-top: 10px;
+	font-weight: bold;
+	color: #555555;
+}
+
+/* left side of main carousel */
+.left_comment>div{
+	max-width: 280px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.left_comment strong{
+	max-width:200px;
+    line-height: 2;
+}
+
+.left_comment a{
+	font-size:15px;
+	font-weight:bold;
+	color:#858585;
+	border-bottom: 2px solid #858585;
+    padding: 3px 0px;
+}
+
+.left_comment a:hover{
+	color:#000;
+	border-bottom: 2px solid #000;	
+}
+
+
+.slide_list[data-color='yellow'],
+.slide_item[data-color='yellow']{
+	background-color:yellow;
+}
+
+.slide_list[data-color='gray'],
+.slide_item[data-color='gray']{
+	background-color:gray;
+}
+
+.slide_item[data-color='gray'] a{
+	color:white;
+	border-bottom: 2px solid #fff;
+}
+
+.slide_list[data-color='skyblue'],
+.slide_item[data-color='skyblue']{
+	background-color:RGB (215, 227, 252);
+}
+
+/* progress-bar*/
+
+/* carousel 화면 관련 */
+.carousel_notice_box{
+position: absolute;
+    width: 400px;
+    bottom: 25px;
+    left: 90px;
+    right: 30px;
+    z-index: 10;
+    margin: 0;
+}
+ 
+.progress_bar_wrap {
+    float: none;
+    width: auto;
+    height: auto;
+    position: static;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar {
+    position: relative;
+    width: 320px;
+    display: inline-block;
+    z-index: 1;
+    height: 2px;
+}
+
+.progress_bar_fill {
+    position: absolute;
+    height: 2px;
+    background: #333;
+    width: 100%;
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.progress_bar_fill .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    height: 100%;
+}
+
+.progress_bar_fill .fill {
+    transition: none;
+    animation: flow 5s linear;
+    animation-fill-mode: forwards;
+}
+
+.paging_num{
+    width: 60px;
+    font-size: 14px;
+    font-weight:bold;
+    color:black;
+    text-align: left;
+    line-height: 1;
+    margin-left: 15px;
+}
+
+@keyframes flow{
+	0% {
+	    width: 0;
+	}
+	100% {
+	    width: 100%;
+	}
+}
+
+/* 추천 여행지 */
+
+.recomment_tour_list_wrap{
+	position : relative;	
+}
