@@ -30,6 +30,9 @@
 <script src="${path}/resources/js/common/slider2.js" defer></script>
 </head>
 <body>
+	<c:if test="${m_name != null}">
+		<%= request.getAttribute("m_name") %>님 안녕하세요.
+	</c:if>
 	<div class="wrap">
 		<!-- header 시작 -->
 		<div class="header_wrap">
