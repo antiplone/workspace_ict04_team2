@@ -179,24 +179,36 @@ position: absolute;
 	position: relative;
 	left: 0;
 	padding: 35px 100px;
+	text-align:center;
 }
-.recom div:first-child {
+
+.recom>.recom_wrap{
+	min-width: 960px;
+    height: 120px;
+    max-width: 960px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.recom>div>div{text-align:left;}
+
+.recom>div>div:first-child {
 	font-size: 20px;
 /* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
 }
-.recom div:nth-child(2) {
+.recom>div>div:nth-child(2) {
 	font-size: 14px;
 	margin: 6px 0;
 }
 
 /* 추천코스 이미지 */
 .recom_img {
-	display: inline-block;
-	width: 90px;
-	
-	position: absolute;
-	top: 23px;
-	right: 100px;
+    display: inline-block;
+    width: 90px;
+    position: absolute;
+    top: -10px;
+    right: 50px;
 }
 .recom_img img {
 	width: 100%;
@@ -224,15 +236,18 @@ position: absolute;
 
 /* -----------------여행후기----------------- */
 .rev {
-	margin: 40px 0;
+	/* margin: 0px 0px 40px 0; */
 }
 
 .revs {
 	padding: 40px 100px;
+	min-width:1060px;
 }
-.revs div:first-child {
-	display: flex;
-	justify-content: space-between;
+.revs>div:first-child {
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .rev_title div:first-child {				/* 여행후기 title */
@@ -252,18 +267,20 @@ position: absolute;
 .rev_btn { margin-left: 5px; }
 
 /* 이미지 */
-.rev_img { margin-top: 25px; }
-.rev_img img { width: 100%; }
+.rev_img { margin-top: 25px; text-align: center;}
+.rev_img img { width: 100%; max-width:960px; magrin:0 auto;}
 
 /* -----------------공지사항----------------- */
 .rev_notice {
 	height: 70px;
 	width: 100%;
 	background: #eee;
+    text-align: center;
 }
 .rev_notices {
+	width:960px;
 	display: inline-block;
-	margin: 25px 0 0 100px;
+	margin: 25px 0;
 }
 .revs_notice {
 	display: flex;

@@ -16,9 +16,9 @@
 <title>Insert title here</title>
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
-<link rel="stylesheet" href="${path}/resources/css/common/header2.css">
+<link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
-<link rel="stylesheet" href="${path}/resources/css/common/main2.css">
+<link rel="stylesheet" href="${path}/resources/css/common/main.css">
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/common/slide.css">
 
@@ -34,10 +34,10 @@
 		<div class="header_wrap">
 			<c:choose>
 				<c:when test="${sessionScope.sessionID eq null}">
-					<%@ include file="/WEB-INF/views/common/header2.jsp"%>
+					<%@ include file="/WEB-INF/views/common/header.jsp"%>
 				</c:when>
 				<c:otherwise>
-					<%@ include file="/WEB-INF/views/common/header2.jsp"%>
+					<%@ include file="/WEB-INF/views/common/header.jsp"%>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -128,7 +128,7 @@
 			</div>
 		</div>
 		<div class="recomment_tour_list_wrap">
-			<h3> 함께 떠나는 지역 여행 </h3>
+			<h2> 함께 떠나는 지역 여행 </h2>
 			<div class="recommend_box">
 				<div class="recommend_carousel_wrapper">
 					<div id="recomment_tour_list" align="center">
@@ -262,16 +262,17 @@
 	
 		<%-- 추천코스 --%>
 		<div class="recom">
-			<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
-			<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
-			<div class="recom_img">
-				<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
-			</div>
-			<div class="recom_btn">
-				<a href="#">
-					추천코스 자세히보기
-					<i class="fi fi-rs-arrow-right"></i>
-				</a>
+			<div class="recom_wrap">
+				<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
+				<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
+				<div class="recom_img">
+					<img alt="여행가는 여성"
+						src="${path}/resources/images/main/trip-woman.svg">
+				</div>
+				<div class="recom_btn">
+					<a href="#"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
+					</a>
+				</div>
 			</div>
 		</div>
 		
@@ -279,7 +280,7 @@
 		<div class="rev">
 			<div class="revs">
 				<div class="rev_title">
-					<div>여행후기로 여행지 미리보기</div>
+					<h2>여행후기로 여행지 미리보기</h2>
 					<div>
 						<a href="#">
 							더보기
@@ -312,7 +313,7 @@
 
 	<div>
 		<!-- footer 시작 -->
-		<%@ include file="/WEB-INF/views/common/footer2.jsp"%>
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 		<!-- footer 끝 -->
 	</div>
 	</div>

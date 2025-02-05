@@ -7,6 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+<!-- <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+	const moveLogIn= document.querySelector(".moveLogIn");
+	
+	moveLogIn.addEventListener('click', function(){
+		location.href="${path}/login.dr", "post", "");
+	});
+}
+</script> -->
 </head>
 <body>
 
@@ -14,6 +23,7 @@
 	<header>
 		<ul class="navbar_title">
 			<li class="icon">
+				<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
 				<img src="resources/images/paper_airplane.svg" />
 			</li>
 			<li>여기닷!!</li>
@@ -34,7 +44,7 @@
 			</li>
 			<li>
 				<a href="${path}/login.do"> 
-					<i class="fa-regular fa-user login_shape"></i>
+					<i class="fa-solid fa-solid fa-user login_shape"></i>
 				</a>
 			</li>
 		</ul>

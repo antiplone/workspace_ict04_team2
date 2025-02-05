@@ -17,4 +17,9 @@ public class MainController {
 	private String home() {
 		return "index";
 	}
+	
+	@RequestMapping("/main.do")
+	private String main() {
+		return "common/main";
+	}
 }
