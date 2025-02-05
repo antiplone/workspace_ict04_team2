@@ -1,5 +1,7 @@
 package com.spring.travel_planner.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,14 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class MainController {
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	@RequestMapping("/")
 	private String home() {
 		return "index";
-	}
-	
-	@RequestMapping("/main.do")
-	private String main() {
-		return "common/main";
 	}
 }

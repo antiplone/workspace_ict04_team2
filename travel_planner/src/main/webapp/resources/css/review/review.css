@@ -1,0 +1,32 @@
+@charset "UTF-8";
+* {margin: 0;}
+.reviewList {
+	position:relative;
+	width: 1440px;
+    margin: 0 auto;
+}
+img{
+	width: 100%;
+}
+.review {
+	width: 100px;
+    position: absolute;
+    top: 268px;
+    right: 82px;
+    height: 39px;
+    background: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.reviewDetail {
+width: 1195px;
+    position: absolute;
+    top: 390px;
+    left: 128px;
+    height: 1550px;
+    background: inherit;
+    /* border: none; */
+    cursor: pointer;
+    opacity:0;
+}
