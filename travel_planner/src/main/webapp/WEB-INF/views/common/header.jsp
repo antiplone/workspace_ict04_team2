@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+<link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <!-- <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
 	const moveLogIn= document.querySelector(".moveLogIn");
@@ -32,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		<nav class="navbar">
 			<ul class="navbar_menu">
 				<li class="home"><a href="#">홈</a></li>
-				<li><a href="#">여행지</a></li>
-				<li><a href="#">추천코스</a></li>
-				<li><a href="#">커뮤니티</a></li>
+				<li><a href="location_main.lc?contents=location_main">여행지</a></li>
+				<li><a href="regionList.rc?contents=regionList">추천코스</a></li>
+				<li><a href="reviewList.do?contents=reviewList">커뮤니티</a></li>
 			</ul>
 		</nav>
 		<ul class="navbar_icons">

@@ -20,4 +20,14 @@ public class MainController {
 	private String home() {
 		return "index";
 	}
+	
+	@RequestMapping("/main.do")
+	private String main() {
+		return "common/main";
+	}
+	
+	@RequestMapping("/main2.do")
+	private String main2() {
+		return "common/main2";
+	}
 }
