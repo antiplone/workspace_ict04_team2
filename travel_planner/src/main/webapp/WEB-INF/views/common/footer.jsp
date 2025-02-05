@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- 반응형 웹 -->
 <title>footer</title>
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css" />
+
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 
 <!-- JS -->

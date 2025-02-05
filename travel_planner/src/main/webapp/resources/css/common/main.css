@@ -169,3 +169,113 @@ position: absolute;
 .recomment_tour_list_wrap{
 	position : relative;	
 }
+
+/* -----------------추천코스----------------- */
+.recom {
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	background: #D7E3FC;
+	height: 160px; 
+
+	position: relative;
+	left: 0;
+	padding: 35px 100px;
+}
+.recom div:first-child {
+	font-size: 20px;
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+}
+.recom div:nth-child(2) {
+	font-size: 14px;
+	margin: 6px 0;
+}
+
+/* 추천코스 이미지 */
+.recom_img {
+	display: inline-block;
+	width: 90px;
+	
+	position: absolute;
+	top: 23px;
+	right: 100px;
+}
+.recom_img img {
+	width: 100%;
+}
+
+/* 추천코스 버튼 */
+.recom_btn {
+	align-items: center;
+	
+	position: absolute;
+	bottom: 30px;
+	
+	color: #333;
+	font-size: 14px;
+}
+.recom_btn a {
+	display: flex;
+}
+.recom_btn i {
+	display: flex;
+	align-items: center;
+	color: #333;
+	margin-left: 5px;
+}
+
+/* -----------------여행후기----------------- */
+.rev {
+	margin: 40px 0;
+}
+
+.revs {
+	padding: 40px 100px;
+}
+.revs div:first-child {
+	display: flex;
+	justify-content: space-between;
+}
+
+.rev_title div:first-child {				/* 여행후기 title */
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+	font-size: 20px;
+}
+.rev_title div:nth-child(2) {			/* 더보기 버튼 */
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	font-size: 14px;
+	display: flex;
+	align-items: flex-end;
+}
+.rev_title a {
+	display: flex;
+	align-items: center;
+}
+.rev_btn { margin-left: 5px; }
+
+/* 이미지 */
+.rev_img { margin-top: 25px; }
+.rev_img img { width: 100%; }
+
+/* -----------------공지사항----------------- */
+.rev_notice {
+	height: 70px;
+	width: 100%;
+	background: #eee;
+}
+.rev_notices {
+	display: inline-block;
+	margin: 25px 0 0 100px;
+}
+.revs_notice {
+	display: flex;
+	align-items: center;
+}
+.revs_notice div:first-child {
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+	font-size: 16px;
+}
+.revs_notice div:nth-child(2) {
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	font-size: 14px;
+	margin-left: 20px;
+}
+

@@ -1,36 +1,55 @@
 @charset "UTF-8";
 
-.footer_info {
-	position: relative;
-	bottom: 0;
+footer {
 	width: 100%;
-	height: auto;
-	background-color: black;
-	opacity: 0.88;
-	align-items: fixed-end;
-	margin-top: 100px;
-	padding: 10px 0px 20px 20px;
+	height: 15%;
+	font-size: 12px;
+/* 	font-family: 'Pretendard regular', '맑은 고딕'; */
+}
+/* 사업자 정보 화살표 */
+#entre {
+	font-size: 10px;
+	margin-left: 3px;
 }
 
-.footer_link li {
+#footer {				/* footer 위치 맞추기 */
 	display: inline-block;
-	list-style: none;
-	padding: 0px 10px 0px 10px;
-	margin-left: -45px;
-	margin-right: 50px;
+	padding: 0 15%;
+	margin: 30px 0;
 }
 
-.footer_link li a {
-	text-decoration: none;	/* 밑줄제거 */
-	color: white;
+.footer_toggle {
+	cursor: pointer;
+}
+.footer_toggle label { cursor: pointer; }
+.footer_toggle, .footer_discription, .footer_toggle i { color: #555; }
+
+.footer_discription { padding: 15px 0; }
+.footer_discription .br { margin: 5px 0; }
+.footer_discription span { font-size: 10px; }
+
+/* 버튼 한 줄로 만들기 */
+.footer_btn { display: flex; }
+.vertical_bar_b::before {
+	content: '|';
+	padding: 0 8px;
+}
+.vertical_bar_a::after {
+	content: '|';
+	padding: 0 8px;
 }
 
-.footer_info_customer {
-	background-color: black;
-	opacity: 0.88;
-	color: white;
+/* activity 추가. 클릭시 내용이 보이고 다시 한 번더 누르면 원래상태로 돌아감 */
+.footer_detail {
+	display: none;
+	color: #666;
+}
+.footer_detail.active {
+	display: block;
+	margin: 20px 0 0 3px;
 }
 
-.footer_info_company {
-	color: grey;
-}
+/* footer 전체 높이 조정 */
+footer.hei { height: 23%; }
+
+/* 화살표 방향 바꾸기 */
