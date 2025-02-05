@@ -57,7 +57,6 @@
     width: auto;
 }
 
-
 /* 화살표 */
 .recommondPrevBtn,
 .recommondNextBtn,
@@ -75,7 +74,6 @@
 
 .recommondPrevBtn, .prevBtn{left:10px}
 .recommondNextBtn, .nextBtn{right:10px}
-
 
 /* 화살표 */
 button {
@@ -108,24 +106,30 @@ button::before {
 	left:5px;
 }
 
+.recommondPrevBtn,
+.recommondNextBtn{
+	top:180px;
+}
+
+/* 
 .recommondPrevBtn:before,
 .recommondNextBtn:before{
 	top:50px;
 }
-
+ */
 
 /* 추천 여행지 관련 */
 .recomment_tour_list_wrap {
     position: relative;
     width: 960px;
-    margin: 20px auto;
+    margin: 40px auto;
     overflow:hidden;
 }
 .recommend_box{
 	position: relative;
     width: 968px;
     height: max-content;
-    margin: 0 auto;
+    margin: 40px auto 0px;
     overflow: hidden;
 }
 
@@ -135,8 +139,8 @@ button::before {
 }
 
 .recomment_tour_list_wrap div.right_img img{
-	width:100%;
-	height:auto;
+	width:auto;
+	height:220px;
 } 
 
 div#recomment_tour_list {
@@ -169,7 +173,7 @@ div#recomment_tour_list {
 }
 
 .recommend_slide_item>div{
-    width: 300px;
+    width: 320px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
