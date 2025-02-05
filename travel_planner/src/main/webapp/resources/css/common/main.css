@@ -174,19 +174,18 @@ position: absolute;
 .recom {
 /* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	background: #D7E3FC;
-	height: 160px; 
+	height: 146px; 
 
 	position: relative;
 	left: 0;
-	padding: 35px 100px;
-	text-align:center;
+	padding: 30px 0;
 }
 
 .recom>.recom_wrap{
 	min-width: 960px;
-    height: 120px;
+    height: 92px;
     max-width: 960px;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -208,7 +207,7 @@ position: absolute;
     width: 90px;
     position: absolute;
     top: -10px;
-    right: 50px;
+    right: 3px;
 }
 .recom_img img {
 	width: 100%;
@@ -216,11 +215,8 @@ position: absolute;
 
 /* 추천코스 버튼 */
 .recom_btn {
-	align-items: center;
-	
-	position: absolute;
-	bottom: 30px;
-	
+	position: relative;
+	top: 16px;
 	color: #333;
 	font-size: 14px;
 }
@@ -240,8 +236,8 @@ position: absolute;
 }
 
 .revs {
-	padding: 40px 100px;
-	min-width:1060px;
+	padding: 40px 0;
+	min-width: 960px;
 }
 .revs>div:first-child {
     width: 960px;
@@ -263,6 +259,7 @@ position: absolute;
 .rev_title a {
 	display: flex;
 	align-items: center;
+	margin-right: 7px;
 }
 .rev_btn { margin-left: 5px; }
 

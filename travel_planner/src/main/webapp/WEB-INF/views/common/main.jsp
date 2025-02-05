@@ -15,11 +15,8 @@
 
 <title>Insert title here</title>
 <!-- css -->
-<link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/common/main.css">
-<link rel="stylesheet" href="${path}/resources/css/common/header.css">
-<link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/common/slide.css">
 
 <!-- js -->
@@ -35,8 +32,9 @@
 		<div class="header_wrap">
 			<%@ include file="/WEB-INF/views/common/header.jsp"%>
 		</div>
-		<div class="wrap">
-		<!-- header 끝내기 -->
+	<div class="wrap">
+	<!-- header 끝내기 -->
+	
 		<div id="slide_box_wrap" data-color="gray">
 			<div class="slide_box">
 				<div class="slide_list">
@@ -308,11 +306,12 @@
 			</div>
 		</div>
 
-		<div>
+		<footer>
 			<!-- footer 시작 -->
 			<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 			<!-- footer 끝 -->
-		</div>
+		</footer>
+	</div>
 	</div>
 </body>
 

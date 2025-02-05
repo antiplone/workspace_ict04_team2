@@ -11,6 +11,8 @@
 <title>여행지 선택</title>
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<h2> 여행지 선택 </h2>
 
 <!-- 			<div class="local_1" style="margin-right: 15px">

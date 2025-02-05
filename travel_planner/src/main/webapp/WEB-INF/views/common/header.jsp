@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+<!-- 파비콘 -->
+<link rel="icon" href="${path}/resources/images/common/logo.svg" />
+<link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
+
+<link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <!-- <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		</ul>
 
 		<!-- 반응형웹 (1). 햄버거 아이콘 : -->
-		<a href="#" class="navbar_toggleBtn"> <i
-			class="fa-solid fa-burger"></i>
+		<a href="#" class="navbar_toggleBtn">
+			<i class="fa-solid fa-burger"></i>
 		</a>
 	</header>
 

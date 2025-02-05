@@ -1,3 +1,14 @@
+/* footer */
+const footerBtn = document.querySelector(".footer_toggle");	// 클릭할 버튼
+const detail = document.querySelector(".footer_detail");			// toggle할 내용
+const footers = document.querySelector("footer");					// footer 높이
+
+footerBtn.addEventListener("click", () => {
+	detail.classList.toggle("active");
+	footers.classList.toggle("hei");
+});
+
+
 document.addEventListener("DOMContentLoaded", (e) => {
 
 	const toggleBtn = document.querySelector(".navbar_toggleBtn");
