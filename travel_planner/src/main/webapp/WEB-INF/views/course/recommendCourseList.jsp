@@ -12,5 +12,16 @@
 	
 	<img src="resources/images/추천코스_목록.png" alt="추천코스선택">
 	
+	<hr>
+	<br><br>
+	SELECT *<br>
+      FROM<br>
+	    (SELECT A.*,<br>
+	           rownum AS rn   <br>
+	      FROM  <br>
+	            (SELECT * FROM travel_tourInfo_tbl <br>
+	             ORDER BY ti_service DESC) A  <br>
+	     )   <br>
+	  WHERE rn BETWEEN 1 AND 10;  <br>
 </body>
 </html>

@@ -17,5 +17,11 @@
 		
 	</div>
 	
+	<hr>
+	<br><br>
+	SELECT * <br>
+  	  FROM travel_tourInfo_tbl <br>
+     ORDER BY ti_service DESC; <br>
+	
 </body>
 </html>
