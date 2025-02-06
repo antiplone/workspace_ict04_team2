@@ -24,6 +24,7 @@ footer {
 
 .footer_toggle {
 	cursor: pointer;
+	display: inline-block;
 }
 .footer_toggle label { cursor: pointer; }
 .footer_toggle, .footer_discription, .footer_toggle i { color: #555; }

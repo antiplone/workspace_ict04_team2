@@ -179,6 +179,7 @@ position: absolute;
 	position: relative;
 	left: 0;
 	padding: 30px 0;
+	margin: 40px 0;
 }
 
 .recom>.recom_wrap{
@@ -232,7 +233,7 @@ position: absolute;
 
 /* -----------------여행후기----------------- */
 .rev {
-	/* margin: 0px 0px 40px 0; */
+	margin: 0px 0px 40px 0;
 }
 
 .revs {
@@ -263,9 +264,53 @@ position: absolute;
 }
 .rev_btn { margin-left: 5px; }
 
-/* 이미지 */
-.rev_img { margin-top: 25px; text-align: center;}
-.rev_img img { width: 100%; max-width:960px; magrin:0 auto;}
+/* 여행후기 title 밑 이미지들 */
+.rev_imgs {
+	max-width: 960px;
+	width: 960px;
+	height: 380px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.rev_img {
+	margin: 30px 0;
+	max-width: 230px;
+	width: 230px;
+	height: 380px;
+}
+.rev_img_1 {
+	width: 230px;
+	height: 260px;
+}
+.rev_img_1 > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px
+}
+
+.rev_img_title {
+	margin-top: 10px;
+}
+.rev_img_text1 {		/* 후기 제목 */
+	font-size: 15px;
+	padding: 2px;
+}
+.rev_img_text2 {
+	font-size: 13px;
+	display: flex;
+	margin-top: 5px;
+	position: relative;
+}
+.rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
+	margin-left: 10px;
+}
+.rev_img_text2 div:nth-child(3) {		/* 후기 등록일 */
+	position: absolute;
+	right: 2px;
+}
+
+/* .rev_img img { width: 100%; max-width:960px; magrin:0 auto;} */
 
 /* -----------------공지사항----------------- */
 .rev_notice {

@@ -19,9 +19,8 @@
 	
 	<hr>
 	<br><br>
-	SELECT * <br>
-  	  FROM travel_tourInfo_tbl <br>
-     ORDER BY ti_service DESC; <br>
+	 SELECT * FROM travel_tourinfo_tbl <br>
+ 	   WHERE ti_num = 선택한_num; <br>
 	
 </body>
 </html>

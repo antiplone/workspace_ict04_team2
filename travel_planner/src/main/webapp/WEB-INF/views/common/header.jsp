@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/setting.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/views/common/setting.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +13,7 @@
 
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
-<!-- <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", () => {
-	const moveLogIn= document.querySelector(".moveLogIn");
-	
-	moveLogIn.addEventListener('click', function(){
-		location.href="${path}/login.dr", "post", "");
-	});
-}
-</script> -->
+<script src="${path}/resources/js/common/request.js" defer></script>
 </head>
 <body>
 
@@ -30,17 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		<ul class="navbar_title">
 			<li class="icon">
 				<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
-				<img src="resources/images/paper_airplane.svg" />
+				<img src="${path}/resources/images/paper_airplane.svg" />
 			</li>
 			<li>여기닷!!</li>
 		</ul>
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="home"><a href="#">홈</a></li>
-				<li><a href="location_main.lc?contents=location_main">여행지</a></li>
-				<li><a href="regionList.rc?contents=regionList">추천코스</a></li>
-				<li><a href="reviewList.do?contents=reviewList">커뮤니티</a></li>
+				<li class="home"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
+				<li><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
+				<li><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
+				<li><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>
 			</ul>
 		</nav>
 		<ul class="navbar_icons">

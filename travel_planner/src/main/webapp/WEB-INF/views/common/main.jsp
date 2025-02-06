@@ -13,20 +13,26 @@
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>여기닷</title>
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/common/main.css">
 <link rel="stylesheet" href="${path}/resources/css/common/slide.css">
+<!-- 아이콘 CDN -->
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
 <!-- js -->
-<script src="https://kit.fontawesome.com/3f6025c3d2.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
 <script src="${path}/resources/js/common/main2.js" defer></script>
 <script src="${path}/resources/js/common/slider.js" defer></script>
 <script src="${path}/resources/js/common/slider2.js" defer></script>
+<script src="${path}/resources/js/common/request.js" defer></script>
+<script src="${path}/resources/js/common/headerLink.js" defer></script>
 </head>
 <body>
+	<c:if test="${m_name != null}">
+		<%=request.getAttribute("m_name")%>님 안녕하세요.
+	</c:if>
 	<div class="wrap">
 		<!-- header 시작 -->
 		<div class="header_wrap">
@@ -282,13 +288,76 @@
 					</div>
 				</div>
 
-				<div class="rev_img">
-					<img alt="이미지" src="${path}/resources/images/main/imgs.jpg">
-					<!-- <div>
-						<img alt="1" src="">
-						<div>다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
-						<div>김*지</div>
-					</div> -->
+				<%-- 후기 게시글들 --%>
+				<div class="rev_imgs">
+					<%-- <img alt="이미지" src="${path}/resources/images/main/imgs.jpg"> --%>
+					<div class="rev_img">
+						<div class="rev_img_1">
+							<img alt="1" src="${path}/resources/images/main/main_review_img1.jpg">
+						</div>
+						<div class="rev_img_title">
+							<div class="rev_img_text1">다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
+							<div class="rev_img_text2">
+								<div>김*지</div>
+								<div>
+									<i class="fi fi-rr-eye"></i>
+									2560
+								</div>
+								<div>2025-02-06</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="rev_img">
+						<div class="rev_img_1">
+							<img alt="1" src="${path}/resources/images/main/main_review_img2.jpg">
+						</div>
+						<div class="rev_img_title">
+							<div class="rev_img_text1">아름다운 섬 흑산도에서 가족들과 잊지못할 추억을 쌓고 왔습니다.</div>
+							<div class="rev_img_text2">
+								<div>이*지</div>
+								<div>
+									<i class="fi fi-rr-eye"></i>
+									1506
+								</div>
+								<div>2024-01-26</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="rev_img">
+						<div class="rev_img_1">
+							<img alt="1" src="${path}/resources/images/main/main_review_img3.jpg">
+						</div>
+						<div class="rev_img_title">
+							<div class="rev_img_text1">푸르디 푸른 검은 바닷물이 일렁이는 도시!</div>
+							<div class="rev_img_text2">
+								<div>한*원</div>
+								<div>
+									560
+									<i class="fi fi-rr-eye"></i>
+								</div>
+								<div>2022-11-05</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="rev_img">
+						<div class="rev_img_1">
+							<img alt="1" src="${path}/resources/images/main/main_review_img4.jpg">
+						</div>
+						<div class="rev_img_title">
+							<div class="rev_img_text1">초등학생 아이와 함께 다녀왔어요. 아이가 정말 행복했다고 다음에 또 오자고 하네요.</div>
+							<div class="rev_img_text2">
+								<div>박*지</div>
+								<div>
+									450
+									<i class="fi fi-rr-eye"></i>
+								</div>
+								<div>2020-01-03</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 			</div>

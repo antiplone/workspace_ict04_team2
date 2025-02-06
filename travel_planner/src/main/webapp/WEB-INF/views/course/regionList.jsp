@@ -14,7 +14,6 @@
 	
 	<hr>
 	<br><br>
-	-- 지역 목록 조회 <br> 
 	SELECT * <br>
   	  FROM travel_tourInfo_tbl <br>
      ORDER BY ti_area DESC; <br>

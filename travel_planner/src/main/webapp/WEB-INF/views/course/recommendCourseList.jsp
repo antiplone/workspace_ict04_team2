@@ -14,14 +14,7 @@
 	
 	<hr>
 	<br><br>
-	SELECT *<br>
-      FROM<br>
-	    (SELECT A.*,<br>
-	           rownum AS rn   <br>
-	      FROM  <br>
-	            (SELECT * FROM travel_tourInfo_tbl <br>
-	             ORDER BY ti_service DESC) A  <br>
-	     )   <br>
-	  WHERE rn BETWEEN 1 AND 10;  <br>
+	  SELECT * FROM travel_tourinfo_tbl <br>
+ 	   WHERE ti_num BETWEEN 시작_num AND 끝_num; <br>
 </body>
 </html>
