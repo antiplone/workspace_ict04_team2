@@ -28,14 +28,14 @@ public class MainController {
 	private MemberDAOImpl mem;
 
 
-	@RequestMapping("/main.do")
+	@RequestMapping("/home.do")
 	private String main() {
-		return "common/main";
+		return "common/home";
 	}
 	
-	@RequestMapping("/main2.do")
+	@RequestMapping("/main.do")
 	private String main2() {
-		return "common/main2";
+		return "common/main";
 	}
 
 	@RequestMapping("/login.do")
