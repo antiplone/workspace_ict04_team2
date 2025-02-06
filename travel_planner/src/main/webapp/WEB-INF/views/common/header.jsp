@@ -43,7 +43,7 @@
 		<ul class="navbar_title">
 			<li class="icon">
 				<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
-				<img src="/WEB-INF/resources/images/paper_airplane.svg" />
+				<img src="resources/images/paper_airplane.svg" />
 			</li>
 			<li>여기닷!!</li>
 		</ul>
