@@ -6,9 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 파비콘 -->
-<link rel="icon" href="${path}/resources/images/common/logo.svg" />
-<link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
 
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,23 +19,14 @@
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/common/slide.css">
 
-<!-- js -->
-<script src="https://kit.fontawesome.com/3f6025c3d2.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
 <script src="${path}/resources/js/common/main2.js" defer></script>
 <script src="${path}/resources/js/common/slider.js" defer></script>
 <script src="${path}/resources/js/common/slider2.js" defer></script>
+<script src="${path}/resources/js/common/request.js" defer></script>
+<script src="${path}/resources/js/common/headerLink.js" defer></script>
 </head>
 <body>
-	<c:if test="${m_name != null}">
-		<%= request.getAttribute("m_name") %>님 안녕하세요.
-	</c:if>
-	<div class="wrap">
-		<!-- header 시작 -->
-		<div class="header_wrap">
-			<%@ include file="/WEB-INF/views/common/header.jsp"%>
-		</div>
-		<div class="wrap">
 		<!-- header 끝내기 -->
 		<div id="slide_box_wrap" data-color="gray">
 			<div class="slide_box">
@@ -310,13 +298,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div>
-			<!-- footer 시작 -->
-			<%@ include file="/WEB-INF/views/common/footer.jsp"%>
-			<!-- footer 끝 -->
-		</div>
-	</div>
 </body>
 
 </html>
