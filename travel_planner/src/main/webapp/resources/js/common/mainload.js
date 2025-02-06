@@ -1,12 +1,10 @@
-document.addEventListener("DOMContentLoaded", (e) => {
-	function load(url) {
-		console.log(url)
-		// sendRequest(callback, url, method, params) {}
-		sendRequest(loadNews_callback, url, "post", "");
+window.onload = function() {
+    // alert("윈도우 창이 켜졌을 때 바로 실행됨");
+    let url= 'main.do' ;
+	sendRequest(loadNews_callback_main, url, "post", "");
 	
-	}
 	// 콜백함수 - 결과처리
-	function loadNews_callback() {
+	function loadNews_callback_main() {
 		let result = document.getElementById("contents");	
 		if(httpRequest.readyState == 4) {	// 4 : completed => 전체 데이터 취득 완료
 			if(httpRequest.status == 200) {	// 200 :  정상종료
@@ -21,4 +19,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			result.innerHTML = "readyState 상태 : " + httpRequest.readyState;
 		}
 	}
-});
+}
