@@ -5,10 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
@@ -24,17 +20,6 @@ public class MemberDAOImpl {
 	private DataSource dataSource;
 	private ResultSet rs;
 	private String sql;
-
-
-	@PostConstruct
-	public void init() {
-		try {
-			dataSource = InitialContext.doLookup("java:comp/env/jdbc/travel_planner");
-		}
-		catch (NamingException exc) {
-			exc.printStackTrace();
-		}
-	}
 
 	public void login_action(HttpServletRequest req) {
 
@@ -74,9 +59,4 @@ public class MemberDAOImpl {
 			exc.printStackTrace();
 		}
 	}
-
-	@PreDestroy
-    public void expire() {
-		dataSource = null;
-    }
 }

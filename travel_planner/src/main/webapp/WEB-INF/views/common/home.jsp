@@ -29,34 +29,7 @@
 <script src="${path}/resources/js/common/slider2.js" defer></script>
 <script src="${path}/resources/js/common/request.js" defer></script>
 <script src="${path}/resources/js/common/headerLink.js" defer></script>
-<script type="text/javascript" defer>
-
-	function contents_main(){
-		let	url:'${path}/main2.do';
-		
-		function load(url) {
-		sendRequest(loadNews_callback, url, "post", "");
-		}
-		
-		function loadNews_callback() {
-			let result = document.getElementById("contents");	
-			if(httpRequest.readyState == 4) {	// 4 : completed => 전체 데이터 취득 완료
-				if(httpRequest.status == 200) {	// 200 :  정상종료
-					// 6-1. 응답결과가 html이면 responseText로 받고, xml이면 responseXML로 받는다.
-					result.innerHTML = httpRequest.responseText;
-				}
-				else {
-					result.innerHTML = "status 상태 : " + httpRequest.Status;
-				}
-				
-			}else {
-				result.innerHTML = "readyState 상태 : " + httpRequest.readyState;
-			}
-		}
-	}
-
-</script>
-
+<script src="${path}/resources/js/common/mainload.js" defer></script>
 
 </head>
 <body>
