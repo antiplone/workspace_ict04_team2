@@ -30,16 +30,19 @@ public class MainController {
 
 	@RequestMapping("/home.do")
 	private String main() {
+		logger.info("<<< url => home.do >>>");
 		return "common/home";
 	}
 	
 	@RequestMapping("/main.do")
 	private String main2() {
+		logger.info("<<< url => main.do >>>");
 		return "common/main";
 	}
 
 	@RequestMapping("/login.do")
 	private String login() {
+		logger.info("<<< url => login.do >>>");
 		return "member/login";
 	}
 

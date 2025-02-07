@@ -11,6 +11,7 @@
 <title>여행지 선택</title>
 </head>
 <body>
+
 	<h2> 여행지 선택 </h2>
 
 <!-- 			<div class="local_1" style="margin-right: 15px">
@@ -34,8 +35,6 @@
 	
  -->
 	<img src="resources/local_images/여행지메인.png">
-	
-	
 	
 	<pre>
 	
