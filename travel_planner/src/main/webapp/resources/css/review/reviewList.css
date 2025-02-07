@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+#review {
+	position:relative;
+	width: 1000px;
+    margin: 0 auto;
+}
+
+/* 리뷰상세페이지 이동 */
+.review_detail {
+	display: flex;
+    width: 1000px;
+    justify-content: space-between;
+}
+
+
+#reviewTitle_top {
+	margin: 10px;
+}
+
+#reviewList {
+	margin: 0 auto;
+    position: relative;
+	width: 1150px;
+}
+
+.reviewTotal {
+	display: flex;
+	align-items: center
+}
+
+/* .inputButton {
+	width: 95px;
+	height: 35px;
+	background: initial;
+	border: 1px solid;
+	font-size: 13px;
+} */
+
+.reviewList_top {
+	display: flex;
+    justify-content: space-between;
+}
+
+.btnimg img {
+	width: 20px;
+}
+
+.btnimg {
+	width: 122px;
+    background: initial;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #666;
+}
+
+.reviewList_middle {
+	width: 1000px;
+	max-width: 1000px;
+	height: 1500px;
+}
+
+.review_pre {
+	width: 1000px;
+	max-width: 1000px;
+	height: 100px;
+	border-top: 1px solid silver;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding: 8px 0;
+}
+
+.review_info {
+	display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review_img {
+	display: flex;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+.review_img1 img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.review_img1 {
+	width: 170px;
+    height: 95px;
+    overflow: hidden;
+}
+
+.reviewTitle {
+	font-weight: bold;
+}
+
+.review_info2 {
+	color: #999999;
+}
+
+.reviewContents_pre {
+	margin-top: 10px;
+}
+
+.review_info2 {
+	margin-top: 10px;
+}
+
+#review_pre_last {
+	border-bottom: 1px solid silver;
+/* 	padding-bottom: 20px; */
+}

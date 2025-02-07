@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+#writeTitle_top {
+	margin: 30px;
+	margin-bottom: 50px;
+}
+
+/* 후기 틀..? 시작 */
+#reviewWrite {
+	width: 900px;
+	display: flex;
+    justify-content: space-around;
+    border: 1px solid silver;
+    position: relative;
+    margin: 0 auto;
+    padding: 30px;
+    flex-direction: column;
+}
+
+#reviewWrite1 {
+	display: flex;
+	flex-direction: column;
+}
+
+.reviewWrite_form {
+	width: 850px;
+	display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.reviewWrite_city1{
+	margin-bottom: 16px;
+	font-size: 19px;
+	font-weight: bold;
+}
+
+.reviewWrite_in {
+	width: 100%;
+	border: none;
+	outline: none;
+    border-bottom: 1px solid silver;
+    margin-bottom: 40px;
+    font-size: 15px;
+    padding-bottom: 6px;
+}
+
+.reviewWrite_title1 {
+	margin-bottom: 16px;
+	font-size: 19px;
+	font-weight: bold;
+}
+
+.reviewWrite_content2 {
+	display: flex;
+}
+
+.reviewWrite_content3 {
+	margin-bottom: 16px;
+	font-size: 19px;
+	font-weight: bold;
+	margin-right: 60px;
+	margin-bottom: 40px;
+}
+
+.reviewWrite_content4 {
+	
+}
+
+.reviewWrite_content4 textarea {
+	width: 100%;
+	min-height: 500px;
+	border: none;
+	outline: none;
+    border-bottom: 1px solid silver;
+    margin-bottom: 40px;
+    font-size: 15px;
+    resize: none;
+    height: auto;
+}
+
+/* 파일 선택 버튼 시작 */
+.btn-upload {
+	width: 150px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+}
+
+#file {
+    display: none;
+    visibility: hidden;
+}
+/* 파일 선택 버튼 끝 */
+
+/* 태그 시작 */
+.tag {
+	display: flex;
+}
+
+.reviewWrite_btn1 {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.reviewWrite_btn1 input[type="button"] {
+	width: 100px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+}
+
+#cancel {
+	margin-right: 5px;
+}
+  

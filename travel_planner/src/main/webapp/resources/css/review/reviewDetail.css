@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* 여행 후기 */
+#reviewDetail_t {
+	    padding-block: 25px;
+}
+
+/* 후기 틀..? */
+#reviewDetail {
+	width: 900px;
+	display: flex;
+    position: relative;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+
+.reviewDetail_top {
+	padding-block: 10px;
+	border-bottom: 1px solid silver;
+}
+
+/* 여행한 도시 */
+.reviewDetail_city {
+	padding-bottom: 15px;
+	color: #045FB4;
+}
+
+/* 후기 제목 */
+.reviewDetail_title {
+	padding-bottom: 15px;
+	font-size: 22px;
+	font-weight: 900;
+}
+
+/* 작성자/작성일/조회수/찜 */
+.reviewDetail_info {
+	display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    color: #999999;
+}
+	
