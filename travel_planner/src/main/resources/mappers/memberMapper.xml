@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 관리자 게시판 -->
+<mapper namespace="com.spring.travel_planner.dao.MemberDAOImpl">  <!-- namespace="패키지명.인터페이스" -->
+	
+</mapper>
