@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/* title */
+#title {
+	background-color : #FDF4CB;
+	width: 100%
+}
+
+/* 검색영역 스타일링 시작*/
+
+.search-box {
+	height: 50px;
+	width: 500px;
+	background: none;
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, .1);
+	position: relative;
+	top: -30px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+	
+}
+
+.search-text {
+	border: none;
+	background: none;
+	opacity: 10;
+	outline: none;
+	float: left;
+	padding: 0px;
+	color: #797979;
+	font-size: 15px;
+	line-height: 30px;
+	width: 260px;
+}
+
+.search-btn {
+	color: #797979;
+	float: right;
+	width: 50px;
+	height: 100%;
+	background: none;
+	border: none;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.search-btn::before {
+	content: none;
+}
+/* 검색영역 스타일링 끝*/
+
+/* 중앙화면 시작 */
+#section2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 30px;
+}
+
+.area_img {
+	width: 300px;
+	height: 300px;
+	border-radius: 10px;
+	margin: 40px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+} 
+
+.area-english {
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	top: -30px;
+	left: 35px;
+}
+
+.area-korea {
+	color: #676767;
+	font-size: 14px;
+	position: relative;
+	top: -30px;
+	left: 35px;
+}
+
+/* 중앙화면 끝 */

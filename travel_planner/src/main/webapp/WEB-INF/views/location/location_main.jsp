@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,45 +8,218 @@
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>여기닷 - 여행지</title>
 
-<title>여행지 선택</title>
+<script>
+/* $(function() {
+    let tourAPI = "http://apis.data.go.kr/B551011/KorService1/detailCommon1?ServiceKey=vQkOIwgxBt6hPrd9oi4ilRgPxTnXhFRqIz7ouD4HcxfgOEeCxXczaQREqB%2BjK4xU5q2kdCMqR1HxfC4woJd9Yg%3D%3D&contentTypeId=38&contentId=2750143&MobileOS=ETC&MobileApp=AppTest&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&_type=json";
+    $.getJSON(tourAPI)
+       .done(function(data) {
+          $.each(data.response, function(i, item) {
+             console.log(item);
+             $("body").append(JSON.stringify(item));
+//             window.location = "login_action.do?item=" + item;
+          });
+       });
+ }); */
+
+
+/*    function si_select(){
+	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
+ }  */
+ function si_select(){
+	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
+ }
+ 
+ 
+ </script>
+ 
+<%--  <script src="${path}/resources/js/location_select.js" defer> </script> --%>
 </head>
 <body>
 
 	<h2> 여행지 선택 </h2>
 
-<!-- 			<div class="local_1" style="margin-right: 15px">
-			<img src="resources/local_images/서울.png" width=70, height=70><br>
-			<span> 서울 </span>
-			<img src="resources/local_images/부산.png" width=70, height=70>
-			<span> 부산 </span>
-			</div>
-			<div class="local_2">
-			<img src="resources/local_images/인천.png" width=70, height=70>
-			<span> 인천 </span>
-			<img src="resources/local_images/부산.png" width=70, height=70>
-			<span> 대전 </span>
-			</div>
-			<a href="#">전국</a> <a href="#">서울</a> <a href="#">인천</a> <a href="#">대전</a> <a href="#">대구</a> <a href="#">제주</a> <br>
-			<a href="#">광주</a> <a href="#">부산</a> <a href="#">울산</a> <a href="#">경기</a> <a href="#">강원</a> <a href="#">세종</a> <br>
-			<a href="#">충북</a> <a href="#">충남</a> <a href="#">경북</a> <a href="#">경남</a> <a href="#">전북</a> <a href="#">전남</a> <br>
-			
+		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
+		<div class="main_select" style='background-color: #cad2c5'>
+		<form name="locationMain" action="#" method="post">
+			<br><br><br>
+			<table style="margin-left: auto; margin-right: auto;">
+			<tr>
+				<td align="center" style="padding:30px 30px 30px">
+				<a onclick="load('${path}/location_main.lc')">
+				<img src="resources/local_images/select_all.png" style="width:88px" id="location_si"><br></a>
+					<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
+					전국
+				</td>
+				<td align="center" style="padding:20px 20px 20px">
+					<img src="resources/local_images/select_seoul.png" style="width:90px" id="location_si" onclick="si_select()"><br>
+					서울
+				</td>
+				<td align="center" style="padding:20px 20px 20px">
+					<img src="resources/local_images/select_daegu.png" style="width:90px" id="location_si" onclick="si_select()"><br>
+					대구
+				</td>
+				<td align="center" style="padding:20px 20px 20px">
+					<img src="resources/local_images/select_daejeon.png" style="width:90px" id="location_si" onclick="si_select()"><br>
+					대전
+				</td>
+				<td align="center" style="padding:20px 20px 20px">
+					<img src="resources/local_images/select_incheon.png" style="width:90px" id="location_si" onclick="si_select()"><br>
+					인천
+				</td>
+			</tr>
+			</table>
+			<br><br><br>		
+		</form>
+		</div>
+		
 
-  여행지 선택
+		<!-- 지역 선택 시 보여지는 리스트 / 메인(전국) 리스트 -->
+		<div class="main_list">
+		<form name="localList">
+			<table style="margin-left: auto; margin-right: auto;">
+				<tr>
+					<td style="padding:0px 30px 10px">
+						<a onclick="load('${path}/location_datailAction.lc')">
+						<img src="resources/local_images/북촌한옥마을.png" style="width:200px">
+						</a> <br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/서울 명동성당.png" style="width:200px"><br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/하늘공원.png" style="width:200px"><br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/창경궁.png" style="width:200px"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="padding:0px 30px 0px"><strong>북촌한옥마을</strong><br>
+					<td style="padding:0px 30px 0px"><strong>서울명동성당</strong></td>
+					<td style="padding:0px 30px 0px"><strong>하늘공원</strong></td>
+					<td style="padding:0px 30px 0px"><strong>창경궁</strong></td>
+				</tr>
+				<tr>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 종로구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 중구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 마포구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 종로구</p></td>
+				</tr>
+				
+				<tr>
+					<td style="padding:0px 30px 10px">
+						<a href="${path}/location_datailAction.lc">
+						<img src="resources/local_images/세빛섬.png" style="width:200px">
+						</a> <br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/서울어린이대공원.png" style="width:200px"><br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/잠원한강공원.png" style="width:200px"><br>
+					</td>
+					<td style="padding:0px 30px 10px">
+						<img src="resources/local_images/서울숲.png" style="width:200px"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="padding:0px 30px 0px"><strong>세빛섬</strong></td>
+					<td style="padding:0px 30px 0px"><strong>서울어린이대공원</strong></td>
+					<td style="padding:0px 30px 0px"><strong>잠원한강공원</strong></td>
+					<td style="padding:0px 30px 0px"><strong>서울숲</strong></td>
+				</tr>
+				<tr>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 서초구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 광진구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 서초구</p></td>
+					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 성동구</p></td>
+				</tr>
+			</table>
+		</form>
+		</div>
 	
- -->
-	<img src="resources/local_images/여행지메인.png">
 	
-	<pre>
+<!-- 	<td align="center">
+						<input name="location_si" type="hidden" value="서울">
+						<input type="image" src="resources/local_images/서울.png" width="70px" onclick="si_select()"><br>
+						이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동
+						서울
+						</button>
+					</td>
+					<td align="center">
+						<input name="location_si" type="hidden" value="부산">
+						<input type="image" src="resources/local_images/인천.png" style="width:70px" onclick="si_select()"><br>
+						부산
+					</td>
+					
+					<td align="center">
+						<input name="location_si" type="hidden" value="대구">
+						<input type="image" src="resources/local_images/인천.png" style="width:70px" onclick="si_select()"><br>
+						대구
+					</td>
+					
+					<td align="center">
+						<input name="location_si" type="hidden" value="인천">
+						<input type="image" src="resources/local_images/인천.png" style="width:70px" onclick="si_select()"><br>
+						인천
+					</td> -->
+
 	
-	
-	CREATE TABLE travel_tourInfo_tbl(
-    		ti_num         NUMBER(38)    PRIMARY KEY,    	-- 여행지 번호
-		ti_language    VARCHAR2(50),       	 	-- 언어 
-		ti_thema   	   VARCHAR2(50),       		-- 유형 분류
-		ti_service     VARCHAR2(50),       		-- 서비스 분류
-		ti_area    	   VARCHAR2(50)      		-- 지역 
-	); </pre>
-	
+				<!-- 		<td align="center">
+						<img src="resources/local_images/서울.png" style="width:70px" id="location_si" value="서울" onclick="si_select()"><br>
+						이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동
+						서울
+					</td>
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="부산" onclick="si_select()"><br>
+						부산
+					</td>
+					
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="대구" onclick="si_select()"><br>
+						대구
+					</td>
+					
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="인천" onclick="si_select()"><br>
+						인천
+					</td> -->
+					
+					<%-- <tr>
+					<td align="center">
+						<a herf="${path}/location_mainList.lc">
+						<img src="resources/local_images/select_all.png" width="70px" name="si_choice" id="location_seoul"></a><br>
+						<td>전국</label>
+						<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
+						<!-- class="lo1" style="background-image:url(resources/local_images/서울.png) -->
+					</td>
+					
+					<td align="center">
+						<input type="radio" name="si_choice" id="location_seoul" value="1" onclick="si_select()"><br>
+						<img src="resources/local_images/select_seoul.png" width="70px">
+						<td><label for="location_seoul">서울</label>
+					</td>
+					<td align="center">
+						<input type="radio" name="si_choice" id="location_busan" value="2" onclick="si_select()"><br>
+						<img src="resources/local_images/select_incheon.png" style="width:70px" >
+						<td><label for="location_busan">인천</label>
+					</td>
+					
+					<td align="center">
+						<input type="radio" name="si_choice" id="location_daegu" value="3" onclick="si_select()"><br>
+						<img src="resources/local_images/select_daejeon.png" style="width:70px" >
+						<label for="location_daegu">대전</label>
+					</td>
+					
+					<td align="center">
+						<input type="radio" name="si_choice" id="location_incheon" value="4" onclick="si_select()"><br>
+						<img src="resources/local_images/select_daegu.png" style="width:70px" >
+						<label for="location_incheon">대구</label>
+					</td>
+				</tr> --%>
 </body>
 </html>

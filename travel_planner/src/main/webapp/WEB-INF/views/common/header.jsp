@@ -36,7 +36,13 @@
 		}else {
 			result.innerHTML = "readyState 상태 : " + httpRequest.readyState;
 		}
-}
+	}
+	
+	$(function() {
+		$("#mainClick").click(function() {
+			window.location = "${path}/home.do";
+		});
+	});
 
 </script>
 </head>
@@ -45,19 +51,23 @@
 	<!-- header 시작 -->
 	<header>
 		<ul class="navbar_title">
-			<li class="icon">
-				<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
-				<img src="${path}/resources/images/paper_airplane.svg" />
+			<li>
+				<ul id="mainClick" class="pointerBtn">
+					<li class="icon">
+						<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
+						<img src="${path}/resources/images/paper_airplane.svg" />
+					</li>
+					<li>여기닷!!</li>
+				</ul>
 			</li>
-			<li>여기닷!!</li>
 		</ul>
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="home"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
-				<li><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
-				<li><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
-				<li><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>
+				<li class="home pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
+				<li class="pointerBtn"><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
+				<li class="pointerBtn"><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
+				<li class="pointerBtn"><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>
 			</ul>
 		</nav>
 		<ul class="navbar_icons">

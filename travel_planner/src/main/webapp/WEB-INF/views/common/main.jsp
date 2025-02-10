@@ -252,11 +252,10 @@
 				<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
 				<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
 				<div class="recom_img">
-					<img alt="여행가는 여성"
-						src="${path}/resources/images/main/trip-woman.svg">
+					<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
 				</div>
 				<div class="recom_btn">
-					<a href="${path}/regionList.rc"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
+					<a onclick="load('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
 					</a>
 				</div>
 			</div>
@@ -268,16 +267,38 @@
 				<div class="rev_title">
 					<h2>여행후기로 여행지 미리보기</h2>
 					<div>
-						<a href="${path}/reviewList.do"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
+						<a onclick="load('${path}/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
 						</a>
 					</div>
 				</div>
 
 				<%-- 후기 게시글들 --%>
 				<div class="rev_imgs">
-					<%-- <img alt="이미지" src="${path}/resources/images/main/imgs.jpg"> --%>
-					<div class="rev_img" id="revImg1">
-						<div class="rev_img_1">
+					
+					<%-- 리뷰가 있으면 반복 --%>
+					<c:forEach var="dto" items="${list}">
+					
+					 <div class="rev_img revBtn" id="revImg${dto.r_num}">
+						<div class="rev_image">
+							<img alt="${dto.r_num}" src="${dto.r_img}">
+						</div>
+						<div class="rev_img_title">
+							<div class="rev_img_text1">${dto.r_title}</div>
+							<div class="rev_img_text2">
+								<div>${dto.m_name}</div>
+								<div>
+									<i class="fi fi-rr-eye"></i>
+									${dto.r_readCnt}
+								</div>
+								<div>${dto.r_regDate}</div>
+							</div>
+						</div>
+					</div>
+					
+					</c:forEach>
+				
+ 					<%-- <div class="rev_img revBtn" id="revImg1">
+						<div class="rev_image">
 							<img alt="1" src="${path}/resources/images/main/main_review_img1.jpg">
 						</div>
 						<div class="rev_img_title">
@@ -293,8 +314,8 @@
 						</div>
 					</div>
 					
-					<div class="rev_img">
-						<div class="rev_img_1" id="revImg2">
+					<div class="rev_img revBtn">
+						<div class="rev_image" id="revImg2">
 							<img alt="2" src="${path}/resources/images/main/main_review_img2.jpg">
 						</div>
 						<div class="rev_img_title">
@@ -310,8 +331,8 @@
 						</div>
 					</div>
 					
-					<div class="rev_img">
-						<div class="rev_img_1" id="revImg3">
+					<div class="rev_img revBtn">
+						<div class="rev_image" id="revImg3">
 							<img alt="3" src="${path}/resources/images/main/main_review_img3.jpg">
 						</div>
 						<div class="rev_img_title">
@@ -319,16 +340,16 @@
 							<div class="rev_img_text2">
 								<div>한*원</div>
 								<div>
-									560
 									<i class="fi fi-rr-eye"></i>
+									560
 								</div>
 								<div>2022-11-05</div>
 							</div>
 						</div>
 					</div>
 					
-					<div class="rev_img">
-						<div class="rev_img_1" id="revImg4">
+					<div class="rev_img revBtn">
+						<div class="rev_image" id="revImg4">
 							<img alt="4" src="${path}/resources/images/main/main_review_img4.jpg">
 						</div>
 						<div class="rev_img_title">
@@ -336,13 +357,14 @@
 							<div class="rev_img_text2">
 								<div>박*지</div>
 								<div>
-									450
 									<i class="fi fi-rr-eye"></i>
+									450
 								</div>
 								<div>2020-01-03</div>
 							</div>
 						</div>
-					</div>
+					</div> --%>
+					
 				</div>
 
 			</div>

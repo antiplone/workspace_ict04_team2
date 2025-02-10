@@ -191,8 +191,10 @@ position: absolute;
     transform: translateX(-50%);
 }
 
-.recom>div>div{text-align:left;}
-
+.recom_btn {
+	text-align:left;
+	display: inline-block;
+}
 .recom>div>div:first-child {
 	font-size: 20px;
 /* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
@@ -224,6 +226,7 @@ position: absolute;
 .recom_btn a {
 	display: flex;
 }
+
 .recom_btn i {
 	display: flex;
 	align-items: center;
@@ -232,10 +235,7 @@ position: absolute;
 }
 
 /* -----------------여행후기----------------- */
-.rev {
-	margin: 0px 0px 40px 0;
-}
-
+.rev { margin: 0px 0px 40px 0; }
 .revs {
 	padding: 40px 0;
 	min-width: 960px;
@@ -263,13 +263,16 @@ position: absolute;
 	margin-right: 7px;
 }
 .rev_btn { margin-left: 5px; }
+.pointerBtn { cursor: pointer; }		/* 메인화면에서 추천코스, 여행후기 버튼 눌렀을 때 */
 
 /* 여행후기 title 밑 이미지들 */
 .rev_imgs {
+	position: relative;
 	max-width: 960px;
 	width: 960px;
-	height: 380px;
+	height: 400px;
 	margin: 0 auto;
+	
 	display: flex;
 	justify-content: space-between;
 }
@@ -280,13 +283,18 @@ position: absolute;
 	height: 380px;
 	cursor: pointer;
 }
-.rev_img_1 {
+.rev_img:hover {
+	position: relative;
+	top: -10px;
+}
+
+.rev_image {
 	width: 230px;
 	height: 260px;
 	overflow: hidden;
 	position: relative;
 }
-.rev_img_1 > img {
+.rev_image > img {
 	width: 100%;
 	height: 100%;
 	border-radius: 5px;
@@ -308,6 +316,11 @@ position: absolute;
 }
 .rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
 	margin-left: 10px;
+	display: flex;
+	align-items: center;
+}
+.rev_img_text2 div:nth-child(2) i {
+	margin-right: 3px;
 }
 .rev_img_text2 div:nth-child(3) {		/* 후기 등록일 */
 	position: absolute;
