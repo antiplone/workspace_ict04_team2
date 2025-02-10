@@ -68,9 +68,50 @@
     margin-bottom: 20px;
 }
 
-<!-- 후기 하단 시작 -->
+/* 후기 하단 시작 */
 .reviewDetail_bottom {
 	display: flex;
     justify-content: flex-end;
 }
-<!-- 후기 하단 끝 -->
+
+/* 목록 버튼 */
+.reviewDetail_listBtn {
+	width: 100px;
+	height: 30px;
+	background: #121212;
+    color: white;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+	
+}
+
+/* 수정 버튼 */
+.reviewDetail_corBtn {
+	width: 100px;
+	height: 30px;
+	background: #121212;
+    color: white;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 10px;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+}
+
+/* 후기 하단 끝 */
