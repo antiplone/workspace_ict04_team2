@@ -17,36 +17,49 @@ public class RecommendCourseController {
 		
 	private static final Logger logger = LoggerFactory.getLogger(RecommendCourseController.class);
 	
+	// 지역 목록
 	@RequestMapping("/regionList.rc")
 	public String regionList(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => regionList >>>");
 		
-		return "course/regionList";
+		return "recommendCourse/regionList";
 	}
 	
+	// 지역 설명
+	@RequestMapping("/regionDetail.rc")
+	public String regionDetail(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("<<< url => regionDetail >>>");
+		
+		return "recommendCourse/regionDetail";
+	}
+	
+	// 선택 지역
 	@RequestMapping("/selectRegion.rc")
 	public String selectRegion(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => selectRegion >>>");
 		
-		return "course/selectRegion";
+		return "recommendCourse/selectRegion";
 	}
 	
+	// 추천 코스 목록
 	@RequestMapping("/recommendCourseList.rc")
 	public String recommendCourseList(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => recommendCourseList >>>");
 		
-		return "course/recommendCourseList";
+		return "recommendCourse/recommendCourseList";
 	}
 	
+	// 추천 코스 상세페이지
 	@RequestMapping("/recommendCourseDetail.rc")
 	public String recommendCourseDetail(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => recommendCourseDetail >>>");
 		
-		return "course/recommendCourseDetail";
+		return "recommendCourse/recommendCourseDetail";
 	}
 	
 }
