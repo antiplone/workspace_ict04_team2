@@ -41,7 +41,10 @@
 		<!-- header 시작 -->
 		<%@ include file="/WEB-INF/views/common/header.jsp" %>
 		<!-- header 끝 -->
-
+		
+		<div align="center">
+			<h2>선택한 '구' 리스트 페이지 </h2>
+		</div>
 		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 		<div class="main_select" style='background-color: #cad2c5'>
 		<form name="locationMain" action="#" method="post">
