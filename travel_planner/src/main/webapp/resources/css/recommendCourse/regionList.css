@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.modal {
+	margin: 40px auto;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	transition: box-shadow 0.2s;
+	width : 250px;
+	height : 250px;
+	background-color : grey;
+}
+
+.modal:hover {
+	box-shadow: 3px 4px 11px 0px #00000040;
+}
+
+#title {
+	background-color : #FDF4CB;
+	position: relative;
+}
+
+.navbar bg-body-tertiary {
+	background-color : none;
+	align-items: center;
+}
+
+/* 검색영역 스타일링 */
+
+.search-box {
+	height: 30px;
+	width: 500px;
+	background: none;
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, .1);
+	position: relative;
+	top: -30px;
+	
+}
+
+.search-text {
+	border: none;
+	background: none;
+	opacity: 10;
+	outline: none;
+	float: left;
+	padding: 0px;
+	color: #797979;
+	font-size: 15px;
+	line-height: 30px;
+	width: 260px;
+}
+
+.search-btn {
+	color: #797979;
+	float: right;
+	width: 50px;
+	height: 100%;
+	background: none;
+	border: none;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/*모달 팝업 영역 스타일링*/
+.

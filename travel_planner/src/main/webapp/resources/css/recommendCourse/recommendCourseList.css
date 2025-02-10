@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.contents-body {
+	
+}
+
+#rc_image {
+	width: 30% !important;
+    height: 40%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2rem 2rem 0 0;
+}
+
+#title {
+	background-color : #FDF4CB;
+	position: relative;
+}
+
+#page_title {
+	font-size: 16px;
+}
+
+h3 {
+	font-size: 20px !important;
+	font-border: bold !important; 
+}
