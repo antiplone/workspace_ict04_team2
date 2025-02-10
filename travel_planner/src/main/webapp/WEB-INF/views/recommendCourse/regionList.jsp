@@ -16,10 +16,11 @@
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/recommendCourse/regionList.css">
-<link rel="stylesheet" href="${path}/resources/css/recommendCourse/regionDetail.css">
 
 <!-- js -->
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <!-- (3-3-2). 자바스크립트 소스 연결 -->
 <!-- defer : html을 다 읽은 후에 자바스크립트를 실행한다. 페이지가 모두 로드된 후에 해당 외부 스크립트가 실행된다. -->
 <script src="${path}/resources/js/recommendCourse/regionDetail.js" defer></script>
@@ -43,7 +44,7 @@
 					<div class="search" align="center">
 					  <div class="container-fluid">
 					    <form class="search-box" action="" method="get">
-					      <input class="search-text" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50 aria-label="검색">
+					      <input class="search-text" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50">
 					      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 					    </form>
 					  </div>
@@ -51,247 +52,220 @@
 				</div>	
 				<!-- 상단 중앙1 종료 -->
 				
-				<!-- 상단 중앙2 시작 -->
-				<div id="section2">
+				<!-- 중앙화면 시작 -->
+					<div id="section2">
+						<div class="table_div">
+							<form name="areaList">
+								<table>
+									<tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Jeju.jpg" class="area_img" alt="제주" onclick="showJeju()">
+											</a>
+										</th>
+										
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Busan.jpg" class="area_img" alt="부산" onclick="showBusan()">
+											</a>
+										</th>
+										
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Seoul.jpg" class="area_img" alt="서울" onclick="showSeoul()">
+											</a>
+										</th>
+										
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Gyeongju.jpg" class="area_img" alt="경주" onclick="showGyeongju()">
+											</a>
+										</th>
+										
+									 </tr>
+									
+									<tr>
+										<td class="area-english"> JEJU </td>
+										<td class="area-english"> BUSAN </td> 
+										<td class="area-english"> SEOUL </td>
+										<td class="area-english"> GYEONGJU</td>
+									 </tr>
 
-					<!-- 중앙 화면 시작 -->
-						<div id="center">
-							<div class="table_div">
-								
-										<form name="areaList">
-										
-										<table>
-										<tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Jeju.jpg" alt="제주" width="250px" height="250px">
-												</a>
-												
-											</th>
-											
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Busan.jpg" alt="부산" onclick="showBusan()" width="250px" height="250px">
-												</a>
-											</th>
-											
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Seoul.jpg" alt="서울" onclick="showSeoul()" width="250px" height="250px">
-												</a>
-											</th>
-											
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Gyeongju.jpg" alt="경주" onclick="showGyeongju()" width="250px" height="250px">
-												</a>
-											</th>
-											
-										 </tr>
-										
-										<tr>
-											<th style="width: 25%"> JEJU </th>
-											<th style="width: 50%"> BUSAN </th> 
-											<th style="width: 75%"> SEOUL </th>
-											<th style="width: 100%"> GYEONGJU</th>
-										 </tr>
+									<tr>
+										<td class="area-korea"> 대한민국 제주 </td>
+										<td class="area-korea"> 대한민국 부산 </td> 
+										<td class="area-korea"> 대한민국 서울 </td>
+										<td class="area-korea"> 대한민국 경주 </td>
+									 </tr>
+									
+									<tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Gangneung.jpg" class="area_img" alt="강릉" onclick="showJeju()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Yeosu.jpg" class="area_img" alt="여수" onclick="showBusan()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Geojetongyeong.jpg" class="area_img" alt="거제통영" onclick="showSeoul()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Namwon.jpg" class="area_img" alt="남원" onclick="showGyeongju()">
+											</a>
+										</th>
+									 </tr>
+									 
+									<tr>
+										<td class="area-english"> GANGNEUNG </td>
+										<td class="area-english"> YEOSU </td> 
+										<td class="area-english"> GEOJETONGYEONG </td>
+										<td class="area-english"> NAMWON</td>
+									 </tr>
+									
+									<tr>
+										<td class="area-korea"> 대한민국 강릉 </td>
+										<td class="area-korea"> 대한민국 여수 </td> 
+										<td class="area-korea"> 대한민국 거제통영 </d>
+										<td class="area-korea"> 대한민국 남원 </td>
+									 </tr>
+									
+									<tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Jeonju.jpg" class="area_img" alt="전주" onclick="showJeju()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Pohang.jpg" class="area_img" alt="포항" onclick="showBusan()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Daejeon.jpg" class="area_img" alt="대전" onclick="showSeoul()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Incheon.jpg" class="area_img" alt="인천" onclick="showGyeongju()">
+											</a>
+										</th>
+									 </tr>
+									 
+									<tr>
+										<td class="area-english"> JEONJU </td>
+										<td class="area-english"> POHANG </td> 
+										<td class="area-english"> DAEJEON </td>
+										<td class="area-english"> INCHEON </td>
+									 </tr>
+									
+									<tr>
+										<td class="area-korea"> 대한민국 전주 </td>
+										<td class="area-korea"> 대한민국 포항 </td> 
+										<td class="area-korea"> 대한민국 대전 </td>
+										<td class="area-korea"> 대한민국 인천</td>
+									 </tr>
+									
+									<tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" class="area_img" alt="춘천" onclick="showJeju()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Gunsan.jpg" class="area_img" alt="군산" onclick="showBusan()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Mokpo.jpg" class="area_img" alt="목포" onclick="showSeoul()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Andong.jpg" class="area_img" alt="안동" onclick="showGyeongju()">
+											</a>
+										</th>
+									 </tr>
+									 
+									 <tr>
+										<td class="area-english"> CHUNCHEON </td>
+										<td class="area-english"> GUNSAN </td> 
+										<td class="area-english"> MOKPO </td>
+										<td class="area-english"> ANDONG </td>
+									 </tr>
+									
+									 <tr>
+										<td class="area-korea"> 대한민국 춘천 </td>
+										<td class="area-korea"> 대한민국 군산 </td> 
+										<td class="area-korea"> 대한민국 목포 </td>
+										<td class="area-korea"> 대한민국 안동 </td>
+									 </tr>
+									
+									 <tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Ulleung.jpg" class="area_img" alt="울릉도" onclick="showJeju()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Gapyeong.jpg" class="area_img" alt="가평" onclick="showBusan()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" class="area_img" alt="제천" onclick="showSeoul()">
+											</a>
+										</th>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Suwon.jpg" class="area_img" alt="수원" onclick="showGyeongju()">
+											</a>
+										</th>
+									 </tr>										
 
-										<tr>
-											<th style="width: 25%"> 대한민국 제주 </th>
-											<th style="width: 50%"> 대한민국 부산 </th> 
-											<th style="width: 75%"> 대한민국 서울 </th>
-											<th style="width: 100%"> 대한민국 경주 </th>
-										 </tr>
-										
-										<tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Gangneung.jpg" alt="강릉" onclick="showJeju()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Yeosu.jpg" alt="여수" onclick="showBusan()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Geojetongyeong.jpg" alt="거제통영" onclick="showSeoul()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Namwon.jpg" alt="남원" onclick="showGyeongju()" width="250px" height="250px">
-												</a>
-											</th>
-										 </tr>
-										 
-										<tr>
-											<th style="width: 25%"> GANGNEUNG </th>
-											<th style="width: 50%"> YEOSU </th> 
-											<th style="width: 75%"> GEOJETONGYEONG </th>
-											<th style="width: 100%"> NAMWON</th>
-										 </tr>
-										
-										<tr>
-											<th style="width: 25%"> 대한민국 강릉 </th>
-											<th style="width: 50%"> 대한민국 여수 </th> 
-											<th style="width: 75%"> 대한민국 거제통영 </th>
-											<th style="width: 100%"> 대한민국 남원 </th>
-										 </tr>
-										
-										<tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Jeonju.jpg" alt="전주" onclick="showJeju()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Pohang.jpg" alt="포항" onclick="showBusan()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Daejeon.jpg" alt="대전" onclick="showSeoul()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Incheon.jpg" alt="인천" onclick="showGyeongju()" width="250px" height="250px">
-												</a>
-											</th>
-										 </tr>
-										 
-										<tr>
-											<th style="width: 25%"> JEONJU </th>
-											<th style="width: 50%"> POHANG </th> 
-											<th style="width: 75%"> DAEJEON </th>
-											<th style="width: 100%"> INCHEON </th>
-										 </tr>
-										
-										<tr>
-											<th style="width: 25%"> 대한민국 전주 </th>
-											<th style="width: 50%"> 대한민국 포항 </th> 
-											<th style="width: 75%"> 대한민국 대전 </th>
-											<th style="width: 100%"> 대한민국 인천</th>
-										 </tr>
-										
-										<tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" alt="춘천" onclick="showJeju()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Gunsan.jpg" alt="군산" onclick="showBusan()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Mokpo.jpg" alt="목포" onclick="showSeoul()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Andong.jpg" alt="안동" onclick="showGyeongju()" width="250px" height="250px">
-												</a>
-											</th>
-										 </tr>
-										 
-										 <tr>
-											<th style="width: 25%"> CHUNCHEON </th>
-											<th style="width: 50%"> GUNSAN </th> 
-											<th style="width: 75%"> MOKPO </th>
-											<th style="width: 100%"> ANDONG </th>
-										 </tr>
-										
-										 <tr>
-											<th style="width: 25%"> 대한민국 춘천 </th>
-											<th style="width: 50%"> 대한민국 군산 </th> 
-											<th style="width: 75%"> 대한민국 목포 </th>
-											<th style="width: 100%"> 대한민국 안동 </th>
-										 </tr>
-										
-										 <tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Ulleung.jpg" alt="울릉도" onclick="showJeju()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Gapyeong.jpg" alt="가평" onclick="showBusan()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" alt="제천" onclick="showSeoul()" width="250px" height="250px">
-												</a>
-											</th>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Suwon.jpg" alt="수원" onclick="showGyeongju()" width="250px" height="250px">
-												</a>
-											</th>
-										 </tr>										
-
-										 <tr>
-											<th style="width: 25%"> ULLEUNG </th>
-											<th style="width: 50%"> GAPYEONG </th> 
-											<th style="width: 75%"> JECHEON </th>
-											<th style="width: 100%"> SUWON </th>
-										 </tr>
-										
-										 <tr>
-											<th style="width: 25%"> 대한민국 울릉도 </th>
-											<th style="width: 50%"> 대한민국 가평 </th> 
-											<th style="width: 75%"> 대한민국 제천 </th>
-											<th style="width: 100%"> 대한민국 수원 </th>
-										  </tr>
-										 
-										 <tr>
-											<th>
-												<a href="${path}/regionDetail.rc">
-													<img src="${path}/resources/images/recommendCourse/area/Yeongwol.jpg" alt="영월" onclick="showJeju()" width="250px" height="250px">
-												</a>
-											</th>
-										 </tr>	
-										 
-										 <tr>
-											<th style="width: 25%"> YEONGWOL </th>
-										 </tr>
-										 
-										 <tr>
-											<th style="width: 25%"> 대한민국 영월 </th>
-										 </tr>
-										
-										<!-- 상품이 있으면 -->
-										<c:forEach var="dto" items="${list}">
-											<tr>
-												<td>${dto.pdNo}</td>
-												<td>${dto.pdName}</td>
-												<td>${dto.pdBrand}</td>
-												<!-- upload 폴더를 새로고침, 브라우저도 새로고침해야 깨진 이미지가 보임 -->
-												<td>
-													<img src="${dto.pdImg}" width="100px">
-												</td>
-												<td>${dto.pdCategory}</td>
-												<td>${dto.pdPrice}</td>
-												<td>${dto.pdQuantity}</td>
-												<td>${dto.pdStatus}</td>
-												<td>${dto.pdIndate}</td>
-											</tr>
-										</c:forEach>	
-										
-										
-									</table>
-								</form>
-							</div>
+									 <tr>
+										<td class="area-english"> ULLEUNG </td>
+										<td class="area-english"> GAPYEONG </td> 
+										<td class="area-english"> JECHEON </td>
+										<td class="area-english"> SUWON </td>
+									 </tr>
+									
+									 <tr>
+										<td class="area-korea"> 대한민국 울릉도 </td>
+										<td class="area-korea"> 대한민국 가평 </td> 
+										<td class="area-korea"> 대한민국 제천 </td>
+										<td class="area-korea"> 대한민국 수원 </td>
+									  </tr>
+									 
+									 <tr>
+										<th>
+											<a href="${path}/regionDetail.rc">
+												<img src="${path}/resources/images/recommendCourse/area/Yeongwol.jpg" class="area_img" alt="영월" onclick="showJeju()">
+											</a>
+										</th>
+									 </tr>	
+									 
+									 <tr>
+										<td class="area-english"> YEONGWOL </td>
+									 </tr>
+									 
+									 <tr>
+										<td class="area-korea"> 대한민국 영월 </td>
+									 </tr>
+								</table>
+							</form>
 						</div>
-					<!-- 중앙 화면 종료 -->
-				</div>
+					</div>
+				<!-- 중앙 화면 종료 -->
 				<!-- 상단 중앙2 종료 -->
 			</div>
 		</div>
@@ -302,6 +276,5 @@
 		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 		<!-- footer 끝 -->
 	</div>
-	
 </body>
 </html>
