@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewDetail.css">
+<link rel="stylesheet" href="/resource/css/bootstrap.css">
 
 </head>
 <body>
@@ -48,8 +49,25 @@
 			</div>
 			
 			<div class="reviewDetail_middel">
-			
+				<!-- 후기 시작 -->
+				<div class="reviewDetail_contents">내용</div>
+				<!-- 후기 끝 -->
+				
+				<!-- 태그 시작 -->
+				<div class="reviewDetail_tag">태그</div>
+				<!-- 태그 끝 -->
+				
+				<!-- 찜 버튼 시작 -->
+				<div class="reviewDetail_likeBtn">찜 버튼</div>
 			</div>
+			
+			<!-- 후기 하단 시작 -->
+			<div class="reviewDetail_bottom">
+				<input type="button" value="목록" class="reviewDetail_listBtn">
+				<input type="button" value="수정하기" class="reviewDetail_corBtn">
+			</div>
+			<!-- 후기 하단 끝 -->
+			
 		</div>
 		<!-- 리뷰 끝 -->
 		
