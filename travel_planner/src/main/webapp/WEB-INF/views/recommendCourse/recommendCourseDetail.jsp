@@ -64,8 +64,18 @@ var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 				
 				<!-- 추천 코스 목록 시작 -->
 				<div class="rc-detail-course-list">
-				
-				
+					<div class="course_wrap">
+						<!-- moblie -->
+						<div class="mo js_slider">
+							::after
+						</div>
+						<!-- tab cont -->
+						<div id="tabCont">
+						
+						<!-- //tab cont -->
+							
+						</div>
+					</div>
 				</div>
 				
 				<!-- 추천 코스 목록 끝 -->
