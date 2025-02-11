@@ -10,6 +10,12 @@
 
 <title>여기닷 - 여행지</title>
 
+
+<!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/location/locationMain.css">
+
+
+
 <script>
 /* $(function() {
     let tourAPI = "http://apis.data.go.kr/B551011/KorService1/detailCommon1?ServiceKey=vQkOIwgxBt6hPrd9oi4ilRgPxTnXhFRqIz7ouD4HcxfgOEeCxXczaQREqB%2BjK4xU5q2kdCMqR1HxfC4woJd9Yg%3D%3D&contentTypeId=38&contentId=2750143&MobileOS=ETC&MobileApp=AppTest&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&_type=json";
@@ -32,121 +38,117 @@
  }
  
  
+ 
  </script>
  
 <%--  <script src="${path}/resources/js/location_select.js" defer> </script> --%>
 </head>
 <body>
-
-		<!-- header 시작 -->
-		<%@ include file="/WEB-INF/views/common/header.jsp" %>
-		<!-- header 끝 -->
-
+		
 		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 		<div class="main_select" style='background-color: #cad2c5'>
-		<form name="locationMain" action="#" method="post">
-			<br><br><br>
-			<table style="margin-left: auto; margin-right: auto;">
-			<tr>
-				<td align="center" style="padding:30px 30px 30px">
-				<a href="location_main.lc">
-				<img src="resources/local_images/select_all.png" style="width:88px" id="location_si"><br></a>
-					<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
-					전국
-				</td>
-				<td align="center" style="padding:20px 20px 20px">
-					<img src="resources/local_images/select_seoul.png" style="width:90px" id="location_si" onclick="si_select()"><br>
-					서울
-				</td>
-				<td align="center" style="padding:20px 20px 20px">
-					<img src="resources/local_images/select_daegu.png" style="width:90px" id="location_si" onclick="si_select()"><br>
-					대구
-				</td>
-				<td align="center" style="padding:20px 20px 20px">
-					<img src="resources/local_images/select_daejeon.png" style="width:90px" id="location_si" onclick="si_select()"><br>
-					대전
-				</td>
-				<td align="center" style="padding:20px 20px 20px">
-					<img src="resources/local_images/select_incheon.png" style="width:90px" id="location_si" onclick="si_select()"><br>
-					인천
-				</td>
-			</tr>
-			</table>
-			<br><br><br>		
-		</form>
+			<form name="locationMain" action="#" method="post">
+				<br><br><br>
+				<table style="margin-left: auto; margin-right: auto;">
+				<tr>
+					<td>
+					<a href="location_main.lc">
+					<img src="resources/local_images/select_all.png" class="location_si"><br></a>
+						<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
+						전국
+					</td>
+					<td>
+						<img src="resources/local_images/select_seoul.png" class="location_si" onclick="si_select()"><br>
+						서울
+					</td>
+					<td>
+						<img src="resources/local_images/select_daegu.png" class="location_si" onclick="si_select()"><br>
+						대구
+					</td>
+					<td>
+						<img src="resources/local_images/select_daejeon.png" class="location_si" onclick="si_select()"><br>
+						대전
+					</td>
+					<td>
+						<img src="resources/local_images/select_incheon.png" class="location_si" onclick="si_select()"><br>
+						인천
+					</td>
+				</tr>
+				</table>
+				<br><br><br>		
+			</form>
 		</div>
 		
 
 		<!-- 지역 선택 시 보여지는 리스트 / 메인(전국) 리스트 -->
 		<div class="main_list">
-		<form name="localList">
-			<table style="margin-left: auto; margin-right: auto;">
-				<tr>
-					<td style="padding:0px 30px 10px">
-						<a href="${path}/location_datailAction.lc" >
-						<img src="resources/local_images/북촌한옥마을.png" style="width:200px">
-						</a> <br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/서울 명동성당.png" style="width:200px"><br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/하늘공원.png" style="width:200px"><br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/창경궁.png" style="width:200px"><br>
-					</td>
-				</tr>
+			<form name="localList">
+				<table style="margin-left: auto; margin-right: auto;">
 				
-				<tr>
-					<td style="padding:0px 30px 0px"><strong>북촌한옥마을</strong><br>
-					<td style="padding:0px 30px 0px"><strong>서울명동성당</strong></td>
-					<td style="padding:0px 30px 0px"><strong>하늘공원</strong></td>
-					<td style="padding:0px 30px 0px"><strong>창경궁</strong></td>
-				</tr>
-				<tr>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 종로구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 중구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 마포구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 종로구</p></td>
-				</tr>
-				
-				<tr>
-					<td style="padding:0px 30px 10px">
-						<a href="${path}/location_datailAction.lc">
-						<img src="resources/local_images/세빛섬.png" style="width:200px">
-						</a> <br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/서울어린이대공원.png" style="width:200px"><br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/잠원한강공원.png" style="width:200px"><br>
-					</td>
-					<td style="padding:0px 30px 10px">
-						<img src="resources/local_images/서울숲.png" style="width:200px"><br>
-					</td>
-				</tr>
-				
-				<tr>
-					<td style="padding:0px 30px 0px"><strong>세빛섬</strong></td>
-					<td style="padding:0px 30px 0px"><strong>서울어린이대공원</strong></td>
-					<td style="padding:0px 30px 0px"><strong>잠원한강공원</strong></td>
-					<td style="padding:0px 30px 0px"><strong>서울숲</strong></td>
-				</tr>
-				<tr>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 서초구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 광진구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 서초구</p></td>
-					<td style="padding:0px 30px 50px"><p style="font-size:13px">서울 성동구</p></td>
-				</tr>
-			</table>
-		</form>
+					<tr>
+						<td>
+							<a href="${path}/location_datailAction.lc" >
+							<img src="resources/local_images/북촌한옥마을.png" id="list_images">
+							</a> <br>
+						</td>
+						<td>
+							<img src="resources/local_images/서울 명동성당.png" id="list_images"><br>
+						</td>
+						<td>
+							<img src="resources/local_images/하늘공원.png" id="list_images"><br>
+						</td>
+						<td>
+							<img src="resources/local_images/창경궁.png" id="list_images"><br>
+						</td>
+						
+					</tr>
+					
+					<tr>
+						<td><strong>북촌한옥마을</strong><br>
+						<td><strong>서울명동성당</strong></td>
+						<td><strong>하늘공원</strong></td>
+						<td><strong>창경궁</strong></td>
+					</tr>
+					<tr>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 종로구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 중구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 마포구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 종로구</p></td>
+					</tr>
+					
+					<tr>
+						<td>
+							<a href="${path}/location_datailAction.lc">
+							<img src="resources/local_images/세빛섬.png" id="list_images">
+							</a> <br>
+						</td>
+						<td>
+							<img src="resources/local_images/서울어린이대공원.png"  id="list_images"><br>
+						</td>
+						<td>
+							<img src="resources/local_images/잠원한강공원.png" id="list_images"><br>
+						</td>
+						<td>
+							<img src="resources/local_images/서울숲.png" id="list_images"><br>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><strong>세빛섬</strong></td>
+						<td><strong>서울어린이대공원</strong></td>
+						<td><strong>잠원한강공원</strong></td>
+						<td><strong>서울숲</strong></td>
+					</tr>
+					<tr>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 서초구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 광진구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 서초구</p></td>
+						<td style="padding:0px 60px 50px"><p style="font-size:13px">서울 성동구</p></td>
+					</tr>
+				</table>
+			</form>
 		</div>
-		<!-- footer 시작 -->
-		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		<!-- footer 끝 -->
-	
+		
 	
 <!-- 	<td align="center">
 						<input name="location_si" type="hidden" value="서울">
