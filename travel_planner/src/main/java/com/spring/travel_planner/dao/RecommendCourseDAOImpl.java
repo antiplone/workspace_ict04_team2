@@ -1,5 +1,15 @@
 package com.spring.travel_planner.dao;
 
-public class RecommendCourseDAOImpl {
+import java.util.List;
+
+import com.spring.travel_planner.dto.RecommendCourseDTO;
+
+public class RecommendCourseDAOImpl implements RecommendCourseDAO {
+	
+	// 지역 목록
+	@Override
+	public List<RecommendCourseDTO> areaList() {
+		return null;
+	}
 
 }

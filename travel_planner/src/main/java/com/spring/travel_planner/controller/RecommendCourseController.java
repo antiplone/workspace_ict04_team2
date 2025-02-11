@@ -8,14 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.spring.travel_planner.service.RecommendCourseService;
 
 @Controller
 public class RecommendCourseController {
 		
 	private static final Logger logger = LoggerFactory.getLogger(RecommendCourseController.class);
+	
+	@Autowired
+	private RecommendCourseService service;
 	
 	// 지역 목록
 	@RequestMapping("/regionList.rc")
@@ -33,6 +39,17 @@ public class RecommendCourseController {
 		logger.info("<<< url => regionList_modal >>>");
 		
 		return "recommendCourse/regionList_modal";
+	}
+	
+	// 지역 목록_foreach
+	@RequestMapping("/regionList_foreach.rc")
+	public String regionList_foreach(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("<<< url => regionList_foreach >>>");
+		
+		service.productListAction(request, response, model);
+		
+		return "recommendCourse/regionList_foreach";
 	}
 	
 	// 지역 설명
