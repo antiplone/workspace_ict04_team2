@@ -23,6 +23,15 @@
 <script src="${path}/resources/js/common/slider2.js" defer></script>
 <script src="${path}/resources/js/common/request.js" defer></script>
 <script src="${path}/resources/js/common/headerLink.js" defer></script>
+
+<script type="text/javascript">
+	/* 여행후기 게시글 눌렀을 때 */
+	/* $(function() {
+		$("#revImg1").click(function() {
+			window.location = "${path}/";
+		});
+	}); */
+</script>
 </head>
 <body>
 		<!-- header 끝내기 -->
@@ -274,7 +283,6 @@
 
 				<%-- 후기 게시글들 --%>
 				<div class="rev_imgs">
-					
 					<%-- 리뷰가 있으면 반복 --%>
 					<c:forEach var="dto" items="${list}">
 					
@@ -296,75 +304,6 @@
 					</div>
 					
 					</c:forEach>
-				
- 					<%-- <div class="rev_img revBtn" id="revImg1">
-						<div class="rev_image">
-							<img alt="1" src="${path}/resources/images/main/main_review_img1.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>김*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									2560
-								</div>
-								<div>2025-02-06</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg2">
-							<img alt="2" src="${path}/resources/images/main/main_review_img2.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">아름다운 섬 흑산도에서 가족들과 잊지못할 추억을 쌓고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>이*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									1506
-								</div>
-								<div>2024-01-26</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg3">
-							<img alt="3" src="${path}/resources/images/main/main_review_img3.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">푸르디 푸른 검은 바닷물이 일렁이는 도시!</div>
-							<div class="rev_img_text2">
-								<div>한*원</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									560
-								</div>
-								<div>2022-11-05</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg4">
-							<img alt="4" src="${path}/resources/images/main/main_review_img4.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">초등학생 아이와 함께 다녀왔어요. 아이가 정말 행복했다고 다음에 또 오자고 하네요.</div>
-							<div class="rev_img_text2">
-								<div>박*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									450
-								</div>
-								<div>2020-01-03</div>
-							</div>
-						</div>
-					</div> --%>
-					
 				</div>
 
 			</div>
