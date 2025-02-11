@@ -7,19 +7,19 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.spring.travel_planner.dto.ReviewDTO;
+import com.spring.travel_planner.dto.ReviewDTO1;
 
 @Repository
-public class ReviewDAOImpl implements ReviewDAO {
+public class ReviewDAOImpl implements ReviewDAO1 {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<ReviewDTO> reviewList(Map<String, Object> map) {
+	public List<ReviewDTO1> reviewList(Map<String, Object> map) {
 		System.out.println("ReviewDAOImpl - reviewList");
 		
-		List<ReviewDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO.reviewList", map);
+		List<ReviewDTO1> list = sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO1.reviewList", map);
 		
 		return list;
 	}

@@ -38,10 +38,10 @@
 				제목
 				</div>
 				
-				<!-- 작성자/작성일/조회수/찜 시작 -->
+				<!-- 작성자/작성일/조회수 시작 -->
 				<div class="reviewDetail_info">
 					<div class="reviewDetail_writer">작성자/작성일</div>
-					<div class="reviewDetail_views">조회수/찜</div>
+					<div class="reviewDetail_views">조회수</div>
 				</div>
 				<!-- 작성자/작성일/조회수 시작 끝 -->
 				<!-- 도시/제목/작성자 끝 -->
@@ -55,9 +55,6 @@
 				<!-- 태그 시작 -->
 				<div class="reviewDetail_tag">태그</div>
 				<!-- 태그 끝 -->
-				
-				<!-- 찜 버튼 시작 -->
-				<div class="reviewDetail_likeBtn">찜 버튼</div>
 			</div>
 			
 			<!-- 후기 하단 시작 -->

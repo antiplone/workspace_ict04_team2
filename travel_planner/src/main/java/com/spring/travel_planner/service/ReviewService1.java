@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 
-public interface ReviewService {
+public interface ReviewService1 {
 	
 	// 후기 목록
 	public void reviewListAction(HttpServletRequest request, HttpServletResponse response, Model model)

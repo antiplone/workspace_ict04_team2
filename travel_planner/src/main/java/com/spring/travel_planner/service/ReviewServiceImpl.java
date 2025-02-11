@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.spring.travel_planner.dao.ReviewDAOImpl;
-import com.spring.travel_planner.dto.ReviewDTO;
+import com.spring.travel_planner.dto.ReviewDTO1;
 import com.spring.travel_planner.page.Paging;
 
 @Service
-public class ReviewServiceImpl implements ReviewService {
+public class ReviewServiceImpl implements ReviewService1 {
 
 	@Autowired 
 	private ReviewDAOImpl dao;
@@ -42,7 +42,7 @@ public class ReviewServiceImpl implements ReviewService {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<ReviewDTO> list = dao.reviewList(map);
+		List<ReviewDTO1> list = dao.reviewList(map);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);

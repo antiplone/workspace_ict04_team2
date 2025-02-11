@@ -2,7 +2,7 @@ package com.spring.travel_planner.dto;
 
 import java.sql.Date;
 
-public class ReviewDTO {
+public class ReviewDTO1 {
 	private int r_num;			// 후기 번호
 	private String r_title;		// 후기 제목
 	private String r_content;	// 후기 내용
@@ -11,9 +11,9 @@ public class ReviewDTO {
 	private Date r_regDate;		// 후기 등록일
 	private String m_name;
 	
-	public ReviewDTO() {}
+	public ReviewDTO1() {}
 
-	public ReviewDTO(int r_num, String r_title, String r_content, String r_img, int r_readCnt, Date r_regDate, String m_name) {
+	public ReviewDTO1(int r_num, String r_title, String r_content, String r_img, int r_readCnt, Date r_regDate, String m_name) {
 		super();
 		this.r_num = r_num;
 		this.r_title = r_title;

@@ -9,6 +9,7 @@
 /* 리뷰상세페이지 이동 */
 .review_detail {
     width: 1000px;
+   /*  display: flex; */
 }
 
 
@@ -60,20 +61,29 @@
 .reviewList_middle {
 	width: 1000px;
 	max-width: 1000px;
-	height: 1500px;
+	height: 1300px;
 }
 
 /* 후기 미리보기 */
 .review_pre {
 	width: 1000px;
 	max-width: 1000px;
-	height: 100px;
+	height: 1000px;
 	border-top: 1px solid silver;
-	display: flex;
-    justify-content: space-between;
     margin-top: 12px;
     padding: 8px 0;
 }
+.review_pre div:first-child {
+	margin-top:3px;
+}
+.review_pre2 {
+	display: flex;
+    justify-content: space-between;
+    margin: 11px 0;
+    border-bottom: 1px solid silver;
+    padding-bottom: 11px;
+}
+
 
 .reviewContents_pre{
 	width: 700px;
@@ -81,11 +91,6 @@
     white-space : nowrap;
     overflow : hidden; 
 }
-
-.reviewList2 {
-	display: flex;
-}
-
 
 .review_info {
 	display: flex;
@@ -97,19 +102,15 @@
 .review_img {
 	display: flex;
     align-items: center;
-    margin-top: 10px;
-    
+    width: 170px;
+    height: 95px;
+    overflow: hidden;
+    border-radius: 4px;
 }
-.review_img1 img {
+.review_img img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
-
-.review_img1 {
-	width: 170px;
-    height: 95px;
-    overflow: hidden;
 }
 
 .reviewTitle {

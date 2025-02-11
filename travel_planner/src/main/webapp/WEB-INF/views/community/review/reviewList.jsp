@@ -54,22 +54,19 @@
 				<!-- 게시글 목록 시작 -->
 				<div class="review_pre">
 					<a href="${path}/reviewDetail.do" class="review_detail">
-					
 					<!-- 리뷰 정보 미리보기 시작 -->
 					<c:forEach var="dto" items="${list}">
-					<div class="reviewList2">
+					<div class="review_pre2">
 						<div class="review_info">
 							<div class="reviewTitle">${dto.r_title}</div>
 							<div class="reviewContents_pre">${dto.r_content}</div>
 							<div class="review_info2">${dto.m_name}/${dto.r_regDate}</div>
 						</div>
 						
-						<!-- 리뷰 사진 시작 -->
-						<div class="review_img">
-							<div class="review_img1">
-								<img alt="리뷰 사진1" src="${dto.r_img}">
-							</div>
-						</div>
+					<!-- 리뷰 사진 시작 -->
+					<div class="review_img">
+							<img alt="리뷰 사진1" src="${dto.r_img}">
+					</div>
 					</div>
 					</c:forEach>
 					<!-- 리뷰 사진 끝 -->

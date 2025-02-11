@@ -8,10 +8,10 @@ CREATE TABLE travle_review_tbl(
     r_readCnt   NUMBER(6)   DEFAULT 0,      -- 조회수
     r_regDate   DATE    DEFAULT sysdate,     -- 리뷰 등록일
     r_comment_count NUMBER(6)   DEFAULT 0,   -- 댓글 개수
-    --r_tourinfo NUMBER(20),
-    --r_tags  VARCHAR2(4000),
-    m_name VARCHAR2(38)    NOT NULL
-    --CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)    
+--    r_tourinfo NUMBER(20),
+--    r_tags  VARCHAR2(4000),
+	m_name	VARCHAR2(38)	NOT NULL,		-- 회원 이름
+    CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)    
 );
 
 -- 삭제시 'Y'만 조회
