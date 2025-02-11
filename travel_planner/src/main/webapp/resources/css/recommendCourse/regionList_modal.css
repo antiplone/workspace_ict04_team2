@@ -21,9 +21,10 @@
     background-color: grey;
     border: none;
     color: #fff;
-/*     cursor: pointer; */
+	cursor: pointer;
     transition: box-shadow 0.2s;
 }
+
 .modal_btn:hover {
     box-shadow: 3px 4px 11px 0px #00000040;
 }
@@ -42,16 +43,15 @@
     overflow: hidden;
     background: rgba(0,0,0,0.5);
 }
-.modal .modal_popup {
+
 /*팝업*/
+.modal_popup {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
     background: #ffffff;
-}
-.modal .modal_popup {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -60,16 +60,24 @@
     transition: box-shadow 0.2s;
 }
 
-/* 모달창 닫기 버튼 */
+/* 모달창 닫기 버튼 시작 */
 .close_btn {
-	width: 30px;
-	height: 30px;
-    padding: 10px 20px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+    padding: 10px 10px;
     border: none;
-    color: black;
+    color: #797979;
     cursor: pointer;
     transition: box-shadow 0.2s;
+    background: initial;	/* 초기값 */
 }
+
+.close_btn i {
+    font-weight: 700;
+    font-size: 30px;
+}
+/* 모달창 닫기 버튼 끝 */
 
 .content_box {
 	display:flex;
@@ -84,6 +92,7 @@
 	display: flex;
 	justify-content: center;
 	margin: 30px;
+	postion: relative;
 }
 
 .areaContent {
