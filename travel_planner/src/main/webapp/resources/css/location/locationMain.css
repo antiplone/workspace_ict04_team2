@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* locationMain.css */
+
+.location_si {
+	width: 110px;
+	border-radius: 50%;
+	padding:0px 30px 10px 0px;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer; /* 마우스 포인트가 올라갔을 때 커서 모양을 포인터로 변경 */ 
+	
+}
+
+.main_select td {
+	text-align: center;
+}
+
+.main_list {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 40px;
+}
+.main_list td {
+	padding:0px 60px 0px
+}
+
+#list_images {
+	width: 200px;
+	margin: 5px;
+	border-radius: 10px;
+	align-items: center;
+}
+
+/* #container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#contents {
+	max-width: 900px;
+	min-width: 900px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#section1, #section2 {
+	padding: 10px 20px 20px 0;
+	border-bottom: 5px solid #B1AEB7;
+}
+
+#s2_inner {
+	width: 100%;
+}
+
+.join {
+	display: flex;	한줄(수평)로 배치
+	justify-content: center;	가운데 배치
+	align-items: center;
+	max-width: 900px;
+	margin : 40px 10px;
+	height: auto;
+}
+
+1차 테스트 : 가운데 위치 테스트
+
+.join th {
+	font-size: 15px;
+	font-weight: bold;
+	width: 120px;
+	height: 60px;
+	text-align: center;
+	padding-right: 10px;
+	padding-left: 20px;
+	border-bottom: 1px solid #CCC;
+	background: whitesmoke;
+	margin-right: 5px;
+}
+
+.join td {	
+	padding: 10px 0 10px 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+.input {
+	width: 300px;
+	height: 40px;
+	border: 1px solid gray;
+	box-sizing: border-box;
+	padding: 0 0 0 10px;
+}
+
+.inputButton {
+	background: whitesmoke;
+	font-size: 15px;
+	padding: 5px 10px 5px 10px;
+} */
