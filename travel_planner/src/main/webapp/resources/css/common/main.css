@@ -174,25 +174,27 @@ position: absolute;
 .recom {
 /* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	background: #D7E3FC;
-	height: 160px; 
+	height: 146px; 
 
 	position: relative;
 	left: 0;
-	padding: 35px 100px;
-	text-align:center;
+	padding: 30px 0;
+	margin: 40px 0;
 }
 
 .recom>.recom_wrap{
 	min-width: 960px;
-    height: 120px;
+    height: 92px;
     max-width: 960px;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.recom>div>div{text-align:left;}
-
+.recom_btn {
+	text-align:left;
+	display: inline-block;
+}
 .recom>div>div:first-child {
 	font-size: 20px;
 /* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
@@ -208,7 +210,7 @@ position: absolute;
     width: 90px;
     position: absolute;
     top: -10px;
-    right: 50px;
+    right: 3px;
 }
 .recom_img img {
 	width: 100%;
@@ -216,17 +218,15 @@ position: absolute;
 
 /* 추천코스 버튼 */
 .recom_btn {
-	align-items: center;
-	
-	position: absolute;
-	bottom: 30px;
-	
+	position: relative;
+	top: 16px;
 	color: #333;
 	font-size: 14px;
 }
 .recom_btn a {
 	display: flex;
 }
+
 .recom_btn i {
 	display: flex;
 	align-items: center;
@@ -235,13 +235,10 @@ position: absolute;
 }
 
 /* -----------------여행후기----------------- */
-.rev {
-	/* margin: 0px 0px 40px 0; */
-}
-
+.rev { margin: 0px 0px 40px 0; }
 .revs {
-	padding: 40px 100px;
-	min-width:1060px;
+	padding: 40px 0;
+	min-width: 960px;
 }
 .revs>div:first-child {
     width: 960px;
@@ -263,12 +260,74 @@ position: absolute;
 .rev_title a {
 	display: flex;
 	align-items: center;
+	margin-right: 7px;
 }
 .rev_btn { margin-left: 5px; }
+.pointerBtn { cursor: pointer; }		/* 메인화면에서 추천코스, 여행후기 버튼 눌렀을 때 */
 
-/* 이미지 */
-.rev_img { margin-top: 25px; text-align: center;}
-.rev_img img { width: 100%; max-width:960px; magrin:0 auto;}
+/* 여행후기 title 밑 이미지들 */
+.rev_imgs {
+	position: relative;
+	max-width: 960px;
+	width: 960px;
+	height: 400px;
+	margin: 0 auto;
+	
+	display: flex;
+	justify-content: space-between;
+}
+.rev_img {
+	margin: 30px 0;
+	max-width: 230px;
+	width: 230px;
+	height: 380px;
+	cursor: pointer;
+}
+.rev_img:hover {
+	position: relative;
+	top: -10px;
+}
+
+.rev_image {
+	width: 230px;
+	height: 260px;
+	overflow: hidden;
+	position: relative;
+}
+.rev_image > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+.rev_img_title {
+	margin-top: 10px;
+}
+.rev_img_text1 {		/* 후기 제목 */
+	font-size: 15px;
+	padding: 2px;
+}
+.rev_img_text2 {
+	font-size: 13px;
+	display: flex;
+	margin-top: 5px;
+	position: relative;
+}
+.rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+}
+.rev_img_text2 div:nth-child(2) i {
+	margin-right: 3px;
+}
+.rev_img_text2 div:nth-child(3) {		/* 후기 등록일 */
+	position: absolute;
+	right: 2px;
+}
+
+/* .rev_img img { width: 100%; max-width:960px; magrin:0 auto;} */
 
 /* -----------------공지사항----------------- */
 .rev_notice {
@@ -295,4 +354,3 @@ position: absolute;
 	font-size: 14px;
 	margin-left: 20px;
 }
-

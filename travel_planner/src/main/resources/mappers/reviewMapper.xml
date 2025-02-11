@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.travel_planner.dao.ReviewDAO">
+
+<!-- 리뷰 개수 -->
+<select id="mainReviewCnt" resultType="int">
+	SELECT COUNT(*) FROM travle_review_tb
+</select>
+
+<!-- 조회순으로 리뷰게시글 4개만 -->
+<select id="mainReviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
+	<![CDATA[
+	SELECT *
+	  FROM (SELECT R.*
+						  , rownum AS rn
+					FROM (SELECT * FROM travle_review_tb
+							  WHERE r_show = 'Y'
+							  ORDER BY r_readCnt DESC) R
+				)
+	 WHERE rn >= #{start}
+	  	 AND rn <= #{end}
+	]]>
+</select>
+</mapper>

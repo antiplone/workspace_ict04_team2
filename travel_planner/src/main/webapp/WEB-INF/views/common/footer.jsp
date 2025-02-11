@@ -15,8 +15,9 @@
 <script src="${path}/resources/js/common/main.js" defer></script>
 </head>
 <body>
-<footer>
-	<div id="footer">
+
+<div id="footer">
+	<div class="footer">
 		<div class="footer_toggle">
 			<label for="entre">사업자 정보</label>
 			<i class="fi fi-rs-angle-down" id="entre"></i>
@@ -40,6 +41,7 @@
 			<div class="vertical_bar_b"><a href="#">고객센터</a></div>
 		</div>
 	</div>
-</footer>
+</div>
+	
 </body>
 </html>
