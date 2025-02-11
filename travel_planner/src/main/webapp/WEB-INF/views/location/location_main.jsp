@@ -173,25 +173,6 @@
 						인천
 					</td> -->
 	
-				<!-- 		<td align="center">
-						<img src="resources/local_images/서울.png" style="width:70px" id="location_si" value="서울" onclick="si_select()"><br>
-						이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동
-						서울
-					</td>
-					<td align="center">
-						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="부산" onclick="si_select()"><br>
-						부산
-					</td>
-					
-					<td align="center">
-						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="대구" onclick="si_select()"><br>
-						대구
-					</td>
-					
-					<td align="center">
-						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="인천" onclick="si_select()"><br>
-						인천
-					</td> -->
 	
 	
 				<!-- 		<td align="center">
