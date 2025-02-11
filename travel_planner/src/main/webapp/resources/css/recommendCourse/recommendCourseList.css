@@ -26,7 +26,7 @@
 /* 1행 1열 좌측 추천코스 */
 .recommend-course-list-left {
 	width: 650px;
-	height: 500px;
+	height: 480px;
 	justify-content: space-between;
 	background: none;
 	border-radius: 10px;
@@ -38,7 +38,7 @@
 /* 1행 2열 우측 추천코스 */
 .recommend-course-list-right {
 	width: 650px;
-	height: 500px;
+	height: 480px;
 	justify-content: space-between;
 	background: none;
 	border-radius: 10px;
