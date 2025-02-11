@@ -9,7 +9,7 @@
 /* 검색영역 스타일링 시작*/
 
 .search-box {
-	height: 50px;
+	height: 30px;
 	width: 500px;
 	background: none;
 	border-radius: 5px;
@@ -45,9 +45,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-}
-.search-btn::before {
-	content: none;
 }
 /* 검색영역 스타일링 끝*/
 

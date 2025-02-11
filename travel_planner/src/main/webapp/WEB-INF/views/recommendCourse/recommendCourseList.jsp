@@ -27,7 +27,7 @@
 
 <script>
 function recommendcourse_detail() {
- 	window.location="${path}/recommendCourseDetail.rc";
+ 	window.location="${path}/recommendCourseDetail.rc"
 }
 </script>
 
@@ -35,6 +35,9 @@ function recommendcourse_detail() {
 <body>
 
 	<div class="wrap">
+		<!-- header 시작 -->
+		<%@ include file="/WEB-INF/views/common/header.jsp"%>
+		<!-- header 끝 -->
 		
 		<!-- 컨텐츠 시작 -->
 		<div id="container">

@@ -29,10 +29,11 @@ CREATE TABLE travle_review_tb(
     r_title     VARCHAR2(200)   NOT NULL,   -- 리뷰글 제목
     r_content   CLOB			NOT NULL,   -- 리뷰 내용
     r_img       VARCHAR2(100)   NOT NULL,   -- 리뷰 이미지
-	m_name	VARCHAR2(38)	NOT NULL,		-- 회원 이름
     r_readCnt   NUMBER(6)		DEFAULT 0,  -- 조회수
     r_regDate   DATE    DEFAULT sysdate,    -- 리뷰 등록일
-    r_comment_count NUMBER(6)   DEFAULT 0   -- 댓글 개수
+    r_comment_count NUMBER(6)   DEFAULT 0,   -- 댓글 개수
+	m_name	VARCHAR2(38)	NOT NULL,		-- 회원 이름
+	CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)    
 );
 
 -- 테이블 조회

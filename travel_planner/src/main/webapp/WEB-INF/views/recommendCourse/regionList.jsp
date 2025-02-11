@@ -28,6 +28,9 @@
 </head>
 <body>
 	<div class="wrap">
+		<!-- header 시작 -->
+		<%@ include file="/WEB-INF/views/common/header.jsp"%>
+		<!-- header 끝 -->
 		
 		<!-- 컨텐츠 시작 -->
 		<div id="container">
@@ -269,6 +272,9 @@
 
 		<!-- 컨텐츠 끝 -->
 		
+		<!-- footer 시작 -->
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+		<!-- footer 끝 -->
 	</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/setting.jsp" %>
+<%@ include file="/WEB-INF/views/setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +38,9 @@
 </head>
 <body>
 
-	<h2> 여행지 선택 </h2>
+		<!-- header 시작 -->
+		<%@ include file="/WEB-INF/views/common/header.jsp" %>
+		<!-- header 끝 -->
 
 		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 		<div class="main_select" style='background-color: #cad2c5'>
@@ -47,7 +49,7 @@
 			<table style="margin-left: auto; margin-right: auto;">
 			<tr>
 				<td align="center" style="padding:30px 30px 30px">
-				<a onclick="load('${path}/location_main.lc')">
+				<a href="location_main.lc">
 				<img src="resources/local_images/select_all.png" style="width:88px" id="location_si"><br></a>
 					<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 					전국
@@ -81,7 +83,7 @@
 			<table style="margin-left: auto; margin-right: auto;">
 				<tr>
 					<td style="padding:0px 30px 10px">
-						<a onclick="load('${path}/location_datailAction.lc')">
+						<a href="${path}/location_datailAction.lc" >
 						<img src="resources/local_images/북촌한옥마을.png" style="width:200px">
 						</a> <br>
 					</td>
@@ -141,6 +143,9 @@
 			</table>
 		</form>
 		</div>
+		<!-- footer 시작 -->
+		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		<!-- footer 끝 -->
 	
 	
 <!-- 	<td align="center">
@@ -167,7 +172,27 @@
 						<input type="image" src="resources/local_images/인천.png" style="width:70px" onclick="si_select()"><br>
 						인천
 					</td> -->
-
+	
+				<!-- 		<td align="center">
+						<img src="resources/local_images/서울.png" style="width:70px" id="location_si" value="서울" onclick="si_select()"><br>
+						이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동
+						서울
+					</td>
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="부산" onclick="si_select()"><br>
+						부산
+					</td>
+					
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="대구" onclick="si_select()"><br>
+						대구
+					</td>
+					
+					<td align="center">
+						<img src="resources/local_images/인천.png" style="width:70px" id="location_si" value="인천" onclick="si_select()"><br>
+						인천
+					</td> -->
+	
 	
 				<!-- 		<td align="center">
 						<img src="resources/local_images/서울.png" style="width:70px" id="location_si" value="서울" onclick="si_select()"><br>

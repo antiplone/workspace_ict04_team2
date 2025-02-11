@@ -52,6 +52,11 @@ $(document).ready(function($) {
 </head>
 <body>
 
+
+		<!-- header 시작 -->
+		<%@ include file="/WEB-INF/views/common/header.jsp" %>
+		<!-- header 끝 -->
+
 		<hr>
 		<br><br><br><br>
 		
