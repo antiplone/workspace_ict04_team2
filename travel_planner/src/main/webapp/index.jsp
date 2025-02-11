@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	setTimeout(function() {
-		window.location="${path}/main.do";
+		window.location="${path}/home.do";
 //		window.location="/travel_planner/main.do";
 	});
 </script>
