@@ -1,22 +1,30 @@
 @charset "UTF-8";
 
+@charset "UTF-8";
+
 /* title */
 #title {
 	background-color : #FDF4CB;
-	width: 100%
+	width: 100%;
+	height: 200px;
+	position: relative;
 }
 
+h3 {
+	position: relative;
+	top: 10px;
+}
 /* 검색영역 스타일링 시작*/
 
 .search-box {
-	height: 30px;
+	height: 50px;
 	width: 500px;
 	background: none;
 	border-radius: 5px;
 	padding: 10px;
 	border: 1px solid rgba(0, 0, 0, .1);
 	position: relative;
-	top: -30px;
+	top: 0px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
 	
 }
@@ -83,3 +91,4 @@
 }
 
 /* 중앙화면 끝 */
+
