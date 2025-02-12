@@ -1,5 +1,11 @@
 package com.spring.travel_planner.dao;
 
-public interface RecommendCourseDAO {
+import java.util.List;
+import com.spring.travel_planner.dto.RecommendCourseDTO;
 
+
+public interface RecommendCourseDAO {
+	
+	// 지역 목록
+	public List<RecommendCourseDTO> areaList();
 }

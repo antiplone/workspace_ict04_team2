@@ -13,6 +13,12 @@
 }
 /* 상단 중앙1 끝 */
 
+/* 모달창 스타일링 */
+.rc_image {
+	width: 400px;
+	height: 250px;
+}
+
 /* 상단 중앙 2 시작 */
 .contents-row-1 {
  	display: flex;
