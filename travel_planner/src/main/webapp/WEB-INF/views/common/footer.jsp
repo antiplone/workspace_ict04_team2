@@ -39,6 +39,7 @@
 			<div class="vertical_bar_a"><a href="#">서비스 이용약관</a></div>
 			<div><a href="#">개인정보 처리방침</a></div>
 			<div class="vertical_bar_b"><a href="#">고객센터</a></div>
+			<div class="tour_link">여기닷은 "<a href="https://api.visitkorea.or.kr/#/">한국관광공사 TourAPI가 제공하는 관광정보를 활용합니다.</a>"</div>
 		</div>
 	</div>
 </div>

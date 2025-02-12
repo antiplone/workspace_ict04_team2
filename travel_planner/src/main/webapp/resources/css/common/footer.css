@@ -34,7 +34,22 @@ footer {
 .footer_discription span { font-size: 10px; }
 
 /* 버튼 한 줄로 만들기 */
-.footer_btn { display: flex; font-size: 14px; }
+.footer_btn {
+	display: flex;
+	font-size: 14px;
+	position: relative;
+}
+.tour_link {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #555;
+}
+.tour_link a { color: #555; }
+.tour_link a:hover {
+	/* border-bottom: 1px solid #111; */
+	color:#111;
+}
 .vertical_bar_b::before {
 	content: '|';
 	padding: 0 8px;

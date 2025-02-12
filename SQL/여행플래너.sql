@@ -79,6 +79,7 @@ SELECT *
                  ORDER BY r_readCnt DESC) R   --최신글이 위로 올라오도록
         )
  WHERE rn BETWEEN 1 AND 4;
+-- 조회순으로 정렬한 후 1~4번만 출력함.
 --------------------------------------------------------------------------------
 -- 댓글 테이블
 DROP TABLE travle_comment_tbl CASCADE CONSTRAINTS;
