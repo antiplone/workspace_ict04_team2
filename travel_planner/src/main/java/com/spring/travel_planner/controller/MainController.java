@@ -66,4 +66,14 @@ public class MainController {
 
 		return "common/main";
 	}
+	
+	
+	// kakao map test
+	@RequestMapping("/kakao.do")
+	private String kakao()
+			throws ServletException, IOException {
+		logger.info("<<< url => kakao.do >>>");
+
+		return "common/kakao";
+	}
 }

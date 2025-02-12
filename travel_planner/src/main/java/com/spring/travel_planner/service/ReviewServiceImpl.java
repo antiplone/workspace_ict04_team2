@@ -14,15 +14,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.spring.travel_planner.dao.ReviewDAOImpl;
-import com.spring.travel_planner.dto.ReviewDTO1;
+import com.spring.travel_planner.dto.ReviewDTO;
 import com.spring.travel_planner.page.Paging;
 
 @Service
-public class ReviewServiceImpl implements ReviewService1 {
+public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired 
 	private ReviewDAOImpl dao;
 	
+	// 후기 목록
 	@Override
 	public void reviewListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			throws ServletException, IOException {
@@ -42,12 +43,13 @@ public class ReviewServiceImpl implements ReviewService1 {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<ReviewDTO1> list = dao.reviewList(map);
+		List<ReviewDTO> list = dao.reviewList(map);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
 	}
 
+	// 후기 상세페이지
 	@Override
 	public void reviewDetailAction(HttpServletRequest request, Model model) 
 			throws ServletException, IOException {
@@ -72,4 +74,24 @@ public class ReviewServiceImpl implements ReviewService1 {
 		
 	}
 
+	// 조회순으로 리뷰게시글 4개만
+	@Override
+	public void mainReviewList(Model model) 
+			throws ServletException, IOException {
+		System.out.println("리뷰Service - reviewList");
+		
+		// 목록
+		int start = 1;
+		int end = 4;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		
+		List<ReviewDTO> list = dao.mainReviewList(map);
+		System.out.println(start + "에서 " + end + "까지의 게시글 목록들 : " + list);
+		
+		// jsp로 처리결과 전달
+		model.addAttribute("list", list);
+	}
 }

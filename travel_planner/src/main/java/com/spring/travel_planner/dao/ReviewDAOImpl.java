@@ -1,25 +1,24 @@
 package com.spring.travel_planner.dao;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.spring.travel_planner.dto.ReviewDTO1;
+import com.spring.travel_planner.dto.ReviewDTO;
 
 @Repository
-public class ReviewDAOImpl implements ReviewDAO1 {
+public class ReviewDAOImpl implements ReviewDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<ReviewDTO1> reviewList(Map<String, Object> map) {
+	public List<ReviewDTO> reviewList(Map<String, Object> map) {
 		System.out.println("ReviewDAOImpl - reviewList");
 		
-		List<ReviewDTO1> list = sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO1.reviewList", map);
+		List<ReviewDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO.reviewList", map);
 		
 		return list;
 	}
@@ -54,4 +53,10 @@ public class ReviewDAOImpl implements ReviewDAO1 {
 //		return 0;
 //	}
 
+	// main - 조회순으로 리뷰게시글 4개만
+	public List<ReviewDTO> mainReviewList(Map<String, Object> map) {
+		System.out.println("리뷰DAO - reviewList");
+		return sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO.mainReviewList", map);
+	}
+	
 }
