@@ -50,16 +50,7 @@ COMMIT;
 
 -----------------------------------
 -- main 후기
--- 조회순으로 게시글 4개만 보여줄거임
-SELECT *
-  FROM (SELECT R.*
-             , rownum AS rn     --행 번호
-          FROM (SELECT * FROM travle_review_tbl
-                 WHERE r_show = 'Y'         -- WHERE절 추가
-                 ORDER BY r_readCnt DESC) R   --최신글이 위로 올라오도록
-        )
- WHERE rn BETWEEN 1 AND 4;
-
+-- 값 추가
 INSERT INTO travle_review_tbl(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate, r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tbl),'다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다','야호1','/travel_planner/resources/images/main/main_review_img1.jpg','김지연',2560,'2025-02-06',0);
 INSERT INTO travle_review_tbl(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate, r_comment_count)
@@ -69,15 +60,25 @@ INSERT INTO travle_review_tbl(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_r
 INSERT INTO travle_review_tbl(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate, r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tbl),'초등학생 아이와 함께 다녀왔어요. 아이가 정말 행복했다고 다음에 또 오자고 하네요.','야호4','/travel_planner/resources/images/main/main_review_img4.jpg','박연진',450,'2020-01-03',0);
 
-INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate)
+INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate,r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tb),'푸르디 푸른 검은 바닷물이 일렁이는 도시!','야호5','/travel_planner/resources/images/main/main_review_img4.jpg','유저5',5,'2024-01-26');
-INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate)
+INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate,r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tb),'푸르디 푸른 검은 바닷물이 일렁이는 도시!','야호6','/travel_planner/resources/images/main/main_review_img4.jpg','유저6',6,'2024-01-26');
-INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate)
+INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate,r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tb),'푸르디 푸른 검은 바닷물이 일렁이는 도시!','야호7','/travel_planner/resources/images/main/main_review_img4.jpg','유저7',7,'2024-01-26');
-INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate)
+INSERT INTO travle_review_tb(r_num,r_title,r_content,r_img,m_name,r_readCnt,r_regDate,r_comment_count)
  VALUES((SELECT NVL(MAX(r_num)+1, 1) FROM travle_review_tb),'푸르디 푸른 검은 바닷물이 일렁이는 도시!','야호8','/travel_planner/resources/images/main/main_review_img4.jpg','유저8',8,'2024-01-26');
 COMMIT;
+
+-- 조회순으로 게시글 4개만 보여줄거임
+SELECT *
+  FROM (SELECT R.*
+             , rownum AS rn     --행 번호
+          FROM (SELECT * FROM travle_review_tbl
+                 WHERE r_show = 'Y'         -- WHERE절 추가
+                 ORDER BY r_readCnt DESC) R   --최신글이 위로 올라오도록
+        )
+ WHERE rn BETWEEN 1 AND 4;
 --------------------------------------------------------------------------------
 -- 댓글 테이블
 DROP TABLE travle_comment_tbl CASCADE CONSTRAINTS;
