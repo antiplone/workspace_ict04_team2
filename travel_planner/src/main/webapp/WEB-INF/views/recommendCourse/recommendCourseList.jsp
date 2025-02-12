@@ -57,7 +57,7 @@ function recommendcourse_detail() {
 				<!-- 컨텐츠 시작 -->
 				<div class="container">
 					<div class="rc-course-list">
-						<!--end 모달 팝업-->
+						<%-- <!--end 모달 팝업-->
 						<main>
 						    <section>
 						        <div class="modal-popup-button">
@@ -93,7 +93,7 @@ function recommendcourse_detail() {
 								<!-- 지역 대표 설명 끝 -->
 							</div>
 						</div>	
-					</div>	
+					</div>	 --%>
 					
 					
 					<!-- 상단 중앙2 시작 -->

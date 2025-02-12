@@ -38,6 +38,8 @@ public class RecommendCourseController {
 			throws ServletException, IOException{
 		logger.info("<<< url => regionList_modal >>>");
 		
+		service.productListAction(request, response, model);
+		
 		return "recommendCourse/regionList_modal";
 	}
 	

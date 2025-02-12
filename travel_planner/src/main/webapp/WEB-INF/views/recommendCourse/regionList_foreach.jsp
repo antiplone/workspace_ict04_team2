@@ -55,14 +55,14 @@
 				<!-- 상단 중앙1 종료 -->
 				
 				<!-- 중앙화면 시작 -->
-				<c:forEach var="dto" items="${list}">
-					<div id="section2">
-						<div class="table_div">
-							<form name="areaList">
+				<div id="areaList">
+					<c:forEach var="dto" items="${list}">
+						<div id="section2">
+							<div class="table_div">
 								<div class="area-click-box">
 									<div class="area-img">
 										<a href="${path}/regionDetail.rc">
-											<img src="${path}/resources/images/recommendCourse/area/Jeju.jpg" class="area_img" alt="제주" onclick="showJeju()">
+											<img src="${path}/resources/images/recommendCourse/area/${dto.tr_area_image}.jpg" class="area_img" alt="${dto.tr_area_english}" onclick="showJeju()">
 										</a>
 									</div>
 									<div class="area-english">
@@ -73,10 +73,10 @@
 										 ${dto.tr_area_korea}
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				 </c:forEach> 
+					 </c:forEach>
+				 </div> 
 				<!-- 중앙 화면 종료 -->
 			</div>
 		</div>

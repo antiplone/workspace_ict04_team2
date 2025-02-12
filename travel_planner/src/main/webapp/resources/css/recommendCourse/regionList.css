@@ -79,7 +79,7 @@ h3 {
 	font-weight: bold;
 	position: relative;
 	top: -30px;
-	left: 35px;
+	left: 40px;
 }
 
 .area-korea {
@@ -87,8 +87,16 @@ h3 {
 	font-size: 14px;
 	position: relative;
 	top: -30px;
-	left: 35px;
+	left: 40px;
 }
 
 /* 중앙화면 끝 */
 
+/* foreach문 시작 */
+#areaList {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+/* foreach문 끝 */
