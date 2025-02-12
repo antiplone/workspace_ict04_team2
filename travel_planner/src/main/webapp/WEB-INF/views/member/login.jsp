@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 파비콘 -->
+<link rel="icon" href="${path}/resources/images/common/logo.svg" />
+<link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
+
 <title>LOGIN</title>
 <style>
 	/* css도 구조적으로 나중에 정리 */
@@ -79,7 +84,7 @@
 </head>
 <body>
 	<div style="display: flex; justify-content: center; padding-top: 10%;">
-		<img alt="logo" src="resources/logo.svg" width="10%" height="auto" />
+		<img alt="logo" src="${path}/resources/images/logo.svg" width="10%" height="auto" />
 	</div>
 
 	<form action="login_action.do" method="POST">
@@ -102,7 +107,7 @@
 					<td align="right" style="width: max-content;">
 						<div class="btn_group">
 							<input type="submit" value="로그인" />
-							<input type="button" value="돌아가기" onclick="window.location='main.do'"/>
+							<input type="button" value="돌아가기" onclick="window.location='${path}/home.do'"/>
 						</div>
 					</td>
 				</tr>

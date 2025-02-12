@@ -49,16 +49,6 @@ public class LocationController {
 		return "location/location_mainSelect";
 	}
 	
-	@RequestMapping("/location_mainList.lc")
-	public String location_mainList(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException {
-		logger.info("<<< url => location_mainList.lc >>>");
-		
-		/* service.selectListAction(request, response, model); */
-		
-		return "location/location_mainList";
-	}
-	
 	@RequestMapping("/location_mainListAction.lc")
 	public String location_mainListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {

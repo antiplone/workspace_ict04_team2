@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	const carouselContents = document.querySelectorAll(".slide_item");
 	const slideBoxWrap = document.getElementById("slide_box_wrap");
 	
-	const prevBtn = document.querySelector(".prevBtn");
-	const nextBtn = document.querySelector(".nextBtn");
+	const prevBtn = document.querySelector(".rprevBtn");
+	const nextBtn = document.querySelector(".rnextBtn");
 	
 	//counter
 	let counter = 1;
@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	console.log("carouselSlide : " + carouselSlide);
 	
 	carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
-	const slideItem = document.querySelector(".slide_item");
 	const page_current = document.getElementById("page_current");
 	
 	//Button Listeners
 	nextBtn.addEventListener("click", () => {
+		alert("나도 눌렸음");
 	  if (counter >= carouselContents.length - 1) return;
 	  carouselSlide.style.transition = "transform 0.3s ease-in-out";
 	  counter++;
@@ -28,13 +28,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	  console.log("slideBoxWrapColor : " + slideBoxWrapColor);
 	  slideBoxWrap.dataset.color = slideBoxWrapColor;
 	  console.log("slideBoxWrap.data-color : " + slideBoxWrap.dataset.color);
-	  
-	  
 	  carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
 	  
 	});
 	
 	prevBtn.addEventListener("click", () => {
+		alert("눌렸음");
 	  if (counter <= 0) return;
 	  carouselSlide.style.transition = "transform 0.3s ease-in-out";
 	  counter--;
@@ -62,5 +61,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	    carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
 	  }
 	});
+	
+	$(function() {
+	  $('#myCarousel').carousel({
+	    interval: 2000,
+	    pause: "false"
+	  });
+	});
+
+	
 
 })

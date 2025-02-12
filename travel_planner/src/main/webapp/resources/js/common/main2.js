@@ -17,23 +17,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	
 	
 	/*navbar menu active button*/
+	
+	
 	menulists.forEach((menulist, index) => {
 		menulist.addEventListener("click",function(){
+		/*let dataPnum = this.getAttribute('data-Pnum');*/
 	      if (this.classList.contains("active")) {
-	      	menulists[0].classList.remove("home");
-	      	menulists[0].classList.remove("active");
-	      	menulists[1].classList.remove("active");
-	      	menulists[2].classList.remove("active");
-	      	menulists[3].classList.remove("active");
-	      	this.classList.add("active");
+	      	return;
 	      } 
 	      else {
 	      	menulists[0].classList.remove("home");
-	      	menulists[0].classList.remove("active");
+	      	menulists[0].classList.remove("active","on");
 	      	menulists[1].classList.remove("active");
 	      	menulists[2].classList.remove("active");
 	      	menulists[3].classList.remove("active");
         	this.classList.add("active");
+        	/*menumlists[dataPnum].classList.add("on");*/
 	      }
       });
     });

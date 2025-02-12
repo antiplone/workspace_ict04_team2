@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<link rel="stylesheet" href="${path}/resources/css/common/header.css">
+<link rel="stylesheet" href="resources/css/common/header.css">
+<script src="${path}/resources/js/common/main.js" defer></script>
 <script src="${path}/resources/js/common/request.js" defer></script>
 <script type="text/javascript">
 
@@ -15,7 +16,6 @@
 		// sendRequest(callback, url, method, params) {}
 		sendRequest(loadNews_callback, url, "post", "");
 	}
-	
 	
 	// 콜백함수 - 결과처리
 	function loadNews_callback() {
@@ -41,16 +41,16 @@
 	<!-- header 시작 -->
 	<header>
 		<ul class="navbar_title">
-			<li class="icon">
+			<li class="icon main_icon">
 				<!-- 				<img src="../../../resources/images/paper_airplane.png" /> -->
-				<img src="/WEB-INF/resources/images/paper_airplane.svg" />
+				<img src="${path}/resources/images/paper_airplane.svg" />
 			</li>
 			<li>여기닷!!</li>
 		</ul>
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="home"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
+				<li class="active"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
 				<li><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
 				<li><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
 				<li><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>

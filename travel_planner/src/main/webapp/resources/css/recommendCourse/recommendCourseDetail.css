@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 상위 중앙 1 시작 */
+.re_detail-container {
+	border-radius: 10px;
+	border: 1px;
+	margin: 50px;
+}
+
+h1, h3, .rc-detail-tag {
+	display: flex;
+	justify-content: space-around;
+	margin: 28px;
+}
+
+h3 {
+	color: #FF865B;;
+}
+
+hr {
+	width: 100%;
+}
+
+.rc-detail-tag {
+	color: #676767;
+}
+/* 상위 중앙 1 끝 */
+
+/* 상위 중앙 2 시작 */
+.rc_detail-center {
+	display: flex;
+	justify-content: space-evenly;
+	
+}
+
+.course-detail-map {
+	border-radius: 20px;	
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+/* 상위 중앙 2 끝 */
+
+.rc-detail-course-list {
+	background-color: #F1F1F1;
+	width: 100%;
+	height: 800px;
+	position: relative;
+	top: 60px;
+}
