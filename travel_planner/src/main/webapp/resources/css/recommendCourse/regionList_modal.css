@@ -4,6 +4,11 @@
 	display: flex;
 }
 
+.content_box {
+	z-index: 1; /* Sit on top */
+}
+
+
 /* 지역 이미지 - 모달 버튼 시작 */
 .modal-popup-button {
 	display: flex;
@@ -96,6 +101,7 @@
     color: black;
     cursor: pointer;
     transition: box-shadow 0.2s;
+    z-index: 1;
 }
 
 /* 모달창 닫기 버튼 시작 */
@@ -117,6 +123,7 @@
 }
 /* 모달창 닫기 버튼 끝 */
 
+/* 지역 대표 설명 시작 */
 .content_box {
 	display:flex;
 	justify-content: space-evenly;
@@ -139,15 +146,26 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	postion: relative;
 }
 
-h4 {
-	color: #797979;
+h2 {
+	position: relative;
+    top: 20px;
+}
+
+h3 {
+	color: #D9D9D9;
+	position: relative;
+	top: 0px;
 }
 
 p {
 	width: 320px;
 	height: 200px;
+    position: relative;
+    top: 55px;
+    font-size: 15px;
 }
 
 .area-detail-image {
@@ -163,5 +181,9 @@ p {
 	background-color: black;
 	color: white;
 	border-radius: 5px;
+	position: relative;
+    left: -20px;
+	
 }
 
+/* 지역 대표 설명 끝 */
