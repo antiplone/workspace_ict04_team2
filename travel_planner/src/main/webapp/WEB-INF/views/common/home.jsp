@@ -85,6 +85,16 @@
 	console.log(counter)
 	  // 마지막에는 오른쪽 클릭버튼 안나오게 하기
 	}
+	
+	$(function() {
+		$("#mainClick").click(function() {
+			window.location = "${path}/home.do";
+		});
+	});
+	
+	function si_select(){
+		 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
+	}
 
 </script>
 </html>

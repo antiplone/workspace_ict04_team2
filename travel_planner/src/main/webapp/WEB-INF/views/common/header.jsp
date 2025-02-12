@@ -65,7 +65,7 @@
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="home pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
+				<li class="active pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>
