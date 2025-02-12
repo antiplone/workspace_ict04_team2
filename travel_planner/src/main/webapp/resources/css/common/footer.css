@@ -2,10 +2,12 @@
 
 footer {
 	width: 100%;
-	height: 15%;
+	height: 160px;
 	font-size: 12px;
-    text-align: center;
 /* 	font-family: 'Pretendard regular', '맑은 고딕'; */
+}
+.footer {
+	margin: 30px 0;
 }
 /* 사업자 정보 화살표 */
 #entre {
@@ -14,24 +16,25 @@ footer {
 }
 
 #footer {				/* footer 위치 맞추기 */
-    width: 960px;
-    display: inline-block;
-    margin: 30px 0;
-    text-align: center;
+    min-width: 960px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-content: center;
 }
 
 .footer_toggle {
 	cursor: pointer;
+	display: inline-block;
 }
 .footer_toggle label { cursor: pointer; }
 .footer_toggle, .footer_discription, .footer_toggle i { color: #555; }
 
-.footer_discription { padding: 15px 0; }
+.footer_discription { padding: 15px 0; font-size: 13px; }
 .footer_discription .br { margin: 5px 0; }
 .footer_discription span { font-size: 10px; }
 
 /* 버튼 한 줄로 만들기 */
-.footer_btn { display: flex; justify-content: center;}
+.footer_btn { display: flex; font-size: 14px; }
 .vertical_bar_b::before {
 	content: '|';
 	padding: 0 8px;
@@ -45,13 +48,15 @@ footer {
 .footer_detail {
 	display: none;
 	color: #666;
+	font-size: 12px;
+    margin-top: 10px;
 }
 .footer_detail.active {
 	display: block;
-	margin: 20px 0 0 3px;
+	margin-top: 20px;
 }
 
 /* footer 전체 높이 조정 */
-footer.hei { height: 23%; }
+footer.hei { height: 240px; }
 
 /* 화살표 방향 바꾸기 */

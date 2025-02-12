@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.travel_planner.dao.MemberDAOImpl;
+import com.spring.travel_planner.dao.ReviewDAO;
 import com.spring.travel_planner.service.ReviewService;
 
 /**
@@ -30,13 +31,15 @@ public class MainController {
 	
 	@Autowired
 	private MemberDAOImpl mem;
-	
-	@Autowired
+
+  @Autowired
 	private ReviewService rev_service;
 
 	@RequestMapping("/home.do")
-	private String main(){
-		return "common/home";
+
+	private String main() {
+		logger.info("<<< url => home.do >>>");
+    return "common/home";
 	}
 	
 	@RequestMapping("/main.do")
@@ -44,19 +47,13 @@ public class MainController {
 			throws ServletException, IOException{
 		logger.info("<<< url => main.do >>>");
 		rev_service.mainReviewList(req, res, model);
-//		homeService.MemberListAction(req, res, model);
 		return "common/main3";
+
 	}
-	
-//	@RequestMapping("/recommend_list.do")
-//	private String recommend_list(HttpServletRequest req, HttpServletResponse res, Model model)
-//			throws ServletException, IOException {
-//		logger.info("<<< url => recommend_list.do >>>");
-//		return "common/home";
-//	}
 
 	@RequestMapping("/login.do")
 	private String login() {
+		logger.info("<<< url => login.do >>>");
 		return "member/login";
 	}
 

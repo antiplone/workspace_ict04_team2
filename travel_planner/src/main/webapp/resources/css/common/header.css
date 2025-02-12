@@ -57,6 +57,7 @@ header {
 /* 	background-color: rgb(215, 227, 252); */
 	background-color: rgb(255, 255, 255);
 }
+.pointerBtn { cursor: pointer; }
 
 .navbar {
 	display: flex; /* 한줄(수평) 배치 */
@@ -73,6 +74,9 @@ header {
 
 .navbar_title {
 	width: 15%;
+}
+.navbar_title ul {
+	display: flex;
 }
 
 .navbar_icons {

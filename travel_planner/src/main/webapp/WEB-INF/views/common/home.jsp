@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/setting.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="setting.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,7 @@
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>여기닷</title>
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />

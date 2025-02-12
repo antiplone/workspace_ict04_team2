@@ -39,26 +39,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	    
 	    
 	// 추천 여행지
-	   	function recomment_tour_list(){  
-	   		// alert("recomment_tour_list()");
-	   		$.ajax({
-	   			url:'${path}/recomment_tour_list.do', // 컨트롤러로 이동(9)
-	   			type: 'POST',
-	   			data : 'board_num=${dto.b_num}',
-	   			success : function(result){ // 콜백함수(13) => result는 comment_list
-	   				
-					$('#recomment_tour_list').html(result);
-	   			},
-	   			error:function(j,t, errorThrown){
-	   				alert(errorThrown);
-	   			},
-	   		});
-	   	}
-	   	
-	/*
-	 * footer (완)
-	 */
-	 
+   	function recomment_tour_list(){  
+   		// alert("recomment_tour_list()");
+   		$.ajax({
+   			url:'${path}/recomment_tour_list.do', // 컨트롤러로 이동(9)
+   			type: 'POST',
+   			data : 'board_num=${dto.b_num}',
+   			success : function(result){ // 콜백함수(13) => result는 comment_list
+   				
+				$('#recomment_tour_list').html(result);
+   			},
+   			error:function(j,t, errorThrown){
+   				alert(errorThrown);
+   			},
+   		});
+   	}
+   	
 	/* footer */
 	const footerBtn = document.querySelector(".footer_toggle");	// 클릭할 버튼
 	const detail = document.querySelector(".footer_detail");    // toggle할 내용
@@ -70,5 +66,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		footers.classList.toggle("hei");
 		arrow.classList.toggle("arrow-up");
 	});
-		   	
 })
