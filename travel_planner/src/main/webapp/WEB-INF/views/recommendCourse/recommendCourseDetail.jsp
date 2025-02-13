@@ -19,8 +19,14 @@
 <!-- js -->
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3c94b2e227b31c5df6f772c0398939d8"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은키"></script>
 <script>
+# Python이 설치된 컴퓨터에서는 해당 폴더로 이동 후
+	$ cd /path/to/your/folder/
+	
+	# 다음과 같이 테스트용 웹 서버를 실행할 수 있습니다.
+	$ python -m SimpleHTTPServer 8080
+
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
 		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
@@ -28,6 +34,7 @@
 	};
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
 </script>
 
 </head>
@@ -57,8 +64,8 @@ var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 				
 				<!-- 상위 중앙 2 시작 - 카카오 지도 API 시작 -->
 				<div class="rc_detail-center">
-					<!-- <div id="map" style="width:500px;height:400px;"></div> -->
-						<img src="${path}/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png" class="course-detail-map" alt="제주 여행코스 지도">
+					<div id="map" style="width:500px;height:400px;"></div>
+						<%-- <img src="${path}/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png" class="course-detail-map" alt="제주 여행코스 지도"> --%>
 				</div>	
 				<!-- 상위 중앙 2 끝 - 카카오 지도 API 끝-->
 				
@@ -79,6 +86,8 @@ var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 				</div>
 				
 				<!-- 추천 코스 목록 끝 -->
+				
+				
 		</div>
 	</div>
 </body>

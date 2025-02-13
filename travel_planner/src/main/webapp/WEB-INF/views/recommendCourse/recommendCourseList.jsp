@@ -35,9 +35,6 @@ function recommendcourse_detail() {
 <body>
 
 	<div class="wrap">
-		<!-- header 시작 -->
-		<%@ include file="/WEB-INF/views/common/header.jsp"%>
-		<!-- header 끝 -->
 		
 		<!-- 컨텐츠 시작 -->
 		<div id="container">
@@ -126,18 +123,20 @@ function recommendcourse_detail() {
 						<div class="contents-right">
 							<div class="recommend-course-list-right" onclick="recommendcourse_detail()">
 								<div class="rc_wrap">
-									<div class="image-box">
-										<img src="${path}/resources/images/recommendCourse/course/Jeju_course_2-1.jpg" class="rc_image" alt="추천코스_제주" width="400px" height="250px">
-									</div>		
-									<div class="rc_contnents">
-										<div id="rc_title">
-											<a>제주의 특별한 카페에서의 여유</a>
-										</div>
-										<div id="rc_day">
-											당일여행
-										</div>
-										<div id="rc_tag">
-											#1박2일 #당일코스 #추천코스 #맛집코스 <br> 
+									<div class="modal-popup-button">
+										<button type="button" class="modal_btn">
+											<img src="${path}/resources/images/recommendCourse/course/Jeju_course_2-1.jpg" class="rc_image" alt="추천코스_제주" width="400px" height="250px">
+										</button>
+										<div class="rc_contnents">
+											<div id="rc_title">
+												<a>제주의 특별한 카페에서의 여유</a>
+											</div>
+											<div id="rc_day">
+												당일여행
+											</div>
+											<div id="rc_tag">
+												#1박2일 #당일코스 #추천코스 #맛집코스 <br> 
+											</div>
 										</div>
 									</div>
 								</div>

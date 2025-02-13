@@ -43,7 +43,7 @@
 					</div>	
 				</div>
 				<div class="area-detail-image-box">
-					<img src="${path}/resources/images/recommendCourse/area/Jeju.jpg" class="area-detail-image" alt="제주">
+					<img src="${path}/resources/images/recommendCourse/area/JEJU.jpg" class="area-detail-image" alt="제주">
 				</div>
 			</div>
 		</div>

@@ -29,9 +29,6 @@
 </head>
 <body>
 	<div class="wrap">
-		<!-- header 시작 -->
-		<%@ include file="/WEB-INF/views/common/header.jsp"%>
-		<!-- header 끝 -->
 		
 		<!-- 컨텐츠 시작 -->
 		<div id="container">
@@ -61,25 +58,25 @@
 									<tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Jeju.jpg" class="area_img" alt="제주" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/JEJU.jpg" class="area_img" alt="제주" onclick="showJeju()">
 											</a>
 										</th>
 										
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Busan.jpg" class="area_img" alt="부산" onclick="showBusan()">
+												<img src="${path}/resources/images/recommendCourse/area/BUSAN.jpg" class="area_img" alt="부산" onclick="showBusan()">
 											</a>
 										</th>
 										
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Seoul.jpg" class="area_img" alt="서울" onclick="showSeoul()">
+												<img src="${path}/resources/images/recommendCourse/area/SEOUL.jpg" class="area_img" alt="서울" onclick="showSeoul()">
 											</a>
 										</th>
 										
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Gyeongju.jpg" class="area_img" alt="경주" onclick="showGyeongju()">
+												<img src="${path}/resources/images/recommendCourse/area/GYEONGJU.jpg" class="area_img" alt="경주" onclick="showGyeongju()">
 											</a>
 										</th>
 										
@@ -102,22 +99,22 @@
 									<tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Gangneung.jpg" class="area_img" alt="강릉" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/GANGNEUNG.jpg" class="area_img" alt="강릉" onclick="showJeju()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Yeosu.jpg" class="area_img" alt="여수" onclick="showBusan()">
+												<img src="${path}/resources/images/recommendCourse/area/YEOSU.jpg" class="area_img" alt="여수" onclick="showBusan()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Geojetongyeong.jpg" class="area_img" alt="거제통영" onclick="showSeoul()">
+												<img src="${path}/resources/images/recommendCourse/area/GEOJETONGYEONG.jpg" class="area_img" alt="거제통영" onclick="showSeoul()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Namwon.jpg" class="area_img" alt="남원" onclick="showGyeongju()">
+												<img src="${path}/resources/images/recommendCourse/area/NAMWON.jpg" class="area_img" alt="남원" onclick="showGyeongju()">
 											</a>
 										</th>
 									 </tr>
@@ -139,22 +136,22 @@
 									<tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Jeonju.jpg" class="area_img" alt="전주" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/JEONJU.jpg" class="area_img" alt="전주" onclick="showJeju()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Pohang.jpg" class="area_img" alt="포항" onclick="showBusan()">
+												<img src="${path}/resources/images/recommendCourse/area/POHANG.jpg" class="area_img" alt="포항" onclick="showBusan()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Daejeon.jpg" class="area_img" alt="대전" onclick="showSeoul()">
+												<img src="${path}/resources/images/recommendCourse/area/DAEJEON.jpg" class="area_img" alt="대전" onclick="showSeoul()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Incheon.jpg" class="area_img" alt="인천" onclick="showGyeongju()">
+												<img src="${path}/resources/images/recommendCourse/area/INCHEON.jpg" class="area_img" alt="인천" onclick="showGyeongju()">
 											</a>
 										</th>
 									 </tr>
@@ -176,22 +173,22 @@
 									<tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" class="area_img" alt="춘천" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/CHUNCHEON.jpg" class="area_img" alt="춘천" onclick="showJeju()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Gunsan.jpg" class="area_img" alt="군산" onclick="showBusan()">
+												<img src="${path}/resources/images/recommendCourse/area/GUNSAN.jpg" class="area_img" alt="군산" onclick="showBusan()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Mokpo.jpg" class="area_img" alt="목포" onclick="showSeoul()">
+												<img src="${path}/resources/images/recommendCourse/area/MOKPO.jpg" class="area_img" alt="목포" onclick="showSeoul()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Andong.jpg" class="area_img" alt="안동" onclick="showGyeongju()">
+												<img src="${path}/resources/images/recommendCourse/area/ANDONG.jpg" class="area_img" alt="안동" onclick="showGyeongju()">
 											</a>
 										</th>
 									 </tr>
@@ -213,22 +210,22 @@
 									 <tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Ulleung.jpg" class="area_img" alt="울릉도" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/ULLEUNG.jpg" class="area_img" alt="울릉도" onclick="showJeju()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Gapyeong.jpg" class="area_img" alt="가평" onclick="showBusan()">
+												<img src="${path}/resources/images/recommendCourse/area/GAPYEONG.jpg" class="area_img" alt="가평" onclick="showBusan()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Jecheon.jpg" class="area_img" alt="제천" onclick="showSeoul()">
+												<img src="${path}/resources/images/recommendCourse/area/JECHEON.jpg" class="area_img" alt="제천" onclick="showSeoul()">
 											</a>
 										</th>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Suwon.jpg" class="area_img" alt="수원" onclick="showGyeongju()">
+												<img src="${path}/resources/images/recommendCourse/area/SUWON.jpg" class="area_img" alt="수원" onclick="showGyeongju()">
 											</a>
 										</th>
 									 </tr>										
@@ -250,7 +247,7 @@
 									 <tr>
 										<th>
 											<a href="${path}/regionDetail.rc">
-												<img src="${path}/resources/images/recommendCourse/area/Yeongwol.jpg" class="area_img" alt="영월" onclick="showJeju()">
+												<img src="${path}/resources/images/recommendCourse/area/YEONGWOL.jpg" class="area_img" alt="영월" onclick="showJeju()">
 											</a>
 										</th>
 									 </tr>	
@@ -273,9 +270,6 @@
 
 		<!-- 컨텐츠 끝 -->
 		
-		<!-- footer 시작 -->
-		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
-		<!-- footer 끝 -->
 	</div>
 </body>
 </html>

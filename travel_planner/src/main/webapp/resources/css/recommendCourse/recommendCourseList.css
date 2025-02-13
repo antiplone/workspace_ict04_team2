@@ -56,7 +56,7 @@
 /* 1행 추천코스 끝 */
 
 /* 추천코스 버튼 스타일링 시작 */
-.image-box {
+.image-box .modal-popup-button {
 	width: 650px;
 	height: 300px;
 	overflow: hidden;

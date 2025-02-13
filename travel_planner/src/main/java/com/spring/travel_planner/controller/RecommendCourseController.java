@@ -33,14 +33,14 @@ public class RecommendCourseController {
 	}
 	
 	// 지역 목록_모달
-	@RequestMapping("/regionList_modal.rc")
-	public String regionList_modal(HttpServletRequest request, HttpServletResponse response, Model model)
+	@RequestMapping("/regionList_modal_default.rc")
+	public String regionList_modal_default(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => regionList_modal >>>");
 		
 		service.productListAction(request, response, model);
 		
-		return "recommendCourse/regionList_modal";
+		return "recommendCourse/regionList_modal_default";
 	}
 	
 	// 지역 목록_foreach
