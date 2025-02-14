@@ -87,7 +87,7 @@
 				
 					<tr>
 						<td>
-							<a href="${path}/location_datailAction.lc" >
+							<a href="${path}/location_detailAction.lc" >
 							<img src="resources/local_images/북촌한옥마을.png" id="list_images">
 							</a> <br>
 						</td>

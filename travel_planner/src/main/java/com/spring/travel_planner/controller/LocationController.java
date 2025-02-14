@@ -28,15 +28,17 @@ public class LocationController {
 			throws ServletException, IOException {
 		logger.info("<<< url => location_main.lc >>>");
 		
+		service.guListAction_test(request, response, model);
+		
 		return "location/location_main";
 	}
 	
-	@RequestMapping("/location_datailAction.lc")
+	@RequestMapping("/location_detailAction.lc")
 	public String location_datailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_datailAction.lc >>>");
 		
-		return "location/location_datailAction";
+		return "location/location_detailAction";
 	}
 	
 	@RequestMapping("/location_mainSelect.lc")
@@ -45,6 +47,7 @@ public class LocationController {
 		logger.info("<<< url => location_mainSelect.lc >>>");
 		
 		/* service.guListAction(request, response, model); */
+		
 		
 		return "location/location_mainSelect";
 	}

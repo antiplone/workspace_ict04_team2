@@ -42,7 +42,7 @@ span {
     }
     
     #place {
-    	margin: 50px
+    	margin: 50px;
     }
     
     .place_detail_1 table {
@@ -68,6 +68,41 @@ span {
     	font-size: 14px;
     }
     
+    /* 상세내용 '더보기' 버튼 클릭 시 전체 내용 보여짐 */
+    .container {
+    	display: -webkit-box;
+	    -webkit-line-clamp: 4;	/* 블록 컨테이너의 콘텐츠를 지정한 줄 수만큼으로 제한 */
+	    -webkit-box-orient: vertical; 
+	    overflow: hidden;
+    }
+    
+    .container_more-btn {
+    	appearance: none;
+	    border: 1px solid black;
+	    padding: 0.5em;
+	    border-radius: 0.25em;
+	    cursor: pointer;
+	    margin: 1rem;
+    }
+    
+    .container_more-btn::before {
+	  content: '더보기';
+	}
+	
+	.container_more-btn:checked::before {
+	  content: '닫기';
+	}
+	
+	.container:has(+ .container_more-btn:checked) {
+	  -webkit-line-clamp:unset
+	}
+	
+	/* 더보기 버튼 클릭 시 색상 변경 */
+	.container_more-btn:hover {
+		background-color: #343a40; /* 호버 색 */
+        color: white; /* 글자 색 */
+	}
+    
 </style>
 <title>여기닷 - 여행지</title>
 <script type="text/javascript">
@@ -77,22 +112,10 @@ $(document).ready(function($) {
     $(".place_move").click(function(event){
         console.log(".place_move");         
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);	/* top으로 이동 0.5초 */
     });
 
 });
-
-var container = document.getElementById("container")
-var btn = document.getElementById("btn")
-var full = container.textContent
-var less = full.substring(0,50) + "..."
-
-container.textContent = less
-    
-btn.addEventListener('click',function(){
-    container.textContent = full
-    btn.classList.add('hidden')
-})
 
 </script>
 </head>
@@ -144,12 +167,13 @@ btn.addEventListener('click',function(){
 						</tr>
 						<tr>
 							<td>
-							<p id="container">
+							<p class="container">
 							북촌은 경복궁과 창덕궁, 종묘 사이에 위치한 곳으로 전통한옥이 밀집되어 있는 서울의 대표적인 전통 주거지역이다.
 							그리고 많은 사적들과 문화재, 민속자료가 있어 도심 속의 거리 박물관이라 불리어지는 곳이기도 하다.
 							청계천과 종로의 윗동네라는 뜻에서 ‘북촌(North Village)’이라고 이름으로 불리었으며, 가회동과 송현동, 안국동, 그리고 삼청동이 있다.
 							사간동과 계동, 소격동 그리고 재동에는 역사의 흔적이 동네이름으로 남아 수백 년을 지켜온 곳이기도 하다.
 							<br><br>
+							
 							북촌은 조선시대에 조성된 양반층 주거지로서 1920년대까지 그다지 큰 변화가 없었는데,
 							1930년대에 서울의 행정구역이 확장되고, 도시구조도 근대적으로 변형되면서 변화가 일어났다.
 							주택경영회사들이 북촌의 대형 필지와 임야를 매입하여, 그 자리에 중소 규모의 한옥들을 집단적으로 건설하였는데,
@@ -170,7 +194,9 @@ btn.addEventListener('click',function(){
 							- 관광버스 불법주차 금지<br>
 							- 무단 침입, 무단 촬영, 무단 투기, 노상방뇨, 소음 금지<br>
 							- 마을 방문시간 준수<br>
+							<br>
 							</p>
+							<input type="checkbox" class="container_more-btn">
 							</td>
 						</tr>
 					</table>

@@ -49,9 +49,8 @@
  
 </script>
 
-
-
 <title>여기닷 - 여행지</title>
+
  <style>
  	
  	/* '구' 선택하는 checkbox 디자인 설정 */
@@ -131,7 +130,7 @@
 						<input type="checkbox" name="gu_select" id="check_6"  value="마포구"><label for="check_6">마포구</label>
 						<input type="checkbox" name="gu_select" id="check_7"  value="서대문구"><label for="check_7">서대문구</label>
 						<input type="checkbox" name="gu_select" id="check_8"  value="서초구"><label for="check_8">서초구</label>
-						<input type="checkbox" name="gu_select" id="check_8"  value="성동구"><label for="check_9">성동구</label>
+						<input type="checkbox" name="gu_select" id="check_9"  value="성동구"><label for="check_9">성동구</label>
 					</div>
 				</td>
 				

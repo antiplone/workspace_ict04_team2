@@ -20,4 +20,9 @@ public interface LocationService {
 	  IOException;
 	 */
 	
+	// 지역 - '구'선택시 리스트들 조회 테스트 메서드
+	public void guListAction_test(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException;
+	
+	
 }

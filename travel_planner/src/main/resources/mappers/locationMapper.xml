@@ -6,12 +6,36 @@
 	  
 <mapper namespace="com.spring.travel_planner.dao.LocationDAO">  <!-- namespace="패키지명.인터페이스" -->
 
+<!-- 지역 - '구'선택시 리스트들 조회 테스트!!! -->
+<select id="testLocationList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
+	<![CDATA[ 	
+	SELECT *
+	  FROM
+		  (SELECT A.*,
+			      rownum AS rn
+		     FROM
+				 (SELECT * FROM travel_test_tourInfo_tbl 
+				  ORDER BY ti_num DESC) A
+		   )
+	WHERE rn >= #{start}
+	  AND rn <= #{end}
+   ]]>
+</select>
+
+<!-- 여행지 목록 갯수 구하기 -->
+<select id="locationCnt" resultType="int">
+	SELECT COUNT(*) AS cnt
+	  FROM travel_test_tourInfo_tbl
+</select>
+
+
+
 <!-- '구' 목록 조회 ('전국' 제외 시 선택 시) -->
-<select id="locationList" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">
+<!-- <select id="locationList" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">
 	SELECT tc_area
 	  FROM travel_tourcity_tbl
 	 WHERE tc_si_num=#{tc_area}
-</select>
+</select> -->
 
 <!-- 선택한 지역 목록 조회 -->
 <!-- <select id="selectlocationList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
