@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.spring.travel_planner.dao.HomeDAOImpl;
 import com.spring.travel_planner.dao.ReviewDAO;
-import com.spring.travel_planner.dto.RecommendCourseDTO2;
 import com.spring.travel_planner.dto.ReviewDTO;
 import com.spring.travel_planner.page.Paging;
 import com.spring.travel_planner.dao.ReviewDAO;
@@ -25,34 +23,12 @@ public class ReviewService {
 	
 	@Autowired
 	private ReviewDAO dao;
-	
-	@Autowired
-	private HomeDAOImpl Hdao;
 
 	// 조회순으로 리뷰게시글 4개만
 	public void mainReviewList(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException {
 		System.out.println("리뷰Service - reviewList");
-		// 상단 로딩 목록
-		int start1 = 1;
-		int end1 = 8;
-		
-		Map<String, Object> mapUpper = new HashMap<String, Object>();
-		
-		mapUpper.put("start1",start1);
-		mapUpper.put("end1",end1);
-		
-		List<RecommendCourseDTO2> list1 = Hdao.recommendList(mapUpper);
-		/* System.out.println("list1 => " + list1); */
-		
-		System.out.println("BoardCommentDTO list1 => " + list1);
-		
-		// 6단계. jsp로 처리결과 전달
-		model.addAttribute("list1", list1);
-		
-		/* System.out.println("list1" + list1); */
-
-		
+	
 		// 하단 로딩 목록
 		int start = 1;
 		int end = 4;
