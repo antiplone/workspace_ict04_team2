@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/setting.jsp" %>
+<%@ include file="/WEB-INF/views/common/setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +33,10 @@
 /*    function si_select(){
 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
  }  */
- function si_select(){
+/*  function si_select(){
 	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
  }
- 
+  */
  
  
  </script>
@@ -52,7 +52,7 @@
 				<table style="margin-left: auto; margin-right: auto;">
 				<tr>
 					<td>
-					<a href="location_main.lc">
+					<a onclick="load('${path}/location_main.lc')">
 					<img src="resources/local_images/select_all.png" class="location_si"><br></a>
 						<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 						전국

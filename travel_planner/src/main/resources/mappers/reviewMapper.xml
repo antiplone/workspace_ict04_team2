@@ -5,7 +5,6 @@
 
 <mapper namespace="com.spring.travel_planner.dao.ReviewDAO">
 
-
 <!-- main - 조회순으로 리뷰게시글 4개만 -->
 <select id="mainReviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
 	<![CDATA[
@@ -34,8 +33,7 @@
                   ORDER BY r_num DESC) A
 	        )
 	 	 WHERE <![CDATA[ rn >= #{start}
-	 	   AND rn <= #{end}
-	]]>
+
 </select>
 
 <!-- 후기 총 건수 -->

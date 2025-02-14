@@ -19,30 +19,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	/*navbar menu active button*/
 	menulists.forEach((menulist, index) => {
 		menulist.addEventListener("click",function(){
-	      if (this.classList.contains("active")) {
-	      } 
-	      else {
-        	this.classList.add("active");
-	      }
+	    if (this.classList.contains("active")) {
+	    	for(var i = 0; i < menulists.length; i++ ){
+          		menulists[i].classList.remove("active");
+    		}
+	    } 
+    	this.classList.add("active");
       });
     });
-	    
-	    
-	// 추천 여행지
-	   	function recomment_tour_list(){  
-	   		// alert("recomment_tour_list()");
-	   		$.ajax({
-	   			url:'${path}/recomment_tour_list.do', // 컨트롤러로 이동(9)
-	   			type: 'POST',
-	   			data : 'board_num=${dto.b_num}',
-	   			success : function(result){ // 콜백함수(13) => result는 comment_list
-	   				
-					$('#recomment_tour_list').html(result);
-	   			},
-	   			error:function(j,t, errorThrown){
-	   				alert(errorThrown);
-	   			},
-	   		});
-	   	}
-	   	
 })

@@ -17,23 +17,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	
 	
 	/*navbar menu active button*/
+	
+	
 	menulists.forEach((menulist, index) => {
 		menulist.addEventListener("click",function(){
+		/*let dataPnum = this.getAttribute('data-Pnum');*/
 	      if (this.classList.contains("active")) {
-	      	menulists[0].classList.remove("home");
-	      	menulists[0].classList.remove("active");
-	      	menulists[1].classList.remove("active");
-	      	menulists[2].classList.remove("active");
-	      	menulists[3].classList.remove("active");
-	      	this.classList.add("active");
+	      	return;
 	      } 
 	      else {
 	      	menulists[0].classList.remove("home");
-	      	menulists[0].classList.remove("active");
+	      	menulists[0].classList.remove("active","on");
 	      	menulists[1].classList.remove("active");
 	      	menulists[2].classList.remove("active");
 	      	menulists[3].classList.remove("active");
         	this.classList.add("active");
+        	/*menumlists[dataPnum].classList.add("on");*/
 	      }
       });
     });
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	/* footer */
 	const footerBtn = document.querySelector(".footer_toggle");	// 클릭할 버튼
 	const detail = document.querySelector(".footer_detail");    // toggle할 내용
-	const footers = document.querySelector("footer");		    // footer 높이
+	const footers = document.querySelector("#footer");		    // footer 높이
 	const arrow = document.querySelector("#entre");				// 화살표 아이콘
 	
 	footerBtn.addEventListener("click", () => {
