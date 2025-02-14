@@ -67,4 +67,14 @@ public class MainController {
 		return "common/main";
 	}
 	
+	@RequestMapping("/board_list.do") 
+	public String login_action2(HttpServletRequest req) {
+		logger.info(req.getParameter("DboardDAOImp - boardList"));
+		
+//		mem.test(); /* DB 연결이 안되는지 테스트 */
+		mem.login_action(req);
+		return "common/home";
+	}
+	
+	
 }
