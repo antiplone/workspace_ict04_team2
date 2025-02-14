@@ -38,4 +38,23 @@
 	]]>
 </select>
 
+<!-- 후기 총 건수 -->
+<select id="reviewCnt" resultType="int">
+	SELECT COUNT(*) FROM travle_review_tbl
+</select>
+
+<!-- 후기 상세페이지 -->
+<select id="reviewDetail" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
+	SELECT *
+	  FROM travle_review_tbl
+	 WHERE r_num = #{r_num}
+</select>
+
+<!-- 후기 조회수 -->
+<select id="reviewViews" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	UPDATE travle_review_tbl
+	   SET r_readCnt = r_readCnt +1
+	 WHERE r_num = #{r_num}
+</select>
+
 </mapper>

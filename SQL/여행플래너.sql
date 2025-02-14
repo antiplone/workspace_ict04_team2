@@ -19,8 +19,8 @@ CREATE TABLE travle_review_tbl(
 AlTER TABLE travle_review_tbl
   ADD r_show VARCHAR2(1) default 'Y';
 
--- 조회
-SELECT * FROM travle_review_tbl;
+-- 후기 개수
+SELECT COUNT(*) FROM travle_review_tbl;
 
 -- 후기 목록 조회
 SELECT *
@@ -33,7 +33,18 @@ SELECT *
                   ORDER BY r_num DESC) A
         )
  WHERE rn BETWEEN 1 AND 10;
+ 
+-- 후기 상세페이지
+SELECT *
+  FROM travle_review_tbl
+ WHERE r_num = 9;
 
+
+-- 후기 조회수
+UPDATE travle_review_tbl
+   SET r_readCnt = r_readCnt +1
+ WHERE r_num = 9;
+COMMIT;
 
 -- 후기 등록
 INSERT INTO travle_review_tbl(r_num, r_title, r_content, r_img, r_readCnt, r_regDate, m_name)
