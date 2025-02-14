@@ -31,14 +31,16 @@ public class LocationServiceImpl implements LocationService {
 	  System.out.println("LocationServiceImpl - guListAction()");
 	  
 	  // 화면에서 입력받은 '시' 가져오기 int tc_area =
-	  int tc_area = Integer.parseInt(request.getParameter("location_si"));
-	  System.out.println("service si_select : 1=> " + tc_area);
+	  String tc_area = request.getParameter("location_si");
+	  System.out.println("service si_select : => " + tc_area);
 	  
-	  // 해당 '시'에 맞는 '구' 가져오기 - dao 정보 조회 List<LocationDTO> list =
-	  List<LocationDTO> list = dao.locationList(tc_area);
-	  
-	  // '구' 정보 jsp에 전달 
-	  model.addAttribute("list", list); 
+		/*
+		 * // 해당 '시'에 맞는 '구' 가져오기 - dao 정보 조회 List<LocationDTO> list = List<LocationDTO>
+		 * list = dao.locationList(tc_area); System.out.println("service list => " +
+		 * list);
+		 * 
+		 * // '구' 정보 jsp에 전달 model.addAttribute("list", list);
+		 */
 	  }
 	  
 	  

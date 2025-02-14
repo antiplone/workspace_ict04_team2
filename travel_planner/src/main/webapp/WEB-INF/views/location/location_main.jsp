@@ -29,14 +29,14 @@
        });
  }); */
 
-
-/*    function si_select(){
-	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
- }  */
- function si_select(){
-	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
- }
  
+/* '시' 선택 시 service로 값 전달 + '구'선택 팝업창 */
+    function si_select(){
+	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
+ } 
+ 
+ 
+
  /* '전국' 클릭 시 메인페이지 새로고침 */
 /*  function si_selectAll() {
 	 location.href="${path}/location_mainSelect.lc";
@@ -49,33 +49,48 @@
 <body>
 		
 		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
-		<div class="main_select" style='background-color: #cad2c5'>
+		<div class="main_select" style='background-color: #e1ecf7'>
 			<form name="locationMain" action="#" method="post">
 				<table style="margin-left: auto; margin-right: auto;">
 					<div class="container">
-					<tr>
-						<td> <!-- '전국' 클릭 시에는 메인 페이지 새로고침 -->
-						<a herf="${path}/location_mainList.lc">
-						<input type="image" src="resources/local_images/select_all.png" class="location_si"></a></a><br>
-							전국
-						</td>
-						<td>
-							<img src="resources/local_images/select_seoul.png" class="location_si" onclick="si_select()"><br>
-							서울
-						</td>
-						<td>
-							<img src="resources/local_images/select_daegu.png" class="location_si" onclick="si_select()"><br>
-							대구
-						</td>
-						<td>
-							<img src="resources/local_images/select_daejeon.png" class="location_si" onclick="si_select()"><br>
-							대전
-						</td>
-						<td>
-							<img src="resources/local_images/select_incheon.png" class="location_si" onclick="si_select()"><br>
-							인천
-						</td>
-					</tr>
+						<tr>
+							<td>	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
+								<a href="${path}/location_main.lc">
+								<img src="resources/local_images/select_all.png" name="si_choice" id="location_all" class="location_si"></a><br>
+								전국
+							</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_seoul" value="1" onclick="si_select()">
+								<label for="location_seoul">
+									<img src="resources/local_images/select_seoul.png" class="location_si">
+								</label><br>
+								서울
+							</td>
+							<td>
+								<input type="radio" name="si_choice" id="location_daegu" value="2" onclick="si_select()">
+								<label for="location_daegu">
+									<img src="resources/local_images/select_incheon.png" class="location_si">
+								</label><br>
+								대구
+							</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_daejeon" value="3" onclick="si_select()">
+								<label for="location_daejeon" id="choice_daejeon">
+									<img src="resources/local_images/select_daejeon.png" class="location_si">
+								</label><br>
+								대전
+							</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_incheon" value="4" onclick="si_select()">
+								<label for="location_incheon">
+									<img src="resources/local_images/select_daegu.png" class="location_si">
+								</label><br>
+								인천
+							</td>
+						</tr>
 					</div>
 				</table>
 			</form>
@@ -140,11 +155,85 @@
 							</td>
 						</tr>
 					</div>
-					</tbody>
 				</table>
 			</form>
 		</div>
 		
+		<!-- 제일 최근것 -->
+<%-- 		
+
+ 						<tr>
+							<td>	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
+								<a href="${path}/location_main.lc">
+								<img src="resources/local_images/select_all.png" name="si_choice" id="location_all" class="location_si"></a><br>
+								전국
+							</td>
+							
+							<td align="center">
+						<input type="radio" name="si_choice" id="location_seoul" value="1" onclick="si_select()"><br>
+						<img src="resources/local_images/select_seoul.png" width="70px">
+						<td><label for="location_seoul">서울</label>
+					</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_seoul" value="1" onclick="si_select()"><br>
+								<label for="location_seoul">
+									<!-- <img src="resources/local_images/select_seoul.png" class="location_si"> -->
+								</label><br>
+								서울
+							</td>
+							<td>
+								<input type="radio" name="si_choice" id="location_daegu" value="2" onclick="si_select()"><br>
+								<label for="location_daegu">
+									<img src="resources/local_images/select_incheon.png" class="location_si">
+								</label><br>
+								대구
+							</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_daejeon" value="3" onclick="si_select()"><br>
+								<label for="location_daejeon" id="choice_daejeon">
+									<img src="resources/local_images/select_daejeon.png" class="location_si">
+								</label><br>
+								대전
+							</td>
+							
+							<td>
+								<input type="radio" name="si_choice" id="location_incheon" value="4" onclick="si_select()"><br>
+								<label for="location_incheon">
+									<img src="resources/local_images/select_daegu.png" class="location_si">
+								</label><br>
+								인천
+							</td>
+						</tr> --%>
+
+
+
+
+<%--
+<tr>
+						<td> <!-- '전국' 클릭 시에는 메인 페이지 새로고침 -->
+						<a href="${path}/location_mainList.lc">
+						<input type="image" src="resources/local_images/select_all.png" class="location_si"></a><br>
+							전국
+						</td>
+						<td>
+							<img src="resources/local_images/select_seoul.png" class="location_si" onclick="si_select()"><br>
+							서울
+						</td>
+						<td>
+							<img src="resources/local_images/select_daegu.png" class="location_si" onclick="si_select()"><br>
+							대구
+						</td>
+						<td>
+							<img src="resources/local_images/select_daejeon.png" class="location_si" onclick="si_select()"><br>
+							대전
+						</td>
+						<td>
+							<img src="resources/local_images/select_incheon.png" class="location_si" onclick="si_select()"><br>
+							인천
+						</td>
+					</tr> --%>
 	
 <!-- 	<td align="center">
 						<input name="location_si" type="hidden" value="서울">
