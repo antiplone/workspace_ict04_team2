@@ -18,3 +18,6 @@
         background: #fff;
     }
 }
+
+.text_left{	text-align:left; text-indent:10px;}
+.text_center{text-align:center;}

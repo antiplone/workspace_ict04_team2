@@ -1,12 +1,16 @@
 @charset "UTF-8";
 
+.contents_wrap .header_wrap,
+#contents #tableContentWrap div.header_wrap{display:none;}
+
+
 #container {
 	width: 100%;
 	margin: 0 auto;
 }
 
 #contents {
-	max-width: 1240px;
+	max-width: 100%;
 	min-width: 1240px;
 	width: 100%;
 	margin: 0 auto;
@@ -44,6 +48,17 @@
 	color: #555555;
 }
 
+/* 추천 여행지 */
+#tableContentWrap{
+    width: 100%;
+    height: max-content;
+}
+
+.recomment_tour_list_wrap{
+	position : relative;	
+}
+
+/* carousel */
 /* left side of main carousel */
 .left_comment>div{
 	max-width: 280px;
@@ -54,6 +69,7 @@
 .left_comment strong{
 	max-width:200px;
     line-height: 2;
+    font-size: 25px;
 }
 
 .left_comment a{
@@ -64,107 +80,91 @@
     padding: 3px 0px;
 }
 
+[data-color="gray"] .left_comment a{
+	color:white;
+    border-bottom: 2px solid white;
+}
+
+.prevBtn:before {
+	content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform-origin: center right;
+    transform: rotate(225deg) translate(-10%, 0%);
+}
+
+.nextBtn:before {
+	content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform-origin: center left;
+    transform: rotate(45deg) translate(-10%, 0%);
+}
+
 .left_comment a:hover{
 	color:#000;
 	border-bottom: 2px solid #000;	
 }
 
-
-#slide_box_wrap[data-color='yellow'],
-.slide_item[data-color='yellow']{
-	background-color:yellow;
+.carousel{
+	position: relative;
+    height: 360px;
 }
 
-#slide_box_wrap[data-color='gray'],
-.slide_item[data-color='gray']{
-	background-color:gray;
-}
-
-.slide_item[data-color='gray'] a{
-	color:white;
-	border-bottom: 2px solid #fff;
-}
-
-#slide_box_wrap[data-color='skyblue'],
-.slide_item[data-color='skyblue']{
-	background-color:skyblue;
-}
-
-/* progress-bar*/
-
-/* carousel 화면 관련 */
-.carousel_notice_box{
-position: absolute;
+.carousel_notice_box {
+    position: absolute;
     width: 400px;
-    bottom: 25px;
-    left: 90px;
-    right: 30px;
+    top: 340px;
+    left: 130px;
     z-index: 10;
-    margin: 0;
-}
- 
-.progress_bar_wrap {
-    float: none;
-    width: auto;
-    height: auto;
-    position: static;
-    display: flex;
-    align-items: center;
+    margin: 20px;
+    display: none;
 }
 
-.progress-bar {
-    position: relative;
-    width: 320px;
+.carousel-item[data-color='gray']{
+	background-color:#d0d0d0;	
+}
+.carousel-item[data-color='skyblue']{
+	background-color:#baebff;;	
+}
+.carousel-item[data-color='yellow']{
+	background-color:#ffd537;	
+}
+
+.button.main_carousel_direction::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
     display: inline-block;
-    z-index: 1;
-    height: 2px;
-}
-
-.progress_bar_fill {
     position: absolute;
-    height: 2px;
-    background: #333;
-    width: 100%;
-    opacity: 1;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 0px;
+    left: 0px;
 }
 
-.progress_bar_fill .fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #fff;
-    height: 100%;
+.carousel-indicators {gap:20px; margin-bottom: 10px !important;}
+.carousel-indicators [data-bs-target]{width:20px !important; height:20px !important; border-radius: 100%;}
+
+/* .recomment_in_wrap.carousel-inner{width: 800%; height: 100%; padding:0px;text-align:left;} */ 
+.recomment_in_wrap.carousel-inner{width: 2080px; height: 100%; padding: 0px; text-align: left;} 
+
+.recomment_in_wrap:li{
+	display:flex;	
 }
 
-.progress_bar_fill .fill {
-    transition: none;
-    animation: flow 5s linear;
-    animation-fill-mode: forwards;
-}
-
-.paging_num{
-    width: 60px;
-    font-size: 14px;
-    font-weight:bold;
-    color:black;
-    text-align: left;
-    line-height: 1;
-    margin-left: 15px;
-}
-
-@keyframes flow{
-	0% {
-	    width: 0;
-	}
-	100% {
-	    width: 100%;
-	}
-}
-
-/* 추천 여행지 */
 
 .recomment_tour_list_wrap{
 	position : relative;	
@@ -174,27 +174,25 @@ position: absolute;
 .recom {
 /* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
 	background: #D7E3FC;
-	height: 146px; 
+	height: 160px; 
 
 	position: relative;
 	left: 0;
-	padding: 30px 0;
-	margin: 40px 0;
+	padding: 35px 100px;
+	text-align:center;
 }
 
 .recom>.recom_wrap{
 	min-width: 960px;
-    height: 92px;
+    height: 120px;
     max-width: 960px;
-    position: relative;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.recom_btn {
-	text-align:left;
-	display: inline-block;
-}
+.recom>div>div{text-align:left;}
+
 .recom>div>div:first-child {
 	font-size: 20px;
 /* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
@@ -210,7 +208,7 @@ position: absolute;
     width: 90px;
     position: absolute;
     top: -10px;
-    right: 3px;
+    right: 50px;
 }
 .recom_img img {
 	width: 100%;
@@ -220,13 +218,12 @@ position: absolute;
 .recom_btn {
 	position: relative;
 	top: 16px;
-	color: #333;
+		color: #333;
 	font-size: 14px;
 }
 .recom_btn a {
 	display: flex;
 }
-
 .recom_btn i {
 	display: flex;
 	align-items: center;
@@ -260,7 +257,6 @@ position: absolute;
 .rev_title a {
 	display: flex;
 	align-items: center;
-	margin-right: 7px;
 }
 .rev_btn { margin-left: 5px; }
 .pointerBtn { cursor: pointer; }		/* 메인화면에서 추천코스, 여행후기 버튼 눌렀을 때 */

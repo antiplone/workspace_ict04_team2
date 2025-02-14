@@ -35,7 +35,10 @@
 
 
 <body >
-
+			<!-- header 시작 -->
+	<div class="header_wrap">
+		<%@ include file="/WEB-INF/views/common/header.jsp"%>
+	</div>
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
@@ -171,7 +174,7 @@
 				<div class="rev_title">
 					<h2>여행후기로 여행지 미리보기</h2>
 					<div>
-            <a onclick="load('/travel_planner/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
+						<a onclick="load('${path}/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
 						</a>
 					</div>
 				</div>

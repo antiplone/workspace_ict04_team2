@@ -33,14 +33,19 @@
 /*    function si_select(){
 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
  }  */
- function si_select(){
+/*  function si_select(){
 	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
  }
+<<<<<<< HEAD
  
  /* '전국' 클릭 시 메인페이지 새로고침 */
  function si_selectAll() {
 	 location.reload(true);
  }
+=======
+  */
+ 
+>>>>>>> e6f7286cbf32113b7931edd48568815ccd3698bc
  
  </script>
  
@@ -52,6 +57,7 @@
 		<div class="main_select" style='background-color: #cad2c5'>
 			<form name="locationMain" action="#" method="post">
 				<table style="margin-left: auto; margin-right: auto;">
+<<<<<<< HEAD
 					<div class="container">
 					<tr>
 						<td> <!-- '전국' 클릭 시에는 메인 페이지 새로고침 -->
@@ -76,6 +82,32 @@
 						</td>
 					</tr>
 					</div>
+=======
+				<tr>
+					<td>
+					<a onclick="load('${path}/location_main.lc')">
+					<img src="resources/local_images/select_all.png" class="location_si"><br></a>
+						<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
+						전국
+					</td>
+					<td>
+						<img src="resources/local_images/select_seoul.png" class="location_si" onclick="si_select()"><br>
+						서울
+					</td>
+					<td>
+						<img src="resources/local_images/select_daegu.png" class="location_si" onclick="si_select()"><br>
+						대구
+					</td>
+					<td>
+						<img src="resources/local_images/select_daejeon.png" class="location_si" onclick="si_select()"><br>
+						대전
+					</td>
+					<td>
+						<img src="resources/local_images/select_incheon.png" class="location_si" onclick="si_select()"><br>
+						인천
+					</td>
+				</tr>
+>>>>>>> e6f7286cbf32113b7931edd48568815ccd3698bc
 				</table>
 			</form>
 		</div>
