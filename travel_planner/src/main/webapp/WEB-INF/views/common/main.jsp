@@ -27,9 +27,9 @@
 <script src="${path}/resources/js/common/headerLink.js" defer></script>
 
 <script type="text/javascript">
-	/* 여행후기 게시글 눌렀을 때 */
+	/* 여행후기 게시글 눌렀을 때 각각의 게시글로 이동 */
 	$(function() {
-		$("#revImg$" + {dto.r_num}).click(function() {
+		$("#revImg${dto.r_num}").click(function() {
 			window.location.href = "${path}/kakao.do";
 		});
 	});
@@ -285,24 +285,26 @@
 
 				<%-- 후기 게시글들 --%>
 				<div class="rev_imgs">
-					<%-- 리뷰가 있으면 반복 --%>
+					<%-- 리뷰 게시글이 있으면 반복 --%>
 					<c:forEach var="dto" items="${list}">
 					
 					 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-						<div class="rev_image">
-							<img alt="${dto.r_num}" src="${dto.r_img}">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">${dto.r_title}</div>
-							<div class="rev_img_text2">
-								<div>${dto.m_name}</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									${dto.r_readCnt}
-								</div>
-								<div>${dto.r_regDate}</div>
+					 	<%-- <a href="${path}/reviewDetail.do?r_num=${dto.r_num}"> --%>
+							<div class="rev_image">
+								<img alt="${dto.r_num}" src="${dto.r_img}">
 							</div>
-						</div>
+							<div class="rev_img_title">
+								<div class="rev_img_text1">${dto.r_title}</div>
+								<div class="rev_img_text2">
+									<div>${dto.m_name}</div>
+									<div>
+										<i class="fi fi-rr-eye"></i>
+										${dto.r_readCnt}
+									</div>
+									<div>${dto.r_regDate}</div>
+								</div>
+							</div>
+						<!-- </a> -->
 					</div>
 					
 					</c:forEach>

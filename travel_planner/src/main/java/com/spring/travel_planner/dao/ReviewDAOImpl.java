@@ -55,7 +55,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	// main - 조회순으로 리뷰게시글 4개만
 	public List<ReviewDTO> mainReviewList(Map<String, Object> map) {
-		System.out.println("리뷰DAO - reviewList");
+		System.out.println("리뷰DAO - mainReviewList");
 		return sqlSession.selectList("com.spring.travel_planner.dao.ReviewDAO.mainReviewList", map);
 	}
 	

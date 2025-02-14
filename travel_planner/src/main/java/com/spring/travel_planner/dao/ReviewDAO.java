@@ -28,4 +28,6 @@ public interface ReviewDAO {
 //	// 후기 작성
 //	public int reviewInsert(ReviewDTO dto);
 	
+	// main - 조회순으로 리뷰게시글 4개만
+	public List<ReviewDTO> mainReviewList(Map<String, Object> map);
 }
