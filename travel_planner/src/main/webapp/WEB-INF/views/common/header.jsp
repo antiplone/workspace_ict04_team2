@@ -6,12 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<!-- 파비콘 -->
+
+  <!-- 파비콘 -->
 <link rel="icon" href="${path}/resources/images/common/logo.svg" />
 <link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
 
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
+<script src="${path}/resources/js/common/main.js" defer></script>
 <script src="${path}/resources/js/common/request.js" defer></script>
 <script type="text/javascript">
 
@@ -19,7 +21,6 @@
 		// sendRequest(callback, url, method, params) {}
 		sendRequest(loadNews_callback, url, "post", "");
 	}
-	
 	
 	// 콜백함수 - 결과처리
 	function loadNews_callback() {
@@ -64,7 +65,7 @@
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="home pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
+				<li class="active pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/reviewList.do')" class="movePage" >커뮤니티</a></li>

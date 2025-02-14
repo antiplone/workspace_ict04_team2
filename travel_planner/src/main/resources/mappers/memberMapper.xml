@@ -4,6 +4,51 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 관리자 게시판 -->
-<mapper namespace="com.spring.travel_planner.dao.MemberDAOImpl">  <!-- namespace="패키지명.인터페이스" -->
+<mapper namespace="com.spring.travel_planner.dao.HomeDAO">  <!-- namespace="패키지명.인터페이스" -->
+	
+	 <resultMap id="userMap" type="com.spring.travel_planner.dto.RecommendCourseDTO2">
+		<id     property="r_num"        			column="r_num" />
+		<result property="r_title"         			column="r_title" />
+		<result property="r_content"         		column="r_content" />
+		<result property="r_img"         			column="r_img" />
+		<result property="m_name"         			column="m_name" />
+		<result property="r_readcnt"         		column="r_readcnt" />
+		<result property="r_comment_count"         	column="r_comment_count" />
+  	 </resultMap>
+	
+	<!--  <resultMap id="userMap" type="com.spring.travel_planner.dto.RecommendCourseDTO2">
+		<id     property="m_email"        			column="m_email" />
+		<result property="m_name"         			column="m_name" />
+		<result property="m_password"         		column="m_password" />
+  	 </resultMap> -->
+	
+<!-- 	<select id="recommendCnt" resultType="int">
+		SELECT COUNT(*) AS cnt FROM TRAVEL_MEMBER_TBL WHERE m_password = '1234'
+	</select> -->
+	
+<!-- 	<select id="recommendList" parameterType="java.util.Map" resultMap="userMap">
+		SELECT m_email m_email,
+			   m_name m_name,
+			   m_password m_password,
+			   ROWNUM as rn
+		  FROM TRAVEL_MEMBER_TBL
+	</select> -->
+	
+	<select id="recommendCnt" resultType="int">
+		SELECT COUNT(*) AS cnt FROM TRAVLE_REVIEW_TB WHERE r_show = 'Y'
+	</select>
+	
+	<select id="recommendList" parameterType="java.util.Map" resultMap="userMap">
+		SELECT r_num r_num,
+			   r_title r_title,
+			   r_content r_content,
+			   r_img r_img,
+			   m_name m_name,
+			   r_readcnt r_readcnt,
+			   r_comment_count r_comment_count
+		  FROM TRAVLE_REVIEW_TB
+	   WHERE <![CDATA[ r_num >= #{start1}
+	  	 AND r_num <= #{end1}	]]>
+	</select>
 	
 </mapper>

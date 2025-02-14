@@ -1,6 +1,7 @@
 package com.spring.travel_planner.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,24 +31,24 @@ public class MainController {
 	
 	@Autowired
 	private MemberDAOImpl mem;
-	@Autowired
+
+  @Autowired
 	private ReviewService rev_service;
 
 	@RequestMapping("/home.do")
+
 	private String main() {
 		logger.info("<<< url => home.do >>>");
-		
-		
-		return "common/home";
+    return "common/home";
 	}
 	
 	@RequestMapping("/main.do")
-	private String main2(Model model) 
-			throws ServletException, IOException {
+	private String main2(HttpServletRequest req, HttpServletResponse res, Model model) 
+			throws ServletException, IOException{
 		logger.info("<<< url => main.do >>>");
-		
-		rev_service.mainReviewList(model);
-		return "common/main";
+		rev_service.mainReviewList(req, res, model);
+		return "common/main3";
+
 	}
 
 	@RequestMapping("/login.do")
@@ -63,8 +64,7 @@ public class MainController {
 
 //		mem.test(); /* DB 연결이 안되는지 테스트 */
 		mem.login_action(req);
-
-		return "common/main";
+		return "common/home";
 	}
 	
 	@RequestMapping("/board_list.do") 

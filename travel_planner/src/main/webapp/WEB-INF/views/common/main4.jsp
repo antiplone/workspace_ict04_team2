@@ -25,20 +25,13 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1740f493a8a5f220d431fdb519af8b5"></script>
-
-<script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-
+<script src="https://kit.fontawesome.com/3f6025c3d2.js"
+	crossorigin="anonymous"></script>
+<script src="${path}/resources/js/common/slide.js" defer></script>
+<script src="${path}/resources/js/common/slide2.js" defer></script>
 <script src="${path}/resources/js/common/pageLoad.js" defer></script>
-
-
 </head>
-
-
-<body >
-
-	<div id="tableContentWrap">
+<body id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
 		<div id="myCarousel" class="carousel slide mb-6"
@@ -70,18 +63,18 @@
 				</div>
 				<div class="carousel-item" data-color="skyblue" data-num="2">
 					<div class="flex_box d-block w-100">
-						<div class="left_comment">
-							<div>
-								<strong style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
-									미조
-								</strong> <br> <a href="#">자세히 보기</a>
+							<div class="left_comment">
+								<div>
+									<strong style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
+										미조
+									</strong> <br> <a href="#">자세히 보기</a>
+								</div>
+							</div>
+							<div class="right_img">
+								<img
+									src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=4e21ed06-0075-4498-a9c2-8ec62c9d60aa&mode=raw">
 							</div>
 						</div>
-						<div class="right_img">
-							<img
-								src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=4e21ed06-0075-4498-a9c2-8ec62c9d60aa&mode=raw">
-						</div>
-					</div>
 				</div>
 				<div class="carousel-item" data-color="yellow" data-num="3">
 					<div class="flex_box d-block w-100">
@@ -98,17 +91,19 @@
 					</div>
 				</div>
 			</div>
-			<button class="carousel-control-prev main_carousel_direction" type="button"
+			<button class="carousel-control-prev main_carousel_direction prevBtn" type="button"
 				data-bs-target="#myCarousel" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
-			<button class="carousel-control-next main_carousel_direction" type="button"
+			<button class="carousel-control-next main_carousel_direction nextBtn" type="button"
 				data-bs-target="#myCarousel" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+
+
 
 		<div class="carousel_notice_box">
 			<div class="progress_bar_wrap">
@@ -124,98 +119,88 @@
 	</div>
 	
 	
-	<div id="carouselShow" class="recomment_tour_list_wrap carousel slide">
+	<div class="recomment_tour_list_wrap">
 		<h2>함께 떠나는 지역 여행</h2>
 		<div class="recommend_box">
 			<div class="recommend_carousel_wrapper">
-				<ul id="recomment_in_wrap" class="recomment_in_wrap carousel-inner">
-					<c:forEach var="dto1" items="${list1}">
-						<li class="abc d_block">
-<%-- 						<a href="${path}/board_list.dol?rNum=${dto1.r_num}"> --%>
-							<a onclick="javascript:history.forward(load('${path}/regionList.rc'))">
-								<div class="text_center">글번호 : ${dto1.r_num}</div>
-								<div class="text_center recImgWrap">
-									<img src="${dto1.r_img}" />
-								</div>
-								<div class="text_center">${fn:substring(dto1.r_title,0,10)}.... </div>
-								<div class="text_center"> 작성자 : ${dto1.r_content}
-										
-								</div>
-								<div class="text_center">조회수 : ${dto1.r_readcnt}</div>
-							</a>
-						</li>
-					</c:forEach>
+				<ul class="recomment_in_wrap">
+					<c:forEach var="dto" items="${list}">
+										<li>
+											<td>${dto.r_num}</td>
+											<td>${dto.r_title}</td>
+											<td><a href="${path}/board_list.dol?rNum=$${dto.r_num}">${dto.r_content}
+													<img src="${dto.r_img}"/>
+												</a>
+											</td>
+											<td>${dto.r_readcnt}</td>
+											<td>${dto.r_comment_count}</td>
+										</div>
+									</c:forEach>
 				</ul>
+				<div>
+					<div colspan="5" align="center">
+						<!-- 페이징 처리 --> <!-- 이전 버튼 활성화 --> <c:if test="${paging.startPage > 10}">
+							<a href="${path}/board_list.brl?pageNum=${paging.prev}">[이전]</a>
+						</c:if> <!--  페이지 번호 처리 --> <c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
+							<a href="${path}/board_list.brl?pageNum=${num}">${num}</a>
+						</c:forEach> <c:if test="${paging.endPage < paging.pageCount}">
+							<a href="${path}/board_list.brl?pageNum=${paging.next}">[다음]</a>
+						</c:if>
+					</div>
+				</div>
 			</div>
 		</div>
-		<button id="recommondPrevBtn" class="recommondPrevBtn" onclick="changePrev(28)"></button>
-		<button id="recommondNextBtn" class="recommondNextBtn" onclick="changeNext(28)"></button>
+		<button class="recommondPrevBtn"></button>
+		<button class="recommondNextBtn"></button>
 	</div>
-		
-		<%-- 추천코스 --%>
-		<div class="recom">
-			<div class="recom_wrap">
-				<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
-				<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
-				<div class="recom_img">
-					<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
-				</div>
-				<div class="recom_btn">
-					<a onclick="load('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
+	
+	
+	<%-- 추천코스 --%>
+	<div class="recom">
+		<div class="recom_wrap">
+			<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
+			<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
+			<div class="recom_img">
+				<img alt="여행가는 여성"
+					src="${path}/resources/images/main/trip-woman.svg">
+			</div>
+			<div class="recom_btn">
+				<a href="#"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<%-- 여행후기 --%>
+	<div class="rev">
+		<div class="revs">
+			<div class="rev_title">
+				<h2>여행후기로 여행지 미리보기</h2>
+				<div>
+					<a href="#"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
 					</a>
 				</div>
 			</div>
-		</div>
 
-		<%-- 여행후기 --%>
-		<div class="rev">
-			<div class="revs">
-				<div class="rev_title">
-					<h2>여행후기로 여행지 미리보기</h2>
-					<div>
-            <a onclick="load('/travel_planner/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
-						</a>
-					</div>
-				</div>
-
-				<%-- 후기 게시글들 --%>
-				<div class="rev_imgs">
-					<%-- 리뷰 게시글이 있으면 반복 --%>
-					<c:forEach var="dto" items="${list}">
-					
-					 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-					 	<%-- <a href="${path}/reviewDetail.do?r_num=${dto.r_num}"> --%>
-							<div class="rev_image">
-								<img alt="${dto.r_num}" src="${dto.r_img}">
-							</div>
-							<div class="rev_img_title">
-								<div class="rev_img_text1">${dto.r_title}</div>
-								<div class="rev_img_text2">
-									<div>${dto.m_name}</div>
-									<div>
-										<i class="fi fi-rr-eye"></i>
-										${dto.r_readCnt}
-									</div>
-									<div>${dto.r_regDate}</div>
-								</div>
-							</div>
-						<!-- </a> -->
-					</div>
-					
-					</c:forEach>
-				</div>
-
+			<div class="rev_img">
+				<img alt="이미지" src="${path}/resources/images/main/imgs.jpg">
+				<!-- <div>
+						<img alt="1" src="">
+						<div>다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
+						<div>김*지</div>
+					</div> -->
 			</div>
-		</div>
 
-		<%-- 공지사항 & QnA --%>
-		<div class="rev_notice">
-			<div class="rev_notices">
-				<div class="revs_notice">
-					<div>공지사항</div>
-					<div>
-						<a href="#">2025년 1월 고객만족도조사 참여 고객 당첨자 공지</a>
-					</div>
+		</div>
+	</div>
+
+	<%-- 공지사항 & QnA --%>
+	<div class="rev_notice">
+		<div class="rev_notices">
+			<div class="revs_notice">
+				<div>공지사항</div>
+				<div>
+					<a href="#">2025년 1월 고객만족도조사 참여 고객 당첨자 공지</a>
 				</div>
 			</div>
 		</div>
