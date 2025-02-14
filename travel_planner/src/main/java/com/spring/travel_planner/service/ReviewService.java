@@ -1,46 +1,33 @@
 package com.spring.travel_planner.service;
 
 import java.io.IOException;
-import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.spring.travel_planner.dao.ReviewDAO;
-import com.spring.travel_planner.dto.ReviewDTO;
-import com.spring.travel_planner.page.Paging;
-import com.spring.travel_planner.dao.ReviewDAO;
-import com.spring.travel_planner.dto.ReviewDTO;
-
-
-@Service
-public class ReviewService {
+public interface ReviewService {
 	
-	@Autowired
-	private ReviewDAO dao;
-
-	// 조회순으로 리뷰게시글 4개만
-	public void mainReviewList(HttpServletRequest req, HttpServletResponse res, Model model) 
-			throws ServletException, IOException {
-		System.out.println("리뷰Service - reviewList");
+	// 후기 목록
+	public void reviewListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+		throws ServletException, IOException;
 	
-		// 하단 로딩 목록
-		int start = 1;
-		int end = 4;
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("start", start);
-		map.put("end", end);
-		
-		List<ReviewDTO> list = dao.mainReviewList(map);
-		System.out.println(start + "에서 " + end + "까지의 게시글 목록들 : " + list);
-		
-		// jsp로 처리결과 전달
-		model.addAttribute("list", list);
-	}
+	// 후기 상세페이지
+	public void reviewDetailAction(HttpServletRequest request, Model model)
+			throws ServletException, IOException;
+	
+	// 후기 수정처리
+	public void reviewUpdateAction(HttpServletRequest request, Model model)
+			throws ServletException, IOException;
+	
+	// 게시글 삭제처리
+	public void reviewDeleteAction(HttpServletRequest request, Model model)
+			throws ServletException, IOException;
+	
+	// 게시글 작성처리
+	public void reviewInsertAction(HttpServletRequest request, Model model)
+			throws ServletException, IOException;
+
 }

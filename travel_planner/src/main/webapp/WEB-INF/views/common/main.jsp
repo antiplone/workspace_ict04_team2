@@ -25,6 +25,8 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1740f493a8a5f220d431fdb519af8b5"></script>
+
 <script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 
@@ -178,97 +180,31 @@
 
 				<%-- 후기 게시글들 --%>
 				<div class="rev_imgs">
-					
-					<%-- 리뷰가 있으면 반복 --%>
+					<%-- 리뷰 게시글이 있으면 반복 --%>
 					<c:forEach var="dto" items="${list}">
 					
 					 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-						<div class="rev_image">
-							<img alt="${dto.r_num}" src="${dto.r_img}">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">${dto.r_title}</div>
-							<div class="rev_img_text2">
-								<div>${dto.m_name}</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									${dto.r_readCnt}
-								</div>
-								<div>${dto.r_regDate}</div>
+					 	<%-- <a href="${path}/reviewDetail.do?r_num=${dto.r_num}"> --%>
+							<div class="rev_image">
+								<img alt="${dto.r_num}" src="${dto.r_img}">
 							</div>
-						</div>
+							<div class="rev_img_title">
+								<div class="rev_img_text1">${dto.r_title}</div>
+								<div class="rev_img_text2">
+									<div>${dto.m_name}</div>
+									<div>
+										<i class="fi fi-rr-eye"></i>
+										${dto.r_readCnt}
+									</div>
+									<div>${dto.r_regDate}</div>
+								</div>
+							</div>
+						<!-- </a> -->
 					</div>
 					
 					</c:forEach>
-				
- 					<%-- <div class="rev_img revBtn" id="revImg1">
-						<div class="rev_image">
-							<img alt="1" src="${path}/resources/images/main/main_review_img1.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>김*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									2560
-								</div>
-								<div>2025-02-06</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg2">
-							<img alt="2" src="${path}/resources/images/main/main_review_img2.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">아름다운 섬 흑산도에서 가족들과 잊지못할 추억을 쌓고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>이*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									1506
-								</div>
-								<div>2024-01-26</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg3">
-							<img alt="3" src="${path}/resources/images/main/main_review_img3.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">푸르디 푸른 검은 바닷물이 일렁이는 도시!</div>
-							<div class="rev_img_text2">
-								<div>한*원</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									560
-								</div>
-								<div>2022-11-05</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg4">
-							<img alt="4" src="${path}/resources/images/main/main_review_img4.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">초등학생 아이와 함께 다녀왔어요. 아이가 정말 행복했다고 다음에 또 오자고 하네요.</div>
-							<div class="rev_img_text2">
-								<div>박*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									450
-								</div>
-								<div>2020-01-03</div>
-							</div>
-						</div>
-					</div> --%>
 				</div>
+
 			</div>
 		</div>
 
