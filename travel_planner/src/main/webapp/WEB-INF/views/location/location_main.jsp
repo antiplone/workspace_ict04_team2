@@ -33,12 +33,11 @@
 /*    function si_select(){
 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
  }  */
+ 
 /*  function si_select(){
 	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
  }
   */
- 
- 
  </script>
  
 <%--  <script src="${path}/resources/js/location_select.js" defer> </script> --%>
