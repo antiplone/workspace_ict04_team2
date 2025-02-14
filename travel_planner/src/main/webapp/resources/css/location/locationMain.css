@@ -27,7 +27,7 @@
 }
 
 
-
+/* '시' 선택할 때 라디오 체크 버튼 안 보이게 */
 [type=radio] { 
   position: absolute;
   display:none;}

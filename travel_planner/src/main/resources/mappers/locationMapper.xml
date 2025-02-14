@@ -31,11 +31,11 @@
 
 
 <!-- '구' 목록 조회 ('전국' 제외 시 선택 시) -->
-<!-- <select id="locationList" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">
-	SELECT tc_area
+<select id="locationList" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">
+	SELECT *
 	  FROM travel_tourcity_tbl
 	 WHERE tc_si_num=#{tc_area}
-</select> -->
+</select>
 
 <!-- 선택한 지역 목록 조회 -->
 <!-- <select id="selectlocationList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
