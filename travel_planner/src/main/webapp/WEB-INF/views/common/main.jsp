@@ -20,20 +20,9 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1740f493a8a5f220d431fdb519af8b5"></script>
 
 <script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
-<script src="${path}/resources/js/common/main2.js" defer></script>
-<script src="${path}/resources/js/common/slider.js" defer></script>
-<script src="${path}/resources/js/common/slider2.js" defer></script>
-<script src="${path}/resources/js/common/request.js" defer></script>
-<script src="${path}/resources/js/common/headerLink.js" defer></script>
+<script src="${path}/resources/js/common/pageLoad.js" defer></script>
 
-<script type="text/javascript">
-	/* 여행후기 게시글 눌렀을 때 각각의 게시글로 이동 */
-	$(function() {
-		$("#revImg${dto.r_num}").click(function() {
-			window.location.href = "${path}/kakao.do";
-		});
-	});
-</script>
+
 </head>
 <body>
 		<!-- header 끝내기 -->
