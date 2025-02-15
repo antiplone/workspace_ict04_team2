@@ -37,12 +37,12 @@
 .reviewDetail_info {
 	display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     color: #999999;
 }
 
 /* 후기 내용 부분..? */
-.reviewDetail_middel {
+.reviewDetail_middle {
 	width: 900px;
 	display: flex;
     position: relative;
