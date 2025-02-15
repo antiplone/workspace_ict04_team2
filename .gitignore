@@ -4,8 +4,22 @@
 ### Added ###
 target/
 Tomcat v9.0 Server at localhost-config/
-.metadata/.plugins/org.eclipse.wst.server.core/servers.xml
-.metadata/.plugins/org.eclipse.wst.server.core/tmp0/logs
+.metadata/.plugins/org.eclipse.core.resources/.history/
+.metadata/.plugins/org.eclipse.core.resources/**/*.snap
+.metadata/.plugins/org.eclipse.core.resources/**/*.tree
+.metadata/.plugins/org.eclipse.jdt.core/
+.metadata/.plugins/org.eclipse.jst.jsp.core/
+.metadata/.plugins/org.eclipse.m2e.core/nexus/
+.metadata/.plugins/org.eclipse.m2e.core.ui/
+.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes/
+.metadata/.plugins/org.eclipse.wst.server.core/
+.metadata/.plugins/org.eclipse.wst.sse.ui/
+.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/
+.metadata/.plugins/org.springsource.ide.eclipse.dashboard.ui/
+
+
+### Needs untrack-list ###
+# .metadata/.plugins/org.eclipse.core.runtime/.settings/
 */.settings/org.eclipse.wst.common.project.facet.core.xml
 
 ## 필요 #
