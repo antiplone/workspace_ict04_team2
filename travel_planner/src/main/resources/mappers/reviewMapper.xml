@@ -22,7 +22,7 @@
 
 <!-- 후기 목록 -->
 <select id="reviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
-	
+	<![CDATA[
 		SELECT *
 		  FROM
         (SELECT A.*,
@@ -32,8 +32,9 @@
                   WHERE r_show = 'Y'
                   ORDER BY r_num DESC) A
 	        )
-	 	 WHERE <![CDATA[ rn >= #{start}
-
+	 	WHERE rn >= #{start}
+	  	 AND rn <= #{end}
+	]]>
 </select>
 
 <!-- 후기 총 건수 -->
