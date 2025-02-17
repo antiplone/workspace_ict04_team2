@@ -65,7 +65,7 @@ public class MainController {
 	private String mainReviewListAction(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< url => mainReviewListAction.do >>>");
-		rev_service.mainReviewList(req, res, model);
+		rev_service.mainReviewList(model);
 		return "community/review/mainReviewAction";
 	}
 
