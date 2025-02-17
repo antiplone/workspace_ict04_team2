@@ -4,7 +4,14 @@
 #title {
 	background-color : #FDF4CB;
 	position: relative;
+    height: 150px;
 }
+
+h3 {
+	position: relative;
+	top: 20px;
+}
+
 
 #page-title {
 	position: relative;
@@ -12,6 +19,12 @@
 	left: 100px;
 }
 /* 상단 중앙1 끝 */
+
+/* 모달창 스타일링 */
+.rc_image {
+	width: 400px;
+	height: 250px;
+}
 
 /* 상단 중앙 2 시작 */
 .contents-row-1 {
