@@ -50,10 +50,17 @@
 </select>
 
 <!-- 후기 조회수 -->
-<select id="reviewViews" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+<update id="reviewViews" parameterType="int">
 	UPDATE travle_review_tbl
 	   SET r_readCnt = r_readCnt +1
 	 WHERE r_num = #{r_num}
-</select>
+</update>
+
+<!-- 후기 삭제 -->
+<update id="reviewDelete" parameterType="int">
+   UPDATE travle_review_tbl
+      	 SET r_show = 'N'
+    WHERE r_num = #{num}
+</update>
 
 </mapper>

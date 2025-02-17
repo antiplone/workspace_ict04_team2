@@ -40,8 +40,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 		System.out.println("ReviewDAOImpl - reviewViews");
 		
 		sqlSession.update("com.spring.travel_planner.dao.ReviewDAO.reviewViews", r_num);
-		
-		return;
 	}
 	
 	// 후기 상세페이지
@@ -58,12 +56,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 //	public int reviewUpdate(int r_num) {
 //		return 0;
 //	}
-//
-//	@Override
-//	public int reviewDelete(int r_num) {
-//		return 0;
-//	}
-//
+
+	// 후기 삭제 
+   @Override
+   public int reviewDelete(int num) {
+      System.out.println("ReviewDAOImpl - reviewDelete");
+      
+      int deleteCnt = sqlSession.delete("com.spring.travel_planner.dao.ReviewDAO.reviewDelete", num);
+      return deleteCnt;
+   }
+
 //	@Override
 //	public int reviewInsert(ReviewDTO dto) {
 //		return 0;

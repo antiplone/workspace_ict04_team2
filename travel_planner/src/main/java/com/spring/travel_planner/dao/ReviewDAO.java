@@ -21,10 +21,10 @@ public interface ReviewDAO {
 
 //	// 후기 수정처리
 //	public int reviewUpdate(int r_num);
-//	
-//	// 후기 삭제처리
-//	public int reviewDelete(int num);
-//	
+
+	// 후기 삭제처리
+	public int reviewDelete(int num);
+
 //	// 후기 작성
 //	public int reviewInsert(ReviewDTO dto);
 
