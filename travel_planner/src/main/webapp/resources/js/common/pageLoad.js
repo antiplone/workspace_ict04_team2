@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	// 댓글 목록
 	function maintop_list(){ // (8)
-		alert("maintop_list")
+		/*alert("maintop_list")*/
 		$.ajax({
 			url:'mainAction.do', // 컨트롤러로 이동(9)
 			type: 'POST',
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	// 댓글 목록
 	function bottomList(){ // (8)
-		alert("mainReviewAction")
+		/*alert("mainReviewAction")*/
 		$.ajax({
 			url:'mainReviewAction.do', // 컨트롤러로 이동(9)
 			type: 'POST',
