@@ -14,6 +14,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	// 후기 목록
 	@Override
 	public List<ReviewDTO> reviewList(Map<String, Object> map) {
 		System.out.println("ReviewDAOImpl - reviewList");
@@ -23,21 +24,36 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return list;
 	}
 
+	// 후기 개수
 	@Override
 	public int reviewCnt() {
-		return 0;
+		System.out.println("ReviewDAOImpl - reviewCnt");
+		
+		int total = sqlSession.selectOne("com.spring.travel_planner.dao.ReviewDAO.reviewCnt");
+		
+		return total;
 	}
 
-//	@Override
-//	public int reviewViews(int r_num) {
-//		return 0;
-//	}
-//
-//	@Override
-//	public String reviewDetail(int r_num) {
-//		return null;
-//	}
-//
+	// 후기 조회수
+	@Override
+	public void reviewViews(int r_num) {
+		System.out.println("ReviewDAOImpl - reviewViews");
+		
+		sqlSession.update("com.spring.travel_planner.dao.ReviewDAO.reviewViews", r_num);
+		
+		return;
+	}
+	
+	// 후기 상세페이지
+	@Override
+	public ReviewDTO reviewDetail(int r_num) {
+		System.out.println("DAO - reviewDetail");
+		
+		ReviewDTO dto = sqlSession.selectOne("com.spring.travel_planner.dao.ReviewDAO.reviewDetail", r_num);
+		
+		return dto;
+	}
+
 //	@Override
 //	public int reviewUpdate(int r_num) {
 //		return 0;

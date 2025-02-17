@@ -169,3 +169,4 @@ local
 # *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,elasticbeanstalk,splunk
+/.metadata/

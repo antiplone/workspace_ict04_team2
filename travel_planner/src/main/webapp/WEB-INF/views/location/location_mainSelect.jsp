@@ -49,14 +49,27 @@
  
 </script>
 
-
-
 <title>여기닷 - 여행지</title>
+
  <style>
+ 	
+ 	.gu_table {
+	 	display: flex;
+    	width: 520px;
+    	flex-wrap: wrap;
+    	justify-content: center;
+ 	}
+ 	.gu_tr {
+	 	display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+ 	}
  	
  	/* '구' 선택하는 checkbox 디자인 설정 */
 	 .gu_select {
+	 	display: flex;
 	 	margin: 10px;
+	 	
 	 }
 	 
 	 .gu_select input[type=checkbox] {
@@ -94,10 +107,10 @@
         padding: 7px 20px; /* 버튼 크기 */
         text-align: center;
         text-decoration: none;
-        display: inline-block;
         font-size: 16px;
         cursor: pointer;
         border-radius: 30px; /* 둥근 모서리 */
+        
     }
 	
 
@@ -109,12 +122,44 @@
 </style>
 </head>
 <body>
-	
+
 	<form name="gu_form" action="#" method="post">
+		
 		<table>
-			
+			<tbody class="gu_table">
 			<!-- 선택한 '시'에 맞는 '구' 목록 가져오기 -->
+			<tr class="gu_tr">
+				<c:forEach var="list" items="${list}">
+				<td align="center">
+					<div class="gu_select" align="center">
+						<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}"  value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
+						<!-- <input type="checkbox" name="gu_select" id="check_2"  value="강남구"><label for="check_2">강남구</label>
+						<input type="checkbox" name="gu_select" id="check_3"  value="도봉구"><label for="check_3">도봉구</label>
+						<input type="checkbox" name="gu_select" id="check_4"  value="동대문구"><label for="check_4">동대문구</label>
+						<input type="checkbox" name="gu_select" id="check_5"  value="동작구"><label for="check_5">동작구</label> -->
+					</div>
+				</td>
+				</c:forEach>
+			</tr>
+			
 			<tr>
+				<td align="center">
+				<input type="button" class="choice_button" value="선택 완료" onclick="gu_choice()">
+				<!-- 해당 구 선택 시 해당 리스트들 보이는 페이지로 이동 -->
+				</td>
+			</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	</form>
+	
+	
+	
+	<!-- 제일 최근 것 -->
+			<!-- 	<tr>
 				<td align="center">
 					<div class="gu_select" align="center">
 						<input type="checkbox" name="gu_select" id="check_1"  value="전체"><label for="check_1">전체</label>
@@ -131,26 +176,12 @@
 						<input type="checkbox" name="gu_select" id="check_6"  value="마포구"><label for="check_6">마포구</label>
 						<input type="checkbox" name="gu_select" id="check_7"  value="서대문구"><label for="check_7">서대문구</label>
 						<input type="checkbox" name="gu_select" id="check_8"  value="서초구"><label for="check_8">서초구</label>
-						<input type="checkbox" name="gu_select" id="check_8"  value="성동구"><label for="check_9">성동구</label>
+						<input type="checkbox" name="gu_select" id="check_9"  value="성동구"><label for="check_9">성동구</label>
 					</div>
 				</td>
 				
 			</tr>
-			
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			
-			<tr>
-				<td colspan="4" align="center"><input type="button" class="choice_button" value="선택 완료" onclick="gu_choice()"></td>
-				<!-- 해당 구 선택 시 해당 리스트들 보이는 페이지로 이동 -->
-			</tr>
-		</table>
-	</form>
-	
+			 -->
 		<%-- <table>
 			
 			<!-- hidden : 직접 input 박스에서 입력받지 못한 값들을 전달할 때 사용  -->

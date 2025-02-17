@@ -23,8 +23,10 @@ public class ReviewController {
 	@Autowired
 	private ReviewServiceImpl service;
 	
+	
+	// 게시글 목록
 	@RequestMapping("/reviewList.do")
-	private String reviewList(HttpServletRequest request, HttpServletResponse response, Model model) 
+	public String reviewList(HttpServletRequest request, HttpServletResponse response, Model model) 
 			throws ServletException, IOException {
 		logger.info("<<< url -> reviewList.do >>>");
 		
@@ -33,16 +35,20 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/reviewWrite.do")
-	private String reviewWrite() {
+	public String reviewWrite() {
 		logger.info("<<< url -> reviewWrite.do >>>");
 		
 		return "community/review/reviewWrite";
 	}
 
+	// 게시글 상세페이지
 	@RequestMapping("/reviewDetail.do")
-	private String reviewDetail() {
+	public String reviewDetail(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
 		logger.info("<<< url -> reviewDetail.do >>>");
 		
+		service.reviewDetailAction(request, model);
 		return "community/review/reviewDetail";
+		
 	}
 }

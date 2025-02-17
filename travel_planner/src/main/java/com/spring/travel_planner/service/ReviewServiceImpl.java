@@ -45,6 +45,8 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		List<ReviewDTO> list = dao.reviewList(map);
 		
+		// 후기 총 건수
+		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
 	}
@@ -53,6 +55,15 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void reviewDetailAction(HttpServletRequest request, Model model) 
 			throws ServletException, IOException {
+		System.out.println("ReviewServiceImpl - reviewDetailAction");
+		
+		int r_num = Integer.parseInt(request.getParameter("r_num"));
+
+		dao.reviewViews(r_num);
+		
+		ReviewDTO dto = dao.reviewDetail(r_num);
+		
+		model.addAttribute("dto", dto);
 		
 	}
 

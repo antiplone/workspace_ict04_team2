@@ -23,36 +23,46 @@ public class LocationController {
 	@Autowired
 	private LocationServiceImpl service;
 	
+	// 여행지 메인(기본값 = '전국'리스트)
 	@RequestMapping("/location_main.lc")
 	public String local_main(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_main.lc >>>");
 		
+		// 테스트 db연결
+		service.guListAction_test(request, response, model);
+		
 		return "location/location_main";
 	}
 	
-	@RequestMapping("/location_datailAction.lc")
+	// 여행지 선택 - 소개 페이지
+	@RequestMapping("/location_detailAction.lc")
 	public String location_datailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_datailAction.lc >>>");
 		
-		return "location/location_datailAction";
+		return "location/location_detailAction";
 	}
 	
+	// '구'선택 팝업창
 	@RequestMapping("/location_mainSelect.lc")
 	public String location_mainSelect(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_mainSelect.lc >>>");
 		
-		/* service.guListAction(request, response, model); */
+		service.guListAction(request, response, model);
 		
 		return "location/location_mainSelect";
 	}
 	
+	// '구'선택 완료 시 해당 지역 리스트
 	@RequestMapping("/location_mainListAction.lc")
 	public String location_mainListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_mainListAction.lc >>>");
+		
+		// 테스트 db연결
+		service.guListAction_test(request, response, model);
 		
 		return "location/location_mainListAction";
 	}
