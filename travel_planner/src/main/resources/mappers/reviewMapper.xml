@@ -5,18 +5,13 @@
 
 <mapper namespace="com.spring.travel_planner.dao.ReviewDAO">
 
-<!-- 리뷰 개수 -->
-<select id="mainReviewCnt" resultType="int">
-	SELECT COUNT(*) FROM travle_review_tb
-</select>
-
-<!-- 조회순으로 리뷰게시글 4개만 -->
+<!-- main - 조회순으로 리뷰게시글 4개만 -->
 <select id="mainReviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
 	<![CDATA[
 	SELECT *
 	  FROM (SELECT R.*
 						  , rownum AS rn
-					FROM (SELECT * FROM travle_review_tb
+					FROM (SELECT * FROM travle_review_tbl
 							  WHERE r_show = 'Y'
 							  ORDER BY r_readCnt DESC) R
 				)
@@ -24,4 +19,40 @@
 	  	 AND rn <= #{end}
 	]]>
 </select>
+
+<!-- 후기 목록 -->
+<select id="reviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
+	
+		SELECT *
+		  FROM
+        (SELECT A.*,
+                rownum AS rn
+         FROM
+                (SELECT * FROM travle_review_tbl
+                  WHERE r_show = 'Y'
+                  ORDER BY r_num DESC) A
+	        )
+	 	 WHERE <![CDATA[ rn >= #{start}
+
+</select>
+
+<!-- 후기 총 건수 -->
+<select id="reviewCnt" resultType="int">
+	SELECT COUNT(*) FROM travle_review_tbl
+</select>
+
+<!-- 후기 상세페이지 -->
+<select id="reviewDetail" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
+	SELECT *
+	  FROM travle_review_tbl
+	 WHERE r_num = #{r_num}
+</select>
+
+<!-- 후기 조회수 -->
+<select id="reviewViews" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	UPDATE travle_review_tbl
+	   SET r_readCnt = r_readCnt +1
+	 WHERE r_num = #{r_num}
+</select>
+
 </mapper>

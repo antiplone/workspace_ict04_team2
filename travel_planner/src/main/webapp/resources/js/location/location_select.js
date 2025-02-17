@@ -11,3 +11,4 @@ function gu_select() {
 	window.location="${path}/location_seoul.lc"
 }
  
+ 

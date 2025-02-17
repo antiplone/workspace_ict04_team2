@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/setting.jsp" %>
+<%@ include file="/WEB-INF/views/common/setting.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,31 +30,33 @@
 			<div class="reviewDetail_top">
 			
 				<!-- 도시/제목/작성자 시작 -->
+				
 				<div class="reviewDetail_city">
 				도시
 				</div>
 				
-				<div class="reviewDetail_title">
-				제목
-				</div>
+				<div class="reviewDetail_title">${dto.r_title}</div>
 				
 				<!-- 작성자/작성일/조회수 시작 -->
 				<div class="reviewDetail_info">
-					<div class="reviewDetail_writer">작성자/작성일</div>
-					<div class="reviewDetail_views">조회수</div>
+					<div class="reviewDetail_writer">${dto.m_name}/${dto.r_regDate}</div>
+					<div class="reviewDetail_views">조회수 ${dto.r_readCnt}</div>
 				</div>
 				<!-- 작성자/작성일/조회수 시작 끝 -->
 				<!-- 도시/제목/작성자 끝 -->
+				
 			</div>
 			
-			<div class="reviewDetail_middel">
+			
+			<div class="reviewDetail_middle">
 				<!-- 후기 시작 -->
-				<div class="reviewDetail_contents">내용</div>
+				<div class="reviewDetail_contents">${dto.r_content}</div>
 				<!-- 후기 끝 -->
-				
+			
 				<!-- 태그 시작 -->
 				<div class="reviewDetail_tag">태그</div>
 				<!-- 태그 끝 -->
+				
 			</div>
 			
 			<!-- 후기 하단 시작 -->
