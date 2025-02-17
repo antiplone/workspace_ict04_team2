@@ -30,18 +30,16 @@
  }); */
 
  
-/* '시' 선택 시 service로 값 전달 + '구'선택 팝업창 */
+/* '시' 선택 시 service로 값 전달 + '구'선택 팝업창 
     function si_select(){
 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
- } 
+ }  */
  
- 
+/*  function si_select(){
+	 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
+ }
+  */
 
- /* '전국' 클릭 시 메인페이지 새로고침 */
-/*  function si_selectAll() {
-	 location.href="${path}/location_mainSelect.lc";
- } */
- 
  </script>
  
 <%--  <script src="${path}/resources/js/location_select.js" defer> </script> --%>

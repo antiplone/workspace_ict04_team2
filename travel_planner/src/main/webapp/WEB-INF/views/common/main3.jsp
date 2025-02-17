@@ -35,10 +35,6 @@
 
 
 <body >
-			<!-- header 시작 -->
-	<div class="header_wrap">
-		<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	</div>
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
@@ -124,34 +120,9 @@
 		</div>
 	</div>
 	
-	
-	<div id="carouselShow" class="recomment_tour_list_wrap carousel slide">
-		<h2>함께 떠나는 지역 여행</h2>
-		<div class="recommend_box">
-			<div class="recommend_carousel_wrapper">
-				<ul id="recomment_in_wrap" class="recomment_in_wrap carousel-inner">
-					<c:forEach var="dto1" items="${list1}">
-						<li class="abc d_block">
-<%-- 						<a href="${path}/board_list.dol?rNum=${dto1.r_num}"> --%>
-							<a onclick="javascript:history.forward(load('${path}/regionList.rc'))">
-								<div class="text_center">글번호 : ${dto1.r_num}</div>
-								<div class="text_center recImgWrap">
-									<img src="${dto1.r_img}" />
-								</div>
-								<div class="text_center">${fn:substring(dto1.r_title,0,10)}.... </div>
-								<div class="text_center"> 작성자 : ${dto1.r_content}
-										
-								</div>
-								<div class="text_center">조회수 : ${dto1.r_readcnt}</div>
-							</a>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
+		<div class="mainaciont_wrap">
+			<%@ include file="/WEB-INF/views/common/mainAction.jsp"%>
 		</div>
-		<button id="recommondPrevBtn" class="recommondPrevBtn" onclick="changePrev(28)"></button>
-		<button id="recommondNextBtn" class="recommondNextBtn" onclick="changeNext(28)"></button>
-	</div>
 		
 		<%-- 추천코스 --%>
 		<div class="recom">
@@ -178,99 +149,8 @@
 						</a>
 					</div>
 				</div>
-
-				<%-- 후기 게시글들 --%>
-				<div class="rev_imgs">
-					
-					<%-- 리뷰가 있으면 반복 --%>
-					<c:forEach var="dto" items="${list}">
-					
-					 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-						<div class="rev_image">
-							<img alt="${dto.r_num}" src="${dto.r_img}">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">${dto.r_title}</div>
-							<div class="rev_img_text2">
-								<div>${dto.m_name}</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									${dto.r_readCnt}
-								</div>
-								<div>${dto.r_regDate}</div>
-							</div>
-						</div>
-					</div>
-					
-					</c:forEach>
-				
- 					<%-- <div class="rev_img revBtn" id="revImg1">
-						<div class="rev_image">
-							<img alt="1" src="${path}/resources/images/main/main_review_img1.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">다대포 꿈의 낙조분수에서 세계 최대, 최고 수준의 음악분수를 즐기고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>김*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									2560
-								</div>
-								<div>2025-02-06</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg2">
-							<img alt="2" src="${path}/resources/images/main/main_review_img2.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">아름다운 섬 흑산도에서 가족들과 잊지못할 추억을 쌓고 왔습니다.</div>
-							<div class="rev_img_text2">
-								<div>이*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									1506
-								</div>
-								<div>2024-01-26</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg3">
-							<img alt="3" src="${path}/resources/images/main/main_review_img3.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">푸르디 푸른 검은 바닷물이 일렁이는 도시!</div>
-							<div class="rev_img_text2">
-								<div>한*원</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									560
-								</div>
-								<div>2022-11-05</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="rev_img revBtn">
-						<div class="rev_image" id="revImg4">
-							<img alt="4" src="${path}/resources/images/main/main_review_img4.jpg">
-						</div>
-						<div class="rev_img_title">
-							<div class="rev_img_text1">초등학생 아이와 함께 다녀왔어요. 아이가 정말 행복했다고 다음에 또 오자고 하네요.</div>
-							<div class="rev_img_text2">
-								<div>박*지</div>
-								<div>
-									<i class="fi fi-rr-eye"></i>
-									450
-								</div>
-								<div>2020-01-03</div>
-							</div>
-						</div>
-					</div> --%>
+				<div class="mainactionb_wrap">
+					<%@ include file="/WEB-INF/views/community/review/mainReviewAction.jsp"%>
 				</div>
 			</div>
 		</div>
