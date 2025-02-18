@@ -3,11 +3,12 @@
 
 /* '시' 선택 메뉴 */
 .location_si {
-	width: 110px;
+	width: 90px;
 	padding:0px 30px 10px 30px;
 	margin-left: auto;
 	margin-right: auto;
 	cursor: pointer; /* 마우스 포인트가 올라갔을 때 커서 모양을 포인터로 변경 */ 
+	display: flex;
 }
 
 /* '시' 메뉴에 마우스 올렸을 때 이미지 커지게 */
@@ -17,6 +18,8 @@
 }
 
 .container {
+	display: flex;
+	width: 500px;
 	padding:0px 30px 10px 30px;
 	align: center;
 }
@@ -26,6 +29,9 @@
     padding-bottom: 50px;
 }
 
+.si_seconde {
+	margin: 30px 0px 0px;
+}
 
 /* '시' 선택할 때 라디오 체크 버튼 안 보이게 */
 [type=radio] { 
@@ -77,6 +83,7 @@ input[type="radio"]:checked + label {
 
 #list_images {
 	width: 250px;
+	height: 180px;
 	margin: 5px;
 	border-radius: 10px;
 	align-items: center;
