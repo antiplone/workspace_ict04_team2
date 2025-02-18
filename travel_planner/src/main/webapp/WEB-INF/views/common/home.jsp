@@ -65,11 +65,11 @@
 		  recommWrap.style.transform = "translateX(-" + width * counter + "%)";
 	  }
 	  // 마지막에는 오른쪽 클릭버튼 안나오게 하기
-	console.log(counter)
+		console.log(counter)
+		e.target.parentElement.parentElement.classList.remove('on');
 	}
 	
 	function changeNext(width){
-	  alert("오른쪽으로 이동~");
 	  let recommWrap = document.querySelector("#recomment_in_wrap");
 	  if (counter >= 3){
 		  event.preventDefault()
@@ -82,7 +82,9 @@
 		  recommWrap.style.transform = "translateX(-" + width * counter + "%)";
 		  counter++;
 	  }
-	console.log(counter)
+		console.log(counter)
+		e.target.parentElement.parentElement.classList.add('on');
+		
 	  // 마지막에는 오른쪽 클릭버튼 안나오게 하기
 	}
 	

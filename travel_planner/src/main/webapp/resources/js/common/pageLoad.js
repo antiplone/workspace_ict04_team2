@@ -1,16 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-	recommend_list()
-	
+	maintop_list()
 	
 	// 댓글 목록
-	function recommend_list(){ // (8)
-		console.log("recommend_list()");
+	function maintop_list(){ // (8)
+		/*alert("maintop_list")*/
 		$.ajax({
-			url:'main.do', // 컨트롤러로 이동(9)
+			url:'mainAction.do', // 컨트롤러로 이동(9)
 			type: 'POST',
 			success : function(result){ // 콜백함수(13) => result는 comment_list
-				$('#tableContentWrap').html(result);
+				$('#maintopListWrap').html(result);
+			},
+			error:function(j,t, errorThrown){
+				alert(errorThrown);
+			},
+		});
+	} 	
+   	
+	bottomList()
+	
+	// 댓글 목록
+	function bottomList(){ // (8)
+		/*alert("mainReviewAction")*/
+		$.ajax({
+			url:'mainReviewAction.do', // 컨트롤러로 이동(9)
+			type: 'POST',
+			success : function(result){ // 콜백함수(13) => result는 comment_list
+				$('#mainbottomListWrap').html(result);
 			},
 			error:function(j,t, errorThrown){
 				alert(errorThrown);

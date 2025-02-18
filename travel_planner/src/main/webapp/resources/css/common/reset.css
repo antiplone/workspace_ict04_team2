@@ -11,7 +11,7 @@ article, aside, details, figcaption, figure, footer, hgroup, menu, nav, section 
 /*html5 새로 추가된 요소들은 블록요소로 인식되지 않음. 이 요소들은 대부분 블록요소일 경우가 대부분이기때문에 한꺼번에 선언함.*/
 
 a {
-	color: initial;		/* 초기값 */
+	color: initial !important;		/* 초기값 */
 	text-decoration: none !important;
 }
 *, *::before, *::after { box-sizing: border-box; }

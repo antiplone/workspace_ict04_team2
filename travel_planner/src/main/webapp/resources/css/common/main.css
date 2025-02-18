@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-.contents_wrap .header_wrap,
-#contents #tableContentWrap div.header_wrap{display:none;}
+/* .contents_wrap .header_wrap,
+#contents #tableContentWrap div.header_wrap{display:none;} */
 
 
 #container {
@@ -14,6 +14,8 @@
 	min-width: 1240px;
 	width: 100%;
 	margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .section2 a {
@@ -234,7 +236,7 @@
 /* -----------------여행후기----------------- */
 .rev { margin: 0px 0px 40px 0; }
 .revs {
-	padding: 40px 0;
+	padding: 60px 0 40px 0;
 	min-width: 960px;
 }
 .revs>div:first-child {

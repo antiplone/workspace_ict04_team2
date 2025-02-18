@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.travel_planner.dao.MemberDAOImpl;
 import com.spring.travel_planner.dao.ReviewDAO;
+import com.spring.travel_planner.service.HomeServiceImpl;
 import com.spring.travel_planner.service.ReviewService;
 
 /**
@@ -34,6 +35,9 @@ public class MainController {
 
   @Autowired
 	private ReviewService rev_service;
+  
+  @Autowired
+  private HomeServiceImpl home_service;
 
 	@RequestMapping("/home.do")
 
@@ -43,13 +47,28 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main.do")
-	private String main2(HttpServletRequest req, HttpServletResponse res, Model model) 
+	private String main(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< url => main.do >>>");
-		rev_service.mainReviewList(req, res, model);
 		return "common/main3";
-
 	}
+	
+	@RequestMapping("/mainAction.do")
+	private String mainAction(HttpServletRequest req, HttpServletResponse res, Model model) 
+			throws ServletException, IOException{
+		logger.info("<<< url => mainAction.do >>>");
+		home_service.MemberListAction(req, res, model);
+		return "common/mainAction";
+	}
+
+	@RequestMapping("/mainReviewAction.do")
+	private String mainReviewListAction(HttpServletRequest req, HttpServletResponse res, Model model) 
+			throws ServletException, IOException{
+		logger.info("<<< url => mainReviewListAction.do >>>");
+		rev_service.mainReviewList(model);
+		return "community/review/mainReviewAction";
+	}
+
 
 	@RequestMapping("/login.do")
 	private String login() {
@@ -61,7 +80,6 @@ public class MainController {
 	private String login_action(HttpServletRequest req)
 			throws ServletException, IOException {
 		logger.info(req.getParameter("login_email"));
-
 //		mem.test(); /* DB 연결이 안되는지 테스트 */
 		mem.login_action(req);
 		return "common/home";
@@ -70,7 +88,6 @@ public class MainController {
 	@RequestMapping("/board_list.do") 
 	public String login_action2(HttpServletRequest req) {
 		logger.info(req.getParameter("DboardDAOImp - boardList"));
-		
 //		mem.test(); /* DB 연결이 안되는지 테스트 */
 		mem.login_action(req);
 		return "common/home";

@@ -4,8 +4,15 @@
 ### Added ###
 target/
 Tomcat v9.0 Server at localhost-config/
-.metadata/.plugins/org.eclipse.wst.server.core/servers.xml
-.metadata/.plugins/org.eclipse.wst.server.core/tmp0/logs
+.metadata/.plugins/org.eclipse.m2e.core.ui/
+.metadata/.plugins/org.eclipse.wst.server.core/
+.metadata/.plugins/org.eclipse.wst.sse.ui/
+.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/
+.metadata/.plugins/org.springsource.ide.eclipse.dashboard.ui/
+
+
+### Needs untrack-list ###
+# .metadata/.plugins/org.eclipse.core.runtime/.settings/
 
 ## 필요 #
 ### Git ###
@@ -169,3 +176,4 @@ local
 # *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,elasticbeanstalk,splunk
+/.metadata/

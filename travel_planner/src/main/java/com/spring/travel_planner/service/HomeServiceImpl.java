@@ -27,28 +27,19 @@ public class HomeServiceImpl {
 			throws ServletException, IOException {
 		System.out.println("<<< MemberServiceImpl - MemberListAction >>>");
 		
-		// 3단계. 화면에서 입력받은 값을 가져오기
-		String pageNum=req.getParameter("pageNum");
-		System.out.println(pageNum);
-		// 4단계. 싱글톤 방식으로 DAO 객체 생성, 다형성 적용
-		
-		// 5-1단계. 전체 게시글 갯수 카운트
-		Paging paging = new Paging(pageNum);
-		
-		int total = Hdao.recommendCnt();
-		
-		System.out.println("total => " + total);
-		
-		paging.setTotalCount(total);
-				
+		/*
+		 * int total = Hdao.recommendCnt();
+		 * 
+		 * System.out.println("total => " + total);
+		 */
 		// 5-2단계. 게시글 목록 조회
 		int start = 1;
-		int end = 9;
+		int end = 8;
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		map.put("start",start);
-		map.put("end",end);
+		map.put("start1",start);
+		map.put("end1",end);
 		
 		List<RecommendCourseDTO2> list1 = Hdao.recommendList(map);
 		/* System.out.println("list1 => " + list1); */
@@ -57,9 +48,6 @@ public class HomeServiceImpl {
 		
 		// 6단계. jsp로 처리결과 전달
 		model.addAttribute("list1", list1);
-		model.addAttribute("paging", paging);
-		
-		/* System.out.println("list1" + list1); */
 	}
 
 }
