@@ -68,6 +68,11 @@ span {
     	font-size: 14px;
     }
     
+    /* '공간소개' 타이틀 */
+    .title_place {
+    	margin-bottom: 20px;
+    }
+    
     /* 상세내용 '더보기' 버튼 클릭 시 전체 내용 보여짐 */
     .container {
     	display: -webkit-box;
@@ -136,7 +141,11 @@ $(document).ready(function($) {
 				</tr>
 				
 				<tr>
-					<td align="center" style="padding:0px 0px 30px"> ${dto.ti_location} </td>
+					<td align="center" style="padding: 10px 0px 30px"> ${dto.ti_location} </td>
+				</tr>
+				
+				<tr>
+					<td align="center" style="padding: 0px 0px 70px; font-size: 20px;"><i><b> # ${dto.ti_content} </b></i></td>
 				</tr>
 				
 				<!-- '상세보기', '후기작성' 클릭 시 해당 위치로 스크롤 이동 -->
@@ -162,8 +171,7 @@ $(document).ready(function($) {
 				<div class="place_detail_1">
 					<table style="margin-left: auto; margin-right: auto;">
 						<tr>
-							
-							<th><h2> 공간소개 </h2></th>
+							<th><h2 class="title_place"> 공간소개 </h2></th>
 						</tr>
 						<tr>
 							<td>

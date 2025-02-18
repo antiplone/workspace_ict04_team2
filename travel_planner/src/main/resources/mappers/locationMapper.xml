@@ -54,14 +54,14 @@
 </select>
 
 <!-- '구' 선택 시 해당 리스트들 조회 -->
-<!-- <select id="selectlocationList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
+ <select id="selectlocationList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
 	SELECT *
 	  FROM travel_tourInfo_tbl
 	 WHERE tc_num=(SELECT tc_num
 				     FROM travel_tourcity_tbl
 				    WHERE tc_si_num=#{tc_si_num}
-					  AND tc_gu_num IN (:#{tc_gu_num}))
-</select> -->
+					  AND tc_gu IN (:'#{tc_gu}'))
+</select> 
 
 <!-- 여행지 클릭 시 상세페이지 조회 -->
 <select id="locationDetailPage" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">

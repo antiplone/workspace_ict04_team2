@@ -38,7 +38,7 @@ public class LocationDAOImpl implements LocationDAO {
 		return list;
 	}
 	
-
+	// 여행지 갯수 카운트
 	@Override
 	public int locationCnt() {
 		System.out.println("LocationDAOImpl - locationCnt()");
@@ -49,12 +49,11 @@ public class LocationDAOImpl implements LocationDAO {
 	}
 	
 	
-	
 	// 지역 - '구' 선택 시 해당 리스트들 조회
 	@Override
 	public List<LocationDTO> selectlocationList(Map<String, Object> map) {
 		System.out.println("LocationDAOImpl - selectlocationList()");
-		
+		System.out.println("LocationDAOImpl - map" + map);
 		List<LocationDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationList", map);
 		
 		return list;
@@ -83,7 +82,6 @@ public class LocationDAOImpl implements LocationDAO {
 		return list;
 	}
 	*/
-
 
 	
 }
