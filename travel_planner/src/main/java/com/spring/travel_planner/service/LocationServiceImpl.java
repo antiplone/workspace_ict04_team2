@@ -75,6 +75,50 @@ public class LocationServiceImpl implements LocationService {
 		model.addAttribute("tc_si_num", tc_si_num);
 	}
 
+
+	
+	  // 지역 - '구' 선택 시 해당 리스트들 조회
+	  @Override public void selectListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
+			  throws ServletException, IOException { 
+	  System.out.println("LocationServiceImpl - selectListAction()");
+	  
+	  // 시(히든값), 구값 가져오기 int select_si =
+	  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
+	  String selcet_gu = request.getParameter("location_gu");
+	  System.out.println("service tc_si_num : => " + tc_si_num);
+	  System.out.println("service tc_gu : => " + selcet_gu);
+	 
+	  String[] tc_gu = selcet_gu.split("@");
+
+	 // 해당 지역에 맞는 정보 가져오기 - dao 정보 조회 
+	  Map<String, Object> map = new HashMap<String, Object>(); 
+	  map.put("tc_si_num", tc_si_num);
+	  
+	  for(int i=0; i<tc_gu.length; i++) {
+		  map.put("tc_gu", tc_gu[i]);
+		  System.out.println("service tc_gu[i] : => " + tc_gu[i]);
+	  }
+	 
+	  List<LocationDTO> list = dao.selectlocationList(map);
+	 
+	  // 해당 리스트들 jsp에 전달
+	  model.addAttribute("list", list);
+	  }
+
+	// 지역 - 여행지 클릭 시 상세페이지 조회
+	@Override
+	public void locationDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		
+		int ti_num = Integer.parseInt(request.getParameter("location_num"));
+	System.out.println("service locationDetailAction => " + ti_num);
+	
+	LocationDTO dto = dao.locationDetailPage(ti_num);
+	
+	model.addAttribute("dto", dto);
+		
+	}
+	
 	/*
 	// 지역 - '구'선택시 리스트들 조회 테스트 메서드
 	@Override
@@ -108,48 +152,5 @@ public class LocationServiceImpl implements LocationService {
 	}
 */
 	
-	  // 지역 - '구' 선택 시 해당 리스트들 조회
-	  @Override public void selectListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
-			  throws ServletException, IOException { 
-	  System.out.println("LocationServiceImpl - selectListAction()");
-	  
-	  // 시(히든값), 구값 가져오기 int select_si =
-	  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
-	  String selcet_gu = request.getParameter("location_gu");
-	  System.out.println("service tc_si_num : => " + tc_si_num);
-	  System.out.println("service tc_gu : => " + selcet_gu);
-	 
-	  String[] tc_gu = selcet_gu.split("@");
-
-	 // 해당 지역에 맞는 정보 가져오기 - dao 정보 조회 
-	  Map<String, Object> map = new HashMap<String, Object>(); 
-	  map.put("tc_si_num", tc_si_num);
-	  
-	  for(int i=0; i<tc_gu.length; i++) {
-		  map.put("tc_gu", tc_gu[i]);
-		  System.out.println("service tc_gu[i] : => " + tc_gu[i]);
-	  }
-	  
-	 
-	  List<LocationDTO> list = dao.selectlocationList(map);
-	 
-	  // 해당 리스트들 jsp에 전달
-	  model.addAttribute("list", list);
-	  
-	  }
-
-	// 지역 - 여행지 클릭 시 상세페이지 조회
-	@Override
-	public void locationDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException {
-		
-		int ti_num = Integer.parseInt(request.getParameter("hidden_ti_num"));
-		System.out.println("service locationDetailAction => " + ti_num);
-		
-		LocationDTO dto = dao.locationDetailPage(ti_num);
-		
-		model.addAttribute("dto", dto);
-		
-	}
-
+	
 }

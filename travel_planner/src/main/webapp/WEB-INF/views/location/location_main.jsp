@@ -208,7 +208,7 @@
 							<c:forEach var="dto" items="${dto}">
 								<td>
 									<%-- <input type="image" src="resources/local_images/${dto.ti_detail_url}" id="list_images" onclick="location_choice()"> --%>
-									<a href="${path}/location_detailAction?location_num=${dto.ti_num}">
+									<a href="${path}/location_detailAction.lc?location_num=${dto.ti_num}">
 									<img src="resources/local_images/${dto.ti_detail_url}" id="list_images"></a><br>
 									<div class="local_name"><strong >${dto.ti_name}</strong></div><br>
 									<div class="local_gu">${dto.ti_location}</div>
