@@ -30,23 +30,23 @@
     button.style.color = "white"; // 글자색 변경 
 }
  */
- 
+
  function gu_choice() {
 	 
 	 // 선택한 '구' 정보 가져오기
 	 let checks = "";
 		for(let i=0; i<document.gu_form.gu_select.length; i++){
 			if(document.gu_form.gu_select[i].checked){
-				checks += document.gu_form.gu_select[i].value + " ";
+				checks += document.gu_form.gu_select[i].value + "@";
 			}
 		}
 	
 	// 해당 팝업창 닫으면서 페이지 이동 (선택한 '구'에 해당되는 리스트 페이지로)
-	// alert(checks);
-	 opener.location.href = "${path}/location_mainListAction.lc"; // 추가
+	//alert(checks);
+	 opener.location.href = "${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=" + checks; // 추가
 	 self.close();
 }
- 
+
 </script>
 
 <title>여기닷 - 여행지</title>
@@ -101,6 +101,9 @@
 	}
 
 	.choice_button {
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
         background-color: #ced4da; /* 기본 색 */
         color: black; /* 글자 색 */
         border: none; /* 테두리 없음 */
@@ -141,19 +144,14 @@
 				</td>
 				</c:forEach>
 			</tr>
-			
-			<tr>
-				<td align="center">
-				<input type="button" class="choice_button" value="선택 완료" onclick="gu_choice()">
-				<!-- 해당 구 선택 시 해당 리스트들 보이는 페이지로 이동 -->
-				</td>
-			</tr>
-			
 			</tbody>
 		</table>
-		
-		
-		
+				
+				<!-- '선택 완료' 버튼 -->
+				<div class="gu_select2" align="center">
+					<input type="button" class="choice_button" value="선택 완료" onclick="gu_choice()">
+					<!-- 해당 구 선택 시 해당 리스트들 보이는 페이지로 이동 -->
+				</div>
 	</form>
 	
 	

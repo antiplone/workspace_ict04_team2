@@ -29,17 +29,19 @@ public class LocationController {
 			throws ServletException, IOException {
 		logger.info("<<< url => location_main.lc >>>");
 		
-		// 테스트 db연결
-		service.guListAction_test(request, response, model);
+		
+		service.MainListAction(request, response, model);
 		
 		return "location/location_main";
 	}
 	
-	// 여행지 선택 - 소개 페이지
+	// 여행지 선택 - 상세페이지
 	@RequestMapping("/location_detailAction.lc")
 	public String location_datailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		logger.info("<<< url => location_datailAction.lc >>>");
+		
+		service.locationDetailAction(request, response, model);
 		
 		return "location/location_detailAction";
 	}
@@ -61,8 +63,11 @@ public class LocationController {
 			throws ServletException, IOException {
 		logger.info("<<< url => location_mainListAction.lc >>>");
 		
-		// 테스트 db연결
-		service.guListAction_test(request, response, model);
+		/*
+		 * // 테스트 db연결 service.guListAction_test(request, response, model);
+		 */
+		
+		service.selectListAction(request, response, model);
 		
 		return "location/location_mainListAction";
 	}
