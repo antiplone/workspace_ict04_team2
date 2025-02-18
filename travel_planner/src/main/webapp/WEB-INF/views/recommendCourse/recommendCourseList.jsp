@@ -130,11 +130,11 @@
 													
 												<tr>
 													<td>
-														<img src="${path}/resources/images/recommendCourse/course_detail/jejuCourse/서우봉둘레길.jpg" alt="여행지" onclick="window.location=해당 여행지 상세페이지로 이동" style="width: 450px;">
+														<img src="${path}/resources/images/recommendCourse/course_detail/jejuCourse/서우봉둘레길.jpg" alt="여행지" onclick="window.location=해당 여행지 상세페이지로 이동" style="width: 400px; height:320;">
 													</td>
 													<td>
 														<strong>코스개요</strong><br><br>
-														<div style="text-align: initial"> ${dto.subdetailoverview}
+														<div style="text-align: initial" class="subContent"> ${dto.subdetailoverview}
 															서우봉둘레길은 제주도 조천읍 함덕해수욕장 동쪽 바다에 접해 있는, 제주올레길 19코스에 포함된 길이다. 봄이면 노란 유채꽃이 에메랄드빛 함덕해변과 어우러져 최고의 산책 코스로 손꼽힌다. 서우봉은 완만한 등성이가 크게 두 봉우리를 이루고 있는 원추형 화산체이며 바라보는 조망이 좋아 새해마다 일출제가 열린다. 서우봉은 역사적으로도 의미가 있는 곳이다. 진도에서 거제로 피신해온 삼별초군이 마지막으로 저항하였던 곳으로 김방경 장군과 삼별초군의 전투가 벌어진 지역이다. 서우봉 정상은 조선시대에 만들어진 봉수대가 있었고 일제강점기에 일본군이 구축한 동굴이 20곳 있다. 정상에 올라 함덕의 아름다운 물빛과 멀리 보이는 한라산을 감상하며 여유를 만끽하기 좋고, 패러글라이딩을 즐기는 인구가 늘고 있다.
 														</div>
 													</td>								
