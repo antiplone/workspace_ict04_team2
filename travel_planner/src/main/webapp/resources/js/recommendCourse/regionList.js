@@ -1,5 +1,5 @@
 /**
- * regionList_modal.js
+ * regionList.js
  */
  
 document.addEventListener("DOMContentLoaded", function () {
@@ -31,19 +31,19 @@ document.addEventListener("DOMContentLoaded", function () {
             // 모달 열기
             modal.style.display = "block";
             
-/*            //스크롤 방지
+            //스크롤 방지
 			document.body.style.overflow = "hidden";
-*/			
+		
 		});
     });
 
     // 모달 닫기
     closeModalBtn.addEventListener("click", function () {
         modal.style.display = "none";
-/*        
+        
 	        //스크롤 방지 해제
 			document.body.style.overflow = "unset";
-*/			
+			
     });
 
     // 모달 외부 클릭 시 닫기
@@ -52,4 +52,5 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "none";
         }
     });
+    
 });

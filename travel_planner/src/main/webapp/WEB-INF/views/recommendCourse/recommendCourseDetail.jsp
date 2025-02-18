@@ -26,7 +26,7 @@
 	
 	<div class="wrap">
 		
-		<div class="re_detail-container">
+		<div class="rc_detail-container">
 			<!-- 컨텐츠 시작 -->
 				<!-- 상위 중앙 1 시작 -->
 				<div class="rc-detail-head">

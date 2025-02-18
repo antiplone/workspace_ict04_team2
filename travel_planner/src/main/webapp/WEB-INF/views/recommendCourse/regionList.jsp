@@ -45,6 +45,7 @@
 			</div>	
 			<!-- 상단 중앙1 종료 -->
 			
+			<!-- 모달 버튼 -->
 			<div id="areaList">
 					<c:forEach var="dto" items="${list}">
 					    <div class="area_list">
@@ -54,7 +55,6 @@
 					                        area_korea="${dto.tr_area_korea}"
 					                        area_content="${dto.tr_area_content}"
 					                        area_image="${path}${dto.tr_area_image}">
-					                        <%-- area_image="${path}/resources/images/recommendCourse/area/${dto.tr_area_image}"> --%>
 					                    <img src="${path}${dto.tr_area_image}"
 					                         class="area_img" 
 					                         alt="${dto.tr_area_english}">
