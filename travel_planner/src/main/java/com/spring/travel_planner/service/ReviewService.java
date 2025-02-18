@@ -23,7 +23,7 @@ public interface ReviewService {
 			throws ServletException, IOException;
 	
 	// 게시글 삭제처리
-	public void reviewDeleteAction(HttpServletRequest request, Model model)
+	public void reviewDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
 	// 게시글 작성처리

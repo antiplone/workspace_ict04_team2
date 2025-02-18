@@ -23,8 +23,9 @@ public class ReviewController {
 	@Autowired
 	private ReviewServiceImpl service;
 	
+	String viewPage = "";
 	
-	// 게시글 목록
+	// 후기 목록
 	@RequestMapping("/reviewList.do")
 	public String reviewList(HttpServletRequest request, HttpServletResponse response, Model model) 
 			throws ServletException, IOException {
@@ -41,7 +42,7 @@ public class ReviewController {
 		return "community/review/reviewWrite";
 	}
 
-	// 게시글 상세페이지
+	// 후기 상세페이지
 	@RequestMapping("/reviewDetail.do")
 	public String reviewDetail(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
@@ -51,4 +52,16 @@ public class ReviewController {
 		return "community/review/reviewDetail";
 		
 	}
+	
+	// 후기 삭제 처리
+	@RequestMapping("/reviewdeleteAction.do")
+	public String reviewdeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		logger.info("<<< url -> reviewdeleteAction.do >>>");
+		
+		service.reviewDeleteAction(request, response, model);
+		
+		return "community/review/reviewDeleteAction";
+	}
+	
 }

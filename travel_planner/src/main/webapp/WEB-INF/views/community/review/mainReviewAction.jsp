@@ -37,7 +37,7 @@
 			<c:forEach var="dto" items="${list}">
 			
 			 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-			 	<%-- <a href="${path}/reviewDetail.do?r_num=${dto.r_num}"> --%>
+			 	<a href="${path}/reviewDetail.do?r_num=${dto.r_num}">	<!-- 해당 번호의 게시글로 이동하는 버튼 -->
 					<div class="rev_image">
 						<img alt="${dto.r_num}" src="${dto.r_img}">
 					</div>
@@ -52,7 +52,7 @@
 							<div>${dto.r_regDate}</div>
 						</div>
 					</div>
-				<!-- </a> -->
+				</a>
 			</div>
 			
 			</c:forEach>
