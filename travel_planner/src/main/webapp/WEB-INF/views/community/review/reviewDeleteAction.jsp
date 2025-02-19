@@ -13,18 +13,18 @@
 <c:if test="${deleteCnt == 1}">
 	<script type="text/javascript">
 		setTimeout(function() {
-			alert("후기삭제 성공");
+//			alert("후기삭제 성공");
 			window.location = "${path}/reviewList.do";
-		}, 1000);
+		});
 	</script>
 </c:if>
 
 <c:if test="${deleteCnt != 1}">
 	<script type="text/javascript">
 		setTimeout(function() {
-			alert("후기삭제 실패");
+//			alert("후기삭제 실패");
 			window.location = "${path}/reviewList.do";
-		}, 1000);
+		});
 	</script>
 </c:if>
 

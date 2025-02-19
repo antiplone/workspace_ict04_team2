@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/setting.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="setting.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,15 +25,10 @@
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-
 <script src="${path}/resources/js/common/pageLoad.js" defer></script>
 
-
 </head>
-
-
-<body >
+<body>
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
