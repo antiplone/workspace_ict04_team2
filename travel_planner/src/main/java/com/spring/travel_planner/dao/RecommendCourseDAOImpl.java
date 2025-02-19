@@ -22,5 +22,14 @@ public class RecommendCourseDAOImpl implements RecommendCourseDAO {
 		List<RecommendCourseDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.RecommendCourseDAO.areaList");
 		return list;
 	}
+	
+	// 추천 코스 목록
+	@Override
+	public List<RecommendCourseDTO> recommendCouresList(int tr_area_id) {
+		System.out.println("RecommendCourseDAOImpl - recommendCouresList()");
+		
+		List<RecommendCourseDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.RecommendCourseDAO.recommendCouresList", tr_area_id);
+		return list;
+	}
 
 }

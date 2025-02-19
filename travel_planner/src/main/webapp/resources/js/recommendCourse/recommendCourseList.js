@@ -19,14 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
             const courseTitle = this.getAttribute("course_title");
             const courseTaketime = this.getAttribute("course_taketime");
             const courseTag = this.getAttribute("course_tag");
+            const courseMap = this.getAttribute("course_map");
             const courseImage = this.getAttribute("course_image");
 
             // 모달 내용 업데이트
             modalCourseTitle.textContent = courseTitle;
             modalCourseTaketime.textContent = courseTaketime;
             modalCourseTag.textContent = courseTag;
-         /* modalCourseImage.src = courseImage;
-            modalCourseTitle.alt = courseTitle;*/
+         	modalCourseMap.src = courseMap;
+        	modalCourseImage.src = courseImage;
+          /*modalCourseTitle.alt = courseTitle;*/
+          
 
             // 모달 열기
             modal.style.display = "block";

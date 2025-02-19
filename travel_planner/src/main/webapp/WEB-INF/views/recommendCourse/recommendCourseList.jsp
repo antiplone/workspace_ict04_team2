@@ -21,9 +21,7 @@
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
 <!-- (3-3-2). 자바스크립트 소스 연결 -->
 <!-- defer : html을 다 읽은 후에 자바스크립트를 실행한다. 페이지가 모두 로드된 후에 해당 외부 스크립트가 실행된다. -->
-<script src="${path}/resources/js/recommendCourse/regionDetail.js" defer></script>
 <script src="${path}/resources/js/recommendCourse/recommendCourseList.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -48,32 +46,41 @@
 				<!-- 상단 중앙2 시작 -->
 				<div id="courseList">
 					<!-- 1번 추천코스 시작 -->
+					<c:forEach var="dto" items="${list}">
 						<div class="course_list">
 							<div class="modal_popup_button">
 								<button type="button" class="modal_btn"
+											course_id="${dto.tr_course_id}"
 					                        course_title="${dto.tr_course_title}"
 					                        course_taketime="${dto.tr_course_taketime}"
 					                        course_tag="${dto.tr_course_tag}"
 					                        course_map="${dto.tr_course_map}"
+					                        course_subId="${dto.tr_Course_subId}"
+					                        course_locationImage="${dto.tr_course_locationImage}"
+					                        course_location="${dto.tr_course_location}"
+					                        course_locationContent="${dto.tr_course_locationContent}"
 					                        course_image="${path}${dto.tr_course_image}">
-					                    <%-- <img src="${path}${dto.tr_course_image}"
+					                        <div class="image-box">
+					                   		<img src="${path}${dto.tr_course_image}"
 					                         class="course_img" 
-					                         alt="${dto.tr_course_title}"> --%>
-					                         <div class="image-box">
+					                         alt="${dto.tr_course_title}">
+					                        </div>  
+					                         <%-- <div class="image-box">
 												<img src="${path}/resources/images/recommendCourse/course/Jeju_course_1-1.jpg" class="course_img" alt="추천코스_제주">
-											 </div>	
+											 </div>	 --%>
 					               
-								<div class="course_content">
-									<div id="course_title"><a>제주의 자연을 느끼다</a></div>
-									<div id="course_taketime">당일여행</div>
-									<div id="course_tag">
-										#25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 <br> 
-										#제주권 #추천코스 #한국관광100선 #한국의둘레길 <br>
-									</div>
-								</div>
-								</button>
+											<div class="course_content">
+												<div class="course_title">${dto.tr_course_title}</div>
+												<div class="course_taketime">${dto.tr_course_taketime}</div>
+												<div class="course_tag">${dto.tr_course_tag}
+													<!-- #25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 <br> 
+													#제주권 #추천코스 #한국관광100선 #한국의둘레길 <br> -->
+												</div>
+											</div>
+								 </button>
 							</div>
 						</div>
+					</c:forEach>	
 					<!-- 1번 추천코스 끝 -->
 					
 					<!-- 모달 팝업 -->
@@ -82,22 +89,18 @@
 					        <div class="content_box">
 					            <div class="content">
 					                <div class="courseContent">
-					                    <div id="modalCourseTitle"><h1> 제주의 자연을 느끼다 </h1></div>
-					                    <div id="modalCourseTaketime"><h3> 당일여행 </h3></div>
-					                    <div id="modalCourseTag">
-					                    <br>
-											<p>#25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 #제주권 #추천코스 #한국관광100선 #한국의둘레길 </p> 
-										<br>
-					                    </div>
-					                </div>
-					                <div class="area_detail_image_box">
-					                    <img id="modalCourseImage" class="modal_detail_image" src=""  alt="">
+					                    <div id="modalCourseTitle"></div>
+					                    <div id="modalCourseTaketime"></div>
+					                    <hr>
+					                    <div id="modalCourseTag"></div>
+					                    <hr>
+					                    <div class="course_map_box"><img id="modalCourseMap" class="modal_map_image" src=""  alt=""></div>
+					                    <div class="course_detail_image_box"><img id="modalCourseImage" class="modal_detail_image" src=""  alt=""></div>
 					                </div>
 					            </div>
 					        </div>
 					        <button type="button" class="close_btn"><i class="fa-solid fa-xmark"></i></button>
-					        
-							<!-- 추천 코스 목록 시작 -->
+						<%-- 	<!-- 추천 코스 목록 시작 -->
 							<div class="rc-detail-head">
 								<div id="rc-detail-title">
 									<h1> 제주의 자연을 느끼다 </h1>
@@ -147,7 +150,7 @@
 							
 							</div>
 							
-							<!-- 추천 코스 목록 끝 -->
+							<!-- 추천 코스 목록 끝 --> --%>
 					    </div>
 					</div>
 					<!-- 모달 팝업 끝 -->

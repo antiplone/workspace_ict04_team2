@@ -20,21 +20,37 @@ public class RecommendCourseServiceImpl implements RecommendCourseService {
 	@Autowired
 	private RecommendCourseDAO dao;
 	
-	// 여행지역 목록
+	// 지역 목록
 	@Override
-	public void productListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+	public void regionListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
-		System.out.println("RecommendCourseServiceImpl - productListAction()");
+		System.out.println("RecommendCourseServiceImpl - regionListAction()");
 		
 		List<RecommendCourseDTO> list = dao.areaList(); 
 		
 		model.addAttribute("list", list);
 	}
 	
-	// 여행지역 추천코스 상세페이지
+	// 추천코스 목록
+	@Override
+	public void RecommendCourseListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		System.out.println("RecommendCourseServiceImpl - RecommendCourseListAction()");
+		
+		int tr_area_id = Integer.parseInt(request.getParameter("area_id"));
+		
+		List<RecommendCourseDTO> list = dao.recommendCouresList(tr_area_id); 
+		
+		model.addAttribute("list", list);
+		
+	}
+	
+	// 지역 추천코스 상세페이지
 	@Override
 	public void RecommendCourseListDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		
 	}
+
+	
 }

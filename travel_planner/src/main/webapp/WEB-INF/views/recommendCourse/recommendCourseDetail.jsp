@@ -45,14 +45,10 @@
 					<hr>
 				</div>										
 				<!-- 상위 중앙 1 끝 -->
+				<!-- 
+				상위 중앙 2 시작 - 카카오 지도 API 시작
 				
-				<!-- 상위 중앙 2 시작 - 카카오 지도 API 시작 -->
-				<div id="kakaoMap" width="500px" height="500px">
-				
-				</div>
-				
-				
-				<!-- <div id="map" style="width:500px;height:400px;"></div>
+				<div id="map" style="width:500px;height:400px;"></div>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c5b74c5b5a0c1756db03438ea3e5b2"></script>
 				<script>
 					var container = document.getElementById('map');
@@ -102,10 +98,9 @@
 					        image : markerImage // 마커 이미지 
 					    });
 					}
-				</script> -->
-				<!-- 상위 중앙 2 끝 - 카카오 지도 API 끝-->
-				
-				<!--  -->
+				</script> 
+				상위 중앙 2 끝 - 카카오 지도 API 끝 
+				 -->
 				<div class="rc_map">
 						<img src="${path}/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png" class="course-detail-map" alt="제주 여행코스 지도">
 				</div>

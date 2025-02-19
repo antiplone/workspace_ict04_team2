@@ -1,6 +1,7 @@
+-- 지역 테이블
 DROP TABLE travel_area_tbl CASCADE CONSTRAINTS;
 CREATE TABLE travel_area_tbl (
-	tr_area_id 		NUMBER(38) PRIMARY KEY,			-- 지역 번호
+	tr_area_id 		    NUMBER(38) PRIMARY KEY,		-- 지역 번호
 	tr_area_english 	VARCHAR2(50),				-- 지역 영문
 	tr_area_korea 		VARCHAR2(50),				-- 지역 한글
 	tr_area_content	    CLOB  NOT NULL,				-- 지역 설명
@@ -96,17 +97,65 @@ COMMIT;
 SELECT *
 FROM travel_area_tbl;
 
+-- 추천코스 테이블
 DROP TABLE travel_recommendCourse_tbl CASCADE CONSTRAINTS;
 CREATE TABLE travel_recommendCourse_tbl (
-	tr_course_id		NUMBER(38) PRIMARY KEY,		-- 추천코스 번호
-	tr_area_id 			NUMBER(38) REFERENCES  travel_area_tbl(tr_area_id), -- 지역 번호
-	tr_course_title 	VARCHAR2(100) NOT NULL,		-- 추천코스 제목
-	tr_course_taketime 	VARCHAR2(50),				-- 추천코스 소요일
-	tr_course_tag 		VARCHAR2(100),				-- 추천코스 여행지 태그
-	tr_course_map			VARCHAR2(100) NOT NULL,	-- 추천코스 지도
-	tr_subCourse_id		NUMBER(38),					-- 추천코스 서브번호
-	tr_course_image			VARCHAR2(100),			-- 추천코스 이미지
-	tr_course_travel    VARCHAR2(100),				-- 추천코스 여행지
-	tr_course_subname   VARCHAR2(100),				-- 추천코스 코스 서브명	
-	tr_course_subContent	    CLOB  NOT NULL		-- 추천코스 코스 내용
+	tr_course_id		 NUMBER(38) PRIMARY KEY,							 -- 추천코스 번호
+	tr_area_id 			 NUMBER(38) REFERENCES  travel_area_tbl(tr_area_id), -- 지역 번호
+	tr_course_image 	 VARCHAR2(100),				  		 	 			 -- 추천코스 이미지
+	tr_course_title 	 VARCHAR2(100) NOT NULL,				  		 	 -- 추천코스 제목
+	tr_course_taketime   VARCHAR2(50),										 -- 추천코스 소요일
+	tr_course_tag 		 CLOB  NOT NULL,									 -- 추천코스 여행지 태그
+	tr_course_map		 VARCHAR2(100)	            						 -- 추천코스 지도
 );
+
+INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
+ VALUES( 11 , 1, '/resources/images/recommendCourse/course/Jeju_course_1-1.jpg', '제주의 자연을 느끼다', '당일여행', '#25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 #제주권 #추천코스 #한국관광100선 #한국의둘레길', '/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png');  
+
+COMMIT;
+
+DELETE FROM travel_recommendCourse_tbl 
+WHERE tr_area_id ='1'; 
+
+SELECT *
+FROM travel_recommendCourse_tbl;
+
+-- 추천코스 상세 테이블
+DROP TABLE travel_suBCourse_tbl CASCADE CONSTRAINTS;
+CREATE TABLE travel_suBCourse_tbl (
+	tr_Course_subId		   	  NUMBER(38)PRIMARY KEY,		-- 추천코스 서브번호
+	tr_course_id		  	  NUMBER(38) REFERENCES  travel_recommendCourse_tbl(tr_course_id), -- 추천코스 번호
+	tr_course_locationImage		   	  VARCHAR2(100),			    -- 여행지 이미지
+	tr_course_location    	  VARCHAR2(100),			-- 추천코스 여행지명
+	tr_course_locationContent CLOB  NOT NULL		        -- 추천코스 코스 내용
+);
+
+INSERT INTO travel_suBCourse_tbl(tr_Course_subId, tr_course_id, tr_course_locationImage, tr_course_location, tr_course_locationContent)
+ VALUES(1, 11, '/resources/images/recommendCourse/course_detail/jejuCourse/서우봉둘레길.jpg', '서우봉둘레길',
+ '서우봉둘레길은 제주도 조천읍 함덕해수욕장 동쪽 바다에 접해 있는, 제주올레길 19코스에 포함된 길이다. 봄이면 노란 유채꽃이 에메랄드빛 함덕해변과 어우러져 최고의 산책 코스로 손꼽힌다. 서우봉은 완만한 등성이가 크게 두 봉우리를 이루고 있는 원추형 화산체이며 바라보는 조망이 좋아 새해마다 일출제가 열린다. 서우봉은 역사적으로도 의미가 있는 곳이다. 진도에서 거제로 피신해온 삼별초군이 마지막으로 저항하였던 곳으로 김방경 장군과 삼별초군의 전투가 벌어진 지역이다. 서우봉 정상은 조선시대에 만들어진 봉수대가 있었고 일제강점기에 일본군이 구축한 동굴이 20곳 있다. 정상에 올라 함덕의 아름다운 물빛과 멀리 보이는 한라산을 감상하며 여유를 만끽하기 좋고, 패러글라이딩을 즐기는 인구가 늘고 있다.');  
+
+COMMIT;
+
+SELECT *
+FROM travel_suBCourse_tbl;
+
+-- 추천코스 조회
+SELECT a.tr_area_id
+	 , r.tr_area_id
+     , r.tr_course_id
+     , r.tr_course_image
+	 , r.tr_course_title
+	 , r.tr_course_taketime
+     , r.tr_course_tag
+	 , r.tr_course_map
+	 , s.tr_course_id
+	 , s.tr_Course_subId
+	 , s.tr_course_locationImage	 
+	 , s.tr_course_location
+	 , s.tr_course_locationContent
+  FROM travel_recommendCourse_tbl r
+	 , travel_suBCourse_tbl s
+	 , travel_area_tbl a
+ WHERE a.tr_area_id = r.tr_area_id
+   AND r.tr_course_id = s.tr_course_id
+   AND a.tr_area_id = 1;

@@ -10,15 +10,17 @@ import org.springframework.ui.Model;
 
 public interface RecommendCourseService {
 	
-	// 여행지역 목록
-	public void productListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+	// 지역 목록
+	public void regionListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 여행지역 상세페이지
+	// 지역 상세페이지
 	
-	// 여행지역 추천코스 목록
+	// 지역 추천코스 목록
+	public void RecommendCourseListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException;
 	
-	// 여행지역 추천코스 상세페이지
+	// 지역 추천코스 상세페이지
 	public void RecommendCourseListDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
