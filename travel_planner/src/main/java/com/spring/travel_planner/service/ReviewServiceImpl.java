@@ -14,15 +14,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.spring.travel_planner.dao.ReviewDAOImpl;
-import com.spring.travel_planner.dto.ReviewDTO1;
+import com.spring.travel_planner.dto.ReviewDTO;
 import com.spring.travel_planner.page.Paging;
 
 @Service
-public class ReviewServiceImpl implements ReviewService1 {
+public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired 
 	private ReviewDAOImpl dao;
 	
+	// 후기 목록
 	@Override
 	public void reviewListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			throws ServletException, IOException {
@@ -42,16 +43,33 @@ public class ReviewServiceImpl implements ReviewService1 {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<ReviewDTO1> list = dao.reviewList(map);
+		List<ReviewDTO> list = dao.reviewList(map);
 		
+		// 후기 총 건수
+		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
 	}
 
+	// 후기 상세페이지
 	@Override
 	public void reviewDetailAction(HttpServletRequest request, Model model) 
 			throws ServletException, IOException {
+		System.out.println("ReviewServiceImpl - reviewDetailAction");
 		
+		// reviewList 화면에서 get방식으로 넘긴 값을 가져온다.
+		int r_num = Integer.parseInt(request.getParameter("r_num"));
+		System.out.println("r_num => " + r_num);
+
+		// 조회수 증가
+		dao.reviewViews(r_num);
+		
+		// 후기 상세페이지
+		ReviewDTO dto = dao.reviewDetail(r_num);
+		System.out.println("dto => " + dto);
+		
+		// jsp로 처리결과를 전달
+		model.addAttribute("dto", dto);
 	}
 
 	@Override
@@ -60,11 +78,21 @@ public class ReviewServiceImpl implements ReviewService1 {
 		
 	}
 
-	@Override
-	public void reviewDeleteAction(HttpServletRequest request, Model model) 
-			throws ServletException, IOException {
-		
-	}
+	// 후기 삭제
+   @Override
+   public void reviewDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model) 
+         throws ServletException, IOException {
+      System.out.println("리뷰Service - reviewDeleteAction");
+      
+      // 화면에서 입력받은 값(hidden 포함)을 가져와서 DTO에 담는다.
+      int num = Integer.parseInt(request.getParameter("hidden_r_num").trim());
+      System.out.println("num => " + num);
+      
+      // 후기 수정처리 후 컨트롤러에서 list로 이동
+      int deleteCnt = dao.reviewDelete(num);
+      
+      model.addAttribute("deleteCnt", deleteCnt);
+   }
 
 	@Override
 	public void reviewInsertAction(HttpServletRequest request, Model model) 
@@ -72,4 +100,24 @@ public class ReviewServiceImpl implements ReviewService1 {
 		
 	}
 
+	// 조회순으로 리뷰게시글 4개만
+	@Override
+	public void mainReviewList(Model model) 
+			throws ServletException, IOException {
+		System.out.println("리뷰Service - reviewList");
+		
+		// 목록
+		int start = 1;
+		int end = 4;
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		
+		List<ReviewDTO> list = dao.mainReviewList(map);
+		System.out.println(start + "에서 " + end + "까지의 게시글 목록들 : " + list);
+		
+		// jsp로 처리결과 전달
+		model.addAttribute("list", list);
+	}
 }

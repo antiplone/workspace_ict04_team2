@@ -37,12 +37,12 @@
 .reviewDetail_info {
 	display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     color: #999999;
 }
 
 /* 후기 내용 부분..? */
-.reviewDetail_middel {
+.reviewDetail_middle {
 	width: 900px;
 	display: flex;
     position: relative;
@@ -53,9 +53,12 @@
 }
 
 .reviewDetail_contents {
-	min-height: 500px;
+	padding: 20px 10px;
 }
-
+.reviewDetail_image {
+	text-align: center;
+	margin-top: 30px;
+}
 /* 태그 버튼 */
 .reviewDetail_tag {
 	margin-bottom: 20px;
