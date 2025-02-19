@@ -61,9 +61,10 @@ public class NoticeController {
 		} else {
 			System.out.println("<< 비밀번호 불일치 >>");
 
-			int notice_num = Integer.parseInt(request.getParameter("hiddenB_num"));
-			viewPage = "notice_detailAction.nt";
-			return viewPage;
+			String noticeNum = request.getParameter("hiddenB_num");
+			viewPage =  request.getContextPath() + "/notice_detailAction.nt?noticeNum=" + noticeNum;
+			response.sendRedirect(viewPage);
+			return null;
 		}
 	}
 

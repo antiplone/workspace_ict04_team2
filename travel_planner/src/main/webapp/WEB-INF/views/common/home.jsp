@@ -46,7 +46,6 @@
 					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
 				</c:when> 
 				<c:otherwise>
-					<p><%= request.getAttribute("pgdto") %></p>
 					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
 				</c:otherwise> 
 			</c:choose> 
@@ -116,6 +115,20 @@
 	function si_select(){
 		 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
 	}
+
+	
+	$(function(){
+		if($(".wrap").hasClass("noticeDetail")===true){
+			$('#btnEdit').on('click', function() {
+	   			alert("야야");
+	   			$("#detailForm").attr("action", "${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}").submit();
+			})
+		})
+		else if($(".wrap").hasClass("noticeList")===true){
+			
+		})
+	});
+	
 </script>
 
 </html>

@@ -22,7 +22,7 @@
 		document.addEventListener("DOMContentLoaded", () => {
 			/* comment_list() */
 			
-		   	const btnEdit = document.querySelector("#btnEdit");
+		   	const btnEdit = document.querySelector("#btnEdit"); 
 		   	const btnList = document.querySelector("#btnList");
 		   	
 		   	// [게시글 목록 버튼] 클릭 시 컨트롤러의 목록으로 이동
@@ -33,18 +33,30 @@
 		   	
 		   	// [게시글 수정삭제 버튼] 클릭 시 [게시글 수정삭제 화면]으로 이동(컨트롤러에서 패스워드 체크 후) 
 	   		btnEdit.addEventListener('click', function(e){
-				document.detailForm.action="${path}/password_chkAction.nt";
+				document.detailForm.action="${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}";
 	   			document.detailForm.submit();	
 		    });
-   	    });
+		   	
+   		});
+		
+   	/* 	$(function(){$('#btnEdit').on('click', function() {
+	   			alert("야야");
+	   			homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.notice_password}');
+	   			
+	   			/* $("#detailForm").attr("action", "${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}");
+	   			$("#detailForm").submit; */
+   			});
+   		}); */
 		
 
-</script>	    
+</script>
+<% 
+	int nrcnt = Integer.parseInt(request.getParameter("noticeReadCnt"));
+	int cnt1 = nrcnt + 1;
+%>	    
 </head>
 <body>
-
-	<div class="wrap">
-				
+	<div class="wrap noticeDetail" id="noticeDetail">
 		<!-- 컨텐츠 시작 -->
 			<div id="container"> 
 				<div id="contents"> 
@@ -61,16 +73,16 @@
 						<div id="right">
 							<div class="table_div">
 								<form name="detailForm" method="post">
-									
 									<table>
 										<tr>
 											<th style="width:200px">글번호</th>
 											<td style="width:200px">
 											${dto.noticeNum}
-											
 											</td>
 											<th style="width:200px">조회수</th>
-											<td style="width:200px">${dto.noticeReadCnt}</td>
+											<td style="width:200px">
+												<%=cnt1%>
+											</td>
 										</tr>
 										<tr>
 											<th style="width:200px">작성자</th>
@@ -102,8 +114,9 @@
 										<tr>
 											<td colspan="4" align="center">
 												<input type="hidden" name="hiddenB_num" value="${dto.noticeNum}">
-												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit">
-												<input type="button" class="inputButton" value="목록" id="btnList">
+												<input type="hidden" name="hiddenPassword" value="${dto.noticePassword}">
+												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit" onclick="homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}')">
+												<input type="button" class="inputButton" value="목록" id="btnList" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
 									</table>

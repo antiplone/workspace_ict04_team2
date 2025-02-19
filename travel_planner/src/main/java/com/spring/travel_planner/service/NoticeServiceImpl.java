@@ -28,7 +28,8 @@ public class NoticeServiceImpl implements NoticeService{
 		System.out.println("<<< NoticeServiceImpl - @Service >>>");
 		
 		// 3단계. 화면에서 입력받은 값을 가져오기
-		String pageNum=req.getParameter("notice_num");
+		String pageNum=req.getParameter("pageNum");
+		
 		System.out.println("pageNum" + pageNum);
 		// 4단계. 싱글톤 방식으로 DAO 객체 생성, 다형성 적용
 		

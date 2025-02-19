@@ -47,7 +47,14 @@
 		   WHERE notice_num = #{notice_num}
 	</update>
 	<select id="getNoticeDetail" parameterType="int" resultType="com.spring.travel_planner.dto.NoticeDTO">
-		SELECT *
+		SELECT notice_num noticeNum,
+			   notice_title noticeTitle,
+			   notice_content noticeContent,
+			   notice_writer noticeWriter,
+			   notice_password noticePassword,
+			   notice_readCnt noticeReadCnt,
+			   notice_regDate noticeRegDate,
+			   notice_show noticeShow
 		  FROM TRAVEL_NOTICE_TABLE
          WHERE notice_num= #{notice_num}
 	</select>
@@ -66,7 +73,7 @@
 	</update>
 	
 	<update id="deleteNotice"  parameterType="int">
-		UPDATE TRAVEL_NOTICE_TABLE SET NOTICE_show='N' WHERE notice_num = #{noticeNum}
+		UPDATE TRAVEL_NOTICE_TABLE SET NOTICE_show='N' WHERE notice_num = #{notice_num}
 	</update> 
 
 </mapper>
