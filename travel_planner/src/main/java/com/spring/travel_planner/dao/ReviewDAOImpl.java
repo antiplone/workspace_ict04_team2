@@ -54,20 +54,37 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return dto;
 	}
 
-//	@Override
-//	public int reviewUpdate(int r_num) {
-//		return 0;
-//	}
-//
-//	@Override
-//	public int reviewDelete(int r_num) {
-//		return 0;
-//	}
-//
-//	@Override
-//	public int reviewInsert(ReviewDTO dto) {
-//		return 0;
-//	}
+	// 후기 수정
+	@Override
+	public int reviewUpdate(ReviewDTO dto) {
+		System.out.println("ReviewDAOImpl - reviewUpdate");
+		
+		int updateCnt = sqlSession.update("com.spring.travel_planner.dao.ReviewDAO.reviewUpdate", dto);
+		
+		return updateCnt;
+	}
+
+	// 후기 삭제 
+	@Override
+	public int reviewDelete(int r_num) {
+		System.out.println("ReviewDAOImpl - reviewDelete");
+		
+		int deleteCnt = sqlSession.delete("com.spring.travel_planner.dao.ReviewDAO.reviewDelete", r_num);
+		
+		return deleteCnt;
+	}
+	
+	// 후기 작성
+	@Override
+	public int reviewInsert(ReviewDTO dto) {
+		System.out.println("ReviewDAOImpl - reviewInsert");
+		
+		ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
+		int insertCnt = dao.reviewInsert(dto);
+		
+		return insertCnt;
+	}
+
 
 	// main - 조회순으로 리뷰게시글 4개만
 	public List<ReviewDTO> mainReviewList(Map<String, Object> map) {

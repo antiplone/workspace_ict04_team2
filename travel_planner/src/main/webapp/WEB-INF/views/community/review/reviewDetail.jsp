@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewDetail.css">
 
+<script>
+
+</script>
+
 </head>
 <body>
 	<div>
@@ -62,7 +66,7 @@
 			<!-- 후기 하단 시작 -->
 			<div class="reviewDetail_bottom">
 				<input type="button" value="목록" class="reviewDetail_listBtn" onclick="window.location='${path}/reviewList.do'">
-				<input type="button" value="수정" class="reviewDetail_corBtn">
+				<input type="button" value="수정" class="reviewDetail_corBtn" onclick="window.location='${path}/reviewUpdate.do?r_num=${r_num}&pageNum=${paging.pageNum}'">
 				<input type="button" value="삭제" class="reviewDetail_corBtn">
 			</div>
 			<!-- 후기 하단 끝 -->

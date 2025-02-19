@@ -12,45 +12,20 @@
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewWrite.css">
 
-
+<!-- 버튼 클릭시 -->
 <script type="text/javascript">
 	$(function(){
+		// 취소버튼 클릭시
 		$("#cancel").click(function(){
 			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?") == true){
 				   window.location = "${path}/reviewList.do";
 				} else {
 					window.location = "${path}/reviewWrite.do";
-					return false;
-				}
-		})
+		}
 		
-		$("#save").click(function(){
-			const title = $("#r_title").val();
-			const content = $("#r_content").val();
-			const city = $("#r_city").val();
-			
-			/* if( city == "") {
-				alert("도시를 입력하세요");
-				$("#r_city").focus();
-				return false;
-			}
-			 */
-			if(title == "") {
-				alert("제목을 입력하세요");
-				$("#r_title").focus();
-				return false;
-			}
-			
-			if(content == "") {
-				alert("내용을 입력하세요");
-				$("#r_content").focus();
-				return false;
-			}
-			/* window.location = "${path}/reviewInsertAction.do"; */
-		})
 	})
 	
-	
+
 </script>
 
 </head>
@@ -68,7 +43,7 @@
 		</div>
 		
 		<!-- 후기작성 상단 종료 -->
-		<form name="review" id ="review" action="reviewInsertAction.do" method="post" enctype="multipart/form-data">
+		<form name="review" action="reviewInsertAction.do" method="post" enctype="multipart/form-data">
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
 					<!-- 후기 내용 시작 -->
@@ -84,14 +59,14 @@
 						<!-- 도시 선택 시작 -->
 						<div class="reviewWrite_city">
 							<div class="reviewWrite_city1">도시</div>
-							<input type="text" class="reviewWrite_in" id="r_city" placeholder="여행도시를 입력해주세요"/>
+							<input type="text" class="reviewWrite_in" id="r_city" placeholder="여행도시를 입력해주세요" disabled/>
 						</div>
 						<!-- 도시 선택 종료 -->
 						
 						<!-- 제목 시작  -->
 						<div class="reviewWrite_title">
 							<div class="reviewWrite_title1">제목</div>
-							<input type="text" class="reviewWrite_in" name="r_title" id="r_title" placeholder="제목을 입력해주세요" required/>
+							<input type="text" class="reviewWrite_in" name="r_title" id="r_title" value="${r_title}" placeholder="제목을 입력해주세요" required/>
 						</div>
 						<!-- 제목 종료 -->
 						
@@ -105,7 +80,7 @@
 								
 								<!-- 내용 입력 시작 -->
 								<div class="reviewWrite_content4">
-									<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" required></textarea>
+									<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" value="${r_content}" required></textarea>
 								</div>
 								
 								<!-- 내용 입력 종료 -->
@@ -114,7 +89,7 @@
 								
 								<div class="btn-img">
 									<div class="review10">	
-										<input type="file" name="r_img" id="r_img" accept="/images/*" required>
+										<input type="file" name="r_img" id="r_img" accept="/images/*" value="${r_img}" required>
 									</div>
 								</div>
 								
@@ -130,7 +105,7 @@
 				<div class="reviewWrite_tag">Tag
 					<div class="tag">
 						<span class="tag1">#</span>
-						<input type="text" class="reviewWrite_in" placeholder="태그를 입력해주세요" >
+						<input type="text" class="reviewWrite_in" placeholder="태그를 입력해주세요" disabled>
 					</div>
 				</div>
 				<!-- 태그 종료 -->

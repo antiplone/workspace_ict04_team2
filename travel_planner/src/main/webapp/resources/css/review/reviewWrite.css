@@ -73,7 +73,7 @@
 	border: none;
 	outline: none;
     border-bottom: 1px solid silver;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     font-size: 15px;
     resize: none;
     height: auto;
@@ -91,6 +91,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 15px;
 	&:hover {
 	  background: rgb(77,77,77);
 	  color: #fff;
@@ -114,7 +115,7 @@
 	justify-content: flex-end;
 }
 
-.reviewWrite_btn1 input[type="button"] {
+.reviewWrite_btn1 input[type="submit"] {
 	width: 100px;
 	height: 30px;
 	background: #121212;
@@ -130,6 +131,30 @@
 	  background: rgb(77,77,77);
 	  color: #fff;
 	}
+}
+
+.reviewWrite_btn1 input[type="reset"] {
+	width: 100px;
+	height: 30px;
+	background: #121212;
+    color: white;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+}
+
+.btn-img {
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
 }
 
 #cancel {

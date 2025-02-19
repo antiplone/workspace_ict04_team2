@@ -61,13 +61,6 @@
 	margin-bottom: 20px;
 }
 
-/* 찜 버튼 */
-.reviewDetail_likeBtn {
-	display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 /* 후기 하단 시작 */
 .reviewDetail_bottom {
 	display: flex;

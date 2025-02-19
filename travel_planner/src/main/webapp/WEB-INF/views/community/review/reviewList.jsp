@@ -82,7 +82,27 @@
 				
 			</div>	
 			
-			
+			<table margin-left: auto; margin-right: auto;>
+				<tr>
+					<td colspan="5" align="center">
+						<!-- 페이징 처리 -->
+						<!-- 이전 버튼 활성화 -->
+						<c:if test="${paging.startPage > 10}">
+							<a href="${path}/reviewList.do?pageNum=${paging.prev}">[이전]</a>
+						</c:if>
+						
+						<!-- 페이지 번호 처리 -->
+						<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
+							<a href="${path}/reviewList.do?pageNum=${num}">${num}</a>
+						</c:forEach>
+						
+						<!-- 다음 버튼 활성화 -->
+						<c:if test="${paging.endPage < paging.pageCount}">
+							<a href="${path}/reviewList.do?pageNum=${paging.next}">[다음]</a>
+						</c:if>
+					</td>
+				</tr>
+			</table>
 		</div>
 		
 		<!-- 컨텐츠 끝 -->

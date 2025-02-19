@@ -11,7 +11,7 @@
 	SELECT *
 	  FROM (SELECT R.*
 						  , rownum AS rn
-					FROM (SELECT * FROM travle_review_tbl
+					FROM (SELECT * FROM travel_review_tbl
 							  WHERE r_show = 'Y'
 							  ORDER BY r_readCnt DESC) R
 				)
@@ -19,6 +19,29 @@
 	  	 AND rn <= #{end}
 	]]>
 </select>
+
+<!-- 후기 작성 -->
+<insert id="reviewInsert" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	INSERT INTO travel_review_tbl(r_num, r_title, r_content, r_img, r_readCnt, r_regDate, m_name)
+	VALUES((SELECT NVL(MAX(r_num) + 1, 1) FROM travel_review_tbl), #{r_title}
+	    , #{r_content}, #{r_img}, 0, sysdate, #{m_name})
+</insert>
+
+<!-- 후기 삭제 -->
+<delete id="reviewDelete" parameterType="int">
+	UPDATE travel_review_tbl
+	   SET r_show = 'N'
+	 WHERE r_num = #{r_num}
+</delete>
+
+<!-- 후기 수정 -->
+<update id="reviewUpdate" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	UPDATE travel_review_tbl
+	   SET r_title = #{r_title}
+	     , r_content = #{r_content}
+	     , r_img = #{r_img}
+	 WHERE r_num = #{r_num}
+</update>
 
 <!-- 후기 목록 -->
 <select id="reviewList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.ReviewDTO">
@@ -28,7 +51,7 @@
         (SELECT A.*,
                 rownum AS rn
          FROM
-                (SELECT * FROM travle_review_tbl
+                (SELECT * FROM travel_review_tbl
                   WHERE r_show = 'Y'
                   ORDER BY r_num DESC) A
 	        )
@@ -39,19 +62,21 @@
 
 <!-- 후기 총 건수 -->
 <select id="reviewCnt" resultType="int">
-	SELECT COUNT(*) FROM travle_review_tbl
+	SELECT COUNT(*)
+	  FROM travel_review_tbl
+	 WHERE r_show = 'Y'
 </select>
 
 <!-- 후기 상세페이지 -->
 <select id="reviewDetail" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
 	SELECT *
-	  FROM travle_review_tbl
+	  FROM travel_review_tbl
 	 WHERE r_num = #{r_num}
 </select>
 
 <!-- 후기 조회수 -->
 <select id="reviewViews" parameterType="com.spring.travel_planner.dto.ReviewDTO">
-	UPDATE travle_review_tbl
+	UPDATE travel_review_tbl
 	   SET r_readCnt = r_readCnt +1
 	 WHERE r_num = #{r_num}
 </select>
