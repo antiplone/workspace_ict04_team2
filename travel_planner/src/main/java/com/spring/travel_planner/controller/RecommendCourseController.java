@@ -29,18 +29,9 @@ public class RecommendCourseController {
 			throws ServletException, IOException{
 		logger.info("<<< url => regionList >>>");
 		
-		service.productListAction(request, response, model);
+		service.regionListAction(request, response, model);
 		
 		return "recommendCourse/regionList";
-	}
-	
-	// 선택 지역
-	@RequestMapping("/selectRegion.rc")
-	public String selectRegion(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException{
-		logger.info("<<< url => selectRegion >>>");
-		
-		return "recommendCourse/selectRegion";
 	}
 	
 	// 추천 코스 목록
@@ -48,6 +39,8 @@ public class RecommendCourseController {
 	public String recommendCourseList(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException{
 		logger.info("<<< url => recommendCourseList >>>");
+		
+		service.RecommendCourseListAction(request, response, model);
 		
 		return "recommendCourse/recommendCourseList";
 	}

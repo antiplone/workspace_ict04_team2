@@ -8,4 +8,7 @@ public interface RecommendCourseDAO {
 	
 	// 지역 목록
 	public List<RecommendCourseDTO> areaList();
+	
+	// 추천코스 목록
+	public List<RecommendCourseDTO> recommendCouresList(int tr_area_id);
 }

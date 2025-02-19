@@ -45,16 +45,17 @@
 			</div>	
 			<!-- 상단 중앙1 종료 -->
 			
+			<!-- 모달 버튼 -->
 			<div id="areaList">
 					<c:forEach var="dto" items="${list}">
 					    <div class="area_list">
 					            <div class="modal_popup_button">
 					                <button type="button" class="modal_btn"
+					                		area_id="${dto.tr_area_id}"
 					                        area_english="${dto.tr_area_english}"
 					                        area_korea="${dto.tr_area_korea}"
 					                        area_content="${dto.tr_area_content}"
 					                        area_image="${path}${dto.tr_area_image}">
-					                        <%-- area_image="${path}/resources/images/recommendCourse/area/${dto.tr_area_image}"> --%>
 					                    <img src="${path}${dto.tr_area_image}"
 					                         class="area_img" 
 					                         alt="${dto.tr_area_english}">
@@ -76,7 +77,8 @@
 					                    <p id="modalAreaContent"></p>
 					                    <div align="center">
 					                        <input class="recommendCourseDetailButton" type="button" value="추천코스 보기>" 
-					                               onclick="window.location='${path}/recommendCourseList.rc'">
+					                            onclick="modalClick('${path}')"> 
+					                               
 					                    </div>
 					                </div>
 					                <div class="area_detail_image_box">
