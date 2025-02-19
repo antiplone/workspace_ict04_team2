@@ -10,7 +10,7 @@
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
-<link rel="stylesheet" href="${path}/resources/css/admin/ad_boardList.css">
+<link rel="stylesheet" href="${path}/resources/css/admin/ad_noticeList.css">
 
 	<!-- js -->
 	<script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
@@ -22,39 +22,39 @@
 		document.addEventListener("DOMContentLoaded", () => {
 		   	const btnSave = document.querySelector("#btnSave");
 		   	const btnCancel = document.querySelector("#btnCancel");
-		   	const b_password = document.getElementById('b_password');
-		   	const b_title = document.getElementById('b_title');
-		   	const b_content = document.getElementById("content");
+		   	const notice_password = document.getElementById('notice_password');
+		   	const notice_title = document.getElementById('notice_title');
+		   	const notice_content = document.getElementById("notice_content");
 		  
 
 		   	
 		  	// [게시글 작성 버튼] 클릭 시 [게시글 작성 처리]로 이동
 		  	btnSave.addEventListener('click', function(e){
 		  		
-		  		if(b_password == ""){
+		  		if(notice_password == ""){
 		  			alert("비밀번호를 입력해주세요!!");
-		  			b_password.focus;
-		  		 	console.log(b_password);
+		  			notice_password.focus;
+		  		 	console.log(notice_password);
 		  		 	return;
-		  		} else if(b_title == ""){
+		  		} else if(notice_title == ""){
 		  			alert("글제목을 입력해주세요!!");
-		  		 	console.log(b_title);
-		  			b_title.focus();
+		  		 	console.log(notice_title);
+		  		 	notice_title.focus();
 		  			return;
-		  		} else if(b_content == ""){
+		  		} else if(notice_content == ""){
 		  			alert("글내용을 입력해주세요!!");
-				   	console.log(b_content);
-		  			b_content.focus();
+				   	console.log(notice_content);
+				   	notice_content.focus();
 		  			return;
 		  		}
 		  		
-		  		document.insertForm.action="${path}/board_insertAction.brl";
+		  		document.insertForm.action="${path}/notice_insertAction.nt";
 		   		document.insertForm.submit();	
 		    });
 		   	
 		   	// [게시글 취소 버튼] 클릭 시 [게시글 목록]으로 이동 
 	   		btnCancel.addEventListener('click', function(e){
-				location.href="${path}/board_list.brl";
+				location.href="${path}/noticeList.nt";
 		    });
 		   	
 		});
@@ -64,38 +64,20 @@
 </head>
 <body>
 
-	<div class="wrap">
+	<div class="wrap noticeInsert">
 	
-		<c:if test="${sessionScope.sessionID}==null">
-			<!-- header 시작 -->
-			<div class="header_wrap">
-				<%@ include file="/WEB-INF/views/common/header.jsp" %>
-			</div>
-		</c:if>
-		<c:if test="${sessionScope.sessionID}!=null">
-			<!-- header 시작 -->
-			<div class="header_wrap">
-				<%@ include file="/WEB-INF/views/common/header.jsp" %>
-			</div>
-		</c:if>
-		<!-- header 끝 -->
-		
 		<!-- 컨텐츠 시작 -->
 			<div id="container"> 
 				<div id="contents"> 
 					<!-- 상단 중앙1 시작 -->
 					<div id="section1">
-						<h1 align="center">글쓰기</h1>
+						<h1 align="center">공지사항 작성</h1>
 					</div>
 					<!-- 상단 중앙1 종료 -->
 					
 					
 					<!-- 상단 중앙2 시작 -->
 					<div id="section2">
-						<!-- 좌측 메뉴 시작 -->
-						<%@ include file="/WEB-INF/views/admin/common/leftMenu.jsp" %>
-						<!-- 좌측 메뉴 끝 -->
-						
 						<!-- 우측 화면 시작 -->
 						<div id="right">
 							<div class="table_div">
@@ -104,25 +86,25 @@
 									<table>
 										<tr>
 											<th style="width:200px">작성자</th>
-											<td style="width:200px">${sessionScope.sessionID}</td>
+											<td style="width:200px">${sessionScope.sessionID} 작성자 세션값</td>
 											<th style="width:200px">비밀번호</th>
 											<td style="width:200px">
-												<input style="width: 180px;" type="password" class="input" name="b_password" 
-												id="b_password" size="30" value="" placeholder="비밀번호 입력"/>
+												<input style="width: 180px;" type="password" class="input" name="notice_password" 
+												id="notice_password" size="30" value="" placeholder="비밀번호 입력"/>
 											</td>
 										</tr>
 										<tr>
 											<th style="width:200px">글제목</th>
 											<td colspan="3">
-												<input style="width: 99%; border: none" type="text" class="input" name="b_title" 
-												id="b_title" size="30" placeholder="글제목 입력" />
+												<input style="width: 99%; border: none" type="text" class="input" name="notice_title" 
+												id="notice_title" size="30" placeholder="글제목 입력" />
 											</td>
 											
 										</tr>
 										<tr>
 											<th style="width:200px">글내용</th>
 											<td colspan="3">
-												<textarea rows="5" cols="93" id="content" name="b_content"></textarea>
+												<textarea rows="5" cols="93" id="notice_content" name="notice_content"></textarea>
 											</td>
 										</tr>
 										<tr>
@@ -142,14 +124,8 @@
 				</div>
 			</div>
 		
-		
 		<!-- 컨텐츠 끝 -->
-		<!-- footer 시작 -->
-		<div class="footer_wrap">
-			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		</div>
-		<!-- footer 끝 -->
-		
+			
 	</div>
 
 </body>

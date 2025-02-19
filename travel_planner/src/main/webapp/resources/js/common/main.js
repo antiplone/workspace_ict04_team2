@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	console.log(menulists);
 	 
 	/*hamburger bar toggle button*/
-	toggleBtn.addEventListener('click', ()=>{
+/*	toggleBtn.addEventListener('click', ()=>{
 		menu.classList.toggle('active');
 		icons.classList.toggle('active');
-	})
+	})*/
 	
 	
 	
@@ -39,4 +39,31 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		footers.classList.toggle("hei");
 		arrow.classList.toggle("arrow-up");
 	});
+	
+	document.addEventListener("DOMContentLoaded", () => {
+		   	const btnInsert = document.querySelector("#btnInsert");
+		   	
+		   	// [게시글 목록 버튼] 클릭 시 컨트롤러의 목록으로 이동
+	   		btnInsert.addEventListener('click', function(e){
+	   			alert();
+	   			document.noticeList.action="${path}/notice_insert.nt";
+	   			document.noticeList.submit();	
+		    });
+		   	
+	   		const li_hovers = document.querySelectorAll('#li_hover');
+	   		li_hovers.forEach((li_hover)=>{
+		   		li_hover.addEventListener('mouseover', function(e) {
+			   			this.style.backgroundColor = 'black';
+			   			this.parentElement.style.backgroundColor = 'white'
+		   		});
+	   		});
+	   		
+	   		li_hovers.forEach((li_hover)=>{
+		   		li_hover.addEventListener('mouseout', function(e) {
+			   			this.style.backgroundColor = 'white';
+			   			this.parentElement.style.backgroundColor = 'blue'
+		   		})
+	   		});
+		   	
+		});
 })

@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* ad_productList.css */
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#contents {
+	max-width: 1100px;
+	min-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+	min-height: 820px;
+	border-bottom: 5px solid #B1AEB7;	
+}
+
+#section1 {
+	padding: 30px 20px 30px 0;
+	border-bottom: 5px solid #B1AEB7;
+	text-align:center;
+}
+
+#section2 {
+	display: flex; /* 한줄(수평)로 배치 */
+	justify-content: center;
+    margin-bottom: 30px;
+}
+----------------------------- /* 우측내용 시작 */
+
+/* 공지사항 컨텐츠 */
+.n_contents_wrap {
+    vertical-align: middle;
+    width: 800px;
+    margin: 0 auto;
+    height: 160px;
+    text-indent: 30px;
+    border-bottom: 2px solid #929292;
+    padding-bottom: 5px;
+}
+
+.noticelistInwrap{border-top: 2px solid #5c5c5c; border-bottom: 2px solid #5c5c5c;}
+.n_contents_wrap {
+    border-bottom: 2px solid #929292;
+    padding-bottom: 34px;
+    text-indent: 30px;
+}
+
+#section1 div.inner_header {
+    margin: 0 auto;
+    width: max-content;
+	text-align:center;
+}
+
+.inner_header h1{
+    width: max-content;
+	color:#ff7100;
+    padding: 10px 15px;
+    border: 2px solid #ff7100;
+    border-radius: 60px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.notice_innertop {
+    display: flex;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.n_title{font-size:35px; margin-top: 15px;}
+
+.notice_innerbottom {
+    display: flex;
+    gap: 90px;
+    margin-top: 10px;
+    line-height: 2;
+    color: #5c5c5c;
+}
+
+
+/* 공지사항 하단 */
+.notice_bottom_wrap {
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    position: relative;
+}
+
+/*글쓰기*/
+.writeNotice {
+    position: absolute;
+    top: 50%;
+    left: 850px;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 50px;
+}
+
+.writeNotice input{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 1;
+}
+
+
+#right {
+	width: 96%;
+}
+
+.table_div {
+	margin-top: 30px;
+}
+
+.table_div  table {
+	border-collapse: collapse;
+	width: 800px;
+	margin: 0 auto;
+}
+
+.table_div  table th {
+	background: #FDE3E9;
+}
+
+.table_div  table th, td {
+	height: 50px;
+	border: 1px solid black;
+	padding-left: 2px;
+	text-align: center;
+}
+
+.input {
+	width: 550px;
+	height: 40px;
+	border: 1px solid gray;
+	padding: 0 0 0 10px;
+}
+
+.inputButton {
+	background: dark-yellow;
+	font-size: 16px;
+	padding: 5px 10px 5px 10px;
+}
+
+/* 공지사항 글쓰기 */
+.class_content td textarea,
+.class_content,
+textarea#notice_content {
+    resize: none;
+    height: 330px;
+}
+
+.wrap.noticeInsert {
+    min-height: 580px;
+}
+
+
+
+/* 우측내용 종료*/

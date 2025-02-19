@@ -78,7 +78,8 @@
 					<ul class="dropdown-menu text-small shadow" style="">
             			<li><a class="dropdown-item" onclick="load('${path}/reviewList.do')">페이지1</a></li>
 			            <li><a class="dropdown-item" onclick="load('${path}/mainAction.do')">mainAction.do</a></li>
-			            <li><a class="dropdown-item" onclick="load('${path}/noticeList.do')">mainreviewActio.do</a></li>
+			            <li><a class="dropdown-item" onclick="load('${path}/mainReviewAction.do')">mainreviewAction.do</a></li>
+			            <li><a class="dropdown-item" onclick="load('${path}/noticeList.nt')">공지사항</a></li>
 			            <li><hr class="dropdown-divider"></li>
 			            <li><a class="dropdown-item" href="#">Sign out</a></li>
           			</ul>
