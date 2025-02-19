@@ -39,18 +39,9 @@
 		<div class="header_wrap">
 			<%@ include file="/WEB-INF/views/common/header.jsp"%>
 		</div>
-		
-		<div class="contents_wrap" id="contents">
-			<c:choose> 
-				<c:when test="${pgdto != null}">
-					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
-				</c:when> 
-				<c:otherwise>
-					<p><%= request.getAttribute("pgdto") %></p>
-					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
-				</c:otherwise> 
-			</c:choose> 
-		</div>
+
+		<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+
 		<div>
 			<!-- footer 시작 -->
 			<%@ include file="/WEB-INF/views/common/footer.jsp"%>

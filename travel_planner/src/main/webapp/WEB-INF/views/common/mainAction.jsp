@@ -45,7 +45,7 @@
 									<div class="text_center"> 작성자 : ${dto1.r_content}
 											
 									</div>
-									<div class="text_center">조회수 : ${dto1.r_readcnt}</div>
+									<div class="text_center">조회수 : ${dto1.r_readCnt}</div>
 								</a>
 							</li>
 						</c:forEach>

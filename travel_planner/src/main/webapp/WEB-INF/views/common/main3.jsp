@@ -26,14 +26,9 @@
 
 <script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
 <script src="${path}/resources/js/common/pageLoad.js" defer></script>
-<<<<<<< HEAD
-</head>
-<body >
-=======
 
 </head>
 <body>
->>>>>>> origin/ysj_topic
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
