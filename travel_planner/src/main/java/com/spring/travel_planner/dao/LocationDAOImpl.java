@@ -48,17 +48,20 @@ public class LocationDAOImpl implements LocationDAO {
 		return total;
 	}
 	
-	
+	 
 	// 지역 - '구' 선택 시 해당 리스트들 조회
 	@Override
-	public List<LocationDTO> selectlocationList(Map<String, Object> map) {
-		System.out.println("LocationDAOImpl - selectlocationList()");
-		System.out.println("LocationDAOImpl - map" + map);
-		List<LocationDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationList", map);
+	public List<LocationDTO> selectlocationList(List<String> list) {
 		
-		return list;
-	}
-	
+		 System.out.println("LocationDAOImpl - selectlocationList()");
+		 System.out.println("LocationDAOImpl - list" + list);
+		 
+		 List<LocationDTO> result = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationList", list);
+		 
+		 System.out.println("LocationDAOImpl - list" + result);
+		return result;
+	} 
+
 	// 지역 - 여행지 클릭 시 상세페이지 조회
 	@Override
 	public LocationDTO locationDetailPage(int ti_num) {

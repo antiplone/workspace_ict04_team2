@@ -63,9 +63,7 @@ public class LocationController {
 			throws ServletException, IOException {
 		logger.info("<<< url => location_mainListAction.lc >>>");
 		
-		/*
-		 * // 테스트 db연결 service.guListAction_test(request, response, model);
-		 */
+		// 테스트 db연결 service.guListAction_test(request, response, model);
 		
 		service.selectListAction(request, response, model);
 		
