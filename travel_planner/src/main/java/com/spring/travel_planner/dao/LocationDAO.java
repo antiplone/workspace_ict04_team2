@@ -17,7 +17,7 @@ public interface LocationDAO {
 	public int locationCnt();
 	
 	// 지역 - '구' 선택 시 해당 리스트들 조회
-	public List<LocationDTO> selectlocationList(Map<String, Object> map);
+	public List<LocationDTO> selectlocationList(List<String> list);
 	
 	// 지역 - 여행지 클릭 시 상세페이지 조회
 	public LocationDTO locationDetailPage(int ti_num);

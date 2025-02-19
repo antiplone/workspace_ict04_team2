@@ -1,7 +1,9 @@
 package com.spring.travel_planner.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -82,27 +84,102 @@ public class LocationServiceImpl implements LocationService {
 			  throws ServletException, IOException { 
 	  System.out.println("LocationServiceImpl - selectListAction()");
 	  
-	  // 시(히든값), 구값 가져오기 int select_si =
+	   // 리스트 - 페이징 처리
+	  String pageNum = request.getParameter("pageNum");
+	
+	  Location_Paging paging = new Location_Paging(pageNum);
+	  int total = dao.locationCnt();
+	  System.out.println("total => " + total);
+	
+	  paging.setTotalCount(total);
+	
+		// 리스트 - 목록 조회
+	  int start = paging.getStartRow();
+	  int end = paging.getEndRow();
+			
+		// HashMap 생성, key value 추가
+	  Map<String, Object> map = new HashMap<String, Object>();
+	  map.put("start", start);
+	  map.put("end", end);
+				
+	  // '시', '구'값 가져오기
 	  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
 	  String selcet_gu = request.getParameter("location_gu");
-	  System.out.println("service tc_si_num : => " + tc_si_num);
-	  System.out.println("service tc_gu : => " + selcet_gu);
+	  // System.out.println("service tc_si_num : => " + tc_si_num);
+	  // System.out.println("service tc_gu : => " + selcet_gu);
 	 
-	  String[] tc_gu = selcet_gu.split("@");
+	  // num인 '시' 값을 한글로 변경
+	  String select_si = "";
 
-	 // 해당 지역에 맞는 정보 가져오기 - dao 정보 조회 
-	  Map<String, Object> map = new HashMap<String, Object>(); 
-	  map.put("tc_si_num", tc_si_num);
+	  switch(tc_si_num) {
+	  	case 1:
+	  		select_si = "서울";
+	  		break;
+	  	case 2:
+	  		select_si = "인천";
+	  		break;
+	  	case 3:
+	  		select_si = "대전";
+	  		break;
+	  	case 4:
+	  		select_si = "대구";
+	  		break;
+	  	case 5:
+	  		select_si = "광주";
+	  		break;
+	  	case 6:
+	  		select_si = "부산";
+	  		break;
+	  	case 7:
+	  		select_si = "울산";
+	  		break;
+	  	case 8:
+	  		select_si = "세종";
+	  		break;
+	  	case 31:
+	  		select_si = "경기";
+	  		break;
+	  	case 32:
+	  		select_si = "강원";
+	  		break;
+	  	case 33:
+	  		select_si = "충북";
+	  		break;
+	  	case 34:
+	  		select_si = "충남";
+	  		break;
+	  	case 35:
+	  		select_si = "경북";
+	  		break;
+	  	case 36:
+	  		select_si = "경남";
+	  		break;
+	  	case 37:
+	  		select_si = "전북";
+	  		break;
+	  	case 38:
+	  		select_si = "전남";
+	  		break;
+	  	case 39:
+	  		select_si = "제주";
+	  		break;
+	  }
+	  
+	  List<String> location_list = new ArrayList<String>();
+	  
+	  String[] tc_gu = selcet_gu.split("@");
 	  
 	  for(int i=0; i<tc_gu.length; i++) {
-		  map.put("tc_gu", tc_gu[i]);
-		  System.out.println("service tc_gu[i] : => " + tc_gu[i]);
-	  }
-	 
-	  List<LocationDTO> list = dao.selectlocationList(map);
-	 
+		  String choice = select_si + " " + tc_gu[i];
+		 location_list.add(choice);
+	  }  
+	  
+	  List<LocationDTO> list = dao.selectlocationList(location_list);
+	  
 	  // 해당 리스트들 jsp에 전달
 	  model.addAttribute("list", list);
+	  model.addAttribute("paging", paging);
+	  model.addAttribute("total", total);
 	  }
 
 	// 지역 - 여행지 클릭 시 상세페이지 조회

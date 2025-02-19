@@ -8,121 +8,14 @@
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-span {
-    background: linear-gradient(to top, #90a955 20%, transparent 20%);
-  }
-  
-   	/* 버튼 색상 및 모양 */
-    .button {
-        background-color: #ced4da; /* 기본 색 */
-        color: black; /* 글자 색 */
-        border: none; /* 테두리 없음 */
-        padding: 7px 20px; /* 버튼 크기 */
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 20px; /* 둥근 모서리 */
-        margin: 5px;
-    }
-    
-    /* 버튼 호버시 색상 변경 */
-    .button:hover {
-        background-color: #343a40; /* 호버 색 */
-        color: white; /* 글자 색 */
-    }
-    
-    .location_detail {
-    	display: block;
-    	 width:70%;
-    	 margin: auto;
-    	 padding:30px 10px 10px
-    }
-    
-    #place {
-    	margin: 50px;
-    }
-    
-    .place_detail_1 table {
-    	width: 50%;
-    }
-    
-    
-    .place_detail_2 table {
-    	width: 50%;
-    	margin: 50px
-    }
-    
-    .place_detail_2 th {
-    	text-align: left;
-    	colspan: 2;
-    	color: black;
-    	font-size: 15px;
-    }
-    
-    .place_detail_2 td {
-    	colspan: 3;
-    	color: #495057;
-    	font-size: 14px;
-    }
-    
-    /* '공간소개' 타이틀 */
-    .title_place {
-    	margin-bottom: 20px;
-    }
-    
-    /* 상세내용 '더보기' 버튼 클릭 시 전체 내용 보여짐 */
-    .container {
-    	display: -webkit-box;
-	    -webkit-line-clamp: 4;	/* 블록 컨테이너의 콘텐츠를 지정한 줄 수만큼으로 제한 */
-	    -webkit-box-orient: vertical; 
-	    overflow: hidden;
-    }
-    
-    .container_more-btn {
-    	appearance: none;
-	    border: 1px solid black;
-	    padding: 0.5em;
-	    border-radius: 0.25em;
-	    cursor: pointer;
-	    margin: 1rem;
-    }
-    
-    .container_more-btn::before {
-	  content: '더보기';
-	}
-	
-	.container_more-btn:checked::before {
-	  content: '닫기';
-	}
-	
-	.container:has(+ .container_more-btn:checked) {
-	  -webkit-line-clamp:unset
-	}
-	
-	/* 더보기 버튼 클릭 시 색상 변경 */
-	.container_more-btn:hover {
-		background-color: #343a40; /* 호버 색 */
-        color: white; /* 글자 색 */
-	}
-    
-</style>
 <title>여기닷 - 여행지</title>
-<script type="text/javascript">
 
-/* '상세보기', '후기작성' 클릭 시 해당 위치로 스크롤 이동 */
-$(document).ready(function($) {
-    $(".place_move").click(function(event){
-        console.log(".place_move");         
-        event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);	/* top으로 이동 0.5초 */
-    });
+<!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/location/location_detailAction.css">
 
-});
+<!-- js -->
+<script src="${path}/resources/js/location/location_detailAction.js" defer></script>
 
-</script>
 </head>
 <body>
 
@@ -137,7 +30,7 @@ $(document).ready(function($) {
 			<table style="margin-left: auto; margin-right: auto;">
 
 				<tr>
-					<th><h1> <span>${dto.ti_name}</span> </h1></th>
+					<th><h1 align="center"><span> ${dto.ti_name} </span> </h1></th>
 				</tr>
 				
 				<tr>
@@ -171,7 +64,7 @@ $(document).ready(function($) {
 				<div class="place_detail_1">
 					<table style="margin-left: auto; margin-right: auto;">
 						<tr>
-							<th><h2 class="title_place"> 공간소개 </h2></th>
+							<td><h4 class="title_place"><b> 공간소개 </b></h4></td>
 						</tr>
 						<tr>
 							<td>
@@ -221,7 +114,7 @@ $(document).ready(function($) {
 				
 		<!-- 여행 후기 -->
 		<div align="center" id="review">
-			<h2>여행 후기를 작성해주세요!</h2> <br>
+			<h4><b>여행 후기를 작성해주세요!</b></h4> <br>
 			<a href="reviewList.do">
 			<img src="resources/local_images/detail_review.png" style="width:700px"></a>
 		</div>
