@@ -9,6 +9,7 @@
 <select id="areaList" resultType="com.spring.travel_planner.dto.RecommendCourseDTO">
 	SELECT *
 	  FROM travel_area_tbl
+	  ORDER BY tr_area_id
 </select>
 
 <!-- 추천코스 목록 조회 -->

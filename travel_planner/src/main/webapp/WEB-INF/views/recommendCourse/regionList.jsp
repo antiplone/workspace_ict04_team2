@@ -58,7 +58,7 @@
 					                        area_image="${path}${dto.tr_area_image}">
 					                    <img src="${path}${dto.tr_area_image}"
 					                         class="area_img" 
-					                         alt="${dto.tr_area_english}">
+					                        <%--  alt="${dto.tr_area_english}" --%>>
 					                </button>
 					            </div>
 					            <div class="area_english">${dto.tr_area_english}</div>

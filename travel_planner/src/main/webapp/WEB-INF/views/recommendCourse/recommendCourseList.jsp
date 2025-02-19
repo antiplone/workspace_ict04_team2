@@ -59,24 +59,19 @@
 					                        course_locationImage="${dto.tr_course_locationImage}"
 					                        course_location="${dto.tr_course_location}"
 					                        course_locationContent="${dto.tr_course_locationContent}"
-					                        course_image="${path}${dto.tr_course_image}">
+					                        course_image="${dto.tr_course_image}">
 					                        <div class="image-box">
-					                   		<img src="${path}${dto.tr_course_image}"
+					                        <!-- 추천코스 이미지 -->
+					                   		<img src="${dto.tr_course_image}"
 					                         class="course_img" 
 					                         alt="${dto.tr_course_title}">
 					                        </div>  
-					                         <%-- <div class="image-box">
-												<img src="${path}/resources/images/recommendCourse/course/Jeju_course_1-1.jpg" class="course_img" alt="추천코스_제주">
-											 </div>	 --%>
-					               
+											
 											<div class="course_content">
 												<div class="course_title">${dto.tr_course_title}</div>
 												<div class="course_taketime">${dto.tr_course_taketime}</div>
-												<div class="course_tag">${dto.tr_course_tag}
-													<!-- #25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 <br> 
-													#제주권 #추천코스 #한국관광100선 #한국의둘레길 <br> -->
-												</div>
-											</div>
+												<div class="course_tag">${dto.tr_course_tag}</div>
+										   </div>
 								 </button>
 							</div>
 						</div>
@@ -94,8 +89,23 @@
 					                    <hr>
 					                    <div id="modalCourseTag"></div>
 					                    <hr>
-					                    <div class="course_map_box"><img id="modalCourseMap" class="modal_map_image" src=""  alt=""></div>
-					                    <div class="course_detail_image_box"><img id="modalCourseImage" class="modal_detail_image" src=""  alt=""></div>
+					                    <div class="course_map_box">
+					                    	<img id="modalCourseMap" class="modal_map_image" src=""  alt="">
+					                    </div>
+					                    <hr>
+					                    <div id="modalLocation"></div>
+					                    <hr>
+					                    <div class="course">
+					                    	<c:if test="${dto.tr_course_location != 0}">
+						                    <div class="course_location_image_box">
+						                    	<img id="modalLocationImage" class="modal_location_image" src=""  alt="">
+						                    </div>
+						                    <div class="location_content">
+						                    <p>코스개요</p>
+						                    <div id="modalLocationContent"></div>
+						                    </div>
+						                    </c:if>
+					                    </div>
 					                </div>
 					            </div>
 					        </div>

@@ -47,14 +47,36 @@
 	position: relative;
 }
 
-/* 추천코스 버튼 스타일링 시작 */
+/* 모달 클릭 버튼 */
+.modal_btn {
+    display: flex;
+    width: 650px;
+    height: 480px;
+    border-radius: 10px;
+    /* margin: 50px auto; */
+    background-color: white;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    object-fit: cover;
+    flex-direction: column;
+}
+
+.modal_btn:hover {
+    box-shadow: 3px 4px 11px 0px #00000040;
+}
+
+/* 추천코스 모달 버튼 스타일링 시작 */
 .image-box {
-	width: 650px;
-	height: 300px;
-	overflow: hidden;
-	margin: 0 auto;
-	border-radius: 10px 10px 0px 0px;
-	
+    width: 650px;
+    height: 300px;
+    overflow: hidden;
+    /* margin: 0 auto; */
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    left: -6px;
+    top: -1px;
 }
 
 .course_img {
@@ -97,54 +119,7 @@
     padding-right: 60px;
 }
 
-/* 추천코스 버튼 스타일링 끝 */
-
-/* 추천코스 - 모달 버튼 시작 */
-.modal_popup_button {
-    align-items: stretch;
-    /* padding: 10px; */
-}
-
-.image-box {
-    width: 650px;
-    height: 300px;
-    overflow: hidden;
-    /* margin: 0 auto; */
-    border-radius: 10px 10px 0px 0px;
-    position: relative;
-    left: -6px;
-    top: -1px;
-}
-
-/* .area_img {
-	position: relative;
-	width: 650px;
-	height: 480px;
-	top: -1px;
-	left: -6px;
-	border-radius: 10px;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, .1); 
-}  */
-
-.modal_btn {
-    display: flex;
-    width: 650px;
-    height: 480px;
-    border-radius: 10px;
-    /* margin: 50px auto; */
-    background-color: white;
-    border: none;
-    color: blue;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-    object-fit: cover;
-    flex-direction: column;
-}
-
-.modal_btn:hover {
-    box-shadow: 3px 4px 11px 0px #00000040;
-}
-/* 추천코스 - 모달 버튼 끝 */
+/* 추천코스 모달 버튼 스타일링 끝 */
 
 /*모달 팝업 영역 스타일링*/
 .modal {
@@ -176,6 +151,7 @@
     position: fixed;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
+    height: 850px;
     
 }
 
@@ -204,33 +180,26 @@
 
 /* 지역 대표 설명 시작 */
 .content {
-	/* width: 1000px;
-    height: 600px;
-    display: flex;
-    margin: 40px;
-    justify-content: space-around;
-    flex-direction: row; */
+
 }
 
+.content_box {
+	display: flex;
+	align-items: center;
+}
 .courseContent {
     width: 1000px;
     height: 600px;
     display: flex;
     flex-direction: column;
     word-break: break-all;
-    justify-content: space-between;
+    align-items: center;
 }
 
-/* 모달 팝업 내용 */
-/* .content_box {
-	display: flex;
-	justify-content: space-around;
-} */
-
-#modalCourseTitle, #modalCourseTag, #modalCourseTaketime {
+#modalCourseTitle, #modalCourseTag, #modalCourseTaketime, #modalCourseMap {
 	display: flex;
     justify-content: space-around;
-    margin: 15px;
+    margin: 18px;
 }
 
 #modalCourseTitle {
@@ -244,31 +213,54 @@
     font-weight: bold;
 }
 
-
-
-h1, h3, #modalCourseTag #modalCourseTitle {
-	display: flex;
-	justify-content: space-around;
-	margin: 28px;
-}
-
-hr {
-	width: 100%;
-}
-
 #modalCourseTag {
 	color: #676767;
 }
 
-.course-title {
-    font-size: 20px;
-    text-align: left;
-    padding-left: 30px;
-    margin: 10px;
-    border-bottom: 1px solid #eaeaea;
-    border-top: 1px solid #eaeaea;
+#modalCourseMap {
+	width: 100%;
+    height: 500px;
+    display: center;
 }
 
+#modalLocationImage {
+	width: 400px;
+    height: 320px;
+    margin: 10px;
+}
+   
+hr {
+	width: 100%;
+}
+
+.course {
+	display: flex;
+	
+}
+
+#modalLocation {
+	font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: left;
+    color: #464646;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    color: #464646;
+    
+}
+
+#modalLocationContent {
+	font-size: 18px;
+    margin: 10px;
+    color: #464646;
+}
+
+/* 
 th {
     background-color: #f8f8f8;
     font-weight: 500;
@@ -296,7 +288,7 @@ th course-title  tbody {
 	padding-left: 30px;
 	text-align: left;
 }
-/* 상위 중앙 1 시작 */
+상위 중앙 1 시작
 .re_detail-container {
 	border-radius: 10px;
 	border: 1px;
@@ -313,16 +305,14 @@ h3 {
 	color: #FF865B;;
 }
 
-hr {
-	width: 100%;
-}
+
 
 .rc-detail-tag {
 	color: #676767;
 }
-/* 상위 중앙 1 끝 */
+상위 중앙 1 끝
 
-/* 상위 중앙 2 시작 */
+상위 중앙 2 시작
 .rc_detail-center {
 	display: flex;
 	justify-content: space-evenly;
@@ -335,7 +325,7 @@ hr {
 	height: 500px;
 	position: relative;
 }
-/* 상위 중앙 2 끝 */
+상위 중앙 2 끝
 
 .rc-detail-course-list {
 	width: 100%;
@@ -344,10 +334,5 @@ hr {
 	top: 60px;
 }
 
-strong {
-	font-size: 18px;
-}
 
-.subContent {
-	
-}
+ */
