@@ -312,7 +312,7 @@
 	margin-top: 5px;
 	position: relative;
 }
-.rev_img_text2 img {
+.rev_img_text2 div img {
 	width: 12px;
 	margin-right: 3px;
     opacity: 0.8;
