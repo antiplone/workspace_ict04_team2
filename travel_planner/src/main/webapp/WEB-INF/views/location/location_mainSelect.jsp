@@ -41,6 +41,23 @@
 			<tr class="gu_tr">
 				<c:forEach var="list" items="${list}">
 				<td align="center">
+				<input type="button" class="choice_button" value="선택 완료" onclick="gu_choice()">
+				<!-- 해당 구 선택 시 해당 리스트들 보이는 페이지로 이동 -->
+				</td>
+			</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	</form>
+	
+	
+	
+	<!-- 제일 최근 것 -->
+			<!-- 	<tr>
+				<td align="center">
 					<div class="gu_select" align="center">
 						<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}"  value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
 					</div>
