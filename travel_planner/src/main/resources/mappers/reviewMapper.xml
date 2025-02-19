@@ -11,7 +11,7 @@
 	SELECT *
 	  FROM (SELECT R.*
 						  , rownum AS rn
-					FROM (SELECT * FROM travle_review_tbl
+					FROM (SELECT * FROM travel_review_tbl
 							  WHERE r_show = 'Y'
 							  ORDER BY r_readCnt DESC) R
 				)

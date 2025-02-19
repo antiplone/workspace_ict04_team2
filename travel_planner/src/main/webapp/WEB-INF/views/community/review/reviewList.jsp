@@ -8,8 +8,7 @@
 <title>리뷰</title>
 
 <!-- css -->
-<link rel="stylesheet" href="${path}/resources/css/common/header.css">
-<link rel="stylesheet" href="${path}/resources/css/common/footer.css">
+<link rel="stylesheet" href="${path}/resources/css/common/reset.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewList.css">
 
 <script type="text/javascript">
@@ -63,8 +62,15 @@
 							<div class="review_info">
 								<div class="reviewTitle">${dto.r_title}</div>
 								<div class="reviewContents_pre">${dto.r_content}</div>
-								<div class="review_info2">${dto.m_name}/${dto.r_regDate}</div>
-								
+								<%-- <div class="review_info2">${dto.m_name}/${dto.r_regDate}</div> --%>
+								<div class="review_info2">
+									<div style="margin-right: 10px;">${dto.m_name}</div>
+									<div>${dto.r_regDate}</div>
+									<div class="interval">
+										<img alt="조회수" src="${path}/resources/images/eyes.svg">
+										${dto.r_readCnt}
+									</div>
+								</div>
 							</div>
 							
 							<!-- 리뷰 사진 시작 -->

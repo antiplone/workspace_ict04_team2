@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/setting.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +25,9 @@
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/3f6025c3d2.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-</head>
 
-<body >
+</head>
+<body>
 	<div id="mainbottomListWrap">
 		<%-- 후기 게시글들 --%>
 		<div class="rev_imgs">
@@ -37,22 +35,22 @@
 			<c:forEach var="dto" items="${list}">
 			
 			 <div class="rev_img revBtn" id="revImg${dto.r_num}">
-			 	<%-- <a href="${path}/reviewDetail.do?r_num=${dto.r_num}"> --%>
+			 	<a href="${path}/reviewDetail.do?r_num=${dto.r_num}">	<!-- 해당 번호의 게시글로 이동하는 버튼 -->
 					<div class="rev_image">
 						<img alt="${dto.r_num}" src="${dto.r_img}">
 					</div>
 					<div class="rev_img_title">
-						<div class="rev_img_text1">${dto.r_title}</div>
+						<div class="rev_img_text1">${fn:substring(dto.r_title, 0, 16)}...</div>
 						<div class="rev_img_text2">
 							<div>${dto.m_name}</div>
 							<div>
-								<i class="fi fi-rr-eye"></i>
+								<img alt="조회수" src="${path}/resources/images/eyes.svg">
 								${dto.r_readCnt}
 							</div>
 							<div>${dto.r_regDate}</div>
 						</div>
 					</div>
-				<!-- </a> -->
+				</a>
 			</div>
 			
 			</c:forEach>

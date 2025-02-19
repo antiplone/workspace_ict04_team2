@@ -126,6 +126,16 @@
 
 .review_info2 {
 	color: #999999;
+	display: flex;
+}
+.interval {
+	margin: 0 10px;
+	display: flex;
+}
+.interval img {
+	margin-right: 3px;
+	width: 12px;
+	opacity: 0.45;
 }
 
 #review_pre_last {
