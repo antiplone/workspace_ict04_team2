@@ -42,21 +42,21 @@ public class MainController {
 	@RequestMapping("/home.do")
 
 	private String main() {
-		logger.info("<<< url => home.do >>>");
+		logger.info("<<< MainController => home.do >>>");
     return "common/home";
 	}
 	
 	@RequestMapping("/main.do")
 	private String main(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
-		logger.info("<<< url => main.do >>>");
+		logger.info("<<< MainController => main.do >>>");
 		return "common/main3";
 	}
 	
 	@RequestMapping("/mainAction.do")
 	private String mainAction(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
-		logger.info("<<< url => mainAction.do >>>");
+		logger.info("<<< MainController => mainAction.do >>>");
 		home_service.MemberListAction(req, res, model);
 		return "common/mainAction";
 	}
@@ -64,7 +64,7 @@ public class MainController {
 	@RequestMapping("/mainReviewAction.do")
 	private String mainReviewListAction(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
-		logger.info("<<< url => mainReviewListAction.do >>>");
+		logger.info("<<< MainController => mainReviewListAction.do >>>");
 		rev_service.mainReviewList(model);
 		return "community/review/mainReviewAction";
 	}
@@ -72,26 +72,18 @@ public class MainController {
 
 	@RequestMapping("/login.do")
 	private String login() {
-		logger.info("<<< url => login.do >>>");
+		logger.info("<<< MainController => login.do >>>");
 		return "member/login";
 	}
 
 	@RequestMapping("/login_action.do")
 	private String login_action(HttpServletRequest req)
 			throws ServletException, IOException {
+		logger.info("<<< MainController => login_action.do >>>");
 		logger.info(req.getParameter("login_email"));
 //		mem.test(); /* DB 연결이 안되는지 테스트 */
 		mem.login_action(req);
 		return "common/home";
 	}
-	
-	@RequestMapping("/board_list.do") 
-	public String login_action2(HttpServletRequest req) {
-		logger.info(req.getParameter("DboardDAOImp - boardList"));
-//		mem.test(); /* DB 연결이 안되는지 테스트 */
-		mem.login_action(req);
-		return "common/home";
-	}
-	
-	
+
 }

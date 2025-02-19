@@ -29,11 +29,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 
 <script src="${path}/resources/js/common/pageLoad.js" defer></script>
-
-
 </head>
-
-
 <body >
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">

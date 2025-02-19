@@ -32,4 +32,5 @@ public interface ReviewService {
 	
 	// 조회순으로 리뷰게시글 4개만
 	public void mainReviewList(Model model) throws ServletException, IOException;
+
 }

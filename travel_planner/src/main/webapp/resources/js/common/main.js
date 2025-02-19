@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	console.log(menulists);
 	 
 	/*hamburger bar toggle button*/
-	toggleBtn.addEventListener('click', ()=>{
+/*	toggleBtn.addEventListener('click', ()=>{
 		menu.classList.toggle('active');
 		icons.classList.toggle('active');
-	})
+	})*/
 	
 	
 	

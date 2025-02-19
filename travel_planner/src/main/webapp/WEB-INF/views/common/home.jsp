@@ -33,13 +33,23 @@
 	<c:if test="${m_name != null}">
 		<%= request.getAttribute("m_name") %>님 안녕하세요.
 	</c:if>
+	
 	<div class="wrap">
 		<!-- header 시작 -->
 		<div class="header_wrap">
 			<%@ include file="/WEB-INF/views/common/header.jsp"%>
 		</div>
+		
 		<div class="contents_wrap" id="contents">
-			<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+			<c:choose> 
+				<c:when test="${pgdto != null}">
+					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+				</c:when> 
+				<c:otherwise>
+					<p><%= request.getAttribute("pgdto") %></p>
+					<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+				</c:otherwise> 
+			</c:choose> 
 		</div>
 		<div>
 			<!-- footer 시작 -->
@@ -52,6 +62,12 @@
     let counter = 1;
 	function changePrev(width){
 	  let recommWrap = document.querySelector("#recomment_in_wrap");
+	  let dblock = document.querySelectorAll(".d_block");
+	  
+	  console.log(dblock.length);
+	  console.log(recommWrap.clientWidth);
+	  let wrapwidth = recommWrap.clientWidth/3
+	  
 	  if (counter <= 0) {
 		  counter = 1
 		  event.preventDefault()
@@ -66,11 +82,16 @@
 	  }
 	  // 마지막에는 오른쪽 클릭버튼 안나오게 하기
 		console.log(counter)
-		e.target.parentElement.parentElement.classList.remove('on');
 	}
 	
 	function changeNext(width){
 	  let recommWrap = document.querySelector("#recomment_in_wrap");
+	  let dblock = document.querySelectorAll(".d_block");
+	  
+	  console.log(dblock.length);
+	  console.log(recommWrap.clientWidth);
+	  let wrapwidth = recommWrap.clientWidth/3
+	  
 	  if (counter >= 3){
 		  event.preventDefault()
 		  event.stopPropagation();
@@ -79,12 +100,10 @@
 	  } 
 	  else{
 		  recommWrap.style.transition = "transform 0.3s ease-in-out";
-		  recommWrap.style.transform = "translateX(-" + width * counter + "%)";
+		  recommWrap.style.transform = "translateX(-" + wrapwidth * counter + "px)";
 		  counter++;
 	  }
 		console.log(counter)
-		e.target.parentElement.parentElement.classList.add('on');
-		
 	  // 마지막에는 오른쪽 클릭버튼 안나오게 하기
 	}
 	
@@ -97,6 +116,6 @@
 	function si_select(){
 		 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
 	}
-
 </script>
+
 </html>
