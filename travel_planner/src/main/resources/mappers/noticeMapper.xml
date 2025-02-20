@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.spring.travel_planner.dao.NoticeDAO">
+
+	 <resultMap id="userMap" type="com.spring.travel_planner.dto.NoticeDTO">
+      <id     property="notice_num"        		column="noticeNum" />
+      <result property="notice_title"         	column="noticeTitle" />
+      <result property="notice_content"         column="noticeContent" />
+      <result property="notice_writer"         	column="noticeWriter" />
+      <result property="notice_password"        column="noticePassword" />
+      <result property="noticeReadCnt"         	column="noticeReadCnt" />
+      <result property="notice_regDate"         column="noticeRegDate" />
+      <result property="notice_show"        	column="noticeShow" />
+  	 </resultMap>
+	
+	<!-- 공지사항 목록 -->
+	<select id="noticelist" parameterType="java.util.Map" resultMap="userMap">
+		SELECT notice_num noticeNum,
+			   notice_title noticeTitle,
+			   notice_content noticeContent,
+			   notice_writer noticeWriter,
+			   notice_password noticePassword,
+			   notice_readCnt noticeReadCnt,
+			   notice_regDate noticeRegDate,
+			   notice_show noticeShow,
+			   rn
+		  FROM (SELECT b.*,
+		               ROWNUM AS rn
+		          FROM (SELECT * 
+		                  FROM TRAVEL_NOTICE_TABLE
+		                 WHERE notice_show = 'Y'
+		                 ORDER BY notice_num DESC) b)
+				WHERE <![CDATA[ rn >= #{start} AND rn <= #{end}]]>
+	</select>
+	
+	<!-- 공지사항 갯수 카운트 -->
+	<select id="noticeCnt" resultType="int">
+		SELECT COUNT(*) AS cnt FROM TRAVEL_NOTICE_TABLE WHERE notice_show = 'Y'
+	</select>
+
+	<update id="plusReadCnt" parameterType="com.spring.travel_planner.dto.NoticeDTO">
+		UPDATE TRAVEL_NOTICE_TABLE 
+		   SET notice_readCnt = notice_readCnt + 1
+		   WHERE notice_num = #{notice_num}
+	</update>
+	<select id="getNoticeDetail" parameterType="int" resultType="com.spring.travel_planner.dto.NoticeDTO">
+		SELECT *
+		  FROM TRAVEL_NOTICE_TABLE
+         WHERE notice_num= #{notice_num}
+	</select>
+	
+	<select id="password_chk" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) AS CNT FROM TRAVEL_NOTICE_TABLE WHERE notice_num = #{notice_num} AND notice_password = #{notice_password}
+	</select>
+	
+	<insert id="insertNotice" parameterType="java.util.Map">
+		INSERT INTO TRAVEL_NOTICE_TABLE(notice_num, notice_title, notice_content, notice_writer, notice_password, notice_readCnt, notice_regDate)
+	        VALUES((SELECT NVL(MAX(notice_num) + 1, 1) FROM TRAVEL_NOTICE_TABLE), #{notice_title}, #{notice_content}, '작성자111', #{notice_password}, 0, sysdate)
+	</insert>
+	
+	<update id="updateNotice"  parameterType="com.spring.travel_planner.dto.NoticeDTO">
+		UPDATE TRAVEL_NOTICE_TABLE SET NOTICE_TITLE = #{notice_title},  NOTICE_CONTENT = #{notice_content},  NOTICE_PASSWORD = #{notice_password} WHERE NOTICE_NUM = #{notice_num}
+	</update>
+	
+	<update id="deleteNotice"  parameterType="int">
+		UPDATE TRAVEL_NOTICE_TABLE SET NOTICE_show='N' WHERE notice_num = #{noticeNum}
+	</update> 
+
+</mapper>
