@@ -14,17 +14,9 @@
 <script type="text/javascript">
 	$(function() {
  		$("#btnDelete").click(function() {
-<<<<<<< HEAD
-			
-	 		//	삭제버튼 눌렀을 때 뜨는 모달창
-	    	if(confirm("삭제하시겠습니까?") == true){
-	    		location.href = '${path}/reviewdeleteAction.do';
-=======
-    		
 	 		//	삭제버튼 눌렀을 때 뜨는 모달창
 	    	if(confirm("삭제하시겠습니까?") == true){
 	    		location.href = '${path}/reviewdeleteAction.do?r_num=${dto.r_num}';
->>>>>>> origin/ysj_topic
 	    	} else {
 	    		location.href = '${path}/reviewDetail.do?r_num=${dto.r_num}';
 	    	}
@@ -46,20 +38,11 @@
 		
 		<!-- 리뷰 시작 -->	
 		<div id="reviewDetail">
-<<<<<<< HEAD
-			<!-- hidden :직업 input 박스에서 입력받지 못한 값들을 전달할 때 사용 -->
-			<input type="hidden" name="hidden_r_num" value="${dto.r_num}" />
-			
-			<div class="reviewDetail_top">
-			
-				<!-- 도시/제목/작성자 시작 -->
-=======
 			<form name="review_detail" method="post" enctype="multipart/form-data">
 				<!-- hidden :직업 input 박스에서 입력받지 못한 값들을 전달할 때 사용 -->
 				<input type="hidden" name="hiddenPageNum" value="${pageNum}" />
 				<input type="hidden" name="hiddenR_num" value="${dto.r_num}" />
 				<input type="hidden" name="hiddenR_img" value="${dto.r_img}" />
->>>>>>> origin/ysj_topic
 				
 				<div class="reviewDetail_top">
 					<!-- 도시/제목/작성자 시작 -->
@@ -90,36 +73,6 @@
 					<div class="reviewDetail_tag">태그</div>
 					<!-- 태그 끝 -->
 				</div>
-				
-<<<<<<< HEAD
-			</div>
-			
-			
-			<div class="reviewDetail_middle">
-				<!-- 후기 시작 -->
-				<div>
-					<div class="reviewDetail_contents">${dto.r_content}</div>
-					<div class="reviewDetail_image" align="center">
-						<img alt="이미지" src="${dto.r_img}" width="500px" />
-					</div>
-				</div>
-				<!-- 후기 끝 -->
-			
-				<!-- 태그 시작 -->
-				<div class="reviewDetail_tag">태그</div>
-				<!-- 태그 끝 -->
-				
-			</div>
-			
-			<!-- 후기 하단 시작 -->
-			<div class="reviewDetail_bottom">
-				<input type="button" value="목록" class="reviewDetail_listBtn" onclick="window.location='${path}/reviewList.do'">
-				<input type="button" value="수정" class="reviewDetail_corBtn">
-				<input type="button" value="삭제" class="reviewDetail_corBtn" id="btnDelete">
-			</div>
-			<!-- 후기 하단 끝 -->
-			
-=======
 				<!-- 후기 하단 시작 -->
 				<div class="reviewDetail_bottom">
 					<input type="button" value="목록" class="reviewDetail_listBtn" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
@@ -129,7 +82,6 @@
 				</div>
 				<!-- 후기 하단 끝 -->
 			</form>
->>>>>>> origin/ysj_topic
 		</div>
 		<!-- 리뷰 끝 -->
 		

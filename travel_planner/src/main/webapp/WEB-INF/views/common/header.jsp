@@ -74,12 +74,10 @@
 				<li class="pointerBtn"><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
 				<li class="pointerBtn"><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
 				<li class="pointerBtn flex-shrink-0 dropdown">
-					<a data-bs-toggle="dropdown"  class="movePage -block link-body-emphasis text-decoration-none dropdown-toggle" >커뮤니티</a>
+					<a data-bs-toggle="dropdown"  class="movePage -block link-body-emphasis text-decoration-none dropdown-toggle" >여행톡톡</a>
 					<ul class="dropdown-menu text-small shadow" style="">
-            			<li><a class="dropdown-item" onclick="load('${path}/reviewList.do')">페이지1</a></li>
-			            <li><a class="dropdown-item" onclick="load('${path}/mainAction.do')">mainAction.do</a></li>
-			            <li><a class="dropdown-item" onclick="load('${path}/mainReviewAction.do')">mainreviewAction.do</a></li>
-			            <li><a class="dropdown-item" onclick="load('${path}/noticeList.nt')">공지사항</a></li>
+            			<li><a class="dropdown-item" onclick="homeMove('${path}/reviewList.do')">후기</a></li>
+			            <li><a class="dropdown-item" onclick="homeMove('${path}/noticeList.nt')">공지사항</a></li>
 			            <li><hr class="dropdown-divider"></li>
 			            <li><a class="dropdown-item" href="#">Sign out</a></li>
           			</ul>

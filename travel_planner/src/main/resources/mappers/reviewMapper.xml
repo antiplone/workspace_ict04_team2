@@ -28,7 +28,7 @@
         (SELECT A.*,
                 rownum AS rn
          FROM
-                (SELECT * FROM travle_review_tbl
+                (SELECT * FROM travel_review_tbl
                   WHERE r_show = 'Y'
                   ORDER BY r_num DESC) A
 	        )
@@ -39,26 +39,26 @@
 
 <!-- 후기 총 건수 -->
 <select id="reviewCnt" resultType="int">
-	SELECT COUNT(*) FROM travle_review_tbl
+	SELECT COUNT(*) FROM travel_review_tbl
 </select>
 
 <!-- 후기 상세페이지 -->
 <select id="reviewDetail" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
 	SELECT *
-	  FROM travle_review_tbl
+	  FROM travel_review_tbl
 	 WHERE r_num = #{r_num}
 </select>
 
 <!-- 후기 조회수 -->
 <update id="reviewViews" parameterType="int">
-	UPDATE travle_review_tbl
+	UPDATE travel_review_tbl
 	   SET r_readCnt = r_readCnt +1
 	 WHERE r_num = #{r_num}
 </update>
 
 <!-- 후기 삭제 -->
 <update id="reviewDelete" parameterType="int">
-   UPDATE travle_review_tbl
+   UPDATE travel_review_tbl
       	 SET r_show = 'N'
     WHERE r_num = #{num}
 </update>

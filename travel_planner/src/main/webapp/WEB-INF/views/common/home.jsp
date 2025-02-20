@@ -39,8 +39,10 @@
 		<div class="header_wrap">
 			<%@ include file="/WEB-INF/views/common/header.jsp"%>
 		</div>
-
-		<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+		
+		<div class="contents_wrap" id="contents">
+			<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+		</div>
 
 		<div>
 			<!-- footer 시작 -->
@@ -107,6 +109,33 @@
 	function si_select(){
 		 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
 	}
+
+	
+	$(function(){
+		if($(".idwrap").hasClass("noticeEdit")){
+			$('#btnEditFinish').on('click', function() {
+	   			alert("공지사항 수정을 완료하였습니다.");
+	   			document.editForm.submit();	
+	   			homeMove('${path}/notice_updateAction.nt');
+	    	});
+		}
+	});
+	
+	function homeMove(path) { // (8)
+		alert("homeMove")
+		$.ajax({
+			url : path, // 컨트롤러로 이동(9)
+			type : 'POST',
+			success : function(result) { // 콜백함수(13) => result는 comment_list
+				$('#contents').html(result);
+			},
+			error : function(j, t, errorThrown) {
+				alert(errorThrown);
+			},
+		})
+	}
+	
 </script>
+
 
 </html>
