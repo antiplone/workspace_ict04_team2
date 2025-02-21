@@ -52,10 +52,10 @@
 		   		document.insertForm.submit();	
 		    });
 		   	
-		   	// [게시글 취소 버튼] 클릭 시 [게시글 목록]으로 이동 
+		/*    	// [게시글 취소 버튼] 클릭 시 [게시글 목록]으로 이동 
 	   		btnCancel.addEventListener('click', function(e){
 				location.href="${path}/noticeList.nt";
-		    });
+		    }); */
 		   	
 		});
 		
@@ -111,7 +111,7 @@
 											<td colspan="4" align="center">
 												<input type="button" class="inputButton" value="작성완료" id="btnSave">
 												<input type="reset" class="inputButton" value="초기화">
-												<input type="button" class="inputButton" value="취소" id="btnCancel">
+												<input type="button" class="inputButton" value="취소" id="btnCancel" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
 									</table>

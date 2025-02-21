@@ -86,7 +86,7 @@
     position: relative;
 }
 
-/*글쓰기*/
+/*공지사항 글쓰기*/
 .writeNotice {
     position: absolute;
     top: 50%;
@@ -105,6 +105,7 @@
     line-height: 1;
 }
 
+/*공지사항 글쓰기 왼쪽 tr>th:first-child*/
 
 #right {
 	width: 96%;
@@ -114,10 +115,14 @@
 	margin-top: 30px;
 }
 
-.table_div  table {
+.table_div table {
 	border-collapse: collapse;
-	width: 800px;
+	width: 840px;
 	margin: 0 auto;
+}
+
+.table_div .first_th{
+    width: 90px !important;
 }
 
 .table_div  table th {
