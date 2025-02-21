@@ -54,6 +54,11 @@ li.d_block {
 
 .recImgWrap{position:relative; height: 200px;}
 
+.right_img {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
 .recImgWrap img{
 	width:auto;
 	height:200px;

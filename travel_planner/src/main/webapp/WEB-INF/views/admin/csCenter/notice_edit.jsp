@@ -23,8 +23,6 @@
 			if($('#notice_password').val()){
 				if($('#notice_password').val()==='${dto.noticePassword}'){
 		   			alert("공지사항 수정을 완료하였습니다.");
-		   		/* 	$('#editForm').attr("action", "${path}/notice_updateAction.nt")
-		   			$('#editForm').submit(); */
 		   			 $.ajax({
 		   				url : "${path}/notice_updateAction.nt", // 컨트롤러로 이동(9)
 		   				data : $('#editForm').serialize(),

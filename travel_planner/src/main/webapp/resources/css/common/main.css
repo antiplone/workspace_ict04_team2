@@ -204,6 +204,11 @@
 	margin: 6px 0;
 }
 
+.id_check p{
+    color: black;
+    margin-bottom: 0px;
+}
+
 /* 추천코스 이미지 */
 .recom_img {
     display: inline-block;
