@@ -67,7 +67,7 @@ public class LocationServiceImpl implements LocationService {
 		// 화면에서 입력받은 '시' 가져오기 int tc_area =
 		int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
 		System.out.println("service si_select : => " + tc_si_num);
-
+		
 		// 해당 '시'에 맞는 '구' 가져오기 - dao 정보 조회
 		List<LocationDTO> list = dao.locationList(tc_si_num);
 		System.out.println("service list => " + list);
@@ -76,37 +76,15 @@ public class LocationServiceImpl implements LocationService {
 		model.addAttribute("list", list);
 		model.addAttribute("tc_si_num", tc_si_num);
 	}
-
-
 	
 	  // 지역 - '구' 선택 시 해당 리스트들 조회
 	  @Override public void selectListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			  throws ServletException, IOException { 
 	  System.out.println("LocationServiceImpl - selectListAction()");
 	  
-	   // 리스트 - 페이징 처리
-	  String pageNum = request.getParameter("pageNum");
-	
-	  Location_Paging paging = new Location_Paging(pageNum);
-	  int total = dao.locationCnt();
-	  System.out.println("total => " + total);
-	
-	  paging.setTotalCount(total);
-	
-		// 리스트 - 목록 조회
-	  int start = paging.getStartRow();
-	  int end = paging.getEndRow();
-			
-		// HashMap 생성, key value 추가
-	  Map<String, Object> map = new HashMap<String, Object>();
-	  map.put("start", start);
-	  map.put("end", end);
-				
 	  // '시', '구'값 가져오기
 	  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
 	  String selcet_gu = request.getParameter("location_gu");
-	  // System.out.println("service tc_si_num : => " + tc_si_num);
-	  // System.out.println("service tc_gu : => " + selcet_gu);
 	 
 	  // num인 '시' 값을 한글로 변경
 	  String select_si = "";
@@ -165,21 +143,69 @@ public class LocationServiceImpl implements LocationService {
 	  		break;
 	  }
 	  
-	  List<String> location_list = new ArrayList<String>();
+	  // '구' - '전체' 선택 시
+	  if(selcet_gu.equals("전체@")) {
+		  
+		  String area = "%" + select_si + "%";
+		  List<LocationDTO> list = dao.selectlocationAllList(area);
+		  
+		  // 리스트 - 페이징 처리
+		  String pageNum = request.getParameter("pageNum");
+		  
+		  Location_Paging paging = new Location_Paging(pageNum);
+		  
+		  // 선택한 지역 갯수만 조회
+		  paging.setTotalCount(list.size());
+		
+			// 리스트 - 목록 조회
+		  int start = paging.getStartRow();
+		  int end = paging.getEndRow();
+				
+			// HashMap 생성, key value 추가
+		  Map<String, Object> map = new HashMap<String, Object>();
+		  map.put("start", start);
+		  map.put("end", end);
+		  
+		  model.addAttribute("list", list);
+		  model.addAttribute("paging", paging);
+		  model.addAttribute("total", list.size());
+	  }
 	  
-	  String[] tc_gu = selcet_gu.split("@");
-	  
-	  for(int i=0; i<tc_gu.length; i++) {
-		  String choice = select_si + " " + tc_gu[i];
-		 location_list.add(choice);
-	  }  
-	  
-	  List<LocationDTO> list = dao.selectlocationList(location_list);
-	  
-	  // 해당 리스트들 jsp에 전달
-	  model.addAttribute("list", list);
-	  model.addAttribute("paging", paging);
-	  model.addAttribute("total", total);
+	  // 특정 '구' 지역만 선택 시
+	  else {
+		  List<String> location_list = new ArrayList<String>();
+		  
+		  String[] tc_gu = selcet_gu.split("@");
+		  
+		  for(int i=0; i<tc_gu.length; i++) {
+			  String choice = select_si + " " + tc_gu[i];
+			 location_list.add(choice);
+		  }  
+		  
+		  List<LocationDTO> list = dao.selectlocationList(location_list);
+		  
+		  // 리스트 - 페이징 처리
+		  String pageNum = request.getParameter("pageNum");
+		  
+		  Location_Paging paging = new Location_Paging(pageNum);
+		  
+		  // 선택한 지역 갯수만 조회
+		  paging.setTotalCount(list.size());
+		
+			// 리스트 - 목록 조회
+		  int start = paging.getStartRow();
+		  int end = paging.getEndRow();
+				
+			// HashMap 생성, key value 추가
+		  Map<String, Object> map = new HashMap<String, Object>();
+		  map.put("start", start);
+		  map.put("end", end);
+		  
+		  // 해당 리스트들 jsp에 전달
+		  model.addAttribute("list", list);
+		  model.addAttribute("paging", paging);
+		  model.addAttribute("total", list.size());
+	  	}
 	  }
 
 	// 지역 - 여행지 클릭 시 상세페이지 조회
@@ -195,39 +221,5 @@ public class LocationServiceImpl implements LocationService {
 	model.addAttribute("dto", dto);
 		
 	}
-	
-	/*
-	// 지역 - '구'선택시 리스트들 조회 테스트 메서드
-	@Override
-	public void guListAction_test(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException {
-		// 3단계. 화면에서 입력받은 값 가져오기
-		String pageNum = request.getParameter("pageNum");
-
-		Location_Paging paging = new Location_Paging(pageNum);
-		int total = dao.locationCnt();
-		System.out.println("total => " + total);
-
-		paging.setTotalCount(total);
-
-		// 5-2단계. 게시글 목록 조회
-		int start = paging.getStartRow();
-		int end = paging.getEndRow();
-
-		// HashMap 생성, key value 추가
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("start", start);
-		map.put("end", end);
-
-		List<LocationDTO> dto = dao.testLocationList(map);
-		System.out.println("서비스 list: " + dto);
-
-		model.addAttribute("dto", dto);
-		model.addAttribute("paging", paging);
-		model.addAttribute("total", total);
-
-	}
-*/
-	
 	
 }

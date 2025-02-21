@@ -1,19 +1,30 @@
 @charset "UTF-8";
 
-/* 여행 후기 */
-#reviewDetail_t {
-	    padding-block: 25px;
+.ver-line:after {
+	content: '|';
+    margin: 0 5px 0 10px;
+}
+.hor-line {
+	border-top: 1px solid #ddd;
+	padding-top: 24px;
 }
 
-/* 후기 틀..? */
-#reviewDetail {
+/* 여행 후기 */
+#review_details {
 	width: 900px;
+	margin: 0 auto;
+}
+
+#reviewDetail_t {
+    padding-block: 25px;
+}
+
+/* 후기 레이아웃 */
+#reviewDetail {
 	display: flex;
     position: relative;
-    margin: 0 auto;
     flex-direction: column;
 }
-
 
 .reviewDetail_top {
 	padding-block: 10px;
@@ -33,7 +44,7 @@
 	font-weight: 900;
 }
 
-/* 작성자/작성일/조회수/찜 */
+/* 작성자/작성일/조회수 */
 .reviewDetail_info {
 	display: flex;
     justify-content: space-between;
@@ -43,10 +54,8 @@
 
 /* 후기 내용 부분..? */
 .reviewDetail_middle {
-	width: 900px;
 	display: flex;
     position: relative;
-    margin: 0 auto;
     flex-direction: column;
     border-bottom: 1px solid silver;
     margin-bottom: 15px;
@@ -118,3 +127,70 @@
 }
 
 /* 후기 하단 끝 */
+
+/* 후기 댓글 */
+#review_comment {	/* 후기 전체를 감싸고 있는 div */
+	margin: 0 auto;
+}
+.reviewComment {		/* 그 밑 */
+	margin: 80px 0;
+}
+
+.commentTitle {
+	font-size: 24px;
+	font-weight: bold;
+}
+.commentTable {
+	/* border: 1px solid #111; */
+	margin-top: 17px;
+}
+.commentInput {
+    background: #999;
+    display: flex;
+    flex-direction: row;
+    
+    position: relative;
+    width: 100%;
+    padding: 15px 20px;
+}
+.input_text {
+	width: 800px;
+    margin-right: 10px;
+}
+.input_text textarea {
+	width: 800px;
+    height: 40px;
+    padding: 10px;
+    font-size: 12px;
+}
+.commentInput span:last-child {
+	width: 60px;
+    height: 39px;
+    display: flex;		/* 등록버튼 글자 중앙정렬 */
+    justify-content: center;
+    background: #ccc;
+}
+.input_btn {
+	border: none;
+    background: inherit;
+    font-size: 14px;
+}
+.input_btn input[type="button"] {
+	border: none;
+	background: initial;
+	cursor: pointer;
+}
+
+/* 작성한 댓글 리스트 */
+.commentList {
+	margin-top: 30px;
+    padding: 0 10px;
+}
+.list_text {
+	font-size: 14px;
+    margin-top: 10px;
+    padding: 0 2px;
+}
+.comment_lst {
+	margin-bottom: 24px;
+}

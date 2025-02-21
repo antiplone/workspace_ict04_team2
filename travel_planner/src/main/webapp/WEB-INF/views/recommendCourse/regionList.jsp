@@ -47,48 +47,46 @@
 			
 			<!-- 모달 버튼 -->
 			<div id="areaList">
-					<c:forEach var="dto" items="${list}">
-					    <div class="area_list">
-					            <div class="modal_popup_button">
-					                <button type="button" class="modal_btn"
-					                		area_id="${dto.tr_area_id}"
-					                        area_english="${dto.tr_area_english}"
-					                        area_korea="${dto.tr_area_korea}"
-					                        area_content="${dto.tr_area_content}"
-					                        area_image="${path}${dto.tr_area_image}">
-					                    <img src="${path}${dto.tr_area_image}"
-					                         class="area_img" 
-					                         alt="${dto.tr_area_english}">
-					                </button>
-					            </div>
-					            <div class="area_english">${dto.tr_area_english}</div>
-					            <div class="area_korea">${dto.tr_area_korea}</div>
-					    </div>
-					</c:forEach>
+				<c:forEach var="dto" items="${list}">
+				    <div class="area_list">
+				            <div class="modal_popup_button">
+				                <button type="button" class="modal_btn"
+				                		area_id="${dto.tr_area_id}"
+				                        area_english="${dto.tr_area_english}"
+				                        area_korea="${dto.tr_area_korea}"
+				                        area_content="${dto.tr_area_content}"
+				                        area_image="${path}${dto.tr_area_image}">
+				                    <img src="${path}${dto.tr_area_image}"
+				                         class="area_img" 
+				                        <%--  alt="${dto.tr_area_english}" --%>>
+				                </button>
+				            </div>
+				            <div class="area_english">${dto.tr_area_english}</div>
+				            <div class="area_korea">${dto.tr_area_korea}</div>
+				    </div>
+				</c:forEach>
 					
-					<!-- 모달 팝업 (forEach 바깥에 위치) -->
-					<div class="modal" id="regionModal">
-					    <div class="modal_popup">
-					        <div class="content_box">
-					            <div class="content">
-					                <div class="areaContent">
-					                    <div id="modalAreaEnglish"></div>
-					                    <div id="modalAreaKorea"></div>
-					                    <p id="modalAreaContent"></p>
-					                    <div align="center">
-					                        <input class="recommendCourseDetailButton" type="button" value="추천코스 보기>" 
-					                            onclick="modalClick('${path}')"> 
-					                               
-					                    </div>
-					                </div>
-					                <div class="area_detail_image_box">
-					                    <img id="modalAreaImage" class="area_detail_image" src=""  alt="">
-					                </div>
-					            </div>
-					        </div>
-					        <button type="button" class="close_btn"><i class="fa-solid fa-xmark"></i></button>
-					    </div>
-					</div>
+				<!-- 모달 팝업 (forEach 바깥에 위치) -->
+				<div class="modal" id="regionModal">
+				    <div class="modal_popup">
+				        <div class="content_box">
+				            <div class="content">
+				                <div class="areaContent">
+				                    <div id="modalAreaEnglish"></div>
+				                    <div id="modalAreaKorea"></div>
+				                    <p id="modalAreaContent"></p>
+				                    <div align="center">
+				                        <input class="recommendCourseDetailButton" type="button" value="추천코스 보기>" onclick="modalClick('${path}')"> 
+				                    </div>
+				                </div>
+				                <div class="area_detail_image_box">
+				                    <img id="modalAreaImage" class="area_detail_image" src=""  alt="">
+				                </div>
+				            </div>
+				        </div>
+				        <button type="button" class="close_btn"><i class="fa-solid fa-xmark"></i></button>
+				    </div>
+				</div>
 			 </div>
 		 </div> 	
 	</div>

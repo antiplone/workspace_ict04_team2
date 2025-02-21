@@ -3,7 +3,7 @@ package com.spring.travel_planner.page;
 public class Location_Paging {
 	
 	/** 현재 페이지에서 보여질 게시글 갯수 */
-	private int pageSize = 10;
+	private int pageSize = 12;
 	/** 총게시글(행)수 */
 	private int total = 0;
 	/** 아직 사용중이지 않은, 페이지번호 */
@@ -147,7 +147,7 @@ public class Location_Paging {
 			
 //			startPage = 1; // 굳이, 초기화를 안시켜도 작동, 바로 밑에서 if문으로 계산을 해버려서
 			
-			pageBlock = pageSize; // 하단에 쪽수가 15개까지 보여주고 싶으면, 15로 바꾸면 됩니다.
+			pageBlock = 5; // 하단에 쪽수가 15개까지 보여주고 싶으면, 15로 바꾸면 됩니다.
 			/* *** 여기서부터의 currentPage는 '쪽수'랑 계산하기위해서 쓰입니다. *** */
 			if(currentPage % pageBlock != 0) { // 현재 페이지가 쪽수범위에 들어오는가? 10 % 10이 아닐때,
 				// (2~9) * 10 + 1;

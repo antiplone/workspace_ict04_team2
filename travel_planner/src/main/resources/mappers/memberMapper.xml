@@ -13,7 +13,7 @@
 		<result property="r_img"         			column="r_img" />
 		<result property="m_name"         			column="m_name" />
 		<result property="r_readCnt"         		column="r_readCnt" />
-		<result property="r_comment"         	column="r_comment" />
+		<result property="r_comment_count"         	column="r_comment_count" />
   	 </resultMap>
 	
 	<!--  <resultMap id="userMap" type="com.spring.travel_planner.dto.RecommendCourseDTO2">
@@ -45,7 +45,7 @@
 			   r_img r_img,
 			   m_name m_name,
 			   r_readCnt r_readCnt,
-			   r_comment r_comment
+			   r_comment_count r_comment_count
 		  FROM TRAVEL_REVIEW_TBL
 	   WHERE <![CDATA[ r_num >= #{start1}
 	  	 AND r_num <= #{end1}	]]>
