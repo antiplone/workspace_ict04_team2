@@ -22,11 +22,11 @@
 function si_select(){
 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
  }
+
 </script>
 
 </head>
 <body>
-		
 		<!-- 이미지 클릭 시 '구' 선택 팝업창 => 선택 완료 시 해당 '구'에 맞는 리스트 페이지로 이동 -->
 		<div class="main_select" style='background-color: #e1ecf7'>
 			<form name="locationMain" action="#" method="post">
@@ -36,7 +36,7 @@ function si_select(){
 							<td>	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
 								<a href="${path}/location_main.lc">
 								<img src="resources/local_images/전국.png" name="si_choice" id="location_all" class="location_si"></a>
-								전국 <br>
+								전국<br>
 								
 								<div class="si_seconde">
 									<input type="radio" name="si_choice" id="location_kangwon" value="32" onclick="si_select()">
@@ -188,7 +188,6 @@ function si_select(){
 						<tr class="main_list_tr">
 							<c:forEach var="dto" items="${dto}">
 								<td>
-									<%-- <input type="image" src="resources/local_images/${dto.ti_detail_url}" id="list_images" onclick="location_choice()"> --%>
 									<a href="${path}/location_detailAction.lc?location_num=${dto.ti_num}">
 									<img src="resources/local_images/${dto.ti_detail_url}" id="list_images"></a><br>
 									<div class="local_name"><strong >${dto.ti_name}</strong></div><br>
@@ -203,18 +202,18 @@ function si_select(){
 							<td colspan="5" align="center">
 								<!-- 페이징 처리 -->
 								<!-- 이전 버튼 활성화 -->
-								<c:if test="${paging.startPage > 10}">
-									<a href="${path}/location_main.lc?pageNum=${paging.prev}">[이전]</a>
+								<c:if test="${paging.startPage > 5}">
+									<a href="${path}/location_main.lc?pageNum=${paging.prev}"><input type="button" value="<<" class="page_btn"></a>
 								</c:if>
 								
 								<!-- 페이지 번호 처리 -->
 								<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-									<a href="${path}/location_main.lc?pageNum=${num}">${num}</a>
+									<a href="${path}/location_main.lc?pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
 								</c:forEach>
 								 
 								<!-- 다음 버튼 활성화 -->
 								<c:if test="${paging.endPage < paging.pageCount}">
-									<a href="${path}/location_main.lc?pageNum=${paging.next}">[다음]</a>
+									<a href="${path}/location_main.lc?pageNum=${paging.next}"><input type="button" value=">>" class="page_btn"></a>
 								</c:if>
 							</td>
 						</tr>
