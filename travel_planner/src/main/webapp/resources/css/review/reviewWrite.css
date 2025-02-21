@@ -23,7 +23,6 @@
 }
 
 .reviewWrite_form {
-   width: 850px;
    display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -51,6 +50,10 @@
    font-weight: bold;
 }
 
+/* 후기수정 - 내용부분 */
+.reviewWrite_content {
+	/* margin-bottom: 80px; */
+}
 .reviewWrite_content2 {
    display: flex;
 }
@@ -59,10 +62,7 @@
    margin-bottom: 16px;
    font-size: 19px;
    font-weight: bold;
-   margin-right: 60px;
-   margin-bottom: 40px;
 }
-
 
 .reviewWrite_content4 textarea {
 	width: 100%;
@@ -135,9 +135,9 @@
 }
 
 .btn-img {
-   width: 100px;
+/*    width: 100px;
    height: 30px;
-   border-radius: 5px;
+   border-radius: 5px; */
 }
  
 .reviewWrite_tag {

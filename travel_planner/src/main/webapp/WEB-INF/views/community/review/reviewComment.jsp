@@ -47,7 +47,7 @@
 						
 <c:forEach var="dto" items="">
 
-	<c:if test="${dto.rc_comment_count > 0}">
+	<c:if test="${dto.r_comment_count > 0}">
 	<div class="comment_lst">
 		<div>날이 따뜻해지면 꼭 가고싶어요~</div>
 		<div class="list_text">
@@ -57,7 +57,7 @@
 	</div>
 	</c:if>
 	
-	<c:if test="${dto.rc_comment_count > 1}">
+	<c:if test="${dto.r_comment_count > 1}">
 	<div class="comment_lst hor-line">
 		<div>${dto.rc_comment}</div>
 		<div class="list_text">

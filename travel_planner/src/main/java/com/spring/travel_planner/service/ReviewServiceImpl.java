@@ -83,25 +83,15 @@ public class ReviewServiceImpl implements ReviewService {
 		System.out.println("리뷰service - reviewUpdate");
 
 		String pageNum = request.getParameter("pageNum");
-		String r_img = request.getParameter("r_img");
 		int r_num = Integer.parseInt(request.getParameter("r_num"));
 		
 		System.out.println("r_num: " + r_num);
 		System.out.println("pageNum: " + pageNum);
-		System.out.println("r_img: " + r_img);
 		
-		ReviewDTO dto = new ReviewDTO();
-		dto.setR_num(r_num);
-		dto.setR_title(request.getParameter("r_title"));
-		dto.setR_content(request.getParameter("r_content"));
-		dto.setR_img(r_img);
-		dto.setM_name(request.getParameter("m_member"));
+		ReviewDTO dto = dao.getReivew(r_num);
 		
-		ReviewDTO dto2 = dao.getReivew(r_num);
-		
-		model.addAttribute("dto2", dto2);
+		model.addAttribute("dto", dto);
 		model.addAttribute("r_num", r_num);
-		model.addAttribute("r_img", r_img);
 	}
 	
 	// 후기 수정 처리

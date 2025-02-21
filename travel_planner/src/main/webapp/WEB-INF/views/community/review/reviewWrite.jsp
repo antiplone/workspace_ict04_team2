@@ -19,8 +19,7 @@
          if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?") == true){
                window.location = "${path}/reviewList.do";
             } else {
-               window.location = "${path}/reviewWrite.do";
-               return false;
+               window.href = "${path}/reviewWrite.do";
             }
       })
       
@@ -77,9 +76,9 @@
                   <!-- 작성자 -->
                   <input type="hidden" name="hiddenM_name" value="${dto.m_name}"/>
                   
-                  <input type="hidden" name="hiddenPageNum" value="${pageNum}">
-                        <input type="hidden" name="hiddenR_num" value="${dto.r_num}">
-                  <input type="hidden" name="hiddenR_img" value="${dto.r_img}">
+				<input type="hidden" name="hiddenPageNum" value="${pageNum}">
+				<input type="hidden" name="hiddenR_num" value="${dto.r_num}">
+				<input type="hidden" name="hiddenR_img" value="${dto.r_img}">
                   
                   <!-- 도시 선택 시작 -->
                   <div class="reviewWrite_city">
@@ -138,7 +137,7 @@
             <!-- 버튼 시작 -->
             <div class="reviewWrite_btn">
                <div class="reviewWrite_btn1">
-                  <input type="reset" value="취소" class="inputButton" id="cancel"/>
+                  <input type="button" value="취소" class="inputButton" id="cancel"/>
                   <input type="submit" value="등록" class="inputButton" id="save"/>
                </div>
             </div>
