@@ -47,21 +47,27 @@ public class LocationDAOImpl implements LocationDAO {
 		
 		return total;
 	}
-	
 	 
 	// 지역 - '구' 선택 시 해당 리스트들 조회
 	@Override
 	public List<LocationDTO> selectlocationList(List<String> list) {
-		
-		 System.out.println("LocationDAOImpl - selectlocationList()");
-		 System.out.println("LocationDAOImpl - list" + list);
+		System.out.println("LocationDAOImpl - selectlocationList()");
 		 
-		 List<LocationDTO> result = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationList", list);
+		List<LocationDTO> result = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationList", list);
 		 
-		 System.out.println("LocationDAOImpl - list" + result);
 		return result;
 	} 
 
+	// 지역 - '구'에서 '전체' 선택 시 해당 리스트들 조회
+	@Override
+	public List<LocationDTO> selectlocationAllList(String area) {
+		System.out.println("LocationDAOImpl - selectlocationList()");
+		
+		List<LocationDTO> result = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.selectlocationAllList", area);
+		 
+		return result;
+	}
+	
 	// 지역 - 여행지 클릭 시 상세페이지 조회
 	@Override
 	public LocationDTO locationDetailPage(int ti_num) {
@@ -70,21 +76,5 @@ public class LocationDAOImpl implements LocationDAO {
 		
 		return dto;
 	}
-	
-	/*
-	// 지역 - '구'선택시 리스트들 조회 테스트 메서드
-	@Override
-	public List<LocationDTO> testLocationList(Map<String, Object> map) {
-		System.out.println("LocationDAOImpl - testLocationList()");
-		
-		
-		List<LocationDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.testLocationList", map);
-		
-		System.out.println("LocationDAOImpl - list 값 =>" + list);
-		
-		return list;
-	}
-	*/
-
 	
 }

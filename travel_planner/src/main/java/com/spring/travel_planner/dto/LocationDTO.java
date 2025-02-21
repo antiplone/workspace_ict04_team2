@@ -5,37 +5,31 @@ public class LocationDTO {
 	
 	public LocationDTO() {}
 	
-	/*
-	 * // 테스트 private String detail_imgUrl; // 여행지 상세페이지 - 이미지 주소 private String
-	 * detail_url; // 여행지 상세페이지 - 링크 주소 private String detail_name; // 여행지 상세페이지 -
-	 * 여행지명 private String detail_location; // 여행지 상세페이지 - 지역
-	 */	
-	
 	// 지역
-	private int tc_num;				// 지역 번호
-	private String tc_area;			// 지역(시)
-	private String tc_gu;			// 지역(구)
-	private int tc_si_num;			// 지역(시) 번호
-	private int tc_gu_num;			// 지역(구) 번호
+	private int tc_num;					// 지역 번호
+	private String tc_area;				// 지역(시)
+	private String tc_gu;				// 지역(구)
+	private int tc_si_num;				// 지역(시) 번호
+	private int tc_gu_num;				// 지역(구) 번호
 	
 	// 여행지 정보
-	private int ti_num; // 여행지 번호
-	private String ti_language; //언어
-	private String ti_thema; //유형 분류
-	private String ti_service;     		//서비스 분류
-	private String ti_location;     		// 지역 (시, 구)
-	private String ti_name;	// 여행지명
-	private String ti_content; // 여행지 간략 설명
+	private int ti_num; 				// 여행지 번호
+	private String ti_language; 		// 언어
+	private String ti_thema; 			// 유형 분류
+	private String ti_service;     		// 서비스 분류
+	private String ti_location;     	// 지역 (시, 구)
+	private String ti_name;				// 여행지명
+	private String ti_content; 			// 여행지 간략 설명
 	private String ti_content_big; 		// 여행지 공간소개
-	private String ti_qna;		   // 여행지 문의처
-	private String ti_url;		  // 여행지 홈페이지
+	private String ti_qna;		   		// 여행지 문의처
+	private String ti_url;		  		// 여행지 홈페이지
 	private String ti_address;	   		// 여행지 주소
-	private String ti_open;		// 여행지 이용시간
+	private String ti_open;				// 여행지 이용시간
 	private String ti_holiday;	   		// 여행지 휴일
 	private String ti_parking;	   		// 여행지 주차 가능여부
-	private String ti_parking2;	   	// 여행지 장애인 주차 가능여부
-	private String ti_admission;   	// 여행지 입장료
-	private String ti_detail_imgUrl;   // 여행지 대표이미지 주소
+	private String ti_parking2;	   		// 여행지 장애인 주차 가능여부
+	private String ti_admission;   		// 여행지 입장료
+	private String ti_detail_imgUrl;    // 여행지 대표이미지 주소
 	private String ti_detail_url;   	// 여행지 대표이미지 저장명
 	private String ti_detail_url2;   	// 여행지 추가 이미지 저장명
 	
@@ -199,8 +193,42 @@ public class LocationDTO {
 }
 
 
-/*  ==== 여행 지역(시/구) 테이블 ====
- * CREATE TABLE travel_tourcity_tbl( tc_num NUMBER(38) PRIMARY KEY, -- 지역 번호
- * tc_area VARCHAR2(50), -- 지역(시) tc_gu VARCHAR2(50), -- 지역(구) tc_si_num
- * NUMBER(38), -- 시 번호 tc_gu_num NUMBER(38) -- 구 번호 );
+/*  
+
+         	==== 여행 지역(시/구) 테이블 ====
+CREATE TABLE travel_tourcity_tbl(
+	tc_num		   NUMBER(38)     PRIMARY KEY,	 -- 지역 번호 pk
+	tc_area    	   VARCHAR2(50), 				 -- 지역(시)
+	tc_gu    	   VARCHAR2(50), 				 -- 지역(구)
+	tc_si_num	   NUMBER(38),					 -- 시 번호
+	tc_gu_num	   NUMBER(38)  				 	 -- 구 번호
+);
+
+			==== 여행지 정보 테이블 테이블 ====
+CREATE TABLE travel_tourInfo_tbl(
+    ti_num         		NUMBER(38)    PRIMARY KEY,    	-- 여행지 번호
+	ti_language    		VARCHAR2(50),       	 		-- 언어
+	ti_thema   	   		VARCHAR2(50),       			-- 유형 분류
+	ti_service     		VARCHAR2(50),       		 	-- 서비스 분류
+	tc_num         		NUMBER(38),						-- 지역번호 fk
+	ti_location			VARCHAR2(50),					-- 지역 (시, 구)
+	ti_name		   		VARCHAR2(50),					-- 여행지명
+	ti_content	   		CLOB,							-- 여행지 간략 설명
+	ti_content_big 		CLOB,  							-- 여행지 공간소개
+	ti_qna		   		VARCHAR2(50),					-- 여행지 문의처
+	ti_url		   		CLOB,							-- 여행지 홈페이지
+	ti_address	   		CLOB,							-- 여행지 주소
+	ti_open		   		CLOB,							-- 여행지 이용시간
+	ti_holiday	   		CLOB,							-- 여행지 휴일
+	ti_parking	   		CLOB,							-- 여행지 주차 가능여부
+	ti_parking2	   		CLOB,							-- 여행지 장애인 주차 가능여부
+	ti_admission   		CLOB,							-- 여행지 입장료
+	ti_detail_imgUrl    VARCHAR2(50),       	 		-- 여행지 대표이미지 주소
+	ti_detail_url   	 VARCHAR2(50),       			-- 여행지 대표이미지 저장명
+	ti_detail_url2   	 VARCHAR2(50),       			-- 여행지 추가 이미지 저장명
+	CONSTRAINT travel_tourInfo_tbl_fk FOREIGN KEY(tc_num) REFERENCES travel_tourcity_tbl(tc_num)
+             ON DELETE CASCADE  --자식테이블에 설정 시, 부모테이블 삭제 시 함께 삭제
+);
+
+
  */
