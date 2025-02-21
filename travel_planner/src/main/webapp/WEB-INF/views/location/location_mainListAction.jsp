@@ -13,8 +13,15 @@
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/location/locationMain.css">
 
-<!-- js -->
-<script src="${path}/resources/js/location/location_main.js" defer></script>
+<!-- js 
+<script src="${path}/resources/js/location/location_main.js" defer></script>-->
+
+<!-- '시' 선택 시 service로 값 전달 + '구'선택 팝업창 --> 
+<script>
+function si_select(){
+	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
+ }
+</script>
 
 </head>
 <body>
@@ -178,15 +185,27 @@
 				<table style="margin-left: auto; margin-right: auto;">
 					<div class="main_list_tb">
 						<tr class="main_list_tr">
-							<c:forEach var="dto" items="${list}">
-								<td>
-									<%-- <input type="image" src="resources/local_images/${dto.ti_detail_url}" id="list_images" onclick="location_choice()"> --%>
-									<a href="${path}/location_detailAction.lc?location_num=${dto.ti_num}">
-									<img src="resources/local_images/${dto.ti_detail_url}" id="list_images"></a><br>
-									<div class="local_name"><strong >${dto.ti_name}</strong></div><br>
-									<div class="local_gu">${dto.ti_location}</div>
-								</td>
-							</c:forEach>
+							<c:choose>
+								<c:when test="${not empty list}">
+									<c:forEach var="dto" items="${list}">
+									<td>
+										<a href="${path}/location_detailAction.lc?location_num=${dto.ti_num}">
+										<img src="resources/local_images/${dto.ti_detail_url}" id="list_images"></a><br>
+										<div class="local_name"><strong >${dto.ti_name}</strong></div><br>
+										<div class="local_gu">${dto.ti_location}</div>
+									</td>
+									</c:forEach>
+								</c:when>
+						
+								<c:otherwise>
+									<script>
+										alert("해당 지역으로 조회되는 여행지가 없습니다!");
+									</script>
+									
+								</c:otherwise>
+							</c:choose>
+								<!-- 검색결과 없을 시 아래 js 사용하여 여행지 메인페이지로 이동 예정 -->
+								<%-- homeMove('${path/location_main.lc}'); --%>
 						</tr>
 					</div>
 					
@@ -196,17 +215,17 @@
 								<!-- 페이징 처리 -->
 								<!-- 이전 버튼 활성화 -->
 								<c:if test="${paging.startPage > 10}">
-									<a href="${path}/location_main.lc?pageNum=${paging.prev}">[이전]</a>
+									<a href="${path}/location_main.lc?pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
 								</c:if>
 								
 								<!-- 페이지 번호 처리 -->
 								<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-									<a href="${path}/location_main.lc?pageNum=${num}">${num}</a>
+									<a href="${path}/location_main.lc?pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
 								</c:forEach>
 								 
 								<!-- 다음 버튼 활성화 -->
 								<c:if test="${paging.endPage < paging.pageCount}">
-									<a href="${path}/location_main.lc?pageNum=${paging.next}">[다음]</a>
+									<a href="${path}/location_main.lc?pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
 								</c:if>
 							</td>
 						</tr>
