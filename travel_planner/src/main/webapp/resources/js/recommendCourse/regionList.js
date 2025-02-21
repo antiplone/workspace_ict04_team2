@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             modalAreaKorea.textContent = areaKorea;
             modalAreaContent.textContent = areaContent;
             modalAreaImage.src = areaImage;
-            /*modalAreaImage.alt = areaEnglish;*/
+            modalAreaImage.alt = areaEnglish;
 
             // 모달 열기
             modal.style.display = "block";
