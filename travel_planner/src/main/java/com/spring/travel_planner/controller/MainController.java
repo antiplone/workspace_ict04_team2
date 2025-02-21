@@ -1,7 +1,6 @@
 package com.spring.travel_planner.controller;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.travel_planner.dao.MemberDAOImpl;
-import com.spring.travel_planner.dao.ReviewDAO;
 import com.spring.travel_planner.service.HomeServiceImpl;
 import com.spring.travel_planner.service.ReviewService;
 
@@ -57,7 +55,7 @@ public class MainController {
 	private String mainAction(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< MainController => mainAction.do >>>");
-		home_service.MemberListAction(req, res, model);
+		home_service.HometopListAction(req, res, model);
 		return "common/mainAction";
 	}
 
