@@ -2,26 +2,22 @@ package com.spring.travel_planner.dto;
 
 public class RecommendCourseDTO {
 	
-	
+	// 지역
 	private int tr_area_id;						// 지역 번호
 	private String tr_area_english;				// 지역 영문
 	private String tr_area_korea;				// 지역 한글
 	private String tr_area_content;				// 지역 내용
 	private String tr_area_image; 				// 지역 이미지
+	
+	// 추천코스
 	private int tr_course_id;					// 추천코스 번호
 	private String tr_course_image;  			// 추천코스 이미지
-	public String getTr_course_image() {
-		return tr_course_image;
-	}
-
-	public void setTr_course_image(String tr_course_image) {
-		this.tr_course_image = tr_course_image;
-	}
-
 	private String tr_course_title;  			// 추천코스 제목
 	private String tr_course_taketime;			// 추천코스 소요일
 	private String tr_course_tag;  				// 추천코스 여행지 태그
 	private String tr_course_map;  				// 추천코스 지도
+	
+	// 추천코스 서브
 	private int tr_Course_subId;				// 추천코스 서브번호
 	private String tr_course_locationImage;		// 여행지 이미지	
 	private String tr_course_location;	        // 추천코스 여행지명	
@@ -29,6 +25,7 @@ public class RecommendCourseDTO {
 	
 	
 	public RecommendCourseDTO() {}
+
 
 	public RecommendCourseDTO(int tr_area_id, String tr_area_english, String tr_area_korea, String tr_area_content,
 			String tr_area_image, int tr_course_id, String tr_course_image, String tr_course_title,
@@ -51,6 +48,7 @@ public class RecommendCourseDTO {
 		this.tr_course_location = tr_course_location;
 		this.tr_course_locationContent = tr_course_locationContent;
 	}
+
 
 	public int getTr_area_id() {
 		return tr_area_id;
@@ -109,6 +107,16 @@ public class RecommendCourseDTO {
 
 	public void setTr_course_id(int tr_course_id) {
 		this.tr_course_id = tr_course_id;
+	}
+
+
+	public String getTr_course_image() {
+		return tr_course_image;
+	}
+
+
+	public void setTr_course_image(String tr_course_image) {
+		this.tr_course_image = tr_course_image;
 	}
 
 
@@ -190,6 +198,7 @@ public class RecommendCourseDTO {
 	public void setTr_course_locationContent(String tr_course_locationContent) {
 		this.tr_course_locationContent = tr_course_locationContent;
 	}
+
 
 	@Override
 	public String toString() {

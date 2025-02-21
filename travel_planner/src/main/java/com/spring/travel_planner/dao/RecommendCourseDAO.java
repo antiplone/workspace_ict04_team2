@@ -11,4 +11,7 @@ public interface RecommendCourseDAO {
 	
 	// 추천코스 목록
 	public List<RecommendCourseDTO> recommendCouresList(int tr_area_id);
+	
+	// 추천코스 상세 목록
+	public List<RecommendCourseDTO> recommendCourseDetailList(int tr_course_id);
 }
