@@ -1,18 +1,17 @@
 -- 리뷰글 테이블
 DROP TABLE travel_review_tbl CASCADE CONSTRAINTS;
 CREATE TABLE travel_review_tbl(
-    r_num       NUMBER(38)  PRIMARY KEY,    -- 리뷰글 번호
-    r_title     VARCHAR2(200)   NOT NULL,   -- 리뷰글 제목
-    r_content   CLOB 			NOT NULL,   -- 리뷰 내용
-    r_img       VARCHAR2(100)   NOT NULL,   -- 리뷰 이미지
-    r_readCnt   NUMBER(6)   DEFAULT 0,      -- 조회수
-    r_regDate   DATE    	DEFAULT sysdate,    -- 리뷰 등록일
-    r_comment 	VARCHAR2(200),  			-- 댓글 내용
---    r_comment_count NUMBER(6)   DEFAULT 0,  -- 댓글 개수
+    r_num       NUMBER(38)  	PRIMARY KEY,    -- 리뷰글 번호
+    r_title     VARCHAR2(200)   NOT NULL,   	-- 리뷰글 제목
+    r_content   CLOB          	NOT NULL,   	-- 리뷰 내용
+    r_img       VARCHAR2(100)   NOT NULL,   	-- 리뷰 이미지
+    r_readCnt   NUMBER(6)   	DEFAULT 0,      -- 조회수
+    r_regDate   DATE       		DEFAULT sysdate,-- 리뷰 등록일
+	r_comment_count NUMBER(6)   DEFAULT 0,   	-- 댓글 개수
 --    r_tourinfo NUMBER(20),
 --    r_tags  VARCHAR2(4000),
-	m_name	VARCHAR2(38)		-- 회원 이름
---    CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)    
+	m_name   VARCHAR2(38)      -- 회원 이름
+--    CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)
 );
 
 SELECT * FROM travel_review_tbl;
@@ -53,6 +52,14 @@ COMMIT;
 UPDATE travel_review_tbl
    SET r_show = 'N'
  WHERE r_num = 12;
+COMMIT;
+
+-- 후기 수정
+UPDATE travel_review_tbl
+   SET r_title = 'title'
+     , r_content = 'content'
+    , r_img = '/travel_planner/resources/images/main/main_review_img4.jpg'
+ WHERE r_num = '110';
 COMMIT;
 
 -- 후기 등록
@@ -101,11 +108,45 @@ SELECT *
 -- 조회순으로 정렬한 후 1~4번만 출력함.
 --------------------------------------------------------------------------------
 -- 댓글 테이블
-DROP TABLE travel_comment_tbl CASCADE CONSTRAINTS;
-CREATE TABLE travel_comment_tbl(
-    c_comment_num   NUMBER(38)  PRIMARY KEY,    -- 댓글 번호
-    c_board_num     NUMBER(10)  REFERENCES  travel_review_tbl(r_num),      -- 게시글 번호
-    c_member        VARCHAR2(100)    NOT NULL,   -- 댓글 작성자
-    c_content       CLOB    NOT NULL,           -- 글내용
-    c_regDate       DATE    DEFAULT sysdate     -- 댓글 등록일
+DROP TABLE travel_reviewComment_tbl CASCADE CONSTRAINTS;
+CREATE TABLE travel_reviewComment_tbl(
+    rc_comment_num	NUMBER(38)  	PRIMARY KEY,    -- 댓글 번호
+    m_member        VARCHAR2(38)    NOT NULL,   	-- 댓글 작성자
+    rc_comment      CLOB    		NOT NULL,       -- 댓글 내용
+    rc_regDate      DATE    		DEFAULT sysdate,-- 댓글 등록일
+    rc_num           NUMBER(38),      				-- 리뷰글 번호
+	FOREIGN KEY(rc_num) REFERENCES travel_review_tbl(r_num)
 );
+
+-- 확인
+SELECT * FROM travel_reviewComment_tbl;
+
+ -- 댓글 작성페이지
+INSERT INTO travel_reviewComment_tbl(rc_comment_num, rc_num, m_member, rc_comment, rc_regDate)
+ VALUES((SELECT NVL(MAX(rc_comment_num)+1, 1) FROM travel_reviewComment_tbl), 3, '풀무원', '글내용1', sysdate);
+COMMIT;
+
+-- 댓글목록 조회
+SELECT * FROM travel_reviewComment_tbl
+ WHERE r_num = 3
+ ORDER BY rc_comment_num DESC;
+-- 1   3   작성자1   글내용1   24/07/04
+ 
+-- 댓글목록 조회3 - 해당 글번호마다 댓글번호가 1번부터 시작하도록 설정 
+SELECT *
+  FROM (SELECT R.*
+             , rownum AS rn
+          FROM (SELECT *
+                  FROM travel_reviewComment_tbl rc,
+                       travel_review_tbl r
+                 WHERE r.r_num = rc.rc_num
+                   AND r.r_num = 3
+                 ORDER BY rc.rc_comment_num DESC) R
+        )
+ ORDER BY rn DESC;
+
+-- 댓글 갯수 처리
+UPDATE travel_reviewComment_tbl
+   SET rc_comment_num = rc_comment_num + 1
+ WHERE rc_num = 3;
+COMMIT;
