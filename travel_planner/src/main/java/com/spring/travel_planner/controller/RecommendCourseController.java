@@ -34,6 +34,17 @@ public class RecommendCourseController {
 		return "recommendCourse/regionList";
 	}
 	
+	// 추천 코스 상세 목록 -> 추천코스 목록 모달팝업 창에서 recommendCourseDetail() 호출하므로 상세페이지 호출전에 작성
+	@RequestMapping("/recommendCourseDetail.rc")
+	public String recommendCourseDetail(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("<<< url => recommendCourseDetail >>>");
+		
+		service.RecommendCourseListDetailAction(request, response, model);
+		
+		return "recommendCourse/recommendCourseDetail";
+	}
+	
 	// 추천 코스 목록
 	@RequestMapping("/recommendCourseList.rc")
 	public String recommendCourseList(HttpServletRequest request, HttpServletResponse response, Model model)
@@ -43,15 +54,6 @@ public class RecommendCourseController {
 		service.RecommendCourseListAction(request, response, model);
 		
 		return "recommendCourse/recommendCourseList";
-	}
-	
-	// 추천 코스 상세페이지
-	@RequestMapping("/recommendCourseDetail.rc")
-	public String recommendCourseDetail(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException{
-		logger.info("<<< url => recommendCourseDetail >>>");
-		
-		return "recommendCourse/recommendCourseDetail";
 	}
 	
 }

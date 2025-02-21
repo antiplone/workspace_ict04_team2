@@ -14,13 +14,11 @@ public interface RecommendCourseService {
 	public void regionListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 지역 상세페이지
-	
 	// 지역 추천코스 목록
 	public void RecommendCourseListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 지역 추천코스 상세페이지
+	// 지역 추천코스 상세 목록
 	public void RecommendCourseListDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
