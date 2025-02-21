@@ -1,0 +1,360 @@
+@charset "UTF-8";
+
+/* .contents_wrap .header_wrap,
+#contents #tableContentWrap div.header_wrap{display:none;} */
+
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#contents {
+	max-width: 100%;
+	min-width: 1240px;
+	width: 100%;
+	margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section2 a {
+	text-decoration: none;
+	color: black;
+}
+
+.section2 ul {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0px;
+}
+
+.section2 ul li img {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.2);
+}
+
+.section2 .content_name {
+	padding-top: 10px;
+	font-weight: bold;
+	color: #555555;
+} 
+
+.content_detail {
+	margin-bottom: 40px;
+	padding-top: 10px;
+	font-weight: bold;
+	color: #555555;
+}
+
+/* 추천 여행지 */
+#tableContentWrap{
+    width: 100%;
+    height: max-content;
+}
+
+.recomment_tour_list_wrap{
+	position : relative;	
+}
+
+/* carousel */
+/* left side of main carousel */
+.left_comment>div{
+	max-width: 280px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.left_comment strong{
+	max-width:200px;
+    line-height: 2;
+    font-size: 25px;
+}
+
+.left_comment a{
+	font-size:15px;
+	font-weight:bold;
+	color:#858585;
+	border-bottom: 2px solid #858585;
+    padding: 3px 0px;
+}
+
+[data-color="gray"] .left_comment a{
+	color:white;
+    border-bottom: 2px solid white;
+}
+
+.prevBtn:before {
+	content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform-origin: center right;
+    transform: rotate(225deg) translate(-10%, 0%);
+}
+
+.nextBtn:before {
+	content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform-origin: center left;
+    transform: rotate(45deg) translate(-10%, 0%);
+}
+
+.left_comment a:hover{
+	color:#000;
+	border-bottom: 2px solid #000;	
+}
+
+.carousel{
+	position: relative;
+    height: 360px;
+}
+
+.carousel_notice_box {
+    position: absolute;
+    width: 400px;
+    top: 340px;
+    left: 130px;
+    z-index: 10;
+    margin: 20px;
+    display: none;
+}
+
+.carousel-item[data-color='gray']{
+	background-color:#d0d0d0;	
+}
+.carousel-item[data-color='skyblue']{
+	background-color:#baebff;;	
+}
+.carousel-item[data-color='yellow']{
+	background-color:#ffd537;	
+}
+
+.button.main_carousel_direction::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #121212;
+    border-right: 5px solid #121212;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.carousel-indicators {gap:20px; margin-bottom: 10px !important;}
+.carousel-indicators [data-bs-target]{width:20px !important; height:20px !important; border-radius: 100%;}
+
+/* .recomment_in_wrap.carousel-inner{width: 800%; height: 100%; padding:0px;text-align:left;} */ 
+.recomment_in_wrap.carousel-inner{width: 2080px; height: 100%; padding: 0px; text-align: left;} 
+
+.recomment_in_wrap:li{
+	display:flex;	
+}
+
+
+.recomment_tour_list_wrap{
+	position : relative;	
+}
+
+/* -----------------추천코스----------------- */
+.recom {
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	background: #D7E3FC;
+	height: 160px; 
+
+	position: relative;
+	left: 0;
+	padding: 35px 100px;
+	text-align:center;
+}
+
+.recom>.recom_wrap{
+	min-width: 960px;
+    height: 120px;
+    max-width: 960px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.recom>div>div{text-align:left;}
+
+.recom>div>div:first-child {
+	font-size: 20px;
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+}
+.recom>div>div:nth-child(2) {
+	font-size: 14px;
+	margin: 6px 0;
+}
+
+/* 추천코스 이미지 */
+.recom_img {
+    display: inline-block;
+    width: 90px;
+    position: absolute;
+    top: -10px;
+    right: 50px;
+}
+.recom_img img {
+	width: 100%;
+}
+
+/* 추천코스 버튼 */
+.recom_btn {
+	position: relative;
+	top: 16px;
+		color: #333;
+	font-size: 14px;
+}
+.recom_btn a {
+	display: flex;
+}
+.recom_btn i {
+	display: flex;
+	align-items: center;
+	color: #333;
+	margin-left: 5px;
+}
+
+/* -----------------여행후기----------------- */
+.rev { margin: 0px 0px 40px 0; }
+.revs {
+	padding: 60px 0 40px 0;
+	min-width: 960px;
+}
+.revs>div:first-child {
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.rev_title div:first-child {				/* 여행후기 title */
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+	font-size: 20px;
+}
+.rev_title div:nth-child(2) {			/* 더보기 버튼 */
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	font-size: 14px;
+	display: flex;
+	align-items: flex-end;
+}
+.rev_title a {
+	display: flex;
+	align-items: center;
+}
+.rev_btn { margin-left: 5px; }
+.pointerBtn { cursor: pointer; }		/* 메인화면에서 추천코스, 여행후기 버튼 눌렀을 때 */
+
+/* 여행후기 title 밑 이미지들 */
+.rev_imgs {
+	position: relative;
+	max-width: 960px;
+	width: 960px;
+	height: 400px;
+	margin: 0 auto;
+	
+	display: flex;
+	justify-content: space-between;
+}
+.rev_img {
+	margin: 30px 0;
+	max-width: 230px;
+	width: 230px;
+	height: 380px;
+	cursor: pointer;
+}
+.rev_img:hover {
+	position: relative;
+	top: -10px;
+}
+
+.rev_image {
+	width: 230px;
+	height: 260px;
+	overflow: hidden;
+	position: relative;
+}
+.rev_image > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+.rev_img_title {
+	margin-top: 10px;
+}
+.rev_img_text1 {		/* 후기 제목 */
+	font-size: 15px;
+	padding: 2px;
+}
+.rev_img_text2 {
+	font-size: 13px;
+	display: flex;
+	margin-top: 5px;
+	position: relative;
+}
+
+.rev_img_text2 div img {
+	width: 12px;
+	margin-right: 3px;
+    opacity: 0.8;
+}
+.rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
+	margin-left: 10px;
+	display: flex;
+	align-items: center;
+}
+.rev_img_text2 div:nth-child(2) i {
+	margin-right: 3px;
+}
+.rev_img_text2 div:nth-child(3) {		/* 후기 등록일 */
+	position: absolute;
+	right: 2px;
+}
+
+/* .rev_img img { width: 100%; max-width:960px; magrin:0 auto;} */
+
+/* -----------------공지사항----------------- */
+.rev_notice {
+	height: 70px;
+	width: 100%;
+	background: #eee;
+    text-align: center;
+}
+.rev_notices {
+	width:960px;
+	display: inline-block;
+	margin: 25px 0;
+}
+.revs_notice {
+	display: flex;
+	align-items: center;
+}
+.revs_notice div:first-child {
+/* 	font-family: 'Pretendard SemiBold', '맑은 고딕'; */
+	font-size: 16px;
+}
+.revs_notice div:nth-child(2) {
+/* 	font-family: 'Pretendard Regular', '맑은 고딕'; */
+	font-size: 14px;
+	margin-left: 20px;
+}

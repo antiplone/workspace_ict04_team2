@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* 여행 후기 */
+#reviewDetail_t {
+	    padding-block: 25px;
+}
+
+/* 후기 틀..? */
+#reviewDetail {
+	width: 900px;
+	display: flex;
+    position: relative;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+
+.reviewDetail_top {
+	padding-block: 10px;
+	border-bottom: 1px solid silver;
+}
+
+/* 여행한 도시 */
+.reviewDetail_city {
+	padding-bottom: 15px;
+	color: #045FB4;
+}
+
+/* 후기 제목 */
+.reviewDetail_title {
+	padding-bottom: 15px;
+	font-size: 22px;
+	font-weight: 900;
+}
+
+/* 작성자/작성일/조회수/찜 */
+.reviewDetail_info {
+	display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    color: #999999;
+}
+
+/* 후기 내용 부분..? */
+.reviewDetail_middle {
+	width: 900px;
+	display: flex;
+    position: relative;
+    margin: 0 auto;
+    flex-direction: column;
+    border-bottom: 1px solid silver;
+    margin-bottom: 15px;
+}
+
+.reviewDetail_contents {
+	padding: 20px 10px;
+}
+.reviewDetail_image {
+	text-align: center;
+	margin-top: 30px;
+}
+/* 태그 버튼 */
+.reviewDetail_tag {
+	margin-bottom: 20px;
+}
+
+/* 찜 버튼 */
+.reviewDetail_likeBtn {
+	display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 후기 하단 시작 */
+.reviewDetail_bottom {
+	display: flex;
+    justify-content: flex-end;
+}
+
+/* 목록 버튼 */
+.reviewDetail_listBtn {
+	width: 100px;
+	height: 30px;
+	background: #121212;
+    color: white;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+	
+}
+
+/* 수정 버튼 */
+.reviewDetail_corBtn {
+	width: 100px;
+	height: 30px;
+	background: #121212;
+    color: white;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;	
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 10px;
+	&:hover {
+	  background: rgb(77,77,77);
+	  color: #fff;
+	}
+}
+
+/* 후기 하단 끝 */

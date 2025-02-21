@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+.carousel_wrapper {
+    height: 300px;
+}
+
+.slide_box {
+    position: relative;
+    left: 0px;
+    /* border: rgb(255, 14, 135) 3px dotted; */
+    width: 100%;
+    height: max-content;
+    /* margin: 0 auto; */
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6sease-in-out;
+}
+
+/* .carousel-item.d_block{
+    display: inline-block;
+    width: 260px;
+    float: none;
+    clear: both;
+    min-width: 200px;
+    background-color: red;
+} */
+
+li.d_block {
+	display: block;
+	float: left;
+	width: 200px;
+    height: 100%;
+    height: 298px;
+    margin-right: 60px;
+    border: 2px solid #dfdfdf;
+    border-radius: 20px;
+    box-shadow: 10px 11px 5px #c8c8c8;
+    overflow: hidden;
+}
+
+.recImgWrap{position:relative; height: 200px;}
+
+.recImgWrap img{
+	width:auto;
+	height:200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide_item>div:nth-child(2){
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform:translateY(0%);
+}
+
+.slide_list {
+	width: 100%;
+    display: flex;
+    height: 100%;
+    background-color: rgb(255, 215, 187);
+}
+
+.carousel-item>.flex_box{
+    display: flex !important;
+    height: 100%;
+	justify-content: space-evenly;
+    align-items: center;
+}
+
+.right_img img {
+	height: auto;
+    width: 350px;
+}
+
+
+/* 화살표 */
+.recommondPrevBtn,
+.recommondNextBtn,
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 120px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next{
+    width: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.recommondPrevBtn, .prevBtn{left:-5px}
+.recommondNextBtn, .nextBtn{right:-5px}
+
+/* .nextBtn:hover,
+.prevBtn:hover{background-color:red} */
+
+.main_carousel_direction span.carousel-control-next-icon,
+.main_carousel_direction span.carousel-control-prev-icon{
+	background-image:none;
+	
+}
+
+/* 화살표 */
+/* button {
+    position: relative;
+}*/
+
+button.main_carousel_direction::before {
+    content: '';
+    width: 20px; /* 사이즈 */
+    height: 20px; /* 사이즈 */
+    border-top: 5px solid #121212; /* 선 두께 */
+    border-right: 5px solid #121212; /* 선 두께 */
+    display: inline-block;
+    position: absolute;
+    top:0px;
+    left:0px ;
+}
+
+.carousel-control-prev:before,
+.recommondPrevBtn:before{
+    transform-origin: center right;
+    transform: rotate(225deg) translate(0%, 0%);
+    left: 5px;
+}
+
+.carousel-control-next:before,
+.recommondNextBtn:before{
+	transform-origin: center left;
+	transform: rotate(45deg) translate(0%, 0%);
+	left:5px;
+}
+
+.recommondPrevBtn:before,
+.recommondNextBtn:before{
+    content: '';
+    width: 20px; /* 사이즈 */
+    height: 20px; /* 사이즈 */
+    border-top: 5px solid #121212; /* 선 두께 */
+    border-right: 5px solid #121212; /* 선 두께 */
+    display: inline-block;
+    position: absolute;
+    top:0px;
+    left:0px ;
+}
+
+.recommondPrevBtn,
+.recommondNextBtn{
+	z-index:10;
+    top: 50%;
+    transform: translateY(-50%);	
+}
+
+/* 추천 여행지 관련 */
+.recomment_tour_list_wrap {
+    position: relative;
+    width: 968px;
+    margin: 0px auto;
+    overflow:hidden;
+}
+
+#carouselShow{
+    height: 470px;	
+}
+
+.recomment_tour_list_wrap h2{ margin: 40px 0px;}
+
+.recommend_box{
+	position: relative;
+    width: 968px;
+    height: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.recomment_tour_list_wrap div.right_img{
+    width: 45%;
+    height: auto;
+}
+
+.recomment_tour_list_wrap div.right_img img{
+	width:100%;
+	height:auto;
+} 
+
+div#recomment_tour_list {
+    display: flex;
+    width: 300%;
+    padding: 20px 0px;
+}
+
+.recommend_slide_item {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.recomment_tour_list_wrap h3{
+	width:max-content;
+    margin: 0px 0px 20px 0px;
+}
+
+.recommend_carousel_wrapper{
+    width: calc(100% - 80px);
+    min-width: 888px;
+    height: 310px;
+    overflow: hidden;
+    margin: 0 40px 0px;
+}
+
+.recommend_slide_item>div{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+
+/* progress-bar*/
+
+/* carousel 화면 관련 */
+.carousel_notice_box{
+    position: absolute;
+    width: 400px;
+    top: 230px;
+    left: 130px;
+    z-index: 10;
+    margin: 20px;
+}
+ 
+.progress_bar_wrap {
+    float: none;
+    width: auto;
+    height: auto;
+    position: static;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar {
+    position: relative;
+    width: 320px;
+    display: inline-block;
+    z-index: 1;
+    height: 2px;
+}
+
+.progress_bar_fill {
+    position: absolute;
+    height: 2px;
+    background: #333;
+    width: 100%;
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.progress_bar_fill .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    height: 100%;
+}
+
+.progress_bar_fill .fill {
+    transition: none;
+    animation: flow 5s linear;
+    animation-fill-mode: forwards;
+}
+
+.paging_num{
+    width: 60px;
+    font-size: 14px;
+    font-weight:bold;
+    color:black;
+    text-align: left;
+    line-height: 1;
+    margin-left: 15px;
+}
+
+.recom_wrap b{
+    display: inline-block;
+    font-size: 20px;
+    color: #4b13fd;
+}
+
+@keyframes flow{
+	0% {
+	    width: 0;
+	}
+	100% {
+	    width: 100%;
+	}
+}
+
