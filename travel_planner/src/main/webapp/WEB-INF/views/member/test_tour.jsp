@@ -12,17 +12,17 @@
 	</script>
 </head>
 <body>
-	<%
-		String strAPI = "한국어/지역기반관광정보";
-		Object api = APIConfig.TourAPI.valueOfLabel(strAPI);
-		request.setAttribute("api", api);
-		out.print(request.getAttribute("restRequest"));
-		out.print(request.getAttribute("restRequest_2"));
-		out.print("<br>" + strAPI + "-API : " + api);
-		out.print("<h2>TourAPI</h2><br>");
-		out.print("<h3>"+ api +"</h3><hr>");
-	%>
 	<c:choose><c:when test="${!existDB}">
+		<%
+			String strAPI = "한국어/지역기반관광정보";
+			Object api = APIConfig.TourAPI.valueOfLabel(strAPI);
+			request.setAttribute("api", api);
+			out.print(request.getAttribute("restRequest"));
+			out.print(request.getAttribute("restRequest_2"));
+			out.print("<br>" + strAPI + "-API : " + api);
+			out.print("<h2>TourAPI</h2><br>");
+			out.print("<h3>"+ api +"</h3><hr>");
+		%>
 		<script type="text/javascript">
 			$(function() {
 				<%-- let tourAPI = "<%= APIConfig.TourAPI.valueOfLabel("한국어/공통정보") %>"; --%>
@@ -75,15 +75,16 @@
 					});
 				});
 			});
-		</script></c:when>
+		</script>
+		</c:when>
 		
 		<c:otherwise>
 			DB가 있다고합니다!
-		</c:otherwise></c:choose>
+	</c:otherwise></c:choose>
 
-<!-- 		<input id="tour_data" type="hidden" value="" > -->
-		<div id="contents">
-			
-		</div>
+<!-- 	<input id="tour_data" type="hidden" value="" > -->
+	<div id="contents">
+		
+	</div>
 </body>
 </html>
