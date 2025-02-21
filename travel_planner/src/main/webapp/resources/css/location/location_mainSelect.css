@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* locationMain.css */
+
+.gu_table {
+	display: flex;
+  	width: 520px;
+  	flex-wrap: wrap;
+  	justify-content: center;
+}
+.gu_tr {
+	display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+/* '구' 선택하는 checkbox 디자인 설정 */
+.gu_select {
+	display: flex;
+	margin: 10px;
+	
+}
+
+.gu_select input[type=checkbox] {
+	display: none;
+}
+
+.gu_select input[type=checkbox]+label {
+	display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 80px;
+    border: none; /* 테두리 없음 */
+    border-radius: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 15px;
+ }
+ 
+ .gu_select input[type=checkbox]+label{
+    background-color: #ced4da;
+    color: black;
+}
+
+/* '구' 클릭 시 색상 변경 */
+.gu_select input[type=checkbox]:checked+label{
+    background-color: #343a40;
+    color: white;
+}
+
+.choice_button {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+       background-color: #ced4da; /* 기본 색 */
+      color: black; /* 글자 색 */
+      border: none; /* 테두리 없음 */
+      padding: 7px 20px; /* 버튼 크기 */
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 30px; /* 둥근 모서리 */
+  }
+
+
+  /* 버튼 호버시 색상 변경 */
+  .choice_button:hover {
+      background-color: #343a40; /* 호버 색 */
+      color: white; /* 글자 색 */
+  }
