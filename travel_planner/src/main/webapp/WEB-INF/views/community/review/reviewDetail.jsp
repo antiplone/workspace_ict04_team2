@@ -94,7 +94,7 @@
 					<div class="reviewDetail_title">${dto.r_title}</div>
 					
 					<div class="reviewDetail_info">
-						<div class="reviewDetail_writer">${dto.m_name}/${dto.r_regDate}</div>
+						<div class="reviewDetail_writer">${sessionScope.m_name}/${dto.r_regDate}</div>
 						<div class="reviewDetail_views">조회수 ${dto.r_readCnt}</div>
 					</div>
 				</div>

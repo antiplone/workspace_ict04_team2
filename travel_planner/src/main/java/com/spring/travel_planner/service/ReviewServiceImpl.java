@@ -38,7 +38,10 @@ public class ReviewServiceImpl implements ReviewService {
 			throws ServletException, IOException {
 		System.out.println("ReviewServiceImpl - reviewListAction");
 		
+		String name = request.getParameter("m_name");
 		String pageNum = request.getParameter("pageNum");
+		
+		System.out.println("name : " + name);
 		
 		Paging paging = new Paging(pageNum);
 		int total = dao.reviewCnt();
@@ -58,6 +61,7 @@ public class ReviewServiceImpl implements ReviewService {
 		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
+		request.getSession().setAttribute("sessionID", name);
 	}
 
 	// 후기 상세페이지
@@ -191,8 +195,8 @@ public class ReviewServiceImpl implements ReviewService {
 			throws ServletException, IOException {
 		System.out.println("리뷰Service - reviewInsertAction()");
 		
-		String hiddenM_name = request.getParameter("hiddenM_name");
-		System.out.println("hiddenM_name" + hiddenM_name);
+		String name = (String)request.getSession().getAttribute("sessionID");
+		System.out.println("name" + name);
 		
 		MultipartFile file = request.getFile("r_img");
 		System.out.println("file: " + file);
@@ -230,7 +234,7 @@ public class ReviewServiceImpl implements ReviewService {
 			int insertCnt = dao.reviewInsert(dto);
 			
 			model.addAttribute("insertCnt", insertCnt);
-			model.addAttribute("hiddenM_name", hiddenM_name);
+			model.addAttribute("sessionID", name);
 			
 		} catch(IOException e) {
 			e.printStackTrace();
