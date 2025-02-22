@@ -67,15 +67,16 @@
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="active pointerBtn"><a onclick="window.location=('${path}/home.do')" class="movePage">홈</a></li>
-				<li class="pointerBtn"><a onclick="homeMove('${path}/location_main.lc')" class="movePage" >여행지</a></li>
-				<li class="pointerBtn"><a onclick="homeMove('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
-				<li class="pointerBtn flex-shrink-0 dropdown">
+				<li class="active pointerBtn" data-index="1"><a onclick="window.location=('${path}/home.do')" class="movePage">홈</a></li>
+				<li class="pointerBtn" data-index="2"><a onclick="homeMove('${path}/location_main.lc')" class="movePage" >여행지</a></li>
+				<li class="pointerBtn" data-index="3"><a onclick="homeMove('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
+				<li class="pointerBtn flex-shrink-0 dropdown" data-index="4">
 					<a data-bs-toggle="dropdown"  class="movePage -block link-body-emphasis text-decoration-none dropdown-toggle" >여행톡톡</a>
 					<ul class="dropdown-menu text-small shadow" style="">
             			<li><a class="dropdown-item" onclick="homeMove('${path}/reviewList.do')">후기</a></li>
 			            <li><a class="dropdown-item" onclick="homeMove('${path}/noticeList.nt')">공지사항</a></li>
-			            <li><a class="dropdown-item" onclick="load('${path}/test_tour.do')">테스트_투어</a></li>
+			            <li><a class="dropdown-item" onclick="mainRecommend(1,2)">추천코스</a></li>
+			            <%-- <li><a class="dropdown-item" href="${path}/recommendCourseList.rc">추천코스</a></li> --%>
 			            <li><hr class="dropdown-divider"></li>
 			            <li><a class="dropdown-item" href="#">Sign out</a></li>
           			</ul>

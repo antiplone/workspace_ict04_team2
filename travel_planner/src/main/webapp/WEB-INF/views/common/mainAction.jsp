@@ -36,7 +36,9 @@
 					<ul id="recomment_in_wrap" class="recomment_in_wrap carousel-inner">
 						<c:forEach var="dto1" items="${list1}">
 							<li class="abc d_block">
-								<a onclick="javascript:history.forward(homeMove('${path}/recommendCourseList.rc?area_id=${dto1.tr_course_id}'))">
+								<a onclick="mainRecommend('${dto1.tr_area_id}','${dto1.tr_course_id}', '2')">
+<%-- 								<a onclick="javascript:history.forward(homeMove('${path}/recommendCourseList.rc?area_id=${dto1.tr_course_id}'))"> --%>
+									<%-- <input id="couseId" name="couseId" type="hidden" value="${dto1.tr_course_id}" > --%>
 									<div class="text_center">글번호 : ${dto1.tr_course_id}</div>
 									<div class="text_center recImgWrap">
 										<img src="${dto1.tr_course_image}" />

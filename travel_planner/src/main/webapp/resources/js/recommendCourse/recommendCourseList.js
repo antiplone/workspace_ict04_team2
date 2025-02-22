@@ -57,3 +57,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
    
 });
+
+
+
+// 모달 닫기
+
+
+$(function(){
+
+	$('.modal .close_btn').on("click", function(){
+		alert('호이');
+	   $('#courseModal').css('display', 'none');
+	   $('#courseModal').removeClass('on');
+        //스크롤 방지 해제
+		document.body.style.overflow = "unset";
+	});
+
+	
+/*
+	if($('#courseModal').hasClass('on')){
+			$('#courseModal').on("click", function(){
+				alert('호이호이');
+			   $('#courseModal').css('display', 'none');
+	   		   $('#courseModal').removeClass('on');
+		        //스크롤 방지 해제
+				document.body.style.overflow = "unset";
+		});
+	} else{
+		return;
+	}
+	*/
+});
