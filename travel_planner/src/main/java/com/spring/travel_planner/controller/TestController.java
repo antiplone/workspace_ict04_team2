@@ -33,10 +33,10 @@ public class TestController {
 	private MemberDAOImpl mem;
 
 
-	@RequestMapping("/test_tour.do")
-	private ModelAndView test_tour() {
-		logger.info("test_tour.do");
-//		ModelAndView mnv = new ModelAndView("member/test_tour");
+
+	@RequestMapping("/sample_tour.do")
+	private ModelAndView sample_tour() {
+		logger.info("sample_tour.do");
 		ModelAndView mnv = new ModelAndView("member/sample_tour");
 
 		// 이쯤에서 DB접근부터
@@ -56,9 +56,9 @@ public class TestController {
 		return mnv;
 	}
 
-	@RequestMapping("/tour_result.do")
-//	private ModelAndView tour_result(@RequestBody Map<String, Object> json) {
-	private ModelAndView tour_result(@RequestBody List<Object> list) {
+	@RequestMapping("/tour_places.do")
+	private ModelAndView tour_places(@RequestBody List<Object> list) {
+
 		// json데이터를 우리 DTO로 바꾸자
 		ModelAndView mnv = new ModelAndView("member/tour_places");
 		System.out.println(list);
