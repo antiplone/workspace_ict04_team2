@@ -11,10 +11,10 @@
 
 <title>Insert title here</title>
 <!-- css -->
-<link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
+<%-- <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/common/main.css">
-<link rel="stylesheet" href="${path}/resources/css/common/slide.css">
+<link rel="stylesheet" href="${path}/resources/css/common/slide.css"> --%>
 
 <!-- bootstrap -->
 <link rel="canonical"

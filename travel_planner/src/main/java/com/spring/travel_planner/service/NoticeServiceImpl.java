@@ -28,7 +28,8 @@ public class NoticeServiceImpl implements NoticeService{
 		System.out.println("<<< NoticeServiceImpl - @Service >>>");
 		
 		// 3단계. 화면에서 입력받은 값을 가져오기
-		String pageNum=req.getParameter("notice_num");
+		String pageNum=req.getParameter("pageNum");
+		
 		System.out.println("pageNum" + pageNum);
 		// 4단계. 싱글톤 방식으로 DAO 객체 생성, 다형성 적용
 		
@@ -64,7 +65,8 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public void noticeDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("<<< NoticeServiceImpl - noticeDetailAction >>>");
+		
 		// 3단계. get방식으로 넘긴 값을 가져오기
 			int notice_num = (Integer)request.getAttribute("notice_num");
 			
@@ -87,8 +89,9 @@ public class NoticeServiceImpl implements NoticeService{
 		System.out.println("<<< NoticeServiceImpl - password_chkAction>>>");
 
 		// 3단계. 화면에서 입력받은 값(hidden 포함)을 가져오기
-		 int notice_num = Integer.parseInt(request.getParameter("hiddenB_num"));
+		 int notice_num = Integer.parseInt(request.getParameter("noticeNum"));
 		 String notice_password = request.getParameter("notice_password");
+		 System.out.println("notice_password " + notice_password);
 		 
 		 Map<String, Object> map = new HashMap<String, Object>();
 			
@@ -110,6 +113,7 @@ public class NoticeServiceImpl implements NoticeService{
 		 // 6단계. jsp로 처리결과 전달.. dto
 		 model.addAttribute("dto", dto); 
 		 
+		 System.out.println("notice_num = " + notice_num);
 		 // 7단계. 인증결과 리턴
 		 return result;
 	}
@@ -117,28 +121,47 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public void noticeUpdateAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
+		System.out.println("<<< NoticeServiceImpl - noticeUpdateAction >>>");
+		int notice_num = Integer.parseInt(request.getParameter("noticeNum"));
+		System.out.println("notice_num " + notice_num);
 		// dto 생성
-		NoticeDTO dto = new NoticeDTO();
-		dto.setNoticeNum(Integer.parseInt(request.getParameter("hiddenB_num")));
-		dto.setNoticePassword(request.getParameter("b_re_password"));
-		dto.setNoticeTitle(request.getParameter("noticeTitle"));
-		dto.setNoticeContent(request.getParameter("noticeContent"));
+		NoticeDTO Ndto = new NoticeDTO();
+		Ndto.setNoticeNum(notice_num);
+		Ndto.setNoticePassword(request.getParameter("notice_password"));
+		Ndto.setNoticeTitle(request.getParameter("noticeTitle"));
+		Ndto.setNoticeContent(request.getParameter("noticeContent"));
+		Ndto.setNoticereadCnt(Ndto.getnoticeReadCnt());
+		Ndto.setNoticeRegDate(Ndto.getNoticeRegDate());
+		Ndto.setNoticeShow(Ndto.getNoticeShow());
+		
+		System.out.println(request.getParameter("notice_password"));
+		System.out.println(request.getParameter("noticeTitle"));
+		System.out.println(request.getParameter("noticeContent"));
+		
+		System.out.println("Ndto " + Ndto);
 		
 		// 5단계. 게시판 수정 DAO 호출 
-		nodao.updateNotice(dto);
+		nodao.updateNotice(Ndto);
 		
 	}
 
 	@Override
 	public void noticeDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("<<< NoticeServiceImpl - noticeDeleteAction >>>");
+		// 3단계. 화면에서 입력받은 값(hidden 포함)을 가져오기
+				int notice_num = Integer.parseInt(request.getParameter("noticeNum"));
+				 
+				int deleteCnt = nodao.deleteNotice(notice_num);
+				 
+				model.addAttribute("deleteCnt", deleteCnt);
 		
 	}
 
 	@Override
 	public void noticeInsertAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
+		System.out.println("<<< NoticeServiceImpl - noticeInsertAction >>>");
 		// dto 생성
 			NoticeDTO dto = new NoticeDTO();
 			dto.setNoticeWriter((String)(request.getSession().getAttribute("sessionID")));

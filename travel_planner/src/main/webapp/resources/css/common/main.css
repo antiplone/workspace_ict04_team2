@@ -204,6 +204,11 @@
 	margin: 6px 0;
 }
 
+.id_check p{
+    color: black;
+    margin-bottom: 0px;
+}
+
 /* 추천코스 이미지 */
 .recom_img {
     display: inline-block;
@@ -234,7 +239,6 @@
 }
 
 /* -----------------여행후기----------------- */
-.rev { margin: 0px 0px 40px 0; }
 .revs {
 	padding: 60px 0 40px 0;
 	min-width: 960px;
@@ -318,6 +322,7 @@
 	margin-right: 3px;
     opacity: 0.8;
 }
+
 .rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
 	margin-left: 10px;
 	display: flex;

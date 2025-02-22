@@ -39,4 +39,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		footers.classList.toggle("hei");
 		arrow.classList.toggle("arrow-up");
 	});
+
 })
+
+function homeMove(path) { // (8)
+		alert("homeMove")
+		$.ajax({
+			url : path, // 컨트롤러로 이동(9)
+			type : 'POST',
+			success : function(result) { // 콜백함수(13) => result는 comment_list
+				$('#contents').html(result);
+			},
+			error : function(j, t, errorThrown) {
+				alert(errorThrown);
+			},
+		})
+}
