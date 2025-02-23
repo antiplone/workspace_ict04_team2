@@ -41,7 +41,7 @@
 		</div>
 		
 		<div class="contents_wrap" id="contents">
-			<%@ include file="/WEB-INF/views/common/main3.jsp"%>
+			<%@ include file="/WEB-INF/views/common/main.jsp"%>
 		</div>
 
 		<div>
@@ -107,7 +107,7 @@
 	});
 	
 	function si_select(){
-		 window.open("${path}/location_mainSelect.lc", "_blank", "width=500, height=200")
+	 	 window.open("${path}/location_mainSelect.lc?location_si=" + document.locationMain.si_choice.value, "_blank", "width=500, height=200")
 	}
 
 	
@@ -122,7 +122,8 @@
 	});
 	
 	function homeMove(path) { // (8)
-		alert("homeMove")
+		console.log("path " + path)
+		alert("homeMove = > " + path)
 		$.ajax({
 			url : path, // 컨트롤러로 이동(9)
 			type : 'POST',
