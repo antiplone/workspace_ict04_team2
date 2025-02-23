@@ -88,7 +88,7 @@
 				<div class="id_check">
 					<c:choose>
 						<c:when test="${m_name != null}">
-							<%= request.getAttribute("m_name") %>님 접속중
+							<p><%= request.getSession().getAttribute("m_name") %>님 접속중</p>
 						</c:when>
 						<c:otherwise>
 							<p>게스트님 환영합니다.😄😄</p>
