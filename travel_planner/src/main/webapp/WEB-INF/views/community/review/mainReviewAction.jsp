@@ -34,13 +34,13 @@
 			<%-- 리뷰 게시글이 있으면 반복 --%>
 			<c:forEach var="dto" items="${list}">
 			
-			 <div class="rev_img revBtn" id="revImg${dto.r_num}">
+			 <div class="rev_img revBtn_title pretendardfont size15" id="revImg${dto.r_num}">
 			 	<a href="${path}/reviewDetail.do?r_num=${dto.r_num}">	<!-- 해당 번호의 게시글로 이동하는 버튼 -->
 					<div class="rev_image">
 						<img alt="${dto.r_num}" src="${dto.r_img}">
 					</div>
 					<div class="rev_img_title">
-						<div class="rev_img_text1">${fn:substring(dto.r_title, 0, 18)}...</div>
+						<div class="rev_img_text1">${fn:substring(dto.r_title, 0, 20)}...</div>
 						<div class="rev_img_text2">
 							<div>${dto.r_name}</div>
 							<div>

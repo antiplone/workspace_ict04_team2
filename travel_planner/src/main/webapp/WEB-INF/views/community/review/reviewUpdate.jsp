@@ -9,18 +9,20 @@
 
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css">
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewWrite.css">
 
+<script src="${path}/resources/js/common/main.js" defer></script>
 <!-- 버튼 클릭시 -->
 <script type="text/javascript">
 	$(function() {
 		// 취소버튼 클릭시
  		$("#cancel").click(function() {
-			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?") == true) {
+			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?")) {
 				window.location = "${path}/reviewList.do";
 			} else {
 				window.href = "${path}/reviewUpdate.do?r_num=${dto.r_num}";
-				return false;
 			}
 		});
       
@@ -29,11 +31,11 @@
 			const content = $("#r_content").val();
 			const city = $("#r_city").val();
          
-			/* if( city == "") {
+			if(city == "") {
 			   alert("도시를 입력하세요");
 			   $("#r_city").focus();
 			   return false;
-			} */
+			}
           
 			if(title == "") {
 				alert("제목을 입력하세요");
@@ -52,7 +54,7 @@
 
 </head>
 <body>
-	<div>
+	<div class="pretendardfont">
 		<div id="writeTop">
 			<div id="writeTitle_top">
 					<h1 align="center">여행후기 수정</h1>
@@ -71,22 +73,22 @@
 						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						
 						<div class="reviewWrite_city">
-							<div class="reviewWrite_city1">지역</div>
-							<input type="text" class="reviewWrite_in" id="r_city" value="${dto.r_city}" placeholder="여행도시를 입력해주세요"/>
+							<div class="reviewWrite_city1 size20 fontnormal2">지역</div>
+							<input type="text" class="reviewWrite_in pretendardfont size16" name="r_city" id="r_city" value="${dto.r_city}" placeholder="여행도시를 입력해주세요"/>
 						</div>
 						
 						<div class="reviewWrite_title">
-							<div class="reviewWrite_title1">제목</div>
-							<input type="text" class="reviewWrite_in" name="r_title" id="r_title" value="${dto.r_title}" placeholder="제목을 입력해주세요" required/>
+							<div class="reviewWrite_title1 size20 fontnormal2">제목</div>
+							<input type="text" class="reviewWrite_in pretendardfont size16" name="r_title" id="r_title" value="${dto.r_title}" placeholder="제목을 입력해주세요" required/>
 						</div>
 						
 						<div class="reviewWrite_content">
 							<div class="reviewWrite_content2">
-								<div class="reviewWrite_content3">내용</div>
+								<div class="reviewWrite_content3 size20 fontnormal2">내용</div>
 							</div>
 							
 							<div class="reviewWrite_content4">
-								<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" required>${dto.r_content}</textarea>
+								<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" class="pretendardfont size16" required>${dto.r_content}</textarea>
 							</div>
 							
 							<div class="btn-img">
@@ -107,8 +109,8 @@
 					
 				<div class="reviewWrite_btn">
 					<div class="reviewWrite_btn1">
-						<input type=button value="취소" class="inputButton" id="cancel" />
-						<input type="submit" value="등록" class="inputButton" id="save" />
+						<input type=button value="취소" class="inputButton pretendardfont size15" id="cancel" />
+						<input type="submit" value="등록" class="inputButton pretendardfont size15" id="save" />
 					</div>
 				</div>
 			</div>

@@ -17,7 +17,7 @@
 <body>
 
 <div id="footer">
-	<div class="footer">
+	<div class="footer pretendardfont size15">
 		<div class="footer_toggle">
 			<label for="entre">사업자 정보</label>
 			<i class="fi fi-rs-angle-down" id="entre"></i>

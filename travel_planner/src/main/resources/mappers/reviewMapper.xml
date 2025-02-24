@@ -101,19 +101,19 @@
 	SELECT *
 	  FROM (SELECT R.*, rownum AS rn
 				   FROM (SELECT *
-								 FROM travel_reviewComment_tbl rc, travel_review_tbl r
+								 FROM travel_reviewComment_tbl rc, travel_review_tbl r	
 							   WHERE r.r_num = rc.rc_num
-									AND r.r_num = 3
+									AND r.r_num = #{review_num}
 							   ORDER BY rc.rc_comment_num DESC) R
 	        )
 	 ORDER BY rn DESC
 </select>
 
 <!-- 댓글갯수 처리(후기글에 댓글이 추가될 때마다 숫자가 올라감) -->
-<!-- <update id="plusCommentCnt" parameterType="int">
-	UPDATE travel_reviewComment_tbl
-		 SET rc_comment_num = rc_comment_num + 1
+<update id="plusCommentCnt" parameterType="int">
+	UPDATE travel_review_tbl
+		 SET r_comment_count = r_comment_count + 1
 	WHERE r_num = #{review_num}
-</update> -->
+</update>
 
 </mapper>

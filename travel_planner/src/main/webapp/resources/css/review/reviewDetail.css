@@ -5,8 +5,8 @@
     margin: 0 5px 0 10px;
 }
 .hor-line {
-	border-top: 1px solid #ddd;
-	padding-top: 24px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 24px;
 }
 
 /* 여행 후기 */
@@ -40,8 +40,7 @@
 /* 후기 제목 */
 .reviewDetail_title {
 	padding-bottom: 15px;
-	font-size: 22px;
-	font-weight: 900;
+	font-weight: 600;
 }
 
 /* 작성자/작성일/조회수 */
@@ -50,6 +49,9 @@
     justify-content: space-between;
     padding-bottom: 5px;
     color: #999999;
+}
+.reviewDetail_writer span {
+	margin: 0 5px;
 }
 
 /* 후기 내용 부분..? */
@@ -94,7 +96,6 @@
     color: white;
 	border: 1px solid rgb(77,77,77);
 	border-radius: 10px;	
-	font-weight: 500;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -114,7 +115,6 @@
     color: white;
 	border: 1px solid rgb(77,77,77);
 	border-radius: 10px;	
-	font-weight: 500;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -136,10 +136,6 @@
 	margin: 80px 0;
 }
 
-.commentTitle {
-	font-size: 24px;
-	font-weight: bold;
-}
 .commentTable {
 	/* border: 1px solid #111; */
 	margin-top: 17px;
@@ -151,6 +147,7 @@
     
     position: relative;
     width: 100%;
+    height: 100px;
     padding: 15px 20px;
 }
 .input_text {
@@ -161,11 +158,11 @@
 	width: 800px;
     height: 40px;
     padding: 10px;
-    font-size: 12px;
+    height: 70px;
 }
 .commentInput span:last-child {
 	width: 60px;
-    height: 39px;
+    height: 70px;
     display: flex;		/* 등록버튼 글자 중앙정렬 */
     justify-content: center;
     background: #ccc;
@@ -173,7 +170,6 @@
 .input_btn {
 	border: none;
     background: inherit;
-    font-size: 14px;
 }
 .input_btn input[type="button"] {
 	border: none;
@@ -187,10 +183,26 @@
     padding: 0 10px;
 }
 .list_text {
-	font-size: 14px;
     margin-top: 10px;
     padding: 0 2px;
+    color: #999;
 }
 .comment_lst {
 	margin-bottom: 24px;
+}
+.comment_text {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+.comment_text div:first-child {
+	display: inline-block;
+}
+.comment_text input[type="button"] {
+	background: inherit;
+	border: none;
+	cursor: pointer;
+}
+.comment_text input[type="button"]:hover {
+	background: lightblue;
 }

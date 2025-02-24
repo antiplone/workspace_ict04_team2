@@ -165,6 +165,8 @@ public class ReviewServiceImpl implements ReviewService {
 		dto.setR_title(request.getParameter("r_title"));
 		dto.setR_img(r_img1);
 		dto.setR_content(request.getParameter("r_content"));
+		String city = request.getParameter("r_city");
+		dto.setR_city(city);
 		
 		int updateCnt = dao.reviewUpdate(dto);
 		System.out.println("updateCnt : " + updateCnt);
@@ -274,7 +276,7 @@ public class ReviewServiceImpl implements ReviewService {
 		commDTO.setRc_name(req.getParameter("name"));
 		
 		// 댓글갯수가 추가될 때마다 댓글수도 update
-		if(dao.insertComment(commDTO) > 0) {
+		if(dao.insertComment(commDTO) == 1) {
 			dao.plusCommentCnt(Integer.parseInt(req.getParameter("review_num")));
 		}
 	}
@@ -287,11 +289,28 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		// 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져온다.
 		int review_num = Integer.parseInt(req.getParameter("review_num"));
+		System.out.println("리뷰글 번호 : " + review_num);
 		
 		// 댓글 작성처리 후 컨트롤러에서 list로 이동
 		List<ReviewCommentDTO> list = dao.commentList(review_num);
+		System.out.println("list : " + list);
 		
 		// jsp로 처리결과 전달
 		model.addAttribute("list", list);
 	}
+
+	// [ 후기 ] 댓글 삭제 처리
+//	@Override
+//	public void commentDeleteAction(HttpServletRequest req, HttpServletResponse res, Model model)
+//			throws ServletException, IOException {
+//		System.out.println("리뷰Service - 댓글 작성 처리");
+//		
+//		// 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져와서 DTO에 담는다.
+//		commDTO.setRc_num(Integer.parseInt(req.getParameter("review_num")));
+//		
+//		// 댓글갯수가 추가될 때마다 댓글수도 update
+//		if(dao.deleteComment(commDTO) == 1) {
+//			dao.minusCommentCnt(Integer.parseInt(req.getParameter("review_num")));
+//		}
+//	}
 }
