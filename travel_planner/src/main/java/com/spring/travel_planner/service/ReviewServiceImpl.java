@@ -38,7 +38,10 @@ public class ReviewServiceImpl implements ReviewService {
 			throws ServletException, IOException {
 		System.out.println("ReviewServiceImpl - reviewListAction");
 		
+		String name = request.getParameter("r_name");
 		String pageNum = request.getParameter("pageNum");
+		
+		System.out.println("name : " + name);
 		
 		Paging paging = new Paging(pageNum);
 		int total = dao.reviewCnt();
@@ -58,6 +61,7 @@ public class ReviewServiceImpl implements ReviewService {
 		model.addAttribute("total", total);
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
+		request.getSession().setAttribute("sessionID", name);
 	}
 
 	// 후기 상세페이지
@@ -83,25 +87,15 @@ public class ReviewServiceImpl implements ReviewService {
 		System.out.println("리뷰service - reviewUpdate");
 
 		String pageNum = request.getParameter("pageNum");
-		String r_img = request.getParameter("r_img");
 		int r_num = Integer.parseInt(request.getParameter("r_num"));
 		
 		System.out.println("r_num: " + r_num);
 		System.out.println("pageNum: " + pageNum);
-		System.out.println("r_img: " + r_img);
 		
-		ReviewDTO dto = new ReviewDTO();
-		dto.setR_num(r_num);
-		dto.setR_title(request.getParameter("r_title"));
-		dto.setR_content(request.getParameter("r_content"));
-		dto.setR_img(r_img);
-		dto.setM_name(request.getParameter("m_member"));
+		ReviewDTO dto = dao.getReivew(r_num);
 		
-		ReviewDTO dto2 = dao.getReivew(r_num);
-		
-		model.addAttribute("dto2", dto2);
+		model.addAttribute("dto", dto);
 		model.addAttribute("r_num", r_num);
-		model.addAttribute("r_img", r_img);
 	}
 	
 	// 후기 수정 처리
@@ -167,10 +161,12 @@ public class ReviewServiceImpl implements ReviewService {
 		// 화면에서 입력받은 값 가져오기
 		ReviewDTO dto = new ReviewDTO();
 		dto.setR_num(hiddenR_num);
-		dto.setM_name(request.getParameter("hiddenM_name"));
+		dto.setR_name(request.getParameter("hiddenR_name"));
 		dto.setR_title(request.getParameter("r_title"));
 		dto.setR_img(r_img1);
 		dto.setR_content(request.getParameter("r_content"));
+		String city = request.getParameter("r_city");
+		dto.setR_city(city);
 		
 		int updateCnt = dao.reviewUpdate(dto);
 		System.out.println("updateCnt : " + updateCnt);
@@ -201,9 +197,6 @@ public class ReviewServiceImpl implements ReviewService {
 			throws ServletException, IOException {
 		System.out.println("리뷰Service - reviewInsertAction()");
 		
-		String hiddenM_name = request.getParameter("hiddenM_name");
-		System.out.println("hiddenM_name" + hiddenM_name);
-		
 		MultipartFile file = request.getFile("r_img");
 		System.out.println("file: " + file);
 		
@@ -227,21 +220,21 @@ public class ReviewServiceImpl implements ReviewService {
 			}
 			
 			ReviewDTO dto = new ReviewDTO();
-			
-			dto.setM_name(request.getParameter("hiddenM_name"));
+			dto.setR_city(request.getParameter("r_city"));
 			dto.setR_title(request.getParameter("r_title"));
+			dto.setR_content(request.getParameter("r_content"));
 			
 			String r_img1 = "/travel_planner/resources/images/review/upload/" + file.getOriginalFilename();
 			System.out.println("r_img1: " + r_img1);
-			
 			dto.setR_img(r_img1);
-			dto.setR_content(request.getParameter("r_content"));
+			
+			String name = request.getParameter("hiddenR_name");
+			dto.setR_name(name);
+			System.out.println("name : " + name);
 			
 			int insertCnt = dao.reviewInsert(dto);
 			
 			model.addAttribute("insertCnt", insertCnt);
-			model.addAttribute("hiddenM_name", hiddenM_name);
-			
 		} catch(IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -280,10 +273,10 @@ public class ReviewServiceImpl implements ReviewService {
 		// 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져와서 DTO에 담는다.
 		commDTO.setRc_num(Integer.parseInt(req.getParameter("review_num")));
 		commDTO.setRc_comment(req.getParameter("comment"));
-		commDTO.setM_member(req.getParameter("member"));
+		commDTO.setRc_name(req.getParameter("name"));
 		
 		// 댓글갯수가 추가될 때마다 댓글수도 update
-		if(dao.insertComment(commDTO) > 0) {
+		if(dao.insertComment(commDTO) == 1) {
 			dao.plusCommentCnt(Integer.parseInt(req.getParameter("review_num")));
 		}
 	}
@@ -296,11 +289,28 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		// 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져온다.
 		int review_num = Integer.parseInt(req.getParameter("review_num"));
+		System.out.println("리뷰글 번호 : " + review_num);
 		
 		// 댓글 작성처리 후 컨트롤러에서 list로 이동
 		List<ReviewCommentDTO> list = dao.commentList(review_num);
+		System.out.println("list : " + list);
 		
 		// jsp로 처리결과 전달
 		model.addAttribute("list", list);
 	}
+
+	// [ 후기 ] 댓글 삭제 처리
+//	@Override
+//	public void commentDeleteAction(HttpServletRequest req, HttpServletResponse res, Model model)
+//			throws ServletException, IOException {
+//		System.out.println("리뷰Service - 댓글 작성 처리");
+//		
+//		// 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져와서 DTO에 담는다.
+//		commDTO.setRc_num(Integer.parseInt(req.getParameter("review_num")));
+//		
+//		// 댓글갯수가 추가될 때마다 댓글수도 update
+//		if(dao.deleteComment(commDTO) == 1) {
+//			dao.minusCommentCnt(Integer.parseInt(req.getParameter("review_num")));
+//		}
+//	}
 }

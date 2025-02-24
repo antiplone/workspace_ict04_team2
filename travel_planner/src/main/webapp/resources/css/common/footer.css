@@ -3,11 +3,9 @@
 #footer {				/* footer 위치 맞추기 */
     max-width: 960px;
 	width: 100%;
-	height: 160px;
+	height: 190px;
 	
     margin: 0 auto;
-	font-size: 12px;
-/* 	font-family: 'Pretendard regular', '맑은 고딕'; */
     align-content: center;
 }
 .footer {
@@ -15,7 +13,6 @@
 }
 /* 사업자 정보 화살표 */
 #entre {
-	font-size: 10px;
 	margin-left: 3px;
 }
 
@@ -26,14 +23,12 @@
 .footer_toggle label { cursor: pointer; }
 .footer_toggle, .footer_discription, .footer_toggle i { color: #555; }
 
-.footer_discription { padding: 15px 0; font-size: 13px; }
+.footer_discription { padding: 15px 0; }
 .footer_discription .br { margin: 5px 0; }
-.footer_discription span { font-size: 10px; }
 
 /* 버튼 한 줄로 만들기 */
 .footer_btn {
 	display: flex;
-	font-size: 14px;
 	position: relative;
 }
 .tour_link {
@@ -60,7 +55,6 @@
 .footer_detail {
 	display: none;
 	color: #666;
-	font-size: 12px;
     margin-top: 10px;
 }
 .footer_detail.active {
