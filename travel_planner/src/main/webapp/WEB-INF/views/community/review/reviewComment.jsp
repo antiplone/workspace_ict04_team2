@@ -61,7 +61,7 @@
 	<div class="comment_lst hor-line">
 		<div>${dto.rc_comment}</div>
 		<div class="list_text">
-			<span class="ver-line">${dto.m_member}</span>
+			<span class="ver-line">${dto.r_name}</span>
 			<span>${dto.rc_regDate}</span>
 		</div>
 	</div>

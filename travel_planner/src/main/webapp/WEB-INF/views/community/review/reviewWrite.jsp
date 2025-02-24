@@ -28,12 +28,12 @@
          const content = $("#r_content").val();
          const city = $("#r_city").val();
          
-         /* if( city == "") {
+         if(city == "") {
             alert("도시를 입력하세요");
             $("#r_city").focus();
             return false;
          }
-          */
+         
          if(title == "") {
             alert("제목을 입력하세요");
             $("#r_title").focus();
@@ -55,10 +55,6 @@
 </head>
 <body>
    <div>
-      <!-- header 시작 -->
-      <%@ include file="/WEB-INF/views/common/header.jsp" %>
-      <!-- header 끝 -->
-      
       <!-- 후기작성 상단 시작 -->
       <div id="writeTop">
          <div id="writeTitle_top">   <!-- 리뷰 게시판 제목 -->
@@ -74,18 +70,17 @@
                <div class="reviewWrite_form">
                   
                   <!-- 작성자 -->
-                  <input type="hidden" name="hiddenM_name" value="${dto.m_name}"/>
-                  
+                  <input type="hidden" name="hiddenR_name" value="${sessionScope.m_name}"/>
 				<input type="hidden" name="hiddenPageNum" value="${pageNum}">
 				<input type="hidden" name="hiddenR_num" value="${dto.r_num}">
 				<input type="hidden" name="hiddenR_img" value="${dto.r_img}">
                   
-                  <!-- 도시 선택 시작 -->
+                  <!-- 도시 시작 -->
                   <div class="reviewWrite_city">
-                     <div class="reviewWrite_city1">도시</div>
-                     <input type="text" class="reviewWrite_in" id="r_city" placeholder="여행도시를 입력해주세요"/>
+                     <div class="reviewWrite_city1">지역</div>
+                     <input type="text" class="reviewWrite_in" name="r_city" id="r_city" placeholder="여행도시를 입력해주세요"/>
                   </div>
-                  <!-- 도시 선택 종료 -->
+                  <!-- 도시 종료 -->
                   
                   <!-- 제목 시작  -->
                   <div class="reviewWrite_title">
@@ -145,11 +140,6 @@
             
          </div>
       </form>
-         
-      <!-- footer 시작 -->
-      <%@ include file="/WEB-INF/views/common/footer.jsp" %>
-      <!-- footer 끝 -->   
    </div>
-
 </body>
 </html>

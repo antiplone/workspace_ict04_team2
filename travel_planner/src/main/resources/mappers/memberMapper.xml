@@ -11,7 +11,8 @@
 		<result property="r_title"         			column="r_title" />
 		<result property="r_content"         		column="r_content" />
 		<result property="r_img"         			column="r_img" />
-		<result property="m_name"         			column="m_name" />
+		<result property="r_name"         			column="r_name" />
+		<result property="r_city"         			column="r_city" />
 		<result property="r_readCnt"         		column="r_readCnt" />
 		<result property="r_comment_count"         	column="r_comment_count" />
   	 </resultMap>
@@ -43,7 +44,8 @@
 			   r_title r_title,
 			   r_content r_content,
 			   r_img r_img,
-			   m_name m_name,
+			   r_name r_name,
+			   r_city r_city,
 			   r_readCnt r_readCnt,
 			   r_comment_count r_comment_count
 		  FROM TRAVEL_REVIEW_TBL

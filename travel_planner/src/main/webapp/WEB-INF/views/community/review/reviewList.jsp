@@ -63,8 +63,8 @@
 								<div class="reviewTitle">${dto.r_title}</div>
 								<div class="reviewContents_pre">${dto.r_content}</div>
 								<div class="review_info2">
-									<div style="margin-right: 10px;">${sessionScope.m_name}</div>
-									<%-- <div style="margin-right: 10px;">${dto.m_name}</div> --%>
+									<%-- <div style="margin-right: 10px;">${sessionScope.m_name}</div> --%>
+									<div style="margin-right: 10px;">${dto.r_name}</div>
 									<div>${dto.r_regDate}</div>
 									<div class="interval">
 										<img alt="조회수" src="${path}/resources/images/eyes.svg">

@@ -90,11 +90,11 @@
 				<input type="hidden" name="hiddenR_num" value="${dto.r_num}" />
 				
 				<div class="reviewDetail_top">
-					<div class="reviewDetail_city">도시</div>
+					<div class="reviewDetail_city">${dto.r_city}</div>
 					<div class="reviewDetail_title">${dto.r_title}</div>
 					
 					<div class="reviewDetail_info">
-						<div class="reviewDetail_writer">${sessionScope.m_name}/${dto.r_regDate}</div>
+						<div class="reviewDetail_writer">${dto.r_name}/${dto.r_regDate}</div>
 						<div class="reviewDetail_views">조회수 ${dto.r_readCnt}</div>
 					</div>
 				</div>

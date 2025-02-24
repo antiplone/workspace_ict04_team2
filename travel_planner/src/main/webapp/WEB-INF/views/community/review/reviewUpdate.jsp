@@ -65,14 +65,14 @@
 					<div class="reviewWrite_form">
 						
 						<!-- 작성자 -->
-						<%-- <input type="hidden" name="hiddenM_name" value="${dto.m_name}"/> --%>
+						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
 						<input type="hidden" name="hiddenPageNum" value="${pageNum}"/>
 						<input type="hidden" name="hiddenR_img" value="${dto.r_img}"/>
 						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						
 						<div class="reviewWrite_city">
-							<div class="reviewWrite_city1">도시</div>
-							<input type="text" class="reviewWrite_in" id="r_city" placeholder="여행도시를 입력해주세요" disabled/>
+							<div class="reviewWrite_city1">지역</div>
+							<input type="text" class="reviewWrite_in" id="r_city" value="${dto.r_city}" placeholder="여행도시를 입력해주세요"/>
 						</div>
 						
 						<div class="reviewWrite_title">

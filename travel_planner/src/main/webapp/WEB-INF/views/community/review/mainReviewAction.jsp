@@ -40,9 +40,9 @@
 						<img alt="${dto.r_num}" src="${dto.r_img}">
 					</div>
 					<div class="rev_img_title">
-						<div class="rev_img_text1">${fn:substring(dto.r_title, 0, 16)}...</div>
+						<div class="rev_img_text1">${fn:substring(dto.r_title, 0, 18)}...</div>
 						<div class="rev_img_text2">
-							<div>${dto.m_name}</div>
+							<div>${dto.r_name}</div>
 							<div>
 								<img alt="조회수" src="${path}/resources/images/eyes.svg">
 								${dto.r_readCnt}
