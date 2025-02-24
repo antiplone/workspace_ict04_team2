@@ -12,16 +12,16 @@
 <body>
 	  <c:forEach var="dto" items="${list}">
 	  	  <div class="courseInfo_box">
-  	  	   	   <hr>
-               <div class="course_location">
+  	  	   	   <!-- <hr> -->
+               <div class="course_location pretendardfont">
                		<div id="modalLocation">${dto.tr_Course_subId} 코스: ${dto.tr_course_location}</div>
                </div>
-               <hr>
-               <div class="courseInfo_list">  
+               <!-- <hr> -->
+               <div class="courseInfo_list pretendardfont">  
 			       <div class="course_location_image_box">
 			       		<img src="${dto.tr_course_locationImage}" id="modalLocationImage" alt="${dto.tr_course_location}">
 			       </div>
-			       <div class="location_content">
+			       <div class="location_content pretendardfont">
 				       <p>코스개요</p>
 				       <div id="modalLocationContent">${dto.tr_course_locationContent}</div>
 			       </div>

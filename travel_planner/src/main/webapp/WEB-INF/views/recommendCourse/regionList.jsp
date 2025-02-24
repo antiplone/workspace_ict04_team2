@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/recommendCourse/regionList.css">
 
+
 <!-- js -->
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
 <script src="${path}/resources/js/recommendCourse/regionList.js" defer></script>
@@ -31,13 +32,13 @@
 			<!-- 상단 중앙1 시작 -->
 			<div id="title">
 				<br><br>
-				<h3 align="center" class="title">내가 가고싶은 여행지는 여기닷!</h3>
+				<h3 align="center" class="title pretendardfont">내가 가고싶은 여행지는 여기닷!</h3>
 				<br><br>
 				
 				<div class="search" align="center">
 				  <div class="container-fluid">
-				    <form class="search-box" action="" method="get">
-				      <input class="search-text" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50">
+				    <form class="rc_search-box" action="" method="get">
+				      <input class="search-text pretendardfont" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50">
 				      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 				    </form>
 				  </div>
@@ -61,8 +62,8 @@
 				                        <%--  alt="${dto.tr_area_english}" --%>>
 				                </button>
 				            </div>
-				            <div class="area_english">${dto.tr_area_english}</div>
-				            <div class="area_korea">${dto.tr_area_korea}</div>
+				            <div class="area_english pretendardfont">${dto.tr_area_english}</div>
+				            <div class="area_korea pretendardfont">${dto.tr_area_korea}</div>
 				    </div>
 				</c:forEach>
 					
@@ -71,12 +72,12 @@
 				    <div class="modal_popup">
 				        <div class="content_box">
 				            <div class="content">
-				                <div class="areaContent">
+				                <div class="areaContent pretendardfont">
 				                    <div id="modalAreaEnglish"></div>
 				                    <div id="modalAreaKorea"></div>
 				                    <p id="modalAreaContent"></p>
 				                    <div align="center">
-				                        <input class="recommendCourseDetailButton" type="button" value="추천코스 보기>" onclick="modalClick('${path}')"> 
+				                        <input class="recommendCourseDetailButton pretendardfont" type="button" value="추천코스 보기>" onclick="modalClick('${path}')"> 
 				                    </div>
 				                </div>
 				                <div class="area_detail_image_box">
