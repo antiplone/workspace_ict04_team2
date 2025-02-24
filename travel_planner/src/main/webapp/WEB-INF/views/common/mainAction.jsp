@@ -29,7 +29,7 @@
 </head>
 <body>
 	<div id="maintopListWrap">
-		<div id="carouselShow" class="recomment_tour_list_wrap carousel slide">
+		<div id="carouselShow" class="recomment_tour_list_wrap carousel slide esamanrufont">
 			<h2>함께 떠나는 지역 여행</h2>
 			<div class="recommend_box">
 				<div class="recommend_carousel_wrapper">

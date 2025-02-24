@@ -90,7 +90,7 @@
 											<th style="width:200px">비밀번호</th>
 											<td style="width:200px">
 												<input style="width: 180px;" type="password" class="input" name="notice_password" 
-												id="notice_password" size="30" value="" placeholder="비밀번호 입력"/>
+												id="notice_password" size="30" value="" placeholder="비밀번호 입력" pattern="[a-zA-Z0-9]"/>
 											</td>
 										</tr>
 										<tr>

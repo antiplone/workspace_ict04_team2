@@ -41,7 +41,7 @@
 	<div id="tableContentWrap">
 	<div id="slide_box_wrap" data-color="gray">
 
-		<div id="myCarousel" class="carousel slide mb-6"
+		<div id="myCarousel" class="carousel slide mb-6 pretendardfont"
 			data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#myCarousel"
@@ -53,6 +53,7 @@
 					data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>
 			<div class="carousel-inner">
+<<<<<<< HEAD
 				<div class="carousel-item active" data-color="gray" data-num="1">
 					<div class="flex_box d-block w-100">
 							<div class="left_comment">
@@ -69,12 +70,16 @@
 					</div>
 				</div>
 				<div class="carousel-item" data-color="skyblue" data-num="2">
+=======
+				
+				<div class="carousel-item active esamanrufont" data-color="lightpurple" data-num="1">
+>>>>>>> origin/travel-planner/ver2
 					<div class="flex_box d-block w-100">
 						<div class="left_comment">
 							<div>
-								<strong style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
+								<strong class="size65" style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
 									미조
-								</strong> <br> <a href="#">자세히 보기</a>
+								</strong> <br> <a class="size25 fontbold" href="#">자세히 보기</a>
 							</div>
 						</div>
 						<div class="right_img">
@@ -83,13 +88,17 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<div class="carousel-item" data-color="yellow" data-num="3">
+=======
+				<div class="carousel-item pretendardfont" data-color="yellow" data-num="2">
+>>>>>>> origin/travel-planner/ver2
 					<div class="flex_box d-block w-100">
 						<div class="left_comment">
 							<div>
-								<strong style="color: #3d3d3d">경남 의령으로 떠나는<br>특별한
+								<strong class="size55" style="color: #3d3d3d">경남 의령으로 떠나는<br>특별한
 									일출 여행🌞
-								</strong> <br> <a href="#">자세히 보기</a>
+								</strong> <br> <a class="size35 fontnormal" href="#">자세히 보기</a>
 							</div>
 						</div>
 						<div class="right_img">
@@ -97,6 +106,24 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
+=======
+				<div class="carousel-item kotrafont" data-color="skyblue" data-num="3">
+					<div class="flex_box d-block w-100">
+							<div class="left_comment">
+								<div>
+									<strong class="size45" style="color: #3d3d3d">남해로 떠나는<br>특별한 기차
+										여행
+									</strong> <br> <a class="size15 fontlight" href="#">자세히 보기</a>
+								</div>
+							</div>
+							<div class="right_img">
+								<img
+									src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=7b43ffe6-74e9-4021-b071-df3691145f78&mode=raw">
+							</div>
+					</div>
+				</div>
+>>>>>>> origin/travel-planner/ver2
 			</div>
 			<button class="carousel-control-prev main_carousel_direction" type="button"
 				data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -155,12 +182,12 @@
 		<%-- 추천코스 --%>
 		<div class="recom">
 			<div class="recom_wrap">
-				<div>날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
-				<div>여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
+				<div class="cafessurround size45">날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
+				<div class="paperlogy size35">여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
 				<div class="recom_img">
 					<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
 				</div>
-				<div class="recom_btn">
+				<div class="recom_btn pretendardfont size25 ">
 					<a onclick="load('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
 					</a>
 				</div>
@@ -168,10 +195,10 @@
 		</div>
 
 		<%-- 여행후기 --%>
-		<div class="rev">
+		<div class="rev esamanrufont">
 			<div class="revs">
 				<div class="rev_title">
-					<h2>여행후기로 여행지 미리보기</h2>
+					<h2 class="pretendardfont size55">여행후기로 여행지 미리보기</h2>
 					<div>
             <a onclick="load('/travel_planner/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
 						</a>

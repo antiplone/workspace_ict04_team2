@@ -25,26 +25,37 @@
 a:link{text-decoration:none;}
 a:link, a:visited, a:active{color:black;}
 
-
-/* 폰트 */
-/* 이사만루 폰트 */
-@font-face {
-    font-family: 'Esamanru-Medium';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
-    font-weight: normal;
-    /* font-style: normal; */
+// font
+.kotrafont{
+	font-family: 'kotra', 'Closeness';
 }
 
-/* 프리텐다드 폰트 */
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+.esamanrufont{
+	font-family: 'esamanru_Medium', 'Montserrat';
 }
-@font-face {
-    font-family: 'Pretendard-SemiBold';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+
+.pretendardfont{
+	font-family: 'Pretendard', 'Montserrat';
 }
+
+.cafessurround{
+	font-family: 'cafessurround', 'Closeness';
+}
+
+.paperlogy{
+	font-family: 'cafessurround', 'Montserrat';
+}
+
+.size15{font-size:15px;}
+.size25{font-size:25px;}
+.size35{font-size:35px;}
+.size45{font-size:45px;}
+.size55{font-size:55px;}
+.size65{font-size:65px;}
+
+//font-weight
+
+.fontbold{font-weight:bold}
+.fontnormal{font-weight:300}
+.fontlight{font-weight:100}
+
