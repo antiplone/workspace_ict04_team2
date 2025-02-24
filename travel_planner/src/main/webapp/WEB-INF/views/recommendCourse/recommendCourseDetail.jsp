@@ -12,11 +12,11 @@
 <body>
 	  <c:forEach var="dto" items="${list}">
 	  	  <div class="courseInfo_box">
-  	  	   	   <hr>
+  	  	   	   <!-- <hr> -->
                <div class="course_location">
                		<div id="modalLocation">${dto.tr_Course_subId} 코스: ${dto.tr_course_location}</div>
                </div>
-               <hr>
+               <!-- <hr> -->
                <div class="courseInfo_list">  
 			       <div class="course_location_image_box">
 			       		<img src="${dto.tr_course_locationImage}" id="modalLocationImage" alt="${dto.tr_course_location}">

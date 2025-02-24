@@ -8,8 +8,8 @@
 <!-- 지역 목록 조회 -->
 <select id="areaList" resultType="com.spring.travel_planner.dto.RecommendCourseDTO">
 	SELECT *
-	 FROM travel_area_tbl
-	ORDER BY tr_area_id
+	  FROM travel_area_tbl
+	 ORDER BY tr_area_id
 </select>
 
 <!-- 추천코스 목록 조회 -->
@@ -22,15 +22,15 @@
 <!-- 추천코스 상세 목록 조회 -->
 <select id="recommendCourseDetailList" parameterType="int" resultType="com.spring.travel_planner.dto.RecommendCourseDTO">
 	SELECT r.tr_course_id
-	 , s.tr_Course_subId
-	 , s.tr_course_locationImage	 
-	 , s.tr_course_location
-	 , s.tr_course_locationContent
-  FROM travel_recommendCourse_tbl r
-	 , travel_CourseInfo_tbl s
- WHERE r.tr_course_id = s.tr_course_id
-   AND s.tr_course_id = #{tr_course_id}
-   ORDER BY s.tr_Course_subId
+		 , s.tr_Course_subId
+		 , s.tr_course_locationImage	 
+		 , s.tr_course_location
+		 , s.tr_course_locationContent
+	  FROM travel_recommendCourse_tbl r
+		 , travel_CourseInfo_tbl s
+	 WHERE r.tr_course_id = s.tr_course_id
+	   AND s.tr_course_id = #{tr_course_id}
+	   ORDER BY s.tr_Course_subId
 </select>
 
 </mapper> 
