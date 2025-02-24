@@ -48,7 +48,7 @@ public class MainController {
 	private String main(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< MainController => main.do >>>");
-		return "common/main3";
+		return "common/main";
 	}
 	
 	@RequestMapping("/mainAction.do")
@@ -75,12 +75,14 @@ public class MainController {
 	}
 
 	@RequestMapping("/login_action.do")
-	private String login_action(HttpServletRequest req)
+	private String login_action(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		logger.info("<<< MainController => login_action.do >>>");
-		logger.info(req.getParameter("login_email"));
-//		mem.test(); /* DB 연결이 안되는지 테스트 */
 		mem.login_action(req);
+//		mem.test(); /* DB 연결이 안되는지 테스트 */
+		if (req.getAttribute("failed") != null) // @ResponseBody를 넣으면 데이터만 출력한다.
+			resp.sendRedirect("login.do?failed=''");
+
 		return "common/home";
 	}
 

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* 한글 폰트  */
+@font-face {
+    font-family: "kotra";
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_GOTHIC.woff') format('woff');
+    /* src: url("../font/KOTRA_BOLD.ttf") format("ttf"); */
+    unicode-range: U+AC00-D7AF; 
+	font-style: normal;
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    /* src: url("../font/KOTRA_BOLD.ttf") format("ttf"); */
+    unicode-range: U+AC00-D7AF; 
+	font-style: normal;
+}
+
+@font-face {
+    font-family: "esamanru_Medium";
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    /* src: url("../font/esamanru_TTF/esamanru_Medium.ttf") format("ttf"); */
+    unicode-range: U+AC00-D7AF; 
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'cafessurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    unicode-range: U+AC00-D7AF;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'paperlogy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    unicode-range: U+AC00-D7AF;
+    font-style: normal;
+}
+
+
+/* 영어, 숫자 폰트*/
+@font-face {
+    font-family: "Closeness";
+    src: url("../font/closeness/Closeness.ttf") format("ttf");
+    unicode-range:  U+0030-0039, U+0041-005A, U+0061-007A; /* 영어 대문자와 소문자 */
+	font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src : url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+    /* src: url("../font/Montserrat/Montserrat-VariableFont_wght.ttf") format("ttf"); */
+    unicode-range:  U+0030-0039, U+0041-005A, U+0061-007A; /* 영어 대문자와 소문자 */
+	font-style: normal;
+}
