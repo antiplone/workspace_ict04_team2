@@ -1,27 +1,142 @@
 package com.spring.travel_planner.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.travel_planner.service.LocationServiceImpl;
+import com.spring.travel_planner.sys.Location_APIConfig;
 
 @Controller
 public class LocationController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LocationController.class);
+	private Map<String, Object> requestAreaCode1 = Location_APIConfig.TourAPI.mapAreaCode1();
+	private Map<String, Object> requestAreaBasedList1 = Location_APIConfig.TourAPI.mapAreaBasedList1();
 	
 	@Autowired
 	private LocationServiceImpl service;
+	
+	//////////////////////// api 테스트 시작 /////////////////////
+	// 여행지 메인(기본값 = '전국'리스트)
+	@RequestMapping("/api_location_main.lc")
+	private ModelAndView api_location_main() {
+		logger.info("api_location_main.lc");
+		ModelAndView mnv = new ModelAndView("location/api_location_main_ajax");
+
+		// 이쯤에서 DB접근부터
+		boolean existDB = false;
+		if (existDB) {
+			logger.info("DB가 존재하여 mybatis로 접근");
+		}
+		else {
+			logger.info("DB가 존재하지 않습니다.");
+		}
+
+		// 공통정보
+		mnv.addObject("requestAreaCode1", JSONObject.toJSONString(requestAreaCode1));
+		mnv.addObject("existDB", existDB);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/api_location_main_result.lc")
+	private ModelAndView api_location_main_result(@RequestBody List<Object> list) {
+		// json데이터를 우리 DTO로 바꾸자
+		ModelAndView mnv = new ModelAndView("location/api_location_main");
+		System.out.println(list);
+		mnv.addObject("si_result", list);
+
+		return mnv;
+	}
+	
+	// 선택한 '시'에 해당하'구'선택 팝업창 띄우기
+	@RequestMapping("/api_location_Select.lc")
+	private ModelAndView api_location_Select(HttpServletRequest request) 
+			throws ServletException, IOException{
+		logger.info("api_location_Select.lc");
+		
+		ModelAndView mnv = new ModelAndView("location/api_location_mainSelect_ajax");
+		
+		
+		// 이쯤에서 DB접근부터
+		boolean existDB = false;
+		if (existDB) {
+			logger.info("DB가 존재하여 mybatis로 접근");
+		}
+		else {
+			logger.info("DB가 존재하지 않습니다.");
+		}
+
+		// 공통정보
+		mnv.addObject("requestAreaCode1", JSONObject.toJSONString(requestAreaCode1));
+		mnv.addObject("existDB", existDB);
+		mnv.addObject("location_si", request.getParameter("location_si"));
+		System.out.println("컨트롤러 시 값:" + request.getParameter("location_si"));
+		return mnv;
+	}
+	
+	@RequestMapping("/api_location_Select_result.lc")
+	private ModelAndView api_location_mainSelect_result(@RequestBody List<Object> list) 
+			throws ServletException, IOException{
+		// json데이터를 우리 DTO로 바꾸자
+		ModelAndView mnv = new ModelAndView("location/api_location_mainSelect");
+		System.out.println("gu_result: " + list);
+		mnv.addObject("gu_result", list);
+		
+		return mnv;
+	}
+	
+	   // '구' 선택 완료 후 여행지 리스트
+    @RequestMapping("/api_location_mainList.lc")
+    private ModelAndView api_location_mainList(HttpServletRequest request) 
+			throws ServletException, IOException{
+       logger.info("api_location_mainList.lc");
+       ModelAndView mnv = new ModelAndView("location/api_location_mainListAction_ajax");
+
+       // 이쯤에서 DB접근부터
+       boolean existDB = false;
+       if (existDB) {
+          logger.info("DB가 존재하여 mybatis로 접근");
+       }
+       else {
+          logger.info("DB가 존재하지 않습니다.");
+       }
+
+       // 공통정보
+       mnv.addObject("requestAreaBasedList1", JSONObject.toJSONString(requestAreaBasedList1));
+       mnv.addObject("existDB", existDB);
+       return mnv;
+    }
+    
+    @RequestMapping("/api_location_mainList_result.lc")
+    private ModelAndView api_location_mainList_result(@RequestBody List<Object> list) {
+       // json데이터를 우리 DTO로 바꾸자
+       ModelAndView mnv = new ModelAndView("location/api_location_mainList_result");
+       
+       mnv.addObject("select_result", list);
+       System.out.println("api_location_SelectList_result: " + list);
+       
+       return mnv;
+    }
+
+	
+	
+////////////////////////api 테스트 끝 /////////////////////
 	
 	// 여행지 메인(기본값 = '전국'리스트)
 	@RequestMapping("/location_main.lc")
