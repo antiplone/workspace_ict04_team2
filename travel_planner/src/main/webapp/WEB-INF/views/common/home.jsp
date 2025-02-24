@@ -14,6 +14,7 @@
 
 <title>여기닷</title>
 <!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
@@ -30,7 +31,7 @@
 
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap defaultfont">
 		<!-- header 시작 -->
 		<div class="header_wrap">
 			<%@ include file="/WEB-INF/views/common/header.jsp"%>

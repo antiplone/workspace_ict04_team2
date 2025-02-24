@@ -5,21 +5,26 @@
 #title {
 	background-color : #FDF4CB;
 	position: relative;
-    height: 150px;
+    height: 220px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 /* 여행코스 짜기 어렵다면 여기닷! */
 .title {
 	position: relative;
-	top: 0px;
+	top: 15px;
 	color: black;
+	font-size: 25px;
 }
 
 /* 추천코스 */
 #page-title {
 	position: relative;
-	top: 25px;
-	margin: 30px;
+    top: 35px;
+	margin-left: 70px;
+	font-size: 25px;
+	font-weight: bold;
 }
 /* 상단 중앙1 끝 */
 
@@ -90,21 +95,21 @@
 
 .course_title {
 	color: black;
-    font-size: 23px;
+    font-size: 25px;
     top: -55px;
     justify-content: center;
 }
 
 .course_taketime {
 	color: #FF865B;
-    font-size: 18px;
+    font-size: 16px;
     justify-content: center;
     top: -40px;
 }
 
 .course_tag {
 	color: #676767;
-    font-size: 15px;
+    font-size: 16px;
     justify-content: center;
     position: relative;
     top: -25;
@@ -193,7 +198,7 @@
 }
 
 #modalCourseTitle {
-	font-size: 24px;
+	font-size: 25px;
 	font-weight: bold;
 	margin: 18px;
 }
@@ -210,6 +215,7 @@
 #modalCourseTag {
 	color: #676767;
 	margin: 25px;
+	font-size: 16px;
 }
 
 #modalCourseMap {
@@ -266,7 +272,7 @@ hr {
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin: 15px;
     color: #464646;
@@ -274,7 +280,7 @@ p {
 }
 
 #modalLocationContent {
-	font-size: 18px;
+	font-size: 16px;
     margin: 15px;
     color: #464646;
     word-break: break-all;

@@ -24,3 +24,38 @@
 
 a:link{text-decoration:none;}
 a:link, a:visited, a:active{color:black;}
+
+// font
+.kotrafont{
+	font-family: 'kotra', 'Closeness';
+}
+
+.esamanrufont{
+	font-family: 'esamanru_Medium', 'Montserrat';
+}
+
+.pretendardfont{
+	font-family: 'Pretendard', 'Montserrat';
+}
+
+.cafessurround{
+	font-family: 'cafessurround', 'Closeness';
+}
+
+.paperlogy{
+	font-family: 'cafessurround', 'Montserrat';
+}
+
+.size15{font-size:15px;}
+.size25{font-size:25px;}
+.size35{font-size:35px;}
+.size45{font-size:45px;}
+.size55{font-size:55px;}
+.size65{font-size:65px;}
+
+//font-weight
+
+.fontbold{font-weight:bold}
+.fontnormal{font-weight:300}
+.fontlight{font-weight:100}
+
