@@ -41,7 +41,6 @@
 			}
 		});
 	}
-
 </script>
 
 </head>
@@ -54,13 +53,11 @@
 				<div id="contents-head">
 					<div id="title">
 						<br><br>
-						<h3 align="center" class="title">여행코스 짜기 어렵다면 여기닷!</h3>
+						<div align="center" class="title pretendardfont">여행코스 짜기 어렵다면 여기닷!</div>
 						<br><br>
 					</div>
 					
-					<div id="page-title">
-						<h2> 추천코스 </h2>	
-					</div>
+					<div class="pretendardfont" id="page-title"> 추천코스 </div>	
 				</div>
 				<!-- 상단 중앙1 끝 -->	
 					
@@ -89,9 +86,9 @@
 					                        </div>  
 											
 											<div class="modal_button_content">
-												<div class="course_title">${dto.tr_course_title}</div>
-												<div class="course_taketime">${dto.tr_course_taketime}</div>
-												<div class="course_tag">${dto.tr_course_tag}</div>
+												<div class="course_title pretendardfont">${dto.tr_course_title}</div>
+												<div class="course_taketime pretendardfont">${dto.tr_course_taketime}</div>
+												<div class="course_tag pretendardfont">${dto.tr_course_tag}</div>
 										   </div>
 								 </button>
 							</div>
@@ -104,7 +101,7 @@
 					    <div class="modal_popup">
 					        <div class="content_box">
 					            <div class="content">
-					                <div class="courseContent">
+					                <div class="courseContent pretendardfont">
 					                    <div id="modalCourseTitle"></div>
 					                    <div id="modalCourseTaketime"></div>
 					                    <hr>
