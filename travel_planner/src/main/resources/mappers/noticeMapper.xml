@@ -11,7 +11,7 @@
       <result property="notice_content"         column="noticeContent" />
       <result property="notice_writer"         	column="noticeWriter" />
       <result property="notice_password"        column="noticePassword" />
-      <result property="noticeReadCnt"         	column="noticeReadCnt" />
+      <result property="notice_readCnt"         column="noticeReadCnt" />
       <result property="notice_regDate"         column="noticeRegDate" />
       <result property="notice_show"        	column="noticeShow" />
   	 </resultMap>
