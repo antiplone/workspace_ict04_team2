@@ -34,7 +34,7 @@
 				<br><br>
 				<h3 align="center" class="title pretendardfont">내가 가고싶은 여행지는 여기닷!</h3>
 				<br><br>
-				
+				<!-- 
 				<div class="search" align="center">
 				  <div class="container-fluid">
 				    <form class="rc_search-box" action="" method="get">
@@ -43,6 +43,7 @@
 				    </form>
 				  </div>
 				</div>
+				 -->
 			</div>	
 			<!-- 상단 중앙1 종료 -->
 			
