@@ -86,11 +86,18 @@
 													<a class="noticeP" onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.next}')">☛</a>
 												</c:if>
 											</div>
-										<div class="writeNotice">
-											<div colspan="5">
-												<input type="button" value="글쓰기" style="padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">
-											</div>
-										</div>
+										<c:choose>
+											<c:when test="${m_name != null}">
+												<div class="writeNotice">
+													<div colspan="5">
+														<input type="button" value="글쓰기" style="padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">
+													</div>
+												</div>
+											</c:when>
+											<c:otherwise>
+											
+											</c:otherwise>
+										</c:choose>
 									</div>
 								</form>
 							</div>

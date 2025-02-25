@@ -46,7 +46,19 @@
 			window.location = "${path}/home.do";
 		});
 	});
+	
+	const session = '<%=(String)session.getAttribute("m_name")%>';
+	
+	$(function() {
+		$("#mlogout").on('click', function() {
+			alert("let me say yayayaya~")
+		  sessionStorage.removeItem("m_name")
+		  window.location = "${path}/home.do";
+		});
+	});
 
+	
+	
 </script>
 </head>
 <body>
@@ -75,10 +87,10 @@
 					<ul class="dropdown-menu text-small shadow" style="">
             			<li><a class="dropdown-item" onclick="homeMove('${path}/reviewList.do')">후기</a></li>
 			            <li><a class="dropdown-item" onclick="homeMove('${path}/noticeList.nt')">공지사항</a></li>
-			            <li><a class="dropdown-item" onclick="mainRecommend(1,2)">추천코스</a></li>
+			            <li><a class="dropdown-item" href="${path}/regionList.rc">추천코스</a></li>
 			            <%-- <li><a class="dropdown-item" href="${path}/recommendCourseList.rc">추천코스</a></li> --%>
 			            <li><hr class="dropdown-divider"></li>
-			            <li><a class="dropdown-item" href="#">Sign out</a></li>
+			            <li><a id="mlogout" class="dropdown-item" href="#">Sign out</a></li>
           			</ul>
 				</li>
 			</ul>

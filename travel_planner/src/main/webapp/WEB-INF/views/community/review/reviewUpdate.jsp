@@ -20,9 +20,9 @@
 		// 취소버튼 클릭시
  		$("#cancel").click(function() {
 			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?")) {
-				window.location = "${path}/reviewList.do";
+				homeMove('${path}/reviewList.do');
 			} else {
-				window.href = "${path}/reviewUpdate.do?r_num=${dto.r_num}";
+				return;
 			}
 		});
       
@@ -48,6 +48,25 @@
 				$("#r_content").focus();
 				return false;
 			}
+			
+			var form = $('#reviewWriteform')[0];
+			var formData = new FormData(form);
+			$.ajax({
+				type: 'POST',
+				url: '${path}/reviewUpdateAction.do', // 컨트롤러로 이동 - (9)
+				enctype:'multipart/form-data',
+				data:formData,
+				processData:false,
+			    contentType:false,
+			    cache:false,
+				success: function(result) {		// (13) - result는 comment_list.jsp(컨트롤러에서 넘긴) 데이터
+					homeMove('${path}/reviewList.do');	// div id가 commentList인 자리에 댓글 리스트페이지 출력
+				},
+				error: function() {
+					alert("댓글목록 오류나요~!");
+				}
+			});
+			
 		});
    });
 </script>
@@ -61,14 +80,14 @@
 			</div>
 		</div>
 		
-		<form name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
+		<form id="reviewWriteform" name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
 					<div class="reviewWrite_form">
 						
 						<!-- 작성자 -->
 						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
-						<input type="hidden" name="hiddenPageNum" value="${pageNum}"/>
+						<input type="input" name="hiddenPageNum" value="${pageNum}"/>
 						<input type="hidden" name="hiddenR_img" value="${dto.r_img}"/>
 						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						
@@ -110,7 +129,8 @@
 				<div class="reviewWrite_btn">
 					<div class="reviewWrite_btn1">
 						<input type=button value="취소" class="inputButton pretendardfont size15" id="cancel" />
-						<input type="submit" value="등록" class="inputButton pretendardfont size15" id="save" />
+						<input type="button" value="등록" class="inputButton pretendardfont size15" id="save" />
+<!-- 						<input type="submit" value="등록" class="inputButton pretendardfont size15" id="save" /> -->
 					</div>
 				</div>
 			</div>
