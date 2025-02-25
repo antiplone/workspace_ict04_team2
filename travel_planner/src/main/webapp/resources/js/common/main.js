@@ -58,14 +58,14 @@ function homeMove(path) { // (8)
 		})
 }
 
-function mainRecommend(area_id, course_id, data_index){
-		console.log("data_index1 =>" + data_index)
+function mainRecommend(area_id, course_id, course_title, course_taketime, course_tag, course_map, data_index){
+			console.log("data_index1 =>" + data_index)
 		// alert("mainRecommend")
 		menulist(data_index);
 		$.ajax({
 			url : 'recommendCourseList.rc', // 컨트롤러로 이동(9)
 			type : 'POST',
-			data: 'area_id=' + area_id + "&courseId=" + course_id,
+			data: 'area_id=' + area_id + "&courseId=" + course_id + "&courseTitle=" + course_title + "&courseTaketime" + course_taketime + "&courseTag" + course_tag + "&courseMap" + course_map,
 			success : function(result) { // 콜백함수(13) => result는 comment_list
 				$('#contents').html(result);
 			},
@@ -73,7 +73,15 @@ function mainRecommend(area_id, course_id, data_index){
 				alert(errorThrown);
 			},
 		}).done(function(courseId){
-				onCourseClick(course_id)
+				onCourseClick(course_id);
+				let courseindex = course_id - 1 ;
+				console.log(courseindex);
+				console.log(course_taketime);
+				console.log(course_tag);
+				$('#modalCourseTitle').text(course_title);
+				$('#modalCourseTaketime').text(course_taketime);
+				$('#modalCourseTag').text(course_tag);
+				$("#modalCourseMap").attr("src", course_map);
 		})
 }
 
@@ -84,7 +92,7 @@ function onCourseClick(course_id) {
 			type: 'POST',
 			data: 'courseId=' + courseId,
 			success: function(result) {
-				$('#courseInfo').html(result); 		// div id가 courseList인 자리에
+				$('#courseInfo').html(result); 	// div id가 courseList인 자리에
 			},
 			error: function() {
 				alert('recommendCourseDetail() 데이터를 가져오는데 실패하였습니다.');
