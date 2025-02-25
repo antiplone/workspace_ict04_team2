@@ -253,7 +253,7 @@ public final class Location_APIConfig {
 					put("MobileOS", "ETC");
 					put("MobileApp", "AppTest");
 
-					put("numOfRows", 10);
+					put("numOfRows", 20);
 					put("pageNo", 1);
 					
 					// contentTypeId: 관광타입

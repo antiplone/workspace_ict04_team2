@@ -12,7 +12,6 @@
 	</script>
 </head>
 <body>
-
 	
 	<script type="text/javascript">
 	
@@ -27,43 +26,38 @@
 			<% int si_code = Integer.parseInt(request.getParameter("location_si"));
 			String location_gu = request.getParameter("location_gu");
 			System.out.println("최종 시 코드: " + si_code);
-			System.out.println("최종 구 코드: " + location_gu);
-			
-/*  			List<String> location_list = new ArrayList<String>();
-			 
-			String[] sigu_code = gu_code.split("@");
-			  
-			for(int i=0; i<sigu_code.length; i++) {
-				sigu_code[i];
-			  }   */
-			
-			%>
+			System.out.println("최종 구 코드: " + location_gu); %>
 			
 			let gu_slice = "<%= location_gu %>";
 			gu_slice = gu_slice.split("@");
 			console.log(gu_slice);
+			asJson.areaCode = <%= si_code %>
 			
-			asJson.areaCode.sigunguCode = <%= si_code %> + gu_slice;
-			
-			$.getJSON(tourAPI, asJson).done(function(data) {
-				console.log(data);
+			for(let gu_code of gu_slice) {
+				asJson.areaCode.sigunguCode = gu_code;
 				
-				 $.ajax({
-				    url: "api_location_mainList_result.lc",
-				    type: "POST",
-				    data: JSON.stringify(data.response.body.items.item),
-				    contentType: "application/json; charset=utf-8",
-				    success: function(response) {
-				        console.log(response);
-						$("#list_contents").html(response);
-				    },
-				    error: function(xhr, status, error) {
-				    	console.log("[AJAX:ERROR-STATUS] " + status);
-				        console.log(xhr.responseText);
-				    }
+				$.getJSON(tourAPI, asJson).done(function(data) {
+					for (let it of data.response.body.items.item) {
+						it.sigunguCode = asJson.areaCode.sigunguCode;
+					}
+					console.log(data);
+					
+					 $.ajax({
+					    url: "api_location_mainList_result.lc",
+					    type: "POST",
+					    data: JSON.stringify(data.response.body.items.item),
+					    contentType: "application/json; charset=utf-8",
+					    success: function(response) {
+					        console.log(response);
+							$("#list_contents").html(response);
+					    },
+					    error: function(xhr, status, error) {
+					    	console.log("[AJAX:ERROR-STATUS] " + status);
+					        console.log(xhr.responseText);
+					    }
+					});
 				});
-			});
-			
+			}
 		});
 	</script>
 	<c:choose><c:when test="${!existDB}">

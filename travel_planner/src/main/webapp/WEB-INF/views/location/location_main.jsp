@@ -11,7 +11,10 @@
 <title>여기닷 - 여행지</title>
 
 <!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/location/locationMain.css">
+
 
 <%-- <!-- js -->
 <script src="${path}/resources/js/location/location_main.js" defer></script>
@@ -33,7 +36,7 @@ function si_select(){
 				<table style="margin-left: auto; margin-right: auto;">
 					<div class="container">
 						<tr>
-							<td>	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
+							<td class="si_title">	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
 								<a href="${path}/location_main.lc">
 								<img src="resources/local_images/전국.png" name="si_choice" id="location_all" class="location_si"></a>
 								전국<br>
@@ -47,7 +50,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_seoul" value="1" onclick="si_select()">
 								<label for="location_seoul">
 									<img src="resources/local_images/select_seoul.png" class="location_si">
@@ -63,7 +66,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_incheon" value="2" onclick="si_select()">
 								<label for="location_incheon">
 									<img src="resources/local_images/select_incheon.png" class="location_si">
@@ -79,7 +82,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_daejeon" value="3" onclick="si_select()">
 								<label for="location_daejeon" id="choice_daejeon">
 									<img src="resources/local_images/대전.png" class="location_si">
@@ -95,7 +98,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_daegu" value="4" onclick="si_select()">
 								<label for="location_daegu">
 									<img src="resources/local_images/대구.png" class="location_si">
@@ -111,7 +114,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_gwangju" value="5" onclick="si_select()">
 								<label for="location_gwangju" id="choice_daejeon">
 									<img src="resources/local_images/광주.png" class="location_si">
@@ -127,7 +130,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_busan" value="6" onclick="si_select()">
 								<label for="location_busan">
 									<img src="resources/local_images/select_busan.png" class="location_si">
@@ -143,7 +146,7 @@ function si_select(){
 								</div>
 							</td>
 
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_ulsan" value="7" onclick="si_select()">
 								<label for="location_ulsan">
 									<img src="resources/local_images/울산.png" class="location_si">
@@ -159,7 +162,7 @@ function si_select(){
 								</div>
 							</td>
 							
-							<td>
+							<td class="si_title">
 								<input type="radio" name="si_choice" id="location_keongki" value="31" onclick="si_select()">
 								<label for="location_keongki">
 									<img src="resources/local_images/경기.png" class="location_si">

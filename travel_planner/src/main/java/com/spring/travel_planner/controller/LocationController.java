@@ -1,6 +1,7 @@
 package com.spring.travel_planner.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.travel_planner.dto.LocationDTO;
+import com.spring.travel_planner.page.Location_Paging;
 import com.spring.travel_planner.service.LocationServiceImpl;
 import com.spring.travel_planner.sys.Location_APIConfig;
 
@@ -33,6 +36,7 @@ public class LocationController {
 	
 	//////////////////////// api 테스트 시작 /////////////////////
 	// 여행지 메인(기본값 = '전국'리스트)
+	
 	@RequestMapping("/api_location_main.lc")
 	private ModelAndView api_location_main() {
 		logger.info("api_location_main.lc");
@@ -54,6 +58,7 @@ public class LocationController {
 		return mnv;
 	}
 	
+	
 	@RequestMapping("/api_location_main_result.lc")
 	private ModelAndView api_location_main_result(@RequestBody List<Object> list) {
 		// json데이터를 우리 DTO로 바꾸자
@@ -62,7 +67,8 @@ public class LocationController {
 		mnv.addObject("si_result", list);
 
 		return mnv;
-	}
+	} 
+	
 	
 	// 선택한 '시'에 해당하'구'선택 팝업창 띄우기
 	@RequestMapping("/api_location_Select.lc")
@@ -100,6 +106,7 @@ public class LocationController {
 		
 		return mnv;
 	}
+
 	
 	   // '구' 선택 완료 후 여행지 리스트
     @RequestMapping("/api_location_mainList.lc")
@@ -116,7 +123,7 @@ public class LocationController {
        else {
           logger.info("DB가 존재하지 않습니다.");
        }
-
+       
        // 공통정보
        mnv.addObject("requestAreaBasedList1", JSONObject.toJSONString(requestAreaBasedList1));
        mnv.addObject("existDB", existDB);
@@ -124,17 +131,39 @@ public class LocationController {
     }
     
     @RequestMapping("/api_location_mainList_result.lc")
-    private ModelAndView api_location_mainList_result(@RequestBody List<Object> list) {
+    private ModelAndView api_location_mainList_result(HttpServletRequest request, @RequestBody List<Object> list) 
+    		throws ServletException, IOException {
        // json데이터를 우리 DTO로 바꾸자
-       ModelAndView mnv = new ModelAndView("location/api_location_mainList_result");
+       ModelAndView mnv = new ModelAndView("location/api_location_mainListAction");
        
-       mnv.addObject("select_result", list);
-       System.out.println("api_location_SelectList_result: " + list);
+       mnv.addObject("main_result", list);
+       System.out.println("main_result: " + list);
+       
+       // 화면에서 입력받은 값 가져오기
+    	String pageNum = request.getParameter("pageNum");
+
+		Location_Paging paging = new Location_Paging(pageNum);
+		int total = list.size();
+		System.out.println("컨트롤러 total => " + total);
+
+		paging.setTotalCount(total);
+
+		// 5-2단계. 게시글 목록 조회
+		int start = paging.getStartRow();
+		int end = paging.getEndRow();
+
+		// HashMap 생성, key value 추가
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+
+		mnv.addObject("paging", paging);
+		mnv.addObject("total", total);
+		
        
        return mnv;
     }
 
-	
 	
 ////////////////////////api 테스트 끝 /////////////////////
 	
