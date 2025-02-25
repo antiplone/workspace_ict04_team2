@@ -13,6 +13,18 @@
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewList.css">
 
+<script type="text/javascript">
+	$(function() {
+		$(".btnimg").click(function() {
+			if(${sessionScope.m_name == null}){
+				alert("로그인 후 이용해주세요");
+				location.href = "${path}/login.do";
+			} else {
+				window.location='${path}/reviewWrite.do';
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="pretendardfont">
@@ -38,7 +50,7 @@
 					총 ${total}건
 					</span>
 					
-					<button type="button" class="btnimg" onclick="window.location='${path}/reviewWrite.do'">
+					<button type="button" class="btnimg">
   						<img src="${path}/resources/images/review/작성하기_아이콘.jpg" alt="작성하기 버튼">작성하기
 					</button>
 			</div>

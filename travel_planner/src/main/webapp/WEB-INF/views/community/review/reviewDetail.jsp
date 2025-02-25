@@ -15,6 +15,24 @@
 
 <script type="text/javascript">
 	$(function() {
+		// 댓글 등록버튼을 눌렀을 때
+		$(".input_btn").click(function() {
+			if(${sessionScope.m_name == null}){
+				alert("로그인 후 이용해주세요");
+				location.href = "${path}/login.do";
+			} else {
+				const comment = $("#rc_comment").val();
+
+				if(comment == "") {
+				   alert("내용을 입력해주세요");
+				   $("#rc_comment").focus();
+				   return false;
+				}
+				
+				comment_add();
+			}
+		});
+		
  		$("#btnDelete").click(function() {
     		
 	 		//	삭제버튼 눌렀을 때 뜨는 모달창
@@ -26,11 +44,6 @@
 		});
 
 		comment_list();
-		
-		// 댓글쓰기 버튼
-		$("#commentSaveBtn").click(function() {
-			comment_add();
-		});
 		
 		// 댓글작성
 		function comment_add() {
@@ -111,9 +124,9 @@
 				</div>
 				
 				<div class="reviewDetail_bottom">
-					<input type="button" value="목록" class="reviewDetail_listBtn" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
-					<input type="submit" value="수정" class="reviewDetail_corBtn">
-					<input type="button" value="삭제" class="reviewDetail_corBtn" id="btnDelete">
+					<input type="button" value="목록" class="reviewDetail_BtnB" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
+					<input type="submit" value="수정" class="reviewDetail_Btn spacing">
+					<input type="button" value="삭제" class="reviewDetail_Btn" id="btnDelete">
 				</div>
 			</form>
 		</div>
@@ -130,7 +143,9 @@
 				</div>
 				<div class="commentTable">
 					<div class="commentInput">
-						<span class="input_text"><textarea id="rc_comment" name="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!" class="pretendardfont size15"></textarea></span>
+						<span class="input_text">
+							<textarea rows="10"oninput="autoResize(this)" class="commentArea pretendardfont size15" id="rc_comment" name="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!"></textarea>
+						</span>
 						<span class="input_btn"><input type="button" value="등록" id="commentSaveBtn"></span>
 					</div>
 					<div class="commentList">
