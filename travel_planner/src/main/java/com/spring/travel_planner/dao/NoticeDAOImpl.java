@@ -76,19 +76,19 @@ public class NoticeDAOImpl implements NoticeDAO{
 	}
 
 	@Override
-	public int updateNotice(NoticeDTO dto) {
+	public int updateNotice(NoticeDTO Ndto) {
 		System.out.println("NoticeDAOImpl - updateNotice ");
 
-		int updateCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.updateNotice", dto);
+		int updateCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.updateNotice", Ndto);
 
 		return updateCnt;
 	}
 
 	@Override
-	public int deleteNotice(int noticeNum) {
+	public int deleteNotice(int notice_num) {
 		System.out.println("NoticeDAOImpl - deleteNotice ");
 		
-		int deleteCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.deleteNotice", noticeNum);
+		int deleteCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.deleteNotice", notice_num);
 		
 		return deleteCnt;
 	}

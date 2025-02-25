@@ -1,5 +1,6 @@
 package com.spring.travel_planner.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -24,17 +25,19 @@ import com.spring.travel_planner.sys.APIConfig;
 @Controller
 public class TestController {
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
-	private Map<String, Object> queryDetailCommon1 = APIConfig.TourAPI.mapDetailCommon1();
-	private Map<String, Object> queryAreaBasedList1 = APIConfig.TourAPI.mapAreaBasedList1();
+	private Map<String, Object> requestAreaCode1 = APIConfig.TourAPI.mapAreaCode1();
+	private Map<String, Object> requestDetailCommon1 = APIConfig.TourAPI.mapDetailCommon1();
+	private Map<String, Object> requestAreaBasedList1 = APIConfig.TourAPI.mapAreaBasedList1();
 
 	@Autowired
 	private MemberDAOImpl mem;
 
 
-	@RequestMapping("/test_tour.do")
-	private ModelAndView test_tour() {
-		logger.info("test_tour.do");
-		ModelAndView mnv = new ModelAndView("member/test_tour");
+
+	@RequestMapping("/sample_tour.do")
+	private ModelAndView sample_tour() {
+		logger.info("sample_tour.do");
+		ModelAndView mnv = new ModelAndView("member/sample_tour");
 
 		// 이쯤에서 DB접근부터
 		boolean existDB = false;
@@ -43,35 +46,23 @@ public class TestController {
 		}
 		else {
 			logger.info("DB가 존재하지 않습니다.");
-
-			queryDetailCommon1.replace("contentTypeId", APIConfig.TourAPI.Type.valueOfLabel("쇼핑"));
-			queryDetailCommon1.replace("contentId", 2750143);
-			queryDetailCommon1.replace("MobileOS", "ETC");
-			queryDetailCommon1.replace("MobileApp", "AppTest");
-			queryDetailCommon1.replace("defaultYN", "Y");
-			queryDetailCommon1.replace("firstImageYN", "Y");
-			queryDetailCommon1.replace("areacodeYN", "Y");
-			queryDetailCommon1.replace("catcodeYN", "Y");
-			queryDetailCommon1.replace("addrinfoYN", "Y");
-			queryDetailCommon1.replace("mapinfoYN", "Y");
-			queryDetailCommon1.replace("overviewYN", "Y");
-			queryDetailCommon1.replace("_type", "json");
-			mnv.addObject("restRequest", JSONObject.toJSONString(queryDetailCommon1));
-			mnv.addObject("restRequest_2", JSONObject.toJSONString(queryAreaBasedList1));
 		}
+
+		// 공통정보
+		mnv.addObject("requestAreaCode1", JSONObject.toJSONString(requestAreaCode1));
 
 		mnv.addObject("existDB", existDB);
 
 		return mnv;
 	}
 
-	@RequestMapping("/tour_result.do")
-	private ModelAndView tour_result(@RequestBody Map<String, Object> json) {
-		// json데이터를 우리 DTO로 바꾸
-		ModelAndView mnv = new ModelAndView("member/tour_result");
-		logger.info("tour_result.do");
-		logger.info(json.toString());
-		mnv.addObject("tour_data", json);
+	@RequestMapping("/tour_places.do")
+	private ModelAndView tour_places(@RequestBody List<Object> list) {
+
+		// json데이터를 우리 DTO로 바꾸자
+		ModelAndView mnv = new ModelAndView("member/tour_places");
+		System.out.println(list);
+		mnv.addObject("areacode", list);
 
 		return mnv;
 	}

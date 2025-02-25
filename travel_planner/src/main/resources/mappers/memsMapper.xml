@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.travel_planner.dao.MemberDAO">
+
+	<select id="member_login" parameterType="map" resultType="map">
+		SELECT * FROM travel_member_tbl WHERE m_email=#{email} AND m_password=#{pwd}
+	</select>
+
+	<select id="member_test" resultType="int">
+		SELECT COUNT(rownum) FROM travel_member_tbl
+	</select>
+
+</mapper>

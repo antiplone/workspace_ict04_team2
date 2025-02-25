@@ -83,6 +83,13 @@
 </style>
 </head>
 <body>
+	<c:if test="${param.failed != null}">
+		<script type="text/javascript">
+			alert("로그인 정보가 맞지 않습니다!");
+			history.back();
+			window.location.replace(window.location.href);
+		</script>
+	</c:if>
 	<div style="display: flex; justify-content: center; padding-top: 10%;">
 		<img alt="logo" src="${path}/resources/images/logo.svg" width="10%" height="auto" />
 	</div>

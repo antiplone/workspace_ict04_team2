@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface ReviewService {
 	
@@ -15,22 +16,33 @@ public interface ReviewService {
 		throws ServletException, IOException;
 	
 	// 후기 상세페이지
-	public void reviewDetailAction(HttpServletRequest request, Model model)
+	public void reviewDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException;
+	
+	// 후기 수정화면 이동
+	public void reviewUpdate(MultipartHttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
 	// 후기 수정처리
-	public void reviewUpdateAction(HttpServletRequest request, Model model)
+	public void reviewUpdateAction(MultipartHttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 게시글 삭제처리
+	// 후기 삭제처리
 	public void reviewDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 게시글 작성처리
-	public void reviewInsertAction(HttpServletRequest request, Model model)
+	// 후기 작성처리
+	public void reviewInsertAction(MultipartHttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	// 조회순으로 리뷰게시글 4개만
+	// 조회순으로 후기글 4개만
 	public void mainReviewList(Model model) throws ServletException, IOException;
 
+	// [ 후기 ] 댓글 작성 처리
+	public void commentAddAction(HttpServletRequest req, HttpServletResponse res, Model model)
+			throws ServletException, IOException;
+
+	// [ 후기 ] 댓글 목록 처리
+	public void commentListAction(HttpServletRequest req, HttpServletResponse res, Model model)
+			throws ServletException, IOException;
 }

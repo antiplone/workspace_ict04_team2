@@ -23,6 +23,15 @@ public class RecommendCourseDAOImpl implements RecommendCourseDAO {
 		return list;
 	}
 	
+	// 추천코스 상세 목록
+	@Override
+	public List<RecommendCourseDTO> recommendCourseDetailList(int tr_course_id) {
+		System.out.println("RecommendCourseDAOImpl - recommendCouresList()");
+		
+		List<RecommendCourseDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.RecommendCourseDAO.recommendCourseDetailList", tr_course_id);
+		return list;
+	}
+	
 	// 추천 코스 목록
 	@Override
 	public List<RecommendCourseDTO> recommendCouresList(int tr_area_id) {
@@ -32,4 +41,5 @@ public class RecommendCourseDAOImpl implements RecommendCourseDAO {
 		return list;
 	}
 
+	
 }
