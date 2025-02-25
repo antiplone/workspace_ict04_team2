@@ -9,38 +9,51 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css">
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewDetail.css">
 
 <script type="text/javascript">
 	$(function() {
+		// 댓글 등록버튼을 눌렀을 때
+		$(".input_btn").click(function() {
+			if(${sessionScope.m_name == null}){
+				alert("로그인 후 이용해주세요");
+				location.href = "${path}/login.do";
+			} else {
+				const comment = $("#rc_comment").val();
+
+				if(comment == "") {
+				   alert("내용을 입력해주세요");
+				   $("#rc_comment").focus();
+				   return false;
+				}
+				
+				comment_add();
+			}
+		});
+		
  		$("#btnDelete").click(function() {
     		
 	 		//	삭제버튼 눌렀을 때 뜨는 모달창
-	    	if(confirm("삭제하시겠습니까?") == true){
+	    	if(confirm("삭제하시겠습니까?")){
 	    		location.href = '${path}/reviewdeleteAction.do?r_num=${dto.r_num}';
 	    	} else {
 	    		location.href = '${path}/reviewDetail.do?r_num=${dto.r_num}';
 	    	}
 		});
-	});
-</script>
-<script type="text/javascript">
-	$(function() {
+
 		comment_list();
-		
-		// 댓글쓰기 버튼
-		$("#commentSaveBtn").click(function() {
-			comment_add();
-		});
 		
 		// 댓글작성
 		function comment_add() {
 //			alert("comment_add 확인");
 			
-			// 게시글번호, 댓글작성자, 댓글 내용을 파라미터로 넘김
+			// 후기글번호, 댓글작성자, 댓글 내용을 파라미터로 넘김
 			let param = {
 				"review_num" : ${dto.r_num},	// key:value => 댓글 번호: 후기글 번호
-				"comment" : $('#rc_comment').val()
+				"comment" : $('#rc_comment').val(),
+				"name" : "${sessionScope.m_name}"
 			}		// key-value 형식으로 지정해서 param으로 감싸고 값을 넘김
 			
 			$.ajax({
@@ -78,7 +91,7 @@
 </script>
 </head>
 <body>
-	<div id="review_details">
+	<div id="review_details" class="pretendardfont">
 		<div id="reviewDetail_t">
 			<h1 align="center">여행 후기</h1>
 		</div>
@@ -90,11 +103,11 @@
 				<input type="hidden" name="hiddenR_num" value="${dto.r_num}" />
 				
 				<div class="reviewDetail_top">
-					<div class="reviewDetail_city">도시</div>
-					<div class="reviewDetail_title">${dto.r_title}</div>
+					<div class="reviewDetail_city">${dto.r_city}</div>
+					<div class="reviewDetail_title size25">${dto.r_title}</div>
 					
-					<div class="reviewDetail_info">
-						<div class="reviewDetail_writer">${dto.m_name}/${dto.r_regDate}</div>
+					<div class="reviewDetail_info size15">
+						<div class="reviewDetail_writer">${dto.r_name}<span></span>${dto.r_regDate}</div>
 						<div class="reviewDetail_views">조회수 ${dto.r_readCnt}</div>
 					</div>
 				</div>
@@ -107,14 +120,13 @@
 						</div>
 					</div>
 				
-					<div class="reviewDetail_tag">태그</div>
+					<!-- <div class="reviewDetail_tag">태그</div> -->
 				</div>
 				
 				<div class="reviewDetail_bottom">
-					<input type="button" value="목록" class="reviewDetail_listBtn" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
-					<%-- <div><a class="reviewDetail_listBtn" id="btnReviewList" onclick="javascript:history.forward(load('${path}/reviewList.do'))">목록</a></div> --%>
-					<input type="submit" value="수정" class="reviewDetail_corBtn">
-					<input type="button" value="삭제" class="reviewDetail_corBtn" id="btnDelete">
+					<input type="button" value="목록" class="reviewDetail_BtnB" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
+					<input type="submit" value="수정" class="reviewDetail_Btn spacing">
+					<input type="button" value="삭제" class="reviewDetail_Btn" id="btnDelete">
 				</div>
 			</form>
 		</div>
@@ -123,14 +135,17 @@
 		<div id="review_comment">
 			<%-- 후기 댓글 --%>
 			<div class="reviewComment">
-				<div class="commentTitle">
+				<div class="size25" style="font-weight: 600;">
 					여기톡
-					<!-- <span>{dto.r_comment_count}</span> -->	<!-- 해당 게시글의 댓글 갯수 -->
+					<c:if test="${dto.r_comment_count > 0}">
+						<span>${dto.r_comment_count}</span>
+					</c:if>	<!-- 해당 게시글의 댓글 갯수 -->
 				</div>
 				<div class="commentTable">
 					<div class="commentInput">
-						<!-- <div>{sessionScope.sessionID}</div> -->
-						<span class="input_text"><textarea id="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!"></textarea></span>
+						<span class="input_text">
+							<textarea rows="10"oninput="autoResize(this)" class="commentArea pretendardfont size15" id="rc_comment" name="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!"></textarea>
+						</span>
 						<span class="input_btn"><input type="button" value="등록" id="commentSaveBtn"></span>
 					</div>
 					<div class="commentList">

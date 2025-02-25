@@ -26,6 +26,7 @@
 		 , tr_course_map tr_course_map
 	  FROM travel_recommendCourse_tbl
 	  WHERE <![CDATA[ tr_area_id between #{start1} and #{end1}]]>
+	  ORDER BY tr_course_id
 	</select>
 
 </mapper> 

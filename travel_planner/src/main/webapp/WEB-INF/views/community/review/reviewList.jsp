@@ -9,33 +9,38 @@
 
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css">
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewList.css">
 
 <script type="text/javascript">
-	$(function(){
-		$("#btnIsert").click(function(){
-			location.href="${path}/reviewWrite.do";
-		})
+	$(function() {
+		$(".btnimg").click(function() {
+			if(${sessionScope.m_name == null}){
+				alert("로그인 후 이용해주세요");
+				location.href = "${path}/login.do";
+			} else {
+				window.location='${path}/reviewWrite.do';
+			}
+		});
 	});
 </script>
-
 </head>
 <body>
-	<div>
+	<div class="pretendardfont">
 		<!-- 컨텐츠 시작 -->
 		<div id="reviewTop">
 			<div id="reviewTitle_top">	<!-- 리뷰 게시판 제목 -->
 				<!-- 상단 시작 -->
 				<div>
-					<h1 align="center">여행 후기</h1>
+					<div align="center" class="size55 line">여행 후기</div>
 				</div>
 				
 				<div>
-					<h3 align="center">자유롭게 후기를 남겨보세요</h3>
+					<div align="center" class="size20">자유롭게 후기를 남겨보세요</div>
 				</div>
 				<!-- 상단 끝 -->
 			</div>
-			
 		</div>
 		
 		<div id="review">
@@ -45,7 +50,7 @@
 					총 ${total}건
 					</span>
 					
-					<button type="button" class="btnimg" onclick="window.location='${path}/reviewWrite.do'">
+					<button type="button" class="btnimg">
   						<img src="${path}/resources/images/review/작성하기_아이콘.jpg" alt="작성하기 버튼">작성하기
 					</button>
 			</div>
@@ -60,10 +65,16 @@
 					<a href="${path}/reviewDetail.do?r_num=${dto.r_num}&pageNum=${paging.pageNum}">
 						<div class="review_pre2">
 							<div class="review_info">
-								<div class="reviewTitle">${dto.r_title}</div>
+								<div class="review_text">
+									<div style="font-weight: 600;">${dto.r_title}</div>
+									<c:if test="${dto.r_comment_count > 0}">
+										<span>[ ${dto.r_comment_count} ]</span>	<!-- 해당 글의 댓글 갯수 -->
+									</c:if>
+								</div>
 								<div class="reviewContents_pre">${dto.r_content}</div>
 								<div class="review_info2">
-									<div style="margin-right: 10px;">${dto.m_name}</div>
+									<%-- <div style="margin-right: 10px;">${sessionScope.m_name}</div> --%>
+									<div style="margin-right: 10px;">${dto.r_name}</div>
 									<div>${dto.r_regDate}</div>
 									<div class="interval">
 										<img alt="조회수" src="${path}/resources/images/eyes.svg">

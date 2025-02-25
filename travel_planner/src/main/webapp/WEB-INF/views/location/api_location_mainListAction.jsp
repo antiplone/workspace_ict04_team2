@@ -26,52 +26,7 @@ function si_select(){
 
 </head>
 <body>
-		<script type="text/javascript">
-		$(function() {
-			console.log("테스트");
-			console.log(${select_result.areaCode});
-			let asJson = ${requestAreaBasedList1};
-			console.log(asJson);
-			let tourAPI = "<%= Location_APIConfig.TourAPI.valueOfLabel("한국어/지역코드조회") %>";
-			
-			asJson.areaCode = ${select_result.areaCode};
-			console.log("${select_result.areaCode}");
-			
-			$.getJSON(tourAPI, asJson).done(function(data) {
-				console.log(data);
-				$.ajax({
-				    url: "api_location_main_result.lc",
-				    type: "POST",
-				    data: JSON.stringify(data.response.body.items.item),
-				    contentType: "application/json; charset=utf-8",
-				    success: function(response) {
-				        console.log(response);
-						$("#contents").html(response);
-				    },
-				    error: function(xhr, status, error) {
-				    	console.log("[AJAX:ERROR-STATUS] " + status);
-				        console.log(xhr.responseText);
-				    }
-				});
-			});
-		});
-	</script>
-	<c:choose><c:when test="${!existDB}">
 
-		
-
-		</c:when>
-		
-		<c:otherwise>
-
-			DB가 있다고합니다!
-
-	</c:otherwise></c:choose>
-
-<!-- 	<input id="tour_data" type="hidden" value="" > -->
-	<div id="contents">
-		
-	</div>
 		
 		<!-- 지역 선택 시 보여지는 리스트 / 선택한 '구'에 맞는 리스트 -->
 		<div class="main_list">
@@ -80,8 +35,8 @@ function si_select(){
 					<div class="main_list_tb">
 						<tr class="main_list_tr">
 							<c:choose>
-								<c:when test="${not empty select_result}">
-									<c:forEach var="main_list" items="${select_result}">
+								<c:when test="${not empty main_result}">
+									<c:forEach var="main_list" items="${main_result}">
 									<td>
 										<a href="${path}/location_detailAction.lc?location_num=${main_list.contentid}">
 										<img src="${main_list.firstimage}" id="list_images"></a><br>
@@ -109,17 +64,17 @@ function si_select(){
 								<!-- 페이징 처리 -->
 								<!-- 이전 버튼 활성화 -->
 								<c:if test="${paging.startPage > 10}">
-									<a href="${path}/location_main.lc?pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
+									<a href="${path}/api_location_mainListAction.lc?pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
 								</c:if>
 								
 								<!-- 페이지 번호 처리 -->
 								<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-									<a href="${path}/location_main.lc?pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
+									<a href="${path}api_location_mainListAction.lc?pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
 								</c:forEach>
 								 
 								<!-- 다음 버튼 활성화 -->
 								<c:if test="${paging.endPage < paging.pageCount}">
-									<a href="${path}/location_main.lc?pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
+									<a href="${path}/api_location_mainListAction.lc?pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
 								</c:if>
 							</td>
 						</tr>

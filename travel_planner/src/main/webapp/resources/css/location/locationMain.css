@@ -18,6 +18,10 @@
 	transform: scale(1.2);
 }
 
+.si_title {
+	font-family: 'kotra', 'Closeness';
+	font-size:15px;
+}
 .container {
 	display: flex;
 	width: 500px;
@@ -72,12 +76,15 @@ input[type="radio"]:checked + label {
 .local_name {
 	position: relative;
     top: 7px;
+    font-family: 'esamanru_Medium', 'Montserrat';
+    font-size:20px;
     margin: 0px 10px 0px
 }
 
 .local_gu {
 	position: relative;
     top: -10px;
+    font-family: 'esamanru_Medium', 'Montserrat';
     font-size:13px;
     margin: 0px 10px 30px;
 }
