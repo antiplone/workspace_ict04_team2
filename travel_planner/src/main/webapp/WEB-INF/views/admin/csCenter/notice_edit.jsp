@@ -65,13 +65,14 @@
 				document.editForm.action="${path}/notice_deleteAction.nt";
 	   			document.editForm.submit();	
 		    });
-		});*/
+		});
 		
 		 //$(function(){$('#btnEditFinish').on('click', function() {
 
 		//	homeMove('${path}/notice_updateAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}&noticeContent=${dto.noticeContent}&noticeTitle=${dto.noticeTitle}');
 	    //	});
 	   	// }); 
+	 */
 	</script>
 </head>
 <body>
@@ -98,8 +99,8 @@
 									<table>
 										<tr class="noticelefthead">
 											<th class="first_th">글번호</th>
-											<td style="width:200px">
-											<input style="width: 180px;     pointer-events: none; outline: none; border: none; text-align: center;" type=""text" class="input" name="noticeNum" 
+											<td style="">
+												<input style="width: 95%;     pointer-events: none; outline: none; border: none; text-align: center;" type=""text" class="input" name="noticeNum" 
 												id="noticeNum" size="30" value="${dto.noticeNum}" />
 											</td>
 											<th style="width:200px">조회수</th>
@@ -129,7 +130,9 @@
 										<tr class="class_content">
 											<th class="first_th">글내용</th>
 											<td colspan="3">
-												<textarea rows="5" cols="93" id="noticeContent" name="noticeContent">${dto.noticeContent}</textarea>
+												<textarea rows="5" cols="93" id="noticeContent" name="noticeContent">
+												${dto.noticeContent}
+												</textarea>
 											</td>
 										</tr>
 										
@@ -144,7 +147,7 @@
  												<%--<input type="button" class="inputButton" value="수정완료" id="btnEditFinish" onclick="homeMove('${path}/notice_updateAction.nt')"> --%>
 												<input type="button" class="inputButton" value="수정완료" id="btnEditFinish" >
 												<input type="button" class="inputButton" value="삭제" id="btnDelete" onclick="homeMove('${path}/notice_deleteAction.nt?noticeNum=${dto.noticeNum}')">
-												<input type="button" class="inputButton" value="목록" id="btnList" onclick="homeMove('${path}/main.do')">
+												<input type="button" class="inputButton" value="목록" id="btnList" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
 									</table>

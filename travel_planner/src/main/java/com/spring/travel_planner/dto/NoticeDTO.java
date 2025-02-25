@@ -14,7 +14,7 @@ public class NoticeDTO {
 	
 	private String notice_password;
 	
-	private int noticeReadCnt;
+	private int notice_readCnt;
 	
 	private Date notice_regDate;
 	
@@ -23,14 +23,14 @@ public class NoticeDTO {
 	public NoticeDTO() {}
 	
 	public NoticeDTO(int notice_num, String notice_title, String notice_content, String notice_writer,
-			String notice_password, int noticeReadCnt, Date notice_regDate, String notice_show) {
+			String notice_password, int notice_readCnt, Date notice_regDate, String notice_show) {
 		super();
 		this.notice_num = notice_num;
 		this.notice_title = notice_title;
 		this.notice_content = notice_content;
 		this.notice_writer = notice_writer;
 		this.notice_password = notice_password;
-		this.noticeReadCnt = noticeReadCnt;
+		this.notice_readCnt = notice_readCnt;
 		this.notice_regDate = notice_regDate;
 		this.notice_show = notice_show;
 	}
@@ -76,11 +76,11 @@ public class NoticeDTO {
 	}
 
 	public int getnoticeReadCnt() {
-		return noticeReadCnt;
+		return notice_readCnt;
 	}
 
-	public void setNoticereadCnt(int noticeReadCnt) {
-		this.noticeReadCnt = noticeReadCnt;
+	public void setNoticereadCnt(int notice_readCnt) {
+		this.notice_readCnt = notice_readCnt;
 	}
 
 	public Date getNoticeRegDate() {
@@ -102,8 +102,8 @@ public class NoticeDTO {
 	@Override
 	public String toString() {
 		return "NoticeDTO [noticeTitle=" + notice_title + ", noticeNum=" + notice_num + ", noticeContent=" + notice_content
-				+ ", noticeWriter=" + notice_writer + ", noticePassword=" + notice_password + ", noticereadCnt="
-				+ noticeReadCnt + ", noticeRegDate=" + notice_regDate + ", noticeShow=" + notice_show + "]";
+				+ ", noticeWriter=" + notice_writer + ", noticePassword=" + notice_password + ", notice_readCnt="
+				+ notice_readCnt + ", noticeRegDate=" + notice_regDate + ", noticeShow=" + notice_show + "]";
 	}
 	
 }
