@@ -37,16 +37,42 @@
 	]]>
 </select>
 
+<!-- 후기 작성 -->
+<insert id="reviewInsert" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	INSERT INTO travel_review_tbl(r_num, r_title, r_content, r_img, r_readCnt, r_regDate, r_name, r_city)
+	VALUES((SELECT NVL(MAX(r_num) + 1, 1) FROM travel_review_tbl), #{r_title}
+	    , #{r_content}, #{r_img}, 0, sysdate, #{r_name}, #{r_city})
+</insert>
+
 <!-- 후기 총 건수 -->
 <select id="reviewCnt" resultType="int">
-	SELECT COUNT(*) FROM travel_review_tbl
+	SELECT COUNT(*)
+	  FROM travel_review_tbl
+	WHERE r_show = 'Y'
 </select>
+
+<!-- 후기 수정화면 이동 -->
+<select id="getReivew" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
+	SELECT *
+	  FROM travel_review_tbl
+	WHERE r_num = #{r_num}
+</select>
+
+<!-- 후기 수정처리 -->
+<update id="reviewUpdate" parameterType="com.spring.travel_planner.dto.ReviewDTO">
+	UPDATE travel_review_tbl
+	     SET r_title = #{r_title}
+	     	 , r_city = #{r_city}
+	     	 , r_content = #{r_content}
+	     	 , r_img = #{r_img}
+	 WHERE r_num = #{r_num}
+</update>
 
 <!-- 후기 상세페이지 -->
 <select id="reviewDetail" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewDTO">
 	SELECT *
 	  FROM travel_review_tbl
-	 WHERE r_num = #{r_num}
+	WHERE r_num = #{r_num}
 </select>
 
 <!-- 후기 조회수 -->
@@ -61,6 +87,33 @@
    UPDATE travel_review_tbl
       	 SET r_show = 'N'
     WHERE r_num = #{num}
+</update>
+
+<!-- [ 후기 ] 댓글 -->
+<!-- [ 후기 ] 댓글 작성 처리 -->
+<insert id="insertComment" parameterType="com.spring.travel_planner.dto.ReviewCommentDTO">
+	INSERT INTO travel_reviewComment_tbl(rc_comment_num, rc_num, rc_name, rc_comment, rc_regDate)
+	VALUES((SELECT NVL(MAX(rc_comment_num)+1, 1) FROM travel_reviewComment_tbl), #{rc_num}, #{rc_name}, #{rc_comment}, sysdate)
+</insert>
+
+<!-- [ 후기 ] 댓글 목록 처리 -->
+<select id="commentList" parameterType="int" resultType="com.spring.travel_planner.dto.ReviewCommentDTO">
+	SELECT *
+	  FROM (SELECT R.*, rownum AS rn
+				   FROM (SELECT *
+								 FROM travel_reviewComment_tbl rc, travel_review_tbl r	
+							   WHERE r.r_num = rc.rc_num
+									AND r.r_num = #{review_num}
+							   ORDER BY rc.rc_comment_num DESC) R
+	        )
+	 ORDER BY rn DESC
+</select>
+
+<!-- 댓글갯수 처리(후기글에 댓글이 추가될 때마다 숫자가 올라감) -->
+<update id="plusCommentCnt" parameterType="int">
+	UPDATE travel_review_tbl
+		 SET r_comment_count = r_comment_count + 1
+	WHERE r_num = #{review_num}
 </update>
 
 </mapper>

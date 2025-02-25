@@ -25,7 +25,7 @@
 	justify-content: center;
     margin-bottom: 30px;
 }
------------------------------ /* 우측내용 시작 */
+---------- /* 우측내용 시작 */ ----------
 
 /* 공지사항 컨텐츠 */
 .n_contents_wrap {
@@ -86,7 +86,7 @@
     position: relative;
 }
 
-/*글쓰기*/
+/*공지사항 글쓰기*/
 .writeNotice {
     position: absolute;
     top: 50%;
@@ -105,7 +105,7 @@
     line-height: 1;
 }
 
-
+/*공지사항 글쓰기 왼쪽 tr>th:first-child*/
 #right {
 	width: 96%;
 }
@@ -114,17 +114,21 @@
 	margin-top: 30px;
 }
 
-.table_div  table {
+.table_div table {
 	border-collapse: collapse;
-	width: 800px;
+	width: 840px;
 	margin: 0 auto;
 }
 
-.table_div  table th {
+.table_div .first_th{
+    width: 90px !important;
+}
+
+.table_div table th {
 	background: #FDE3E9;
 }
 
-.table_div  table th, td {
+.table_div table th, td {
 	height: 50px;
 	border: 1px solid black;
 	padding-left: 2px;
@@ -155,7 +159,4 @@ textarea#notice_content {
 .wrap.noticeInsert {
     min-height: 580px;
 }
-
-
-
 /* 우측내용 종료*/

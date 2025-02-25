@@ -31,6 +31,19 @@ public class RecommendCourseServiceImpl implements RecommendCourseService {
 		model.addAttribute("list", list);
 	}
 	
+	// 지역 추천코스 상세 목록
+	@Override
+	public void RecommendCourseListDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		System.out.println("RecommendCourseServiceImpl - RecommendCourseListDetailAction()");
+		
+		String tr_course_id = request.getParameter("courseId");
+		
+		List<RecommendCourseDTO> list = dao.recommendCourseDetailList(Integer.parseInt(tr_course_id)); 
+		
+		model.addAttribute("list", list);
+	}
+	
 	// 추천코스 목록
 	@Override
 	public void RecommendCourseListAction(HttpServletRequest request, HttpServletResponse response, Model model)
@@ -45,12 +58,5 @@ public class RecommendCourseServiceImpl implements RecommendCourseService {
 		
 	}
 	
-	// 지역 추천코스 상세페이지
-	@Override
-	public void RecommendCourseListDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
-			throws ServletException, IOException {
-		
-	}
-
 	
 }

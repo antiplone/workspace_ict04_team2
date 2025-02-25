@@ -54,16 +54,22 @@ public class NoticeController {
 	public String password_chkAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("<<< url ==> /password_chkAction.nt  - noticecontroller >>>");
+		
+		String noticeNum1 = request.getParameter("noticeNum");
+		int noticeNum = Integer.parseInt(noticeNum1);
+		String hiddenPassword = request.getParameter("notice_password");
+		
+		System.out.println("hiddenPassword " + hiddenPassword);
+		System.out.println("noticeNum " + noticeNum);
 
 		int result = nservice.password_chkAction(request, response, model);
 		if (result != 0) {
 			return "admin/csCenter/notice_edit";
 		} else {
 			System.out.println("<< 비밀번호 불일치 >>");
-
-			int notice_num = Integer.parseInt(request.getParameter("hiddenB_num"));
-			viewPage = "notice_detailAction.nt";
-			return viewPage;
+			viewPage =  request.getContextPath() + "/notice_detailAction.nt?noticeNum=" + noticeNum;
+			response.sendRedirect(viewPage);
+			return null;
 		}
 	}
 
@@ -71,7 +77,16 @@ public class NoticeController {
 	public String notice_updateAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("<<< url ==> /notice_updateAction.nt  - controller >>>");
-
+		
+		 String notice_num = request.getParameter("noticeNum");
+		 String notice_password = request.getParameter("notice_password");
+		 String notice_title = request.getParameter("noticeTitle");
+		 String notice_content = request.getParameter("noticeContent");
+		 System.out.println(notice_num);
+		 System.out.println(notice_password);
+		 System.out.println(notice_title);
+		 System.out.println(notice_content);
+		 
 		nservice.noticeUpdateAction(request, response, model);
 
 		viewPage = request.getContextPath() + "/noticeList.nt";
@@ -83,6 +98,11 @@ public class NoticeController {
 	public String notice_deleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("<<< url ==> /notice_deleteAction.nt  - controller >>>");
+		int notice_num = Integer.parseInt(request.getParameter("noticeNum"));
+		System.out.println("notice_num => " + notice_num);
+		
+		request.setAttribute("noticeNum", notice_num);
+		
 		nservice.noticeDeleteAction(request, response, model);
 
 		viewPage = request.getContextPath() + "/noticeList.nt";

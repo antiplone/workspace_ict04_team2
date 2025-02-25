@@ -1,4 +1,0 @@
-/**
- *  recommendCourseDetail.js
- */
- 

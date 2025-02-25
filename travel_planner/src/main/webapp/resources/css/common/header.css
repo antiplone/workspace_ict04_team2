@@ -92,6 +92,7 @@ header {
 }
 .navbar_title ul {
 	display: flex;
+	padding-left:0px;
 }
 
 .navbar_icons {
@@ -138,7 +139,7 @@ header {
 	padding-left: 0px;
 	font-weight: bold;
 	margin: 0px auto;
-    min-width: 500px;
+    min-width: 530px;
 }
 
 .navbar_menu li {
