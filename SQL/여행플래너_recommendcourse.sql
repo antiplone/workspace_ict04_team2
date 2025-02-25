@@ -112,44 +112,41 @@ CREATE TABLE travel_recommendCourse_tbl (
 
 -- 제주 코스 1
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(1 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_1-1.jpg', '제주의 자연을 느끼다', '당일여행', '#25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 #제주권 #추천코스 #한국관광100선 #한국의둘레길', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png');  
+ VALUES(1, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_1-1.jpg', '제주의 자연을 느끼다', '당일여행', '#25_26한국관광100선 #둘레길 #레포츠 #액티브시니어 #제주권 #추천코스 #한국관광100선 #한국의둘레길', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map1.png');  
 
 -- 제주 코스 2
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(2 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_2-1.jpg', '제주의 특별한 카페찾아가기', '당일여행', '#1박2일#2박3일#당일코스#추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map2.png');  
+ VALUES(2, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_2-1.jpg', '제주의 특별한 카페찾아가기', '당일여행', '#1박2일 #2박3일 #당일코스 #추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map2.png');  
 
 -- 제주 코스 3
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(3 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_3-1.jpg', '제주 사계해안도로, 바다와 산의 하모니에 홀릭하다!', '당일여행', '#드라이브코스#차타고#추천코스#해안도로', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map3.png');  
+ VALUES(3, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_3-1.jpg', '제주 사계해안도로, 바다와 산의 하모니에 홀릭하다!', '당일여행', '#드라이브코스 #차타고 #추천코스 #해안도로', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map3.png');  
  
 -- 제주 코스 4
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(4 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_4-1.jpg', '화산이 만든 비경을 찾아가는 탐험길', '당일여행', '#1박2일#2박3일#가을2박3일#당일코스#추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map4.png');  
+ VALUES(4, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_4-1.jpg', '화산이 만든 비경을 찾아가는 탐험길', '당일여행', '#1박2일 #2박3일 #가을2박3일 #당일코스 #추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map4.png');  
 
 -- 제주 코스 5
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(5 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_5-1.jpg', '제주민의 삶과 문화를 느낄 수 있는 ‘어멍아방잔치마을’', '당일여행', '#1박2일#2박3일#가을여행#가족여행#당일코스#등산#따라비오름#물영아리오름#섬여행#신풍리농촌체험휴양마을', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map5.png');  
+ VALUES(5, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_5-1.jpg', '제주민의 삶과 문화를 느낄 수 있는 ‘어멍아방잔치마을’', '당일여행', '#1박2일 #2박3일 #가을여행 #가족여행 #당일코스 #등산 #따라비오름 #물영아리오름 #섬여행 #신풍리농촌체험휴양마을', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map5.png');  
 
 -- 제주 코스 6
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(6 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_6-1.jpg', '제주도 세계자연유산 탐방 3 코스', '당일여행', '#1박2일#2박3일#당일코스#제주도_가볼만한곳#추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map6.png');  
+ VALUES(6, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_6-1.jpg', '제주도 세계자연유산 탐방 3 코스', '당일여행', '#1박2일 #2박3일 #당일코스 #제주도_가볼만한곳 #추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map6.png');  
 
 -- 제주 코스 7
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(7 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_7-1.jpg', '화산섬 제주의 속살을 만나다.', '당일여행', '#1박2일#2박3일#가족체험여행#당일코스#등산#등산로#따라비오름#레포츠#박물관#봄방학#섬여행#아이와함께', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map7.png');  
+ VALUES(7, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_7-1.jpg', '화산섬 제주의 속살을 만나다.', '당일여행', '#1박2일 #2박3일 #가족체험여행 #당일코스 #등산 #등산로 #따라비오름 #레포츠 #박물관 #봄방학 #섬여행 #아이와함께', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map7.png');  
  
 -- 제주 코스 8
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(8 , 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_8-1.jpg', '몸과 마음을 치유하는 에코 테라피', '당일여행', '#1박2일#2박3일#당일코스#추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map8.png');  
+ VALUES(8, 1, '/travel_planner/resources/images/recommendCourse/course/Jeju_course_8-1.jpg', '몸과 마음을 치유하는 에코 테라피', '당일여행', '#1박2일 #2박3일 #당일코스 #추천코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Jeju_course_map8.png');  
  
 -- 부산 코스 1
 INSERT INTO travel_recommendCourse_tbl(tr_course_id, tr_area_id, tr_course_image, tr_course_title, tr_course_taketime, tr_course_tag, tr_course_map)
- VALUES(1 , 2, '/travel_planner/resources/images/recommendCourse/course/Busan_course_1-1.jpg', '열정, 젊음, 시원함이 있는 밤바다 여행', '당일여행', '#가족코스#바다풍경여행#야경여행지#야경코스#연인코스#추천코스#친구와함께#힐링코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Busan_course_map1.png');  
+ VALUES(1, 2, '/travel_planner/resources/images/recommendCourse/course/Busan_course_1-1.jpg', '열정, 젊음, 시원함이 있는 밤바다 여행', '당일여행', '#가족코스 #바다풍경여행 #야경여행지 #야경코스 #연인코스 #추천코스 #친구와함께 #힐링코스', '/travel_planner/resources/images/recommendCourse/course_detail/map/Busan_course_map1.png');  
 
 COMMIT;
-
-DELETE FROM travel_recommendCourse_tbl 
-WHERE tr_course_id ='5'; 
 
 SELECT *
 FROM travel_recommendCourse_tbl;
@@ -248,27 +245,21 @@ INSERT INTO travel_CourseInfo_tbl(tr_Course_subId, tr_course_id, tr_course_locat
 INSERT INTO travel_CourseInfo_tbl(tr_Course_subId, tr_course_id, tr_course_locationImage, tr_course_location, tr_course_locationContent)
  VALUES(4, 4, '/travel_planner/resources/images/recommendCourse/course_detail/jejuCourse/송악산.jpg', '송악산',
  '송악산은 한라산처럼 웅장하거나 산방산처럼 경치가 빼어나지는 않다. 그러나 송악산 정상에 오르면 누구나 감탄사를 토해낸다. 앞으로 가까이 보이는 최남단의 마라도와 가파도, 형제섬, 우뚝 솟은 산방산, 멀리 보이는 한라산, 그리고 끝없는 태평양, 바다를 씻겨온 바람과 능선에 이어지는 푸른 잔디의 풋풋한 감촉 때문이다.'); 
- 
+
 COMMIT;
 
 SELECT *
 FROM travel_CourseInfo_tbl;
-
-DELETE FROM travel_CourseInfo_tbl 
-WHERE tr_Course_subId ='4'; 
 
 -- 추천코스 목록 조회
 SELECT *
 FROM travel_recommendCourse_tbl
 WHERE tr_area_id = 1;
 
--- 추천코스 조회
-SELECT r.tr_course_id
-     , r.tr_course_image
-	 , r.tr_course_title
-	 , r.tr_course_taketime
-     , r.tr_course_tag
-	 , r.tr_course_map
+-- 추천코스 안내 조회
+SELECT a.tr_area_id
+	 , r.tr_area_id
+	 , r.tr_course_id
 	 , s.tr_course_id
 	 , s.tr_Course_subId
 	 , s.tr_course_locationImage	 
@@ -277,16 +268,7 @@ SELECT r.tr_course_id
   FROM travel_recommendCourse_tbl r
 	 , travel_CourseInfo_tbl s
 	 , travel_area_tbl a
- WHERE r.tr_course_id = s.tr_course_id
-   AND r.tr_course_id = 1;
-
-SELECT r.tr_course_id
-	 , s.tr_Course_subId
-	 , s.tr_course_locationImage	 
-	 , s.tr_course_location
-	 , s.tr_course_locationContent
-  FROM travel_recommendCourse_tbl r
-	 , travel_CourseInfo_tbl s
- WHERE r.tr_course_id = s.tr_course_id
-   AND s.tr_course_id = 1
+ WHERE a.tr_area_id = r.tr_area_id  
+   AND r.tr_course_id = s.tr_course_id
+   AND r.tr_course_id = 1
    ORDER BY s.tr_Course_subId; 

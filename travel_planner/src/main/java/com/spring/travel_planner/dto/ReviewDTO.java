@@ -12,16 +12,17 @@ public class ReviewDTO {
 	private String r_title;			// 리뷰 제목
 	private String r_content;		// 리뷰 내용
 	private String r_img;				// 리뷰 이미지
-	private String m_name;		// FK, 리뷰 작성자
+	private String r_name;		// FK, 리뷰 작성자
 	private int r_readCnt;			// 리뷰 조회순
 	private Date r_regDate;			// 리뷰 등록일
 	private int r_comment_count;		// 리뷰 댓글 개수
+	private String r_city;				// 도시
 	
 	public ReviewDTO() {}
 
 	// 매개변수 생성자
 	public ReviewDTO(int r_num, String r_title, String r_content, String r_img, int r_readCnt, Date r_regDate,
-			String m_name, int r_comment_count) {
+			String r_name, int r_comment_count, String r_city) {
 		super();
 		this.r_num = r_num;
 		this.r_title = r_title;
@@ -29,8 +30,9 @@ public class ReviewDTO {
 		this.r_img = r_img;
 		this.r_readCnt = r_readCnt;
 		this.r_regDate = r_regDate;
-		this.m_name = m_name;
+		this.r_name = r_name;
 		this.r_comment_count = r_comment_count;
+		this.r_city = r_city;
 	}
 
 	// getter, setter
@@ -82,12 +84,12 @@ public class ReviewDTO {
 		this.r_regDate = r_regDate;
 	}
 
-	public String getM_name() {
-		return m_name;
+	public String getR_name() {
+		return r_name;
 	}
 
-	public void setM_name(String m_name) {
-		this.m_name = m_name;
+	public void setR_name(String r_name) {
+		this.r_name = r_name;
 	}
 
 	public int getR_comment_count() {
@@ -98,12 +100,20 @@ public class ReviewDTO {
 		this.r_comment_count = r_comment_count;
 	}
 
+	public String getR_city() {
+		return r_city;
+	}
+
+	public void setR_city(String r_city) {
+		this.r_city = r_city;
+	}
+
 	// toString
 	@Override
 	public String toString() {
 		return "ReviewDTO [r_num=" + r_num + ", r_title=" + r_title + ", r_content=" + r_content + ", r_img=" + r_img
-				+ ", r_readCnt=" + r_readCnt + ", r_regDate=" + r_regDate + ", m_name=" + m_name
-				+ ", r_comment_count=" + r_comment_count + "]";
+				+ ", r_readCnt=" + r_readCnt + ", r_regDate=" + r_regDate + ", r_name=" + r_name
+				+ ", r_comment_count=" + r_comment_count + ", r_city=" + r_city + "]";
 	}
 }
 //CREATE TABLE travel_review_tbl(
@@ -116,6 +126,7 @@ public class ReviewDTO {
 //		r_comment_count NUMBER(6)   DEFAULT 0,   	-- 댓글 개수
 //	--    r_tourinfo NUMBER(20),
 //	--    r_tags  VARCHAR2(4000),
-//		m_name   VARCHAR2(38)      -- 회원 이름
-//	--    CONSTRAINT m_name FOREIGN KEY(m_name) REFERENCES travel_member_tbl(m_name)
+//		r_city		VARCHAR2(100)	NOT NULL,		-- 도시
+//		r_name   	VARCHAR2(60),      				-- 회원 이름
+//		FOREIGN KEY(r_name) REFERENCES travel_member_tbl(m_name)
 //	);
