@@ -120,14 +120,14 @@
 		</div>
 		
 		<%-- 추천코스 --%>
-		<div class="recom">
+		<div class="recom pretendardfont">
 			<div class="recom_wrap">
-				<div class="cafessurround size45">날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
-				<div class="paperlogy size35">여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
+				<div class="size25">날짜는 정했지만 어디로 놀러가야 할지 모르겠어요!</div>
+				<div class="size15">여행 일정을 짜기 어렵다면 여기닷에서 정해드릴게요</div>
 				<div class="recom_img">
 					<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
 				</div>
-				<div class="recom_btn pretendardfont size25 ">
+				<div class="recom_btn size15 ">
 					<a onclick="load('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
 					</a>
 				</div>
@@ -135,12 +135,12 @@
 		</div>
 
 		<%-- 여행후기 --%>
-		<div class="rev esamanrufont">
+		<div class="rev pretendardfont">
 			<div class="revs">
 				<div class="rev_title">
-					<h2 class="pretendardfont size55">여행후기로 여행지 미리보기</h2>
+					<div class="esamanrufont size25">여행후기로 여행지 미리보기</div>
 					<div>
-						<a onclick="load('${path}/reviewList.do')" class="pointerBtn"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
+						<a onclick="homeMove('${path}/reviewList.do')" class="pointerBtn fontnormal size15"> 더보기 <i class="fi fi-rs-arrow-right rev_btn"></i>
 						</a>
 					</div>
 				</div>
@@ -151,12 +151,12 @@
 		</div>
 
 		<%-- 공지사항 & QnA --%>
-		<div class="rev_notice">
+		<div class="rev_notice pretendardfont size15">
 			<div class="rev_notices">
 				<div class="revs_notice">
 					<div>공지사항</div>
 					<div>
-						<a href="#">2025년 1월 고객만족도조사 참여 고객 당첨자 공지</a>
+						<a onclick="homeMove('${path}/noticeList.nt')" style="cursor: pointer;">2025년 1월 고객만족도조사 참여 고객 당첨자 공지</a>
 					</div>
 				</div>
 			</div>

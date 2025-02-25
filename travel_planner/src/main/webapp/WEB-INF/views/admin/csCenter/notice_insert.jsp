@@ -123,16 +123,16 @@
 									
 									<table>
 										<tr>
-											<th style="width:200px">작성자</th>
-											<td style="width:200px">${sessionScope.sessionID} 작성자 세션값</td>
-											<th style="width:200px">비밀번호</th>
-											<td style="width:200px">
-												<input style="width: 180px;" type="password" class="input" name="notice_password" 
+											<th>작성자</th>
+											<td>${sessionScope.sessionID}</td>
+											<th>비밀번호</th>
+											<td>
+												<input style="width: 95%;" type="password" class="input" name="notice_password" 
 												id="notice_password" size="30" value="" placeholder="비밀번호 입력" pattern="[a-zA-Z0-9]"/>
 											</td>
 										</tr>
 										<tr>
-											<th style="width:200px">글제목</th>
+											<th>글제목</th>
 											<td colspan="3">
 												<input style="width: 99%; border: none" type="text" class="input" name="notice_title" 
 												id="notice_title" size="30" placeholder="글제목 입력" />
@@ -140,7 +140,7 @@
 											
 										</tr>
 										<tr>
-											<th style="width:200px">글내용</th>
+											<th>글내용</th>
 											<td colspan="3">
 												<textarea rows="5" cols="93" id="notice_content" name="notice_content"></textarea>
 											</td>

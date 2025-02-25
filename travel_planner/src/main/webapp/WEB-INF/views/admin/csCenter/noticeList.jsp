@@ -57,13 +57,13 @@
 											<div class="n_contents_wrap">
 												<div class="notice_innertop">
 													<div>${dto.noticeNum}번째 글</div>
-													<div>🗓 ${dto.noticeRegDate}</div>
 												</div>
 												<div class="n_title">
 													<a onclick="homeMove('${path}/notice_detailAction.nt?noticeNum=${dto.noticeNum}&noticeReadCnt=${dto.noticeReadCnt}')">${dto.noticeTitle} <span style="color : blue"></span></a>
 												</div>
 												<div class="notice_innerbottom">
 													<div class="n_writer">by ${dto.noticeWriter}</div>
+													<div>🗓 ${dto.noticeRegDate}</div>
 													<div>👁 ${dto.noticeReadCnt}</div>
 												</div>
 											</div>
@@ -74,21 +74,21 @@
 												<!-- 페이징 처리 -->
 												<!-- 이전 버튼 활성화 -->
 												<c:if test="${paging.startPage > 10}" >
-													<a onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.prev}')">[이전]</a>
+													<a class="noticeP noticePrev" onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.prev}')">[이전]</a>
 												</c:if>
 												
 												<!--  페이지 번호 처리 -->
 												<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-													<a onclick="homeMove('${path}/noticeList.nt?pageNum=${num}')">${num}</a>
+													<a class="noticePages" onclick="homeMove('${path}/noticeList.nt?pageNum=${num}')">${num}</a>
 												</c:forEach>
 												
 												<c:if test="${paging.endPage < paging.pageCount}" >
-													<a onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.next}')">[다음]</a>
+													<a class="noticeP" onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.next}')">☛</a>
 												</c:if>
 											</div>
 										<div class="writeNotice">
 											<div colspan="5">
-												<input type="button" value="글쓰기" style="width:200px; padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">
+												<input type="button" value="글쓰기" style="padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">
 											</div>
 										</div>
 									</div>

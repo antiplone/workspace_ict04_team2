@@ -9,17 +9,20 @@
 
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css">
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewWrite.css">
 
+<script src="${path}/resources/js/common/main.js" defer></script>
 <!-- 버튼 클릭시 -->
 <script type="text/javascript">
 	$(function() {
 		// 취소버튼 클릭시
-		$("#cancel").click(function() {
-			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?") == true) {
+ 		$("#cancel").click(function() {
+			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?")) {
 				window.location = "${path}/reviewList.do";
 			} else {
-				window.location = "${path}/reviewUpdate.do";
+				window.href = "${path}/reviewUpdate.do?r_num=${dto.r_num}";
 			}
 		});
       
@@ -28,11 +31,11 @@
 			const content = $("#r_content").val();
 			const city = $("#r_city").val();
          
-			/* if( city == "") {
+			if(city == "") {
 			   alert("도시를 입력하세요");
 			   $("#r_city").focus();
 			   return false;
-			} */
+			}
           
 			if(title == "") {
 				alert("제목을 입력하세요");
@@ -51,55 +54,46 @@
 
 </head>
 <body>
-	<div>
-		<!-- 후기작성 상단 시작 -->
+	<div class="pretendardfont">
 		<div id="writeTop">
-			<div id="writeTitle_top">	<!-- 리뷰 게시판 제목 -->
+			<div id="writeTitle_top">
 					<h1 align="center">여행후기 수정</h1>
 			</div>
 		</div>
-		<!-- 후기작성 상단 종료 -->
 		
 		<form name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
-					<!-- 후기 내용 시작 -->
 					<div class="reviewWrite_form">
 						
 						<!-- 작성자 -->
-						<input type="hidden" name="hiddenM_name" value="${dto.m_name}"/>
-						
-						<input type="hidden" name="hiddenPageNum" value="${pageNum}">
-                     	<input type="hidden" name="hiddenR_num" value="${dto.r_num}">
-						<input type="hidden" name="hiddenR_img" value="${dto.r_img}">
+						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
+						<input type="hidden" name="hiddenPageNum" value="${pageNum}"/>
+						<input type="hidden" name="hiddenR_img" value="${dto.r_img}"/>
+						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						
 						<div class="reviewWrite_city">
-							<div class="reviewWrite_city1">도시</div>
-							<input type="text" class="reviewWrite_in" id="r_city" placeholder="여행도시를 입력해주세요" disabled/>
+							<div class="reviewWrite_city1 size20 fontnormal2">지역</div>
+							<input type="text" class="reviewWrite_in pretendardfont size16" name="r_city" id="r_city" value="${dto.r_city}" placeholder="여행도시를 입력해주세요"/>
 						</div>
 						
 						<div class="reviewWrite_title">
-							<div class="reviewWrite_title1">제목</div>
-							<input type="text" class="reviewWrite_in" name="r_title" id="r_title" value="${dto.r_title}" placeholder="제목을 입력해주세요" required/>
+							<div class="reviewWrite_title1 size20 fontnormal2">제목</div>
+							<input type="text" class="reviewWrite_in pretendardfont size16" name="r_title" id="r_title" value="${dto.r_title}" placeholder="제목을 입력해주세요" required/>
 						</div>
 						
 						<div class="reviewWrite_content">
-							<div class="reviewWrite_content1">
-								<!-- <div class="reviewWrite_content2">
-									<div class="reviewWrite_content3">내용</div>
-								</div> -->
-								<div class="reviewWrite_content3">내용</div>
-								
-								<div class="reviewWrite_content4">
-									<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" value="${dto.r_content}" required></textarea>
-								</div>
-								
-								<div class="btn-img">
-									<div class="review10">	
-										<img alt="이미지" src="${dto.r_img}" width="200px"><br>
-										<input type="file" name="r_img" id="r_img" accept="images/*" />
-									</div>
-								</div>
+							<div class="reviewWrite_content2">
+								<div class="reviewWrite_content3 size20 fontnormal2">내용</div>
+							</div>
+							
+							<div class="reviewWrite_content4">
+								<textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" class="pretendardfont size16" required>${dto.r_content}</textarea>
+							</div>
+							
+							<div class="btn-img">
+								<img alt="이미지" src="${dto.r_img}" width="200px"><br>
+								<input type="file" name="r_img" id="r_img" accept="images/*" />
 							</div>
 						</div>
 					</div>
@@ -115,8 +109,8 @@
 					
 				<div class="reviewWrite_btn">
 					<div class="reviewWrite_btn1">
-						<input type="button" value="취소" class="inputButton" id="cancel"/>
-						<input type="submit" value="등록" class="inputButton" id="save"/>
+						<input type=button value="취소" class="inputButton pretendardfont size15" id="cancel" />
+						<input type="submit" value="등록" class="inputButton pretendardfont size15" id="save" />
 					</div>
 				</div>
 			</div>
