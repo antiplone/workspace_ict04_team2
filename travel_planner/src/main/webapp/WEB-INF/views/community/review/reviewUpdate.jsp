@@ -85,7 +85,7 @@
 					<div class="reviewWrite_form">
 						<!-- 작성자 -->
 						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
-						<input type="input" name="hiddenPageNum" value="${pageNum}"/>
+						<input type="hidden" name="hiddenPageNum" value="${pageNum}"/>
 						<input type="hidden" name="hiddenR_img" value="${dto.r_img}"/>
 						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						
