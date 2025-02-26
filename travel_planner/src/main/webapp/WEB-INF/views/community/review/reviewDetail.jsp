@@ -36,7 +36,7 @@
 		var form = $('review_detail')[0];
 		var formData = new FormData(form);
 		$("#btnEdit").click(function() {
-			alert("reviewEdit");	// 확인용
+			//alert("reviewEdit");	// 확인용
 			$.ajax({
 				type: 'POST',
 				url: '${path}/reviewUpdate.do?r_num=${dto.r_num}', // 컨트롤러로 이동 - (9)

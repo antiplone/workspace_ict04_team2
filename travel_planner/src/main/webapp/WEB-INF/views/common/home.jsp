@@ -119,8 +119,8 @@
 	});
 	
 	function homeMove(path) { // (8)
-		console.log("path " + path)
-		alert("homeMove = > " + path)
+/* 		console.log("path " + path)
+		alert("homeMove = > " + path) */
 		$.ajax({
 			url : path, // 컨트롤러로 이동(9)
 			type : 'POST',

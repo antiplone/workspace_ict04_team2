@@ -83,7 +83,6 @@
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
 					<div class="reviewWrite_form">
-						
 						<!-- 작성자 -->
 						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
 						<input type="input" name="hiddenPageNum" value="${pageNum}"/>

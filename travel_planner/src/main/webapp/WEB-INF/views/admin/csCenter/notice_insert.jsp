@@ -21,7 +21,6 @@
 	<script>
 		$(function(){
 			$('#btnSave').on('click', function() {
-				alert("욥욥")
 				if(!$('#notice_password').val()){
 					console.log($.trim($("#notice_password").val()))
 		  			alert("비밀번호를 입력해주세요!!");
@@ -40,7 +39,6 @@
 		  		 	event.preventDefault();
 		  		 	return;
 		  		} else{
-		  			alert("여기");
 					/* alert($("#NoticeForm").attr('action')); */
 					$.ajax({
 		   				url : "${path}/notice_insertAction.nt", // 컨트롤러로 이동(9)

@@ -130,8 +130,6 @@
 	$(function(){
 		// 모달 열기
 		$(".modal_btn").on('click',function(){
-			alert("떴다떴다");
-			alert($(this).attr("course_title"))
 			$("#modalCourseTitle").text($(this).attr("course_title"));
 	        $("#modalCourseTaketime").text($(this).attr("course_taketime"));
 	        $("#modalCourseTag").text($(this).attr("course_tag"));
