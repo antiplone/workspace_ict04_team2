@@ -126,4 +126,35 @@
 		</div>
 	</div>
 </body>
+<script>
+	$(function(){
+		// 모달 열기
+		$(".modal_btn").on('click',function(){
+			alert("떴다떴다");
+			alert($(this).attr("course_title"))
+			$("#modalCourseTitle").text($(this).attr("course_title"));
+	        $("#modalCourseTaketime").text($(this).attr("course_taketime"));
+	        $("#modalCourseTag").text($(this).attr("course_tag"));
+	        $("#modalCourseMap").attr("src", $(this).attr("course_map"));
+	        $("#modalCourseMap").attr("alt", $(this).attr("course_image"));
+	        
+	        $("#courseModal").css("display","block");
+	        $("#courseModal").attr("course_id", $(this).attr("course_id"));
+	        $("body").css("overflow","hidden");
+		})
+		
+		// 모달 닫기
+		$(".close_btn").on('click', function(){
+			$("#course_title").text('');
+	        $("#course_taketime").text('');
+	        $("#course_tag").text('');
+	        $("#course_map").attr("src", '');
+	        $("#course_image").attr("alt", '');
+	        
+			$("#courseModal").css("display","none");
+		    $("#courseModal").attr("course_id", '');
+		    $("body").css("overflow","unset");
+		})
+	});
+</script>
 </html>

@@ -14,7 +14,7 @@
 	<script type="text/javascript">
 		setTimeout(function() {
 			alert("후기 수정 성공");
-			window.location = "${path}/reviewList.do?pageNum=${hiddenPageNum}";
+			window.location = "${path}/reviewList.do";
 		}, 1000);
 	</script>
 </c:if>
@@ -23,7 +23,7 @@
 	<script type="text/javascript">
 		setTimeout(function() {
 			alert("후기 수정 실패");
-			window.location = "${path}/reviewUpdate.do?r_num=${hiddenR_num}&pageNum=${hiddenPageNum}";
+			window.location = "${path}/reviewUpdate.do?r_num=${r_num}";
 		}, 1000);
 	</script>
 </c:if>
