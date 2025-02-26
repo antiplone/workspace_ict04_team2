@@ -37,7 +37,7 @@ function si_select(){
 					<div class="container">
 						<tr>
 							<td class="si_title">	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
-								<a onclick="homeMove('${path}/location_main.lc')">
+								<a style="display: inline-block;width:150px" onclick="homeMove('${path}/location_main.lc')">
 								<img src="resources/local_images/전국.png" name="si_choice" id="location_all" class="location_si"></a>
 								전국<br>
 								

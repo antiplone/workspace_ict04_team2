@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.travel_planner.dao.MemberDAOImpl;
@@ -63,6 +65,13 @@ public class TestController {
 		ModelAndView mnv = new ModelAndView("member/tour_places");
 		System.out.println(list);
 		mnv.addObject("areacode", list);
+
+		return mnv;
+	}
+
+	@RequestMapping(value = "/testMap.do", method = {RequestMethod.GET, RequestMethod.POST})
+	private @ResponseBody ModelAndView testMap() {
+		ModelAndView mnv = new ModelAndView("common/testMap");
 
 		return mnv;
 	}
