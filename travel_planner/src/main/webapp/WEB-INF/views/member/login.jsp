@@ -9,7 +9,7 @@
 <link rel="icon" href="${path}/resources/images/common/logo.svg" />
 <link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
 
-<title>LOGIN</title>
+<title>로그인 정보</title>
 <style>
 	/* css도 구조적으로 나중에 정리 */
 	form, fieldset {
@@ -83,6 +83,11 @@
 </style>
 </head>
 <body>
+	<script type="text/javascript">
+		function formCheck() {
+			
+		}
+	</script>
 	<c:if test="${param.failed != null}">
 		<script type="text/javascript">
 			alert("로그인 정보가 맞지 않습니다!");
@@ -94,7 +99,7 @@
 		<img alt="logo" src="${path}/resources/images/logo.svg" width="10%" height="auto" />
 	</div>
 
-	<form action="login_action.do" method="POST">
+	<form action="login_action.do" method="POST" onkeyup="formCheck()">
 		<fieldset class="form_input">
 			<legend>로그인</legend>
 			<table>
@@ -108,7 +113,7 @@
 					<td>
 						<!-- calc-size가 실험적인 기술이라 변경필요 -->
 						<div align="left" style="width: calc-size(max-content, size + 4px);">
-							<input type="button" value="회원가입" style="inline-size: max-content" />
+							<input type="button" value="회원가입" onclick="window.location='signinMember.do'" style="inline-size: max-content" />
 						</div>
 					</td>
 					<td align="right" style="width: max-content;">

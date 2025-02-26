@@ -13,4 +13,12 @@
 		SELECT COUNT(rownum) FROM travel_member_tbl
 	</select>
 
+	<insert id="member_signin" parameterType="map">
+		INSERT INTO travel_member_tbl VALUES(#{email}, #{name}, #{pwd})
+	</insert>
+
+	<delete id="member_signout" parameterType="String">
+		DELETE travel_member_tbl WHERE m_email=#{email}
+	</delete>
+
 </mapper>

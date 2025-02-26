@@ -49,7 +49,7 @@
 					<div class="flex_box d-block w-100">
 						<div class="left_comment">
 							<div>
-								<strong class="size55" style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
+								<strong class="size45" style="color: #3d3d3d">남해의 멋과 맛을 담아,<br>스페이스
 									미조
 								</strong> <br> <a class="size25 fontbold" onclick="homeMove('${path}/noticeList.nt')">공지사항으로 이동</a>
 							</div>
@@ -60,11 +60,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="carousel-item pretendardfont" data-color="yellow" data-num="2">
+				<div class="carousel-item esamanrufont" data-color="yellow" data-num="2">
 					<div class="flex_box d-block w-100">
 						<div class="left_comment">
 							<div>
-								<strong class="size55" style="color: #3d3d3d">경남 의령으로 떠나는<br>특별한
+								<strong class="size45" style="color: #3d3d3d">경남 의령으로 떠나는<br>특별한
 									일출 여행🌞
 								</strong> <br> <a class="size25 fontbold" onclick="homeMove('${path}/noticeList.nt')">공지사항으로 이동</a>
 							</div>
@@ -74,11 +74,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="carousel-item kotrafont" data-color="skyblue" data-num="3">
+				<div class="carousel-item esamanrufont" data-color="skyblue" data-num="3">
 					<div class="flex_box d-block w-100">
 							<div class="left_comment">
 								<div>
-									<strong class="size55" style="color: #3d3d3d">남해로 떠나는<br>특별한 기차
+									<strong class="size45" style="color: #3d3d3d">남해로 떠나는<br>특별한 기차
 										여행
 									</strong> <br> <a class="size25 fontbold" onclick="homeMove('${path}/noticeList.nt')">공지사항으로 이동</a>
 								</div>
