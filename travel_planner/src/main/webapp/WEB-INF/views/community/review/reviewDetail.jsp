@@ -28,18 +28,52 @@
 				   $("#rc_comment").focus();
 				   return false;
 				}
-				
 				comment_add();
 			}
 		});
 		
+		// 글수정
+		var form = $('review_detail')[0];
+		var formData = new FormData(form);
+		$("#btnEdit").click(function() {
+			alert("reviewEdit");	// 확인용
+			$.ajax({
+				type: 'POST',
+				url: '${path}/reviewUpdate.do?r_num=${dto.r_num}', // 컨트롤러로 이동 - (9)
+				enctype:'multipart/form-data',
+				data:formData,
+				/* data: $('#review_detail').serialize(), */
+				processData:false,
+			    contentType:false,
+			    cache:false,
+				success: function(result) {		// (13) - result는 comment_list.jsp(컨트롤러에서 넘긴) 데이터
+					$('#contents').html(result);	// div id가 commentList인 자리에 댓글 리스트페이지 출력
+				},
+				error: function() {
+					alert("댓글목록 오류나요~!");
+				}
+			});
+		})
+		
+		
+		// 글삭제
  		$("#btnDelete").click(function() {
-    		
 	 		//	삭제버튼 눌렀을 때 뜨는 모달창
 	    	if(confirm("삭제하시겠습니까?")){
-	    		location.href = '${path}/reviewdeleteAction.do?r_num=${dto.r_num}';
+	    		 $.ajax({
+		   				url : "${path}/reviewdeleteAction.do", // 컨트롤러로 이동(9)
+		   				type : 'POST',
+		   				data : 'r_num=${dto.r_num}',
+		   				success : function(result) { // 콜백함수(13) => result는 comment_list
+		   					homeMove("${path}/reviewList.do");
+		   				},
+		   				error : function(j, t, errorThrown) {
+		   					alert(errorThrown);
+		   				},
+		   			})
 	    	} else {
-	    		location.href = '${path}/reviewDetail.do?r_num=${dto.r_num}';
+	    		return;
+	    		/* homeMove('${path}/reviewDetail.do?r_num=${dto.r_num}'); */
 	    	}
 		});
 
@@ -97,7 +131,7 @@
 		</div>
 		
 		<div id="reviewDetail">
-			<form name="review_detail" action="reviewUpdate.do?r_num=${dto.r_num}" method="post" enctype="multipart/form-data">
+			<form id="review_detail" name="review_detail" action="reviewUpdate.do?r_num=${dto.r_num}" method="post" enctype="multipart/form-data">
 				<!-- hidden :직업 input 박스에서 입력받지 못한 값들을 전달할 때 사용 -->
 				<input type="hidden" name="hiddenPageNum" value="${pageNum}" />
 				<input type="hidden" name="hiddenR_num" value="${dto.r_num}" />
@@ -124,8 +158,8 @@
 				</div>
 				
 				<div class="reviewDetail_bottom">
-					<input type="button" value="목록" class="reviewDetail_BtnB" id="btnRevie" onclick="window.location='${path}/reviewList.do'">
-					<input type="submit" value="수정" class="reviewDetail_Btn spacing">
+					<input type="button" value="목록" class="reviewDetail_BtnB" id="btnRevie" onclick="homeMove('${path}/reviewList.do')">
+					<input type="button" value="수정" class="reviewDetail_Btn spacing" id="btnEdit">
 					<input type="button" value="삭제" class="reviewDetail_Btn" id="btnDelete">
 				</div>
 			</form>
@@ -144,7 +178,7 @@
 				<div class="commentTable">
 					<div class="commentInput">
 						<span class="input_text">
-							<textarea rows="10"oninput="autoResize(this)" class="commentArea pretendardfont size15" id="rc_comment" name="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!"></textarea>
+							<textarea rows="10" oninput="autoResize(this)" class="commentArea pretendardfont size15" id="rc_comment" name="rc_comment" placeholder="후기에 대한 생각을 작성해주세요!"></textarea>
 						</span>
 						<span class="input_btn"><input type="button" value="등록" id="commentSaveBtn"></span>
 					</div>

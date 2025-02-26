@@ -20,9 +20,10 @@
 
 <!-- js -->
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
-<script src="${path}/resources/js/recommendCourse/regionList.js" defer></script>
+<%-- <script src="${path}/resources/js/recommendCourse/regionList.js" defer></script> --%>
 
 </head>
+
 <body>
 	<div class="wrap">
 		
@@ -93,4 +94,41 @@
 		 </div> 	
 	</div>
 </body>
+<script>
+function modalClick(path) {
+	const modal = document.getElementById("regionModal");
+	homeMove(path + "/recommendCourseList.rc?area_id=" + $("#regionModal").attr("area_id"));
+    $("body").css("overflow","unset");
+}
+
+$(function(){
+	// 모달 열기
+	$(".modal_btn").on('click',function(){
+		alert("떴다떴다");
+		alert($(this).attr("area_english"))
+		$("#modalAreaEnglish").text($(this).attr("area_english"));
+        $("#modalAreaKorea").text($(this).attr("area_korea"));
+        $("#modalAreaContent").text($(this).attr("area_content"));
+        $("#modalAreaImage").attr("src", $(this).attr("area_image"));
+        $("#modalAreaImage").attr("alt", $(this).attr("area_english"));
+        
+        $("#regionModal").css("display","block");
+        $("#regionModal").attr("area_id", $(this).attr("area_id"));
+        $("body").css("overflow","hidden");
+	})
+	
+	// 모달 닫기
+	$(".close_btn").on('click', function(){
+		$("#modalAreaEnglish").text('');
+        $("#modalAreaKorea").text('');
+        $("#modalAreaContent").text('');
+        $("#modalAreaImage").attr("src", '');
+        $("#modalAreaImage").attr("alt", '');
+        
+		$("#regionModal").css("display","none");
+	    $("#regionModal").attr("area_id", '');
+	    $("body").css("overflow","unset");
+	})
+});
+</script>
 </html>

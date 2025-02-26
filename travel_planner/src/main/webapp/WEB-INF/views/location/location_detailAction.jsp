@@ -21,10 +21,6 @@
 </head>
 <body>
 
-		<!-- header 시작 -->
-		<%@ include file="/WEB-INF/views/common/header.jsp" %>
-		<!-- header 끝 -->
-
 		<hr>
 		<br><br><br><br>
 		
@@ -32,7 +28,7 @@
 			<table style="margin-left: auto; margin-right: auto;">
 
 				<tr>
-					<th><h1 align="center"><span class="title_n"> ${dto.ti_name} </span> </h1></th>
+					<th><h1 align="center"><span class="title_n">${dto.ti_name} </span></h1></th>
 				</tr>
 				
 				<tr>
@@ -123,9 +119,6 @@
 		<br>
 		<hr>
 		<br>
-		<!-- footer 시작 -->
-		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		<!-- footer 끝 -->
-	
+
 </body>
 </html>
