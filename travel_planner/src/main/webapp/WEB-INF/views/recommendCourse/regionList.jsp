@@ -94,8 +94,6 @@ function modalClick(path) {
 $(function(){
 	// 모달 열기
 	$(".modal_btn").on('click',function(){
-		alert("떴다떴다");
-		alert($(this).attr("area_english"))
 		$("#modalAreaEnglish").text($(this).attr("area_english"));
         $("#modalAreaKorea").text($(this).attr("area_korea"));
         $("#modalAreaContent").text($(this).attr("area_content"));

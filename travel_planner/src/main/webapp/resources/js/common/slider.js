@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	
 	//Button Listeners
 	nextBtn.addEventListener("click", () => {
-		alert("나도 눌렸음");
 	  if (counter >= carouselContents.length - 1) return;
 	  carouselSlide.style.transition = "transform 0.3s ease-in-out";
 	  counter++;
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	});
 	
 	prevBtn.addEventListener("click", () => {
-		alert("눌렸음");
 	  if (counter <= 0) return;
 	  carouselSlide.style.transition = "transform 0.3s ease-in-out";
 	  counter--;
