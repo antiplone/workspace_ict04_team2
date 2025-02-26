@@ -18,9 +18,9 @@
 		$(".btnimg").click(function() {
 			if(${sessionScope.m_name == null}){
 				alert("로그인 후 이용해주세요");
-				location.href = "${path}/login.do";
+				homeMove('${path}/login.do');
 			} else {
-				window.location='${path}/reviewWrite.do';
+				homeMove('${path}/reviewWrite.do');
 			}
 		});
 	});
@@ -62,7 +62,7 @@
 					
 					<!-- 리뷰 정보 미리보기 시작 -->
 					<c:forEach var="dto" items="${list}">
-					<a href="${path}/reviewDetail.do?r_num=${dto.r_num}&pageNum=${paging.pageNum}">
+					<a onclick="homeMove('${path}/reviewDetail.do?r_num=${dto.r_num}&pageNum=${paging.pageNum}')">
 						<div class="review_pre2">
 							<div class="review_info">
 								<div class="review_text">
@@ -73,7 +73,6 @@
 								</div>
 								<div class="reviewContents_pre">${dto.r_content}</div>
 								<div class="review_info2">
-									<%-- <div style="margin-right: 10px;">${sessionScope.m_name}</div> --%>
 									<div style="margin-right: 10px;">${dto.r_name}</div>
 									<div>${dto.r_regDate}</div>
 									<div class="interval">
@@ -102,17 +101,17 @@
 						<!-- 페이징 처리 -->
 						<!-- 이전 버튼 활성화 -->
 						<c:if test="${paging.startPage > 10}">
-							<a href="${path}/reviewList.do?pageNum=${paging.prev}">[이전]</a>
+							<a onclick="homeMove('${path}/reviewList.do?pageNum=${paging.prev}')">[이전]</a>
 						</c:if>
 						
 						<!-- 페이지 번호 처리 -->
 						<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-							<a href="${path}/reviewList.do?pageNum=${num}">${num}</a>
+							<a onclick="homeMove('${path}/reviewList.do?pageNum=${num}')">${num}</a>
 						</c:forEach>
 						
 						<!-- 다음 버튼 활성화 -->
 						<c:if test="${paging.endPage < paging.pageCount}">
-							<a href="${path}/reviewList.do?pageNum=${paging.next}">[다음]</a>
+							<a onclick="homeMove('${path}/reviewList.do?pageNum=${paging.next}')">[다음]</a>
 						</c:if>
 					</td>
 				</tr>
