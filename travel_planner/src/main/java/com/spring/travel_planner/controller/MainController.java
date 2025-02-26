@@ -104,4 +104,13 @@ public class MainController {
 		req.getSession().invalidate(); // 세션삭제
 		return "common/home";
 	}
+	
+	// 오시는 길
+	@RequestMapping("/map.do")
+	private String map(HttpServletRequest req, HttpServletResponse res, Model model) 
+			throws ServletException, IOException {
+		logger.info("<<< MainController => map.do >>>");
+		
+		return "common/map";
+	}
 }
