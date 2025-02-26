@@ -113,12 +113,11 @@
 		<!-- 여행 후기 -->
 		<div align="center" id="review">
 			<div class="rw_title">여행 후기를 작성해주세요! </div> <br>
-			<a href="reviewList.do">
+			<a onclick="homeMove('reviewList.do')">
 			<img src="resources/local_images/detail_review.png" style="width:700px"></a>
 		</div>
 		<br>
 		<hr>
 		<br>
-
 </body>
 </html>

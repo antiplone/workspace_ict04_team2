@@ -171,6 +171,7 @@ public class LocationServiceImpl implements LocationService {
 		  
 		  model.addAttribute("list", list);
 		  model.addAttribute("selcet_gu", selcet_gu);
+		  model.addAttribute("tc_si_num", tc_si_num);
 		  model.addAttribute("paging", paging);
 		  model.addAttribute("total", list.size());
 	  }
@@ -269,6 +270,7 @@ public class LocationServiceImpl implements LocationService {
 		  // 해당 리스트들 jsp에 전달
 		  model.addAttribute("list", list);
 		  model.addAttribute("selcet_gu", selcet_gu);
+		  model.addAttribute("tc_si_num", tc_si_num);
 		  model.addAttribute("paging", paging);
 		  model.addAttribute("total", list.size());
 	  	}
@@ -280,11 +282,11 @@ public class LocationServiceImpl implements LocationService {
 			throws ServletException, IOException {
 		
 		int ti_num = Integer.parseInt(request.getParameter("location_num"));
-	System.out.println("service locationDetailAction => " + ti_num);
-	
-	LocationDTO dto = dao.locationDetailPage(ti_num);
-	
-	model.addAttribute("dto", dto);
+		System.out.println("service locationDetailAction => " + ti_num);
+		
+		LocationDTO dto = dao.locationDetailPage(ti_num);
+		
+		model.addAttribute("dto", dto);
 		
 	}
 	

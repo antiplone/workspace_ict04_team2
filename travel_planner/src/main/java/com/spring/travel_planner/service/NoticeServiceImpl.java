@@ -155,7 +155,6 @@ public class NoticeServiceImpl implements NoticeService{
 				int deleteCnt = nodao.deleteNotice(notice_num);
 				 
 				model.addAttribute("deleteCnt", deleteCnt);
-		
 	}
 
 	@Override

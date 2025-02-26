@@ -41,7 +41,7 @@
    		$(function(){$('#btnEdit').on('click', function() {
 	   			if($('#notice_password').val()){
 	   				if($('#notice_password').val()==='${dto.noticePassword}'){
-			   			alert("야야");
+			   			/* alert("야야"); */
 		   				homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}');
 		   			} else if($('#notice_password').val()!=='${dto.noticePassword}'){
 		   				alert("비번번호가 일치하지 않습니다!!");
