@@ -29,11 +29,33 @@
 	
 	// 해당 팝업창 닫으면서 페이지 이동 (선택한 '구'에 해당되는 리스트 페이지로)
 	//alert(checks);
-	 opener.location.href = "${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=" + checks; // 추가
-	 self.close();
-}</script>
+	/*  opener.location.href = "${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=" + checks; // 추가
+	 self.close(); */
+	/* alert("들어왔음??"); */
+		// 해당 팝업창 닫으면서 페이지 이동 (선택한 '구'에 해당되는 리스트 페이지로)
+		//alert(checks);
+	 console.log("checks " + checks);
+		let gu_formHtml = $("#gu_form").html()
+		console.log("gu_form => " + gu_formHtml);
+		$.ajax({
+			type: 'POST',
+			url: '${path}/location_mainListAction.lc', // 컨트롤러로 이동 - (9)
+			data: 'location_si=${tc_si_num}&location_gu=' + checks,
+			success: function(result) {	// (13) - result는 comment_list.jsp(컨트롤러에서 넘긴) 데이터
+				/* alert("전달 성공~!"); */
+				$("#gu_form").html(result)
+				console.log("result = " + result)
+				$("#contents", window.opener.document).html(result);	 // div id가 commentList인 자리에 댓글 리스트페이지 출력
+				self.close();
+			},
+			error: function() {
+				alert("전달실패~!");
+			}
+		}); 
+}
+</script>
 </head>
-<body>
+<body id="gu_form">
 
 	<form name="gu_form" action="#" method="post">
 		
