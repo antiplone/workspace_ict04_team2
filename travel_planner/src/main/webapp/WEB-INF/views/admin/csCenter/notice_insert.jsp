@@ -19,43 +19,6 @@
 	<script src="${path}/resources/js/common/main.js" defer /></script>
 
 	<script>
-// 		document.addEventListener("DOMContentLoaded", () => {
-//		   	const btnSave = document.querySelector("#btnSave");
-//		   	const btnCancel = document.querySelector("#btnCancel");
-//		   	const notice_password = document.getElementById('notice_password');
-//		   	const notice_title = document.getElementById('notice_title');
-//		   	const notice_content = document.getElementById("notice_content");
-		   	
-		  	// [게시글 작성 버튼] 클릭 시 [게시글 작성 처리]로 이동
-//		  	btnSave.addEventListener('click', function(e){
-		  		
-//		  		if(notice_password == ""){
-//		  			alert("비밀번호를 입력해주세요!!");
-//		  			notice_password.focus;
-//		  		 	console.log(notice_password);
-//		  		 	return;
-//		  		} else if(notice_title == ""){
-//		  			alert("글제목을 입력해주세요!!");
-//		  		 	console.log(notice_title);
-//		  		 	notice_title.focus();
-//		  			return;
-//		  		} else if(notice_content == ""){
-//		  			alert("글내용을 입력해주세요!!");
-//				   	console.log(notice_content);
-//				   	notice_content.focus();
-//		  			return;
-//		  		}
-		  		
-//		  		document.insertForm.action="homeMove('${path}/notice_insertAction.nt')";
-//		   		document.insertForm.submit();	
-//		    });
-		   	
-		    	// [게시글 취소 버튼] 클릭 시 [게시글 목록]으로 이동 
-	   	//	btnCancel.addEventListener('click', function(e){
-		//		location.href="${path}/noticeList.nt";
-		//    });
-//		});
-		
 		$(function(){
 			$('#btnSave').on('click', function() {
 				alert("욥욥")

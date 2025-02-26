@@ -130,9 +130,7 @@
 										<tr class="class_content">
 											<th class="first_th">글내용</th>
 											<td colspan="3">
-												<textarea rows="5" cols="93" id="noticeContent" name="noticeContent">
-												${dto.noticeContent}
-												</textarea>
+												<textarea rows="5" cols="93" id="noticeContent" name="noticeContent">${dto.noticeContent}</textarea>
 											</td>
 										</tr>
 										

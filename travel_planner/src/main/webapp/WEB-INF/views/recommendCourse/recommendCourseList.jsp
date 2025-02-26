@@ -45,15 +45,15 @@
 
 </head>
 <body>
- 	<div class="wrap">
+ 	<div class="rc_wrap">
 		
 		<!-- 컨텐츠 시작 -->
-		<div id="container">
+		<div id="rc_container">
 				<!-- 상단 중앙1 시작 -->
-				<div id="contents-head">
-					<div id="title">
+				<div id="rc_contents-head">
+					<div id="rc_title">
 						<br><br>
-						<div align="center" class="title pretendardfont">여행코스 짜기 어렵다면 여기닷!</div>
+						<div align="center" class="rc_title pretendardfont">여행코스 짜기 어렵다면 여기닷!</div>
 						<br><br>
 					</div>
 					
@@ -81,11 +81,11 @@
 					                        course_image="${dto.tr_course_image}">
 					                        
 					                        <!-- 추천코스 이미지 -->
-					                        <div class="image-box">
+					                        <div class="rc_image_box">
 					                   			<img src="${dto.tr_course_image}" class="course_img" alt="${dto.tr_course_title}">
 					                        </div>  
 											
-											<div class="modal_button_content">
+											<div class="rc_modal_button_content">
 												<div class="course_title pretendardfont">${dto.tr_course_title}</div>
 												<div class="course_taketime pretendardfont">${dto.tr_course_taketime}</div>
 												<div class="course_tag pretendardfont">${dto.tr_course_tag}</div>
@@ -126,4 +126,35 @@
 		</div>
 	</div>
 </body>
+<script>
+	$(function(){
+		// 모달 열기
+		$(".modal_btn").on('click',function(){
+			alert("떴다떴다");
+			alert($(this).attr("course_title"))
+			$("#modalCourseTitle").text($(this).attr("course_title"));
+	        $("#modalCourseTaketime").text($(this).attr("course_taketime"));
+	        $("#modalCourseTag").text($(this).attr("course_tag"));
+	        $("#modalCourseMap").attr("src", $(this).attr("course_map"));
+	        $("#modalCourseMap").attr("alt", $(this).attr("course_image"));
+	        
+	        $("#courseModal").css("display","block");
+	        $("#courseModal").attr("course_id", $(this).attr("course_id"));
+	        $("body").css("overflow","hidden");
+		})
+		
+		// 모달 닫기
+		$(".close_btn").on('click', function(){
+			$("#course_title").text('');
+	        $("#course_taketime").text('');
+	        $("#course_tag").text('');
+	        $("#course_map").attr("src", '');
+	        $("#course_image").attr("alt", '');
+	        
+			$("#courseModal").css("display","none");
+		    $("#courseModal").attr("course_id", '');
+		    $("body").css("overflow","unset");
+		})
+	});
+</script>
 </html>
