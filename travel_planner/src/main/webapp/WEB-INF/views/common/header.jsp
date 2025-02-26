@@ -11,9 +11,6 @@
 <link rel="icon" href="${path}/resources/images/common/logo.svg" />
 <link rel="trip-icon" href="${path}/resources/images/common/logo.svg" />
 
-<link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
-<link rel="stylesheet" href="${path}/resources/css/common/header.css">
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
@@ -49,7 +46,19 @@
 			window.location = "${path}/home.do";
 		});
 	});
+	
+	const session = '<%=(String)session.getAttribute("m_name")%>';
+	
+	$(function() {
+		$("#mlogout").on('click', function() {
+			alert("let me say yayayaya~")
+		  sessionStorage.removeItem("m_name")
+		  window.location = "${path}/home.do";
+		});
+	});
 
+	
+	
 </script>
 </head>
 <body>
@@ -70,24 +79,34 @@
 
 		<nav class="navbar">
 			<ul class="navbar_menu">
-				<li class="active pointerBtn"><a onclick="load('${path}/main.do')" class="movePage">홈</a></li>
-				<li class="pointerBtn"><a onclick="load('${path}/location_main.lc')" class="movePage" >여행지</a></li>
-				<li class="pointerBtn"><a onclick="load('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
-				<li class="pointerBtn flex-shrink-0 dropdown">
+				<li class="active pointerBtn" data-index="1"><a onclick="window.location=('${path}/home.do')" class="movePage">홈</a></li>
+				<li class="pointerBtn" data-index="2"><a onclick="homeMove('${path}/location_main.lc')" class="movePage" >여행지</a></li>
+				<li class="pointerBtn" data-index="3"><a onclick="homeMove('${path}/regionList.rc')" class="movePage" >추천코스</a></li>
+				<li class="pointerBtn flex-shrink-0 dropdown" data-index="4">
 					<a data-bs-toggle="dropdown"  class="movePage -block link-body-emphasis text-decoration-none dropdown-toggle" >여행톡톡</a>
 					<ul class="dropdown-menu text-small shadow" style="">
             			<li><a class="dropdown-item" onclick="homeMove('${path}/reviewList.do')">후기</a></li>
 			            <li><a class="dropdown-item" onclick="homeMove('${path}/noticeList.nt')">공지사항</a></li>
+			            <li><a class="dropdown-item" href="${path}/regionList.rc">추천코스</a></li>
+			            <%-- <li><a class="dropdown-item" href="${path}/recommendCourseList.rc">추천코스</a></li> --%>
 			            <li><hr class="dropdown-divider"></li>
-			            <li><a class="dropdown-item" href="#">Sign out</a></li>
+			            <li><a id="mlogout" class="dropdown-item" href="#">Sign out</a></li>
           			</ul>
 				</li>
 			</ul>
 		</nav>
 		<ul class="navbar_icons">
 			<li class="searhMain_input">
-				<input type="input" class="search"/>
-				<input type="button" value="검색" class="search_button"/> 
+				<div class="id_check">
+					<c:choose>
+						<c:when test="${m_name != null}">
+							<p><%= request.getSession().getAttribute("m_name") %>님 접속중</p>
+						</c:when>
+						<c:otherwise>
+							<p>게스트님 환영합니다.😄😄</p>
+						</c:otherwise>
+					</c:choose>
+				</div> 
 			</li>
 			<li>
 				<a href="${path}/login.do"> 

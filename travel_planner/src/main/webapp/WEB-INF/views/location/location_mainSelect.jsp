@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/location/location_mainSelect.css">
 
 <!-- js -->
@@ -42,7 +44,7 @@
 				<c:forEach var="list" items="${list}">
 				<td align="center">
 					<div class="gu_select" align="center">
-						<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}"  value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
+						<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}" value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
 					</div>
 				</td>
 				</c:forEach>

@@ -19,46 +19,47 @@
 	<script src="${path}/resources/js/common/main.js" defer /></script>
 
 	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-		   	const btnSave = document.querySelector("#btnSave");
-		   	const btnCancel = document.querySelector("#btnCancel");
-		   	const notice_password = document.getElementById('notice_password');
-		   	const notice_title = document.getElementById('notice_title');
-		   	const notice_content = document.getElementById("notice_content");
-		  
-
-		   	
-		  	// [게시글 작성 버튼] 클릭 시 [게시글 작성 처리]로 이동
-		  	btnSave.addEventListener('click', function(e){
-		  		
-		  		if(notice_password == ""){
+		$(function(){
+			$('#btnSave').on('click', function() {
+				alert("욥욥")
+				if(!$('#notice_password').val()){
+					console.log($.trim($("#notice_password").val()))
 		  			alert("비밀번호를 입력해주세요!!");
-		  			notice_password.focus;
-		  		 	console.log(notice_password);
+		  			$("#notice_password").focus();
+		  		 	console.log($('#notice_password').val());
+		  			event.preventDefault();
 		  		 	return;
-		  		} else if(notice_title == ""){
+		  		} else if(!$('#notice_title').val()){
 		  			alert("글제목을 입력해주세요!!");
-		  		 	console.log(notice_title);
-		  		 	notice_title.focus();
-		  			return;
-		  		} else if(notice_content == ""){
+		  		 	console.log($('#notice_title').val());
+		  		 	event.preventDefault();
+		  		 	return;
+		  		} else if(!$('#notice_content').val()){
 		  			alert("글내용을 입력해주세요!!");
-				   	console.log(notice_content);
-				   	notice_content.focus();
-		  			return;
+		  		 	console.log($('#notice_content').val());
+		  		 	event.preventDefault();
+		  		 	return;
+		  		} else{
+		  			alert("여기");
+					/* alert($("#NoticeForm").attr('action')); */
+					$.ajax({
+		   				url : "${path}/notice_insertAction.nt", // 컨트롤러로 이동(9)
+		   				data : $('#NoticeForm').serialize(),
+		   				type : 'POST',
+		   				success : function(result) { // 콜백함수(13) => result는 comment_list
+		   					homeMove("${path}/noticeList.nt");
+		   				},
+		   				error : function(j, t, errorThrown) {
+		   					alert(errorThrown);
+		   				},
+		   			})
 		  		}
-		  		
-		  		document.insertForm.action="${path}/notice_insertAction.nt";
-		   		document.insertForm.submit();	
-		    });
-		   	
-		   	// [게시글 취소 버튼] 클릭 시 [게시글 목록]으로 이동 
-	   		btnCancel.addEventListener('click', function(e){
-				location.href="${path}/noticeList.nt";
-		    });
-		   	
-		});
-		
+			})
+			
+		/* 	function formAction(){
+				$("#NoticeForm").attr("action","homeMove('${path}/notice_insertAction.nt');").submit();
+			} */
+		})
 		
 	</script>
 </head>
@@ -81,20 +82,20 @@
 						<!-- 우측 화면 시작 -->
 						<div id="right">
 							<div class="table_div">
-								<form name="insertForm" method="post">
+								<form name="NoticeForm" method="post" id="NoticeForm">
 									
 									<table>
 										<tr>
-											<th style="width:200px">작성자</th>
-											<td style="width:200px">${sessionScope.sessionID} 작성자 세션값</td>
-											<th style="width:200px">비밀번호</th>
-											<td style="width:200px">
-												<input style="width: 180px;" type="password" class="input" name="notice_password" 
+											<th>작성자</th>
+											<td>${sessionScope.sessionID}</td>
+											<th>비밀번호</th>
+											<td>
+												<input style="width: 95%;" type="password" class="input" name="notice_password" 
 												id="notice_password" size="30" value="" placeholder="비밀번호 입력" pattern="[a-zA-Z0-9]"/>
 											</td>
 										</tr>
 										<tr>
-											<th style="width:200px">글제목</th>
+											<th>글제목</th>
 											<td colspan="3">
 												<input style="width: 99%; border: none" type="text" class="input" name="notice_title" 
 												id="notice_title" size="30" placeholder="글제목 입력" />
@@ -102,7 +103,7 @@
 											
 										</tr>
 										<tr>
-											<th style="width:200px">글내용</th>
+											<th>글내용</th>
 											<td colspan="3">
 												<textarea rows="5" cols="93" id="notice_content" name="notice_content"></textarea>
 											</td>
@@ -111,7 +112,7 @@
 											<td colspan="4" align="center">
 												<input type="button" class="inputButton" value="작성완료" id="btnSave">
 												<input type="reset" class="inputButton" value="초기화">
-												<input type="button" class="inputButton" value="취소" id="btnCancel">
+												<input type="button" class="inputButton" value="취소" id="btnCancel" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
 									</table>

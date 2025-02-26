@@ -1,18 +1,11 @@
 package com.spring.travel_planner.dao;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.travel_planner.dto.NoticeDTO;
 
@@ -76,19 +69,19 @@ public class NoticeDAOImpl implements NoticeDAO{
 	}
 
 	@Override
-	public int updateNotice(NoticeDTO dto) {
+	public int updateNotice(NoticeDTO Ndto) {
 		System.out.println("NoticeDAOImpl - updateNotice ");
 
-		int updateCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.updateNotice", dto);
+		int updateCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.updateNotice", Ndto);
 
 		return updateCnt;
 	}
 
 	@Override
-	public int deleteNotice(int noticeNum) {
+	public int deleteNotice(int notice_num) {
 		System.out.println("NoticeDAOImpl - deleteNotice ");
 		
-		int deleteCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.deleteNotice", noticeNum);
+		int deleteCnt = sqlSession.update("com.spring.travel_planner.dao.NoticeDAO.deleteNotice", notice_num);
 		
 		return deleteCnt;
 	}

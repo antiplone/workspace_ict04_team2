@@ -63,15 +63,16 @@
 /* carousel */
 /* left side of main carousel */
 .left_comment>div{
-	max-width: 280px;
+	width: max-content;
     margin: 0 auto;
     text-align: left;
+    min-width: 340px;
 }
 
 .left_comment strong{
-	max-width:200px;
-    line-height: 2;
-    font-size: 25px;
+    margin: 0 auto;
+    text-align: left;
+    min-width: 340px;
 }
 
 .left_comment a{
@@ -133,8 +134,8 @@
     display: none;
 }
 
-.carousel-item[data-color='gray']{
-	background-color:#d0d0d0;	
+.carousel-item[data-color='lightpurple']{
+	background-color:#ffeeff;	
 }
 .carousel-item[data-color='skyblue']{
 	background-color:#baebff;;	
@@ -200,6 +201,11 @@
 .recom>div>div:nth-child(2) {
 	font-size: 14px;
 	margin: 6px 0;
+}
+
+.id_check p{
+    color: black;
+    margin-bottom: 0px;
 }
 
 /* 추천코스 이미지 */
@@ -315,6 +321,7 @@
 	margin-right: 3px;
     opacity: 0.8;
 }
+
 .rev_img_text2 div:nth-child(2) {		/* 후기 조회수 */
 	margin-left: 10px;
 	display: flex;

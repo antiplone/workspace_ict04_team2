@@ -1,7 +1,6 @@
 package com.spring.travel_planner.controller;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.travel_planner.dao.MemberDAOImpl;
-import com.spring.travel_planner.dao.ReviewDAO;
 import com.spring.travel_planner.service.HomeServiceImpl;
 import com.spring.travel_planner.service.ReviewService;
 
@@ -50,14 +48,14 @@ public class MainController {
 	private String main(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< MainController => main.do >>>");
-		return "common/main3";
+		return "common/main";
 	}
 	
 	@RequestMapping("/mainAction.do")
 	private String mainAction(HttpServletRequest req, HttpServletResponse res, Model model) 
 			throws ServletException, IOException{
 		logger.info("<<< MainController => mainAction.do >>>");
-		home_service.MemberListAction(req, res, model);
+		home_service.HometopListAction(req, res, model);
 		return "common/mainAction";
 	}
 
@@ -88,10 +86,4 @@ public class MainController {
 		return "common/home";
 	}
 
-	@RequestMapping("/logout.do")
-	private String logout(HttpServletRequest req) throws ServletException, IOException {
-		logger.info("<<< MainController => logout.do >>>");
-		req.getSession().invalidate();		// 세션삭제
-		return "common/home";
-	}
 }

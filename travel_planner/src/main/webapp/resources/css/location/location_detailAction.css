@@ -2,7 +2,7 @@
 /* location_detailAction.css */
 
 
-span {
+.title_n {
     background: linear-gradient(to top, #90a955 20%, transparent 20%);
   }
   
@@ -42,6 +42,26 @@ span {
 	width: 50%;
 }
 
+/* 여행지명 */
+.title_n {
+	font-family: 'esamanru_Medium', 'Montserrat';
+	font-size:45px;
+}
+
+.title_little {
+	font-family: 'kotra', 'Closeness';
+	font-size:15px;
+	text-align:center;
+	padding: 10px 0px 30px;
+}
+
+.title_n2 {
+	font-family: 'kotra', 'Closeness';
+	font-size:25px;
+	text-align:center;
+	font-style: oblique;
+	padding: 0px 0px 70px;
+}
 
 .place_detail_2 table {
 	width: 50%;
@@ -66,13 +86,16 @@ span {
 
 /* '공간소개' 타이틀 */
 .title_place {
-	margin-bottom: 20px;
+	font-family: 'esamanru_Medium', 'Montserrat';
+	font-size:30px;
 	text-align: center;
 }
    
 /* 상세내용 '더보기' 버튼 클릭 시 전체 내용 보여짐 */
 .container {
    	display: -webkit-box;
+   	margin-top: 10px;
+   	font-family: 'kotra', 'Closeness';
     -webkit-line-clamp: 4;	/* 블록 컨테이너의 콘텐츠를 지정한 줄 수만큼으로 제한 */
     -webkit-box-orient: vertical; 
     overflow: hidden;
@@ -103,5 +126,11 @@ span {
 .container_more-btn:hover {
 	background-color: #343a40; /* 호버 색 */
        color: white; /* 글자 색 */
+}
+
+.rw_title {
+	font-family: 'esamanru_Medium', 'Montserrat';
+	font-size:30px;
+	text-align: center;
 }
    

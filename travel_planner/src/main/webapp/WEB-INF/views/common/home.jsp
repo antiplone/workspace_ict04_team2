@@ -19,7 +19,6 @@
 <link rel="stylesheet" href="${path}/resources/css/common/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
-<link rel="stylesheet" href="${path}/resources/css/common/main.css">
 
 <!-- bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
