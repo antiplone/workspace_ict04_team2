@@ -47,21 +47,17 @@
 		});
 	});
 	
-	const session = '<%=(String)session.getAttribute("m_name")%>';
-	
-	$(function() {
-		$("#mlogout").on('click', function() {
-			alert("let me say yayayaya~")
-		  sessionStorage.removeItem("m_name")
-		  window.location = "${path}/home.do";
-		});
-	});
-
-	
-	
 </script>
 </head>
 <body>
+	<script type="text/javascript">
+		function signoutAction() {
+			let choose = window.confirm("회원탈퇴를 하시겠습니까?");
+
+			if (choose)
+				window.location = "signout.do";
+		}
+	</script>
 
 	<!-- header 시작 -->
 	<header>
@@ -87,10 +83,17 @@
 					<ul class="dropdown-menu text-small shadow" style="">
             			<li><a class="dropdown-item" onclick="homeMove('${path}/reviewList.do')">후기</a></li>
 			            <li><a class="dropdown-item" onclick="homeMove('${path}/noticeList.nt')">공지사항</a></li>
-			            <li><a class="dropdown-item" href="${path}/regionList.rc">추천코스</a></li>
 			            <%-- <li><a class="dropdown-item" href="${path}/recommendCourseList.rc">추천코스</a></li> --%>
 			            <li><hr class="dropdown-divider"></li>
-			            <li><a id="mlogout" class="dropdown-item" href="#">Sign out</a></li>
+			            <c:choose>
+			            	<c:when test="${sessionScope.m_email != null}">
+					            <li><a id="mlogout" class="dropdown-item" href="${path}/logout.do">Logout</a></li>
+					            <li><a id="mlogout" class="dropdown-item" onclick="signoutAction()">Signout</a></li>
+			            	</c:when>
+			            	<c:otherwise>
+			            		<li><a id="mlogout" class="dropdown-item" href="${path}/login.do">Login</a></li>
+			            	</c:otherwise>
+			            </c:choose>
           			</ul>
 				</li>
 			</ul>
