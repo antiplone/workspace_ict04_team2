@@ -49,7 +49,7 @@
 				return false;
 			}
 			
-			var form = $('#reviewWriteform')[0];
+			var form = $('#reviewUpdateForm')[0];
 			var formData = new FormData(form);
 			$.ajax({
 				type: 'POST',
@@ -63,10 +63,9 @@
 					homeMove('${path}/reviewList.do');	// div id가 commentList인 자리에 댓글 리스트페이지 출력
 				},
 				error: function() {
-					alert("댓글목록 오류나요~!");
+					alert("리뷰 수정 오류나요~!");
 				}
 			});
-			
 		});
    });
 </script>
@@ -79,8 +78,8 @@
 					<h1 align="center">여행후기 수정</h1>
 			</div>
 		</div>
-		
-		<form id="reviewWriteform" name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
+
+		<form id="reviewUpdateForm" name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
 					<div class="reviewWrite_form">

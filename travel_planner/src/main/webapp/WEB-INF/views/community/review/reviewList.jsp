@@ -62,7 +62,7 @@
 					
 					<!-- 리뷰 정보 미리보기 시작 -->
 					<c:forEach var="dto" items="${list}">
-					<a onclick="homeMove('${path}/reviewDetail.do?r_num=${dto.r_num}&pageNum=${current.pageNum}')">
+					<a onclick="homeMove('${path}/reviewDetail.do?r_num=${dto.r_num}&pageNum=${paging.pageNum}')">
 						<div class="review_pre2">
 							<div class="review_info">
 								<div class="review_text">
@@ -73,7 +73,6 @@
 								</div>
 								<div class="reviewContents_pre">${dto.r_content}</div>
 								<div class="review_info2">
-									<%-- <div style="margin-right: 10px;">${sessionScope.m_name}</div> --%>
 									<div style="margin-right: 10px;">${dto.r_name}</div>
 									<div>${dto.r_regDate}</div>
 									<div class="interval">
