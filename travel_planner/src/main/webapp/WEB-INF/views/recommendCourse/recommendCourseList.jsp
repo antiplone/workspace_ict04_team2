@@ -40,6 +40,11 @@
 				alert('recommendCourseDetail() 데이터를 가져오는데 실패하였습니다.');
 			}
 		});
+
+		$(".course_map_box").load( "${path}/testMap.do", function( response, status, xhr ) {
+			console.log("맵박스 로딩");
+			console.log(response);
+		});
 	}
 </script>
 
@@ -108,7 +113,6 @@
 					                    <div id="modalCourseTag"></div>
 					                    <hr>
 					                    <div class="course_map_box">
-					                    	<img id="modalCourseMap" class="modal_map_image" src=""  alt="">
 					                    </div>
 					                    <!-- 추천코스 info 코드 -->
 										<div id="courseInfo" align="center">
