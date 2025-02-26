@@ -33,6 +33,7 @@ public class TestController {
 	private MemberDAOImpl mem;
 
 
+
 	@RequestMapping("/sample_tour.do")
 	private ModelAndView sample_tour() {
 		logger.info("sample_tour.do");
@@ -57,6 +58,7 @@ public class TestController {
 
 	@RequestMapping("/tour_places.do")
 	private ModelAndView tour_places(@RequestBody List<Object> list) {
+
 		// json데이터를 우리 DTO로 바꾸자
 		ModelAndView mnv = new ModelAndView("member/tour_places");
 		System.out.println(list);

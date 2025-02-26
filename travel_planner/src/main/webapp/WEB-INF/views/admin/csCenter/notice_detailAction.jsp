@@ -22,29 +22,49 @@
 		document.addEventListener("DOMContentLoaded", () => {
 			/* comment_list() */
 			
-		   	const btnEdit = document.querySelector("#btnEdit");
+		   	const btnEdit = document.querySelector("#btnEdit"); 
 		   	const btnList = document.querySelector("#btnList");
 		   	
 		   	// [게시글 목록 버튼] 클릭 시 컨트롤러의 목록으로 이동
 	   		btnList.addEventListener('click', function(e){
-	   			
 				location.href="${path}/noticeList.nt";
 		    });
 		   	
 		   	// [게시글 수정삭제 버튼] 클릭 시 [게시글 수정삭제 화면]으로 이동(컨트롤러에서 패스워드 체크 후) 
-	   		btnEdit.addEventListener('click', function(e){
-				document.detailForm.action="${path}/password_chkAction.nt";
+	   		/* btnEdit.addEventListener('click', function(e){
+				document.detailForm.action="${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}";
 	   			document.detailForm.submit();	
-		    });
-   	    });
+		    }); */
+		   	
+   		});
 		
+   		$(function(){$('#btnEdit').on('click', function() {
+	   			if($('#notice_password').val()){
+	   				if($('#notice_password').val()==='${dto.noticePassword}'){
+			   			/* alert("야야"); */
+		   				homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}');
+		   			} else if($('#notice_password').val()!=='${dto.noticePassword}'){
+		   				alert("비번번호가 일치하지 않습니다!!");
+		   				return
+		   			}
+	   				return
+	   			} else{
+	   				alert("비번번호를 입력해주세요!");
+	   				return
+	   			}
+	   			// $("#detailForm").attr("action", "${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}");
+	   			// $("#detailForm").submit; 
+   			});
+   		});
 
-</script>	    
+</script>
+<% 
+	int nrcnt = Integer.parseInt(request.getParameter("noticeReadCnt"));
+	int cnt1 = nrcnt + 1;
+%>	    
 </head>
 <body>
-
-	<div class="wrap">
-				
+	<div class="idwrap noticeDetail" id="noticeDetail">
 		<!-- 컨텐츠 시작 -->
 			<div id="container"> 
 				<div id="contents"> 
@@ -61,19 +81,19 @@
 						<div id="right">
 							<div class="table_div">
 								<form name="detailForm" method="post">
-									
 									<table>
 										<tr>
-											<th style="width:200px">글번호</th>
+											<th class="first_th">글번호</th>
 											<td style="width:200px">
 											${dto.noticeNum}
-											
 											</td>
 											<th style="width:200px">조회수</th>
-											<td style="width:200px">${dto.noticeReadCnt}</td>
+											<td style="width:200px">
+												<%=cnt1%>
+											</td>
 										</tr>
 										<tr>
-											<th style="width:200px">작성자</th>
+											<th class="first_th">작성자</th>
 											<td style="width:200px">${dto.noticeWriter}</td>
 											<th style="width:200px">비밀번호</th>
 											<td style="width:200px">
@@ -86,24 +106,26 @@
 											</td>
 										</tr>
 										<tr class="class_title">
-											<th style="width:200px">글제목</th>
+											<th class="first_th">글제목</th>
 											<td colspan="3">${dto.noticeTitle}</td>
 										</tr>
 										<tr class="class_content">
-											<th style="width:200px">글내용</th>
+											<th class="first_th">글내용</th>
 											<td colspan="3">${dto.noticeContent}</td>
 										</tr>
 										
 										<tr>
-											<th style="width:200px">작성일</th>
+											<th class="first_th">작성일</th>
 											<td colspan="3">${dto.noticeRegDate}</td>
 										</tr>
 										
 										<tr>
 											<td colspan="4" align="center">
-												<input type="hidden" name="hiddenB_num" value="${dto.noticeNum}">
+												<input type="hidden" name="hiddenN_num" value="${dto.noticeNum}">
+												<input type="hidden" name="hiddenPassword" value="${dto.noticePassword}">
+<%-- 												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit" onclick="homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}')"> --%>
 												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit">
-												<input type="button" class="inputButton" value="목록" id="btnList">
+												<input type="button" class="inputButton" value="목록" id="btnList" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
 									</table>

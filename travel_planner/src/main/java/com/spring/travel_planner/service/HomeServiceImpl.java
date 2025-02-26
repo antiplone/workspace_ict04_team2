@@ -14,8 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.travel_planner.dao.HomeDAOImpl;
-import com.spring.travel_planner.dto.RecommendCourseDTO2;
-import com.spring.travel_planner.page.Paging;
+import com.spring.travel_planner.dto.RecommendCourseDTO;
 
 @Service
 public class HomeServiceImpl {
@@ -23,31 +22,28 @@ public class HomeServiceImpl {
 	@Autowired
 	private HomeDAOImpl Hdao;
 	
-	public void MemberListAction(HttpServletRequest req, HttpServletResponse res, Model model)
+	public void HometopListAction(HttpServletRequest req, HttpServletResponse res, Model model)
 			throws ServletException, IOException {
-		System.out.println("<<< MemberServiceImpl - MemberListAction >>>");
+		System.out.println("<<< HomeServiceImpl - HometopListAction >>>");
 		
-		/*
-		 * int total = Hdao.recommendCnt();
-		 * 
-		 * System.out.println("total => " + total);
-		 */
-		// 5-2단계. 게시글 목록 조회
 		int start = 1;
 		int end = 8;
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
-		
+
 		map.put("start1",start);
 		map.put("end1",end);
 		
-		List<RecommendCourseDTO2> list1 = Hdao.recommendList(map);
-		/* System.out.println("list1 => " + list1); */
+		System.out.println("map + map");
 		
-		System.out.println("BoardCommentDTO list1 => " + list1);
+		List<RecommendCourseDTO> list1 = Hdao.mainRecommendList(map);
 		
-		// 6단계. jsp로 처리결과 전달
+		// jsp로 처리결과 전달
+		System.out.println("RecommendCourseDTO2 list1 => " + list1);
+		
 		model.addAttribute("list1", list1);
+		
+
 	}
 
 }

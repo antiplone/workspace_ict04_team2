@@ -66,7 +66,6 @@
 					alert("리뷰 수정 오류나요~!");
 				}
 			});
-			
 		});
    });
 </script>
@@ -79,15 +78,14 @@
 					<h1 align="center">여행후기 수정</h1>
 			</div>
 		</div>
-		
+
 		<form id="reviewUpdateForm" name="review" action="reviewUpdateAction.do" method="post" enctype="multipart/form-data">
 			<div id="reviewWrite">
 				<div id="reviewWrite1">
 					<div class="reviewWrite_form">
-						
 						<!-- 작성자 -->
 						<input type="hidden" name="hiddenR_name" value="${dto.r_name}"/>
-						<input type="hidden" name="hiddenPageNum" value="${pageNum}"/>
+						<input type="input" name="hiddenPageNum" value="${pageNum}"/>
 						<input type="hidden" name="hiddenR_img" value="${dto.r_img}"/>
 						<input type="hidden" name="hiddenR_num" value="${dto.r_num}"/>
 						

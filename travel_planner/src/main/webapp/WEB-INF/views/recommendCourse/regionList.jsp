@@ -17,31 +17,24 @@
 <link rel="stylesheet" href="${path}/resources/css/common/footer.css">
 <link rel="stylesheet" href="${path}/resources/css/recommendCourse/regionList.css">
 
+
 <!-- js -->
 <script src="https://kit.fontawesome.com/4901c67f37.js" crossorigin="anonymous"></script>
-<script src="${path}/resources/js/recommendCourse/regionList.js" defer></script>
+<%-- <script src="${path}/resources/js/recommendCourse/regionList.js" defer></script> --%>
 
 </head>
+
 <body>
-	<div class="wrap">
+	<div class="regionList_wrap">
 		
 		<!-- 컨텐츠 시작 -->
-		<div class="container">
+		<div class="regionList_container">
 		
 			<!-- 상단 중앙1 시작 -->
-			<div id="title">
+			<div id="regionList_title">
 				<br><br>
-				<h3 align="center" class="title">내가 가고싶은 여행지는 여기닷!</h3>
+				<h3 align="center" class="regionList_title pretendardfont">내가 가고싶은 여행지는 여기닷!</h3>
 				<br><br>
-				
-				<div class="search" align="center">
-				  <div class="container-fluid">
-				    <form class="search-box" action="" method="get">
-				      <input class="search-text" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50">
-				      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-				    </form>
-				  </div>
-				</div>
 			</div>	
 			<!-- 상단 중앙1 종료 -->
 			
@@ -61,8 +54,8 @@
 				                        <%--  alt="${dto.tr_area_english}" --%>>
 				                </button>
 				            </div>
-				            <div class="area_english">${dto.tr_area_english}</div>
-				            <div class="area_korea">${dto.tr_area_korea}</div>
+				            <div class="area_english pretendardfont">${dto.tr_area_english}</div>
+				            <div class="area_korea pretendardfont">${dto.tr_area_korea}</div>
 				    </div>
 				</c:forEach>
 					
@@ -70,13 +63,13 @@
 				<div class="modal" id="regionModal">
 				    <div class="modal_popup">
 				        <div class="content_box">
-				            <div class="content">
-				                <div class="areaContent">
+				            <div class="regionList_content">
+				                <div class="areaContent pretendardfont">
 				                    <div id="modalAreaEnglish"></div>
 				                    <div id="modalAreaKorea"></div>
 				                    <p id="modalAreaContent"></p>
 				                    <div align="center">
-				                        <input class="recommendCourseDetailButton" type="button" value="추천코스 보기>" onclick="modalClick('${path}')"> 
+				                        <input class="recommendCourseDetailButton pretendardfont" type="button" value="추천코스 보기>" onclick="modalClick('${path}')"> 
 				                    </div>
 				                </div>
 				                <div class="area_detail_image_box">
@@ -91,4 +84,39 @@
 		 </div> 	
 	</div>
 </body>
+<script>
+function modalClick(path) {
+	const modal = document.getElementById("regionModal");
+	homeMove(path + "/recommendCourseList.rc?area_id=" + $("#regionModal").attr("area_id"));
+    $("body").css("overflow","unset");
+}
+
+$(function(){
+	// 모달 열기
+	$(".modal_btn").on('click',function(){
+		$("#modalAreaEnglish").text($(this).attr("area_english"));
+        $("#modalAreaKorea").text($(this).attr("area_korea"));
+        $("#modalAreaContent").text($(this).attr("area_content"));
+        $("#modalAreaImage").attr("src", $(this).attr("area_image"));
+        $("#modalAreaImage").attr("alt", $(this).attr("area_english"));
+        
+        $("#regionModal").css("display","block");
+        $("#regionModal").attr("area_id", $(this).attr("area_id"));
+        $("body").css("overflow","hidden");
+	})
+	
+	// 모달 닫기
+	$(".close_btn").on('click', function(){
+		$("#modalAreaEnglish").text('');
+        $("#modalAreaKorea").text('');
+        $("#modalAreaContent").text('');
+        $("#modalAreaImage").attr("src", '');
+        $("#modalAreaImage").attr("alt", '');
+        
+		$("#regionModal").css("display","none");
+	    $("#regionModal").attr("area_id", '');
+	    $("body").css("overflow","unset");
+	})
+});
+</script>
 </html>

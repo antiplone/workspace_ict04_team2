@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Repository;
 
-import com.spring.travel_planner.dto.RecommendCourseDTO2;
+import com.spring.travel_planner.dto.RecommendCourseDTO;
 
 @Repository
 public interface HomeDAO {
 	
-	public List<RecommendCourseDTO2> recommendList(Map<String, Object> map);
+	public List<RecommendCourseDTO> mainRecommendList(Map<String, Object> map);
 
 	public int recommendCnt();
 	

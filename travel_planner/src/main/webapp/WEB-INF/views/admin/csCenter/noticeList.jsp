@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<div class="wrap">
+	<div class="wrap noticeList">
 			
 		<!-- 컨텐츠 시작 -->
 			<div id="container"> 
@@ -41,7 +41,8 @@
 						<!-- 우측 화면 시작 -->
 						<div id="right">
 							<div class="table_div">
-								<form name="noticeList" action="${path}/notice_insert.nt">
+								<%-- <form name="noticeList" action="${path}/notice_insert.nt"> --%>
+								<form name="noticeList">
 									<div class="noticelistInwrap">
 									<!-- 	<div class="tr">
 											<div class="th" style="width:5%">글번호</div>
@@ -56,13 +57,13 @@
 											<div class="n_contents_wrap">
 												<div class="notice_innertop">
 													<div>${dto.noticeNum}번째 글</div>
-													<div>🗓 ${dto.noticeRegDate}</div>
 												</div>
 												<div class="n_title">
-													<a href="${path}/notice_detailAction.nt?noticeNum=${dto.noticeNum}">${dto.noticeTitle} <span style="color : blue"></span></a>
+													<a onclick="homeMove('${path}/notice_detailAction.nt?noticeNum=${dto.noticeNum}&noticeReadCnt=${dto.noticeReadCnt}')">${dto.noticeTitle} <span style="color : blue"></span></a>
 												</div>
 												<div class="notice_innerbottom">
 													<div class="n_writer">by ${dto.noticeWriter}</div>
+													<div>🗓 ${dto.noticeRegDate}</div>
 													<div>👁 ${dto.noticeReadCnt}</div>
 												</div>
 											</div>
@@ -73,23 +74,30 @@
 												<!-- 페이징 처리 -->
 												<!-- 이전 버튼 활성화 -->
 												<c:if test="${paging.startPage > 10}" >
-													<a href="${path}/noticeList.nt?pageNum=${paging.prev}">[이전]</a>
+													<a class="noticeP noticePrev" onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.prev}')">[이전]</a>
 												</c:if>
 												
 												<!--  페이지 번호 처리 -->
 												<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-													<a href="${path}/noticeList.nt?pageNum=${num}">${num}</a>
+													<a class="noticePages" onclick="homeMove('${path}/noticeList.nt?pageNum=${num}')">${num}</a>
 												</c:forEach>
 												
 												<c:if test="${paging.endPage < paging.pageCount}" >
-													<a href="${path}/noticeList.nt?pageNum=${paging.next}">[다음]</a>
+													<a class="noticeP" onclick="homeMove('${path}/noticeList.nt?pageNum=${paging.next}')">☛</a>
 												</c:if>
 											</div>
-										<div class="writeNotice">
-											<div colspan="5">
-												<input type="submit" value="글쓰기" style="width:200px; padding:10px;" id="btnInsert">
-											</div>
-										</div>
+										<c:choose>
+											<c:when test="${m_name != null}">
+												<div class="writeNotice">
+													<div colspan="5">
+														<input type="button" value="글쓰기" style="padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">
+													</div>
+												</div>
+											</c:when>
+											<c:otherwise>
+											
+											</c:otherwise>
+										</c:choose>
 									</div>
 								</form>
 							</div>
@@ -103,31 +111,5 @@
 		
 		<!-- 컨텐츠 끝 -->
 	</div>
-	
-	<script>
-/* 	   	const btnInsert = document.querySelector("#btnInsert");
-	   	
-	   	// [게시글 목록 버튼] 클릭 시 컨트롤러의 목록으로 이동
-   		btnInsert.addEventListener('click', function(e){
-   			alert("떠라");
-   			document.noticeList.action="${path}/noticeList.nt";
-   			document.noticeList.submit();	
-	    });
-	   	 */
-   		const li_hovers = document.querySelectorAll('#li_hover');
-   		li_hovers.forEach((li_hover)=>{
-	   		li_hover.addEventListener('mouseover', function(e) {
-		   			this.style.backgroundColor = 'black';
-		   			this.parentElement.style.backgroundColor = 'white'
-	   		});
-   		});
-   		
-   		li_hovers.forEach((li_hover)=>{
-	   		li_hover.addEventListener('mouseout', function(e) {
-		   			this.style.backgroundColor = 'white';
-		   			this.parentElement.style.backgroundColor = 'blue'
-	   		})
-   		});
-	</script>
 </body>
 </html>

@@ -11,6 +11,8 @@
 <title>여기닷 - 여행지</title>
 
 <!-- css -->
+<link rel="stylesheet" href="${path}/resources/css/common/font.css">
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/location/location_detailAction.css">
 
 <!-- js -->
@@ -19,10 +21,6 @@
 </head>
 <body>
 
-		<!-- header 시작 -->
-		<%@ include file="/WEB-INF/views/common/header.jsp" %>
-		<!-- header 끝 -->
-
 		<hr>
 		<br><br><br><br>
 		
@@ -30,15 +28,15 @@
 			<table style="margin-left: auto; margin-right: auto;">
 
 				<tr>
-					<th><h1 align="center"><span> ${dto.ti_name} </span> </h1></th>
+					<th><h1 align="center"><span class="title_n">${dto.ti_name} </span></h1></th>
 				</tr>
 				
 				<tr>
-					<td align="center" style="padding: 10px 0px 30px"> ${dto.ti_location} </td>
+					<td class="title_little"> ${dto.ti_location} </td>
 				</tr>
 				
 				<tr>
-					<td align="center" style="padding: 0px 0px 70px; font-size: 20px;"><i><b> # ${dto.ti_content} </b></i></td>
+					<td class="title_n2"> # ${dto.ti_content} </td>
 				</tr>
 				
 				<!-- '상세보기', '후기작성' 클릭 시 해당 위치로 스크롤 이동 -->
@@ -64,7 +62,7 @@
 				<div class="place_detail_1">
 					<table style="margin-left: auto; margin-right: auto;">
 						<tr>
-							<td><h4 class="title_place"><b> 공간소개 </b></h4></td>
+							<td class="title_place"><b> 공간소개 </b></td>
 						</tr>
 						<tr>
 							<td>
@@ -81,28 +79,28 @@
 			<div class="place_detail_2">
 				<table style="margin-left: auto; margin-right: auto;">
 					<tr>
-						<th> 문의 및 안내 </th>
-						<td> ${dto.ti_qna} </td>
-						<th> 홈페이지 </th>
-						<td> ${dto.ti_url} </td>
+						<th class="title_little"> 문의 및 안내 </th>
+						<td class="title_little"> ${dto.ti_qna} </td>
+						<th class="title_little"> 홈페이지 </th>
+						<td class="title_little"> ${dto.ti_url} </td>
 					</tr>
 					<tr>
-						<th> 주소 </th>
-						<td> ${dto.ti_address} </td>
-						<th> 이용시간 </th>
-						<td> ${dto.ti_open} </td>
+						<th class="title_little"> 주소 </th>
+						<td class="title_little"> ${dto.ti_address} </td>
+						<th class="title_little"> 이용시간 </th>
+						<td class="title_little"> ${dto.ti_open} </td>
 					</tr>
 					<tr>
-						<th> 휴일 </th>
-						<td> ${dto.ti_holiday} </td>
-						<th> 주차 </th>
-						<td> ${dto.ti_parking} </td>
+						<th class="title_little"> 휴일 </th>
+						<td class="title_little"> ${dto.ti_holiday} </td>
+						<th class="title_little"> 주차 </th>
+						<td class="title_little"> ${dto.ti_parking} </td>
 					</tr>
 					<tr>
-						<th> 입장료 </th>
-						<td> ${dto.ti_admission} </td>
-						<th> 장애인 주차 안내 </th>
-						<td> ${dto.ti_parking2} </td>
+						<th class="title_little"> 입장료 </th>
+						<td class="title_little"> ${dto.ti_admission} </td>
+						<th class="title_little"> 장애인 주차 안내 </th>
+						<td class="title_little"> ${dto.ti_parking2} </td>
 					</tr>
 				</table>
 			</div>
@@ -114,16 +112,12 @@
 				
 		<!-- 여행 후기 -->
 		<div align="center" id="review">
-			<h4><b>여행 후기를 작성해주세요!</b></h4> <br>
-			<a href="reviewList.do">
+			<div class="rw_title">여행 후기를 작성해주세요! </div> <br>
+			<a onclick="homeMove('reviewList.do')">
 			<img src="resources/local_images/detail_review.png" style="width:700px"></a>
 		</div>
 		<br>
 		<hr>
 		<br>
-		<!-- footer 시작 -->
-		<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-		<!-- footer 끝 -->
-	
 </body>
 </html>
