@@ -217,17 +217,17 @@ function si_select(){
 								<!-- 페이징 처리 -->
 								<!-- 이전 버튼 활성화 -->
 								<c:if test="${paging.startPage > 10}">
-									<a href="${path}/location_main.lc?pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
+									<a href="${path}/location_mainListAction.lc?location_si=${list[0].tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
 								</c:if>
 								
 								<!-- 페이지 번호 처리 -->
 								<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-									<a href="${path}/location_main.lc?pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
+									<a href="${path}/location_mainListAction.lc?location_si=${list[0].tc_si_num}&location_gu=${selcet_gu}&pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
 								</c:forEach>
 								 
 								<!-- 다음 버튼 활성화 -->
 								<c:if test="${paging.endPage < paging.pageCount}">
-									<a href="${path}/location_main.lc?pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
+									<a href="${path}/location_mainListAction.lc?location_si=${list[0].tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
 								</c:if>
 							</td>
 						</tr>
