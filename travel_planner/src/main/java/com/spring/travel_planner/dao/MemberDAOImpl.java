@@ -27,17 +27,17 @@ public class MemberDAOImpl {
 		params.put("pwd", req.getParameter("login_password"));
 
 		Map<String, Object> results = sqlSession.selectOne("com.spring.travel_planner.dao.MemberDAO.member_login", params);
-		if (!results.get("M_NAME").equals("관리자")) {
-			if (results != null && results.size() > 0) {
+		if (results != null && results.size() > 0) {
+			if (!results.get("M_NAME").equals("관리자")) {
 				HttpSession session = req.getSession();
 				results.forEach((key, value) -> { // DB에서 받아온 회원정보를 컬럼명으로 세션에 저장
 					session.setAttribute(key.toLowerCase(), value);
 				});
 				logger.info("m_email : " + session.getAttribute("m_email"));
 			}
-			else req.setAttribute("failed", true);
+			else req.setAttribute("admin", results.get("M_EMAIL"));
 		}
-		else req.setAttribute("admin", results.get("M_EMAIL"));
+		else req.setAttribute("failed", true);
 	}
 
 	public void signin_action(String email, String name, String password) {
