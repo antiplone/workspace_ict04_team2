@@ -128,7 +128,7 @@
 					<img alt="여행가는 여성" src="${path}/resources/images/main/trip-woman.svg">
 				</div>
 				<div class="recom_btn size15 ">
-					<a onclick="load('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
+					<a onclick="homeMove('${path}/regionList.rc')" class="pointerBtn"> 추천코스 자세히보기 <i class="fi fi-rs-arrow-right"></i>
 					</a>
 				</div>
 			</div>
