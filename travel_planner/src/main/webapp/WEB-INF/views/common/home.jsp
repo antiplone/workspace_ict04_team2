@@ -41,7 +41,7 @@
 			<%@ include file="/WEB-INF/views/common/main.jsp"%>
 		</div>
 
-		<div>
+		<div style="box-shadow: 0 1px 0 0 #ddd inset;">
 			<!-- footer 시작 -->
 			<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 			<!-- footer 끝 -->
@@ -133,6 +133,20 @@
 		})
 	}
 	
+	function map(){		// 카카오지도 불러오기
+	    /* window.open("${path}/map.do", "_blank", "width=500, height=200") */
+	    
+	   $.ajax({
+			url : "${path}/map.do",
+			type : 'POST',
+			success : function(result) {
+				$('#contents').html(result);
+			},
+			error : function(j, t, errorThrown) {
+				alert(errorThrown);
+			},
+		})
+	 }
 </script>
 
 
