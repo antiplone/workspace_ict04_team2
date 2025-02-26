@@ -97,12 +97,19 @@
 											<td style="width:200px">${dto.noticeWriter}</td>
 											<th style="width:200px">비밀번호</th>
 											<td style="width:200px">
-												<input style="width: 180px;" type="password" class="input" name="notice_password" 
-												id="notice_password" size="30" placeholder="비밀번호 입력" required autofocus/>
-												
-												<c:if test="${param.message == 'error'}">
-													<b><span style="color:red">비밀번호 불일치!!</span></b>				
-												</c:if>
+												<c:choose>
+													<c:when test="${fn:contains(m_name, 'admin')}">
+														<input style="width: 180px;" type="password" class="input" name="notice_password" 
+														id="notice_password" size="30" placeholder="비밀번호 입력" required autofocus/>
+														
+														<c:if test="${param.message == 'error'}">
+															<b><span style="color:red">비밀번호 불일치!!</span></b>				
+														</c:if>
+													</c:when>
+													<c:otherwise>
+														<input style="pointer-events: none;outline:none; border:none">
+													</c:otherwise>
+												</c:choose>
 											</td>
 										</tr>
 										<tr class="class_title">
@@ -124,7 +131,14 @@
 												<input type="hidden" name="hiddenN_num" value="${dto.noticeNum}">
 												<input type="hidden" name="hiddenPassword" value="${dto.noticePassword}">
 <%-- 												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit" onclick="homeMove('${path}/password_chkAction.nt?noticeNum=${dto.noticeNum}&notice_password=${dto.noticePassword}')"> --%>
-												<input type="button" class="inputButton" value="수정/삭제" id="btnEdit">
+											<c:choose>
+												<c:when test="${fn:contains(m_name, 'admin')}">
+													<input type="button" class="inputButton" value="수정/삭제" id="btnEdit">
+												</c:when>
+												<c:otherwise>
+											
+												</c:otherwise>
+											</c:choose>
 												<input type="button" class="inputButton" value="목록" id="btnList" onclick="homeMove('${path}/noticeList.nt')">
 											</td>
 										</tr>
