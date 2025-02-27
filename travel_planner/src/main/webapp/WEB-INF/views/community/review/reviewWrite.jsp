@@ -13,43 +13,59 @@
 <link rel="stylesheet" href="${path}/resources/css/common/common.css">
 <link rel="stylesheet" href="${path}/resources/css/review/reviewWrite.css">
 
+<script src="${path}/resources/js/common/main.js" defer></script>
 <script type="text/javascript">
-   $(function(){
-      $("#cancel").click(function(){
-         if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?")){
-			window.location="${path}/reviewList.do";
-		} else {
-			window.location="${path}/reviewWrite.do";
-		}
-      })
+	$(function(){
+		$("#cancel").click(function(){
+			if(confirm("취소 시 작성 내용이 저장되지 않습니다.\n작성을 취소하시겠습니까?")){
+				homeMove("${path}/reviewList.do");
+			} else {
+				return;
+			}
+		});
       
-      $("#save").click(function(){
-         const title = $("#r_title").val();
-         const content = $("#r_content").val();
-         const city = $("#r_city").val();
-         
-         if(city == "") {
-            alert("도시를 입력하세요");
-            $("#r_city").focus();
+		$("#save").click(function(){
+		const title = $("#r_title").val();
+		const content = $("#r_content").val();
+		const city = $("#r_city").val();
+		
+		if(city == "") {
+			alert("도시를 입력하세요");
+			$("#r_city").focus();
             return false;
-         }
-         
-         if(title == "") {
-            alert("제목을 입력하세요");
-            $("#r_title").focus();
+		}
+		
+		if(title == "") {
+			alert("제목을 입력하세요");
+			$("#r_title").focus();
             return false;
-         }
-         
-         if(content == "") {
-            alert("내용을 입력하세요");
+		}
+		
+		if(content == "") {
+			alert("내용을 입력하세요");
             $("#r_content").focus();
             return false;
-         }
-         /* window.location = "${path}/reviewInsertAction.do"; */
-      })
-   })
-   
-   
+		}
+
+		var form = $('#reviewWriteForm')[0];
+		var formData = new FormData(form);
+		$.ajax({
+			type: 'POST',
+			url: '${path}/reviewInsertAction.do', // 컨트롤러로 이동 - (9)
+			enctype:'multipart/form-data',
+			data:formData,
+			processData:false,
+		    contentType:false,
+		    cache:false,
+			success: function(result) {		// (13) - result는 comment_list.jsp(컨트롤러에서 넘긴) 데이터
+				homeMove('${path}/reviewList.do');	// div id가 commentList인 자리에 댓글 리스트페이지 출력
+			},
+			error: function() {
+				alert("리뷰 작성 오류나요~!");
+			}
+		});
+	});
+});
 </script>
 
 </head>
@@ -63,7 +79,7 @@
       </div>
       
       <!-- 후기작성 상단 종료 -->
-      <form name="review" id ="review" action="reviewInsertAction.do" method="post" enctype="multipart/form-data">
+      <form name="review" id ="reviewWriteForm" action="reviewInsertAction.do" method="post" enctype="multipart/form-data">
          <div id="reviewWrite">
             <div id="reviewWrite1">
                <!-- 후기 내용 시작 -->
@@ -100,21 +116,17 @@
                         <div class="reviewWrite_content4">
                            <textarea placeholder="내용을 입력해주세요" name="r_content" id="r_content" class="pretendardfont size16"required></textarea>
                         </div>
-                        
                         <!-- 내용 입력 종료 -->
                         
                         <!-- 파일 선택 버튼 시작 -->
-                        
                         <div class="btn-img">
                            <div class="review10">   
                               <input type="file" name="r_img" id="r_img" accept="/images/*" required>
                            </div>
                         </div>
-                        
+                        <!-- 파일 선택 버튼 끝 -->
                      </div>
-                     
                   </div>
-                  
                   <!-- 내용 종료 -->
                </div>
             </div>
@@ -132,7 +144,7 @@
             <div class="reviewWrite_btn">
                <div class="reviewWrite_btn1">
                   <input type="button" value="취소" class="inputButton pretendardfont size15" id="cancel"/>
-                  <input type="submit" value="등록" class="inputButton pretendardfont size15" id="save"/>
+                  <input type="button" value="등록" class="inputButton pretendardfont size15" id="save"/>
                </div>
             </div>
             <!-- 버튼 종료 -->

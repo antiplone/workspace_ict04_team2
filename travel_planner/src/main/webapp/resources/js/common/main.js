@@ -8,12 +8,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	
 	console.log(menulists);
 	 
-	/*hamburger bar toggle button*/
-/*	toggleBtn.addEventListener('click', ()=>{
-		menu.classList.toggle('active');
-		icons.classList.toggle('active');
-	})*/
-	
 	/*navbar menu active button*/
 	menulists.forEach((menulist, index) => {
 		menulist.addEventListener("click",function(){
@@ -43,7 +37,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 // header와 footer 유지한 채로 페이지 변경
 /*
 function homeMove(path) { // (8)
-		alert("homeMove")
 		$.ajax({
 			url : path, // 컨트롤러로 이동(9)
 			type : 'POST',
@@ -60,13 +53,11 @@ function homeMove(path) { // (8)
 //navbar underline draw
 function menulist(data_index){
 
-	console.log("data_index3 =>" + data_index);
-	console.log("this =>" + $('.navbar .pointerBtn:eq(' + data_index + ')'));
+	// console.log("data_index3 =>" + data_index);
+	// console.log("this =>" + $('.navbar .pointerBtn:eq(' + data_index + ')'));
     if ($('.navbar .pointerBtn:eq(' + data_index + ')').hasClass("active")) {
     	return;
     } else{
-    	console.log("this =>" + $('.navbar .pointerBtn:eq(' + data_index + ')'));
-    	alert("후화후화");
     	for(var i = 0; i < $('.navbar .pointerBtn').length; i++ ){
       		$('.navbar .pointerBtn:eq(' + i + ')').removeClass("active");
 		}
@@ -76,8 +67,6 @@ function menulist(data_index){
 
 //main_recommoned_js 추천코스 carousel
 function mainRecommend(area_id, course_id, course_title, course_taketime, course_tag, course_map, data_index){
-			console.log("data_index1 =>" + data_index)
-		// alert("mainRecommend")
 		menulist(data_index);
 		$.ajax({
 			url : 'recommendCourseList.rc', // 컨트롤러로 이동(9)
@@ -92,9 +81,6 @@ function mainRecommend(area_id, course_id, course_title, course_taketime, course
 		}).done(function(courseId){
 				onCourseClick(course_id);
 				let courseindex = course_id - 1 ;
-				console.log(courseindex);
-				console.log(course_taketime);
-				console.log(course_tag);
 				$('#modalCourseTitle').text(course_title);
 				$('#modalCourseTaketime').text(course_taketime);
 				$('#modalCourseTag').text(course_tag);
@@ -103,14 +89,12 @@ function mainRecommend(area_id, course_id, course_title, course_taketime, course
 }
 
 function onCourseClick(course_id) {
-		// console.log(course_id.value)
 		$.ajax({
 			url: '${path}/recommendCourseDetail.rc', // 컨트롤러로 이동
 			type: 'POST',
 			data: 'area_id=' + area_id + "&courseId=" + course_id + "&courseTitle=" + course_title + "&courseTaketime" + course_taketime + "&courseTag" + course_tag + "&courseMap" + course_map,
 			success: function(result) {
 				$('#courseInfo').html(result); 	// div id가 courseList인 자리에
-				console.log(data);
 				$('#modalCourseTitle').text(course_title);
 				$('#modalCourseTaketime').text(course_taketime);
 				$('#modalCourseTag').text(course_tag);
@@ -121,13 +105,3 @@ function onCourseClick(course_id) {
 			}
 		});
 }
-
-$(function(){
-	$(".modal_btn").on('click',function(){
-			alert("모달~ 모달~")
-            modalCourseTitle.textContent = courseTitle;
-            modalCourseTaketime.textContent = courseTaketime;
-            modalCourseTag.textContent = courseTag;
-         	modalCourseMap.src = courseMap;
-	})
-})

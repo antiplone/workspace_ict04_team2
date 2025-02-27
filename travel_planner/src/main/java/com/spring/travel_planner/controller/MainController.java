@@ -27,15 +27,15 @@ import com.spring.travel_planner.service.ReviewService;
 @Controller
 public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-	
+
 	@Autowired
 	private MemberDAOImpl mem;
 
-  @Autowired
+	@Autowired
 	private ReviewService rev_service;
-  
-  @Autowired
-  private HomeServiceImpl home_service;
+
+	@Autowired
+	private HomeServiceImpl home_service;
 
 	@RequestMapping("/home.do")
 
@@ -81,9 +81,36 @@ public class MainController {
 		mem.login_action(req);
 //		mem.test(); /* DB 연결이 안되는지 테스트 */
 		if (req.getAttribute("failed") != null) // @ResponseBody를 넣으면 데이터만 출력한다.
-			resp.sendRedirect("login.do?failed=''");
+			resp.sendRedirect("login.do?failed='failed'");
+		else if (req.getAttribute("admin") != null)
+			resp.sendRedirect("admin.do?admin=" + req.getAttribute("admin"));
 
 		return "common/home";
 	}
 
+	@RequestMapping("/logout.do")
+	private String logout(HttpServletRequest req) throws ServletException, IOException {
+		logger.info("<<< MainController => logout.do >>>");
+		req.getSession().invalidate(); // 세션삭제
+		return "common/home";
+	}
+
+	@RequestMapping("/signout.do")
+	private String signout(HttpServletRequest req) throws ServletException, IOException {
+		logger.info("<<< MainController => signout.do >>>");
+		String email = (String)req.getSession().getAttribute("m_email");
+		System.out.println("이메일 :" + email);
+//		mem.signout_action(email);
+		req.getSession().invalidate(); // 세션삭제
+		return "common/home";
+	}
+	
+	// 오시는 길
+	@RequestMapping("/map.do")
+	private String map(HttpServletRequest req, HttpServletResponse res, Model model) 
+			throws ServletException, IOException {
+		logger.info("<<< MainController => map.do >>>");
+		
+		return "common/map";
+	}
 }

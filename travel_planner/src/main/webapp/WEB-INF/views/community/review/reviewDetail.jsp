@@ -36,7 +36,7 @@
 		var form = $('review_detail')[0];
 		var formData = new FormData(form);
 		$("#btnEdit").click(function() {
-			alert("reviewEdit");	// 확인용
+			//alert("reviewEdit");	// 확인용
 			$.ajax({
 				type: 'POST',
 				url: '${path}/reviewUpdate.do?r_num=${dto.r_num}', // 컨트롤러로 이동 - (9)
@@ -73,7 +73,6 @@
 		   			})
 	    	} else {
 	    		return;
-	    		/* homeMove('${path}/reviewDetail.do?r_num=${dto.r_num}'); */
 	    	}
 		});
 
@@ -159,8 +158,10 @@
 				
 				<div class="reviewDetail_bottom">
 					<input type="button" value="목록" class="reviewDetail_BtnB" id="btnRevie" onclick="homeMove('${path}/reviewList.do')">
-					<input type="button" value="수정" class="reviewDetail_Btn spacing" id="btnEdit">
-					<input type="button" value="삭제" class="reviewDetail_Btn" id="btnDelete">
+					<c:if test="${dto.r_name == sessionScope.m_name}">
+						<input type="button" value="수정" class="reviewDetail_Btn spacing" id="btnEdit">
+						<input type="button" value="삭제" class="reviewDetail_Btn" id="btnDelete">
+					</c:if>
 				</div>
 			</form>
 		</div>

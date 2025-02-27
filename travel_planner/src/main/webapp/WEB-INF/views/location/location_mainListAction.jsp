@@ -35,7 +35,7 @@ function si_select(){
 					<div class="container">
 						<tr>
 							<td class="si_title">	<!-- 전국 선택 시 별도 구 선택 없이 모든 지역 리스트 보임 -->
-								<a href="${path}/location_main.lc">
+								<a onclick="homeMove('${path}/location_main.lc')" style="display: inline-block;width:150px"">
 								<img src="resources/local_images/전국.png" name="si_choice" id="location_all" class="location_si"></a>
 								전국 <br>
 								
@@ -191,7 +191,7 @@ function si_select(){
 								<c:when test="${not empty list}">
 									<c:forEach var="dto" items="${list}">
 									<td>
-										<a href="${path}/location_detailAction.lc?location_num=${dto.ti_num}">
+										<a onclick="homeMove('${path}/location_detailAction.lc?location_num=${dto.ti_num}')">
 										<img src="resources/local_images/${dto.ti_detail_url}" id="list_images"></a><br>
 										<div class="local_name"><strong >${dto.ti_name}</strong></div><br>
 										<div class="local_gu">${dto.ti_location}</div>
@@ -217,17 +217,17 @@ function si_select(){
 								<!-- 페이징 처리 -->
 								<!-- 이전 버튼 활성화 -->
 								<c:if test="${paging.startPage > 10}">
-									<a href="${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.prev}"><input type="button" value="[이전]" class="page_btn"></a>
+									<a onclick="homeMove('${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.prev}')"><input type="button" value="[이전]" class="page_btn"></a>
 								</c:if>
 								
 								<!-- 페이지 번호 처리 -->
 								<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
-									<a href="${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${num}"><input type="button" value="${num}" class="page_btn"></a>
+									<a onclick="homeMove('${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${num}')"><input type="button" value="${num}" class="page_btn"></a>
 								</c:forEach>
 								 
 								<!-- 다음 버튼 활성화 -->
 								<c:if test="${paging.endPage < paging.pageCount}">
-									<a href="${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.next}"><input type="button" value="[다음]" class="page_btn"></a>
+									<a onclick="homeMove('${path}/location_mainListAction.lc?location_si=${tc_si_num}&location_gu=${selcet_gu}&pageNum=${paging.next}')"><input type="button" value="[다음]" class="page_btn"></a>
 								</c:if>
 							</td>
 						</tr>

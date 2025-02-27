@@ -161,7 +161,7 @@ header {
 	display: flex; /* 한줄(수평) 배치 */
 	list-style: none; /* 리스트 불릿 없앰 */
 	padding-left: 0px;
-	color: white;
+/* 	color: white; */
 	font-weight: bold;
     margin-bottom: 0;
 }

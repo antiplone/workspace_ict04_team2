@@ -25,26 +25,16 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="regionList_wrap">
 		
 		<!-- 컨텐츠 시작 -->
-		<div class="container">
+		<div class="regionList_container">
 		
 			<!-- 상단 중앙1 시작 -->
-			<div id="title">
+			<div id="regionList_title">
 				<br><br>
-				<h3 align="center" class="title pretendardfont">내가 가고싶은 여행지는 여기닷!</h3>
+				<h3 align="center" class="regionList_title pretendardfont">내가 가고싶은 여행지는 여기닷!</h3>
 				<br><br>
-				<!-- 
-				<div class="search" align="center">
-				  <div class="container-fluid">
-				    <form class="rc_search-box" action="" method="get">
-				      <input class="search-text pretendardfont" type="text" placeholder="가고 싶은 여행지를 입력해보세요." size="50">
-				      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-				    </form>
-				  </div>
-				</div>
-				 -->
 			</div>	
 			<!-- 상단 중앙1 종료 -->
 			
@@ -73,7 +63,7 @@
 				<div class="modal" id="regionModal">
 				    <div class="modal_popup">
 				        <div class="content_box">
-				            <div class="content">
+				            <div class="regionList_content">
 				                <div class="areaContent pretendardfont">
 				                    <div id="modalAreaEnglish"></div>
 				                    <div id="modalAreaKorea"></div>
@@ -104,8 +94,6 @@ function modalClick(path) {
 $(function(){
 	// 모달 열기
 	$(".modal_btn").on('click',function(){
-		alert("떴다떴다");
-		alert($(this).attr("area_english"))
 		$("#modalAreaEnglish").text($(this).attr("area_english"));
         $("#modalAreaKorea").text($(this).attr("area_korea"));
         $("#modalAreaContent").text($(this).attr("area_content"));
