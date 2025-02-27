@@ -16,17 +16,27 @@ public class LocationDAOImpl implements LocationDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	// 지역 - 메인('시' 리스트)
+	@Override
+	public List<LocationDTO> location_siList() {
+		System.out.println("LocationDAOImpl - location_siList()");
+		
+		List<LocationDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.location_siList");
+		
+		return list;
+	}
+	
+	
 	// 지역 - 메인(기본값 = '전국'리스트)
 	@Override
 	public List<LocationDTO> locationMainList(Map<String, Object> map) {
-		
 		System.out.println("LocationDAOImpl - locationMainList()");
 		
 		List<LocationDTO> list = sqlSession.selectList("com.spring.travel_planner.dao.LocationDAO.locationMainList", map);
 		
 		return list;
 	}
-
+	
 	// 지역 - '구' 목록 조회 ('전국' 제외한 '시' 선택 시)
 	@Override
 	public List<LocationDTO> locationList(int tc_si_num) {
@@ -76,5 +86,9 @@ public class LocationDAOImpl implements LocationDAO {
 		
 		return dto;
 	}
-	
+
+
+
+
+
 }

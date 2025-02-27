@@ -31,6 +31,8 @@ public class LocationServiceImpl implements LocationService {
 			throws ServletException, IOException {
 		System.out.println("LocationServiceImpl - MainListAction()");
 		
+		List<LocationDTO> si_list = dao.location_siList();
+		
 		// 3단계. 화면에서 입력받은 값 가져오기
 		String pageNum = request.getParameter("pageNum");
 
@@ -52,6 +54,7 @@ public class LocationServiceImpl implements LocationService {
 		List<LocationDTO> dto = dao.locationMainList(map);
 		System.out.println("서비스 list: " + dto);
 
+		model.addAttribute("si_list", si_list);
 		model.addAttribute("dto", dto);
 		model.addAttribute("paging", paging);
 		model.addAttribute("total", total);
@@ -81,6 +84,8 @@ public class LocationServiceImpl implements LocationService {
 	  @Override public void selectListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			  throws ServletException, IOException { 
 	  System.out.println("LocationServiceImpl - selectListAction()");
+	  
+	  List<LocationDTO> si_list = dao.location_siList();
 	  
 	  // '구'값 가져오기
 	  String selcet_gu = request.getParameter("location_gu");
@@ -150,8 +155,10 @@ public class LocationServiceImpl implements LocationService {
 		  
 		  String area = "%" + select_si + "%";
 		  System.out.println("전체 선택 시 지역:" + area);
+		  
 		  List<LocationDTO> list = dao.selectlocationAllList(area);
 		  System.out.println("전체 선택 시 서비스 지역:" + list);
+		  
 		  // 리스트 - 페이징 처리
 		  String pageNum = request.getParameter("pageNum");
 		  
@@ -169,6 +176,7 @@ public class LocationServiceImpl implements LocationService {
 		  map.put("start", start);
 		  map.put("end", end);
 		  
+		  model.addAttribute("si_list", si_list);
 		  model.addAttribute("list", list);
 		  model.addAttribute("selcet_gu", selcet_gu);
 		  model.addAttribute("tc_si_num", tc_si_num);
@@ -248,6 +256,7 @@ public class LocationServiceImpl implements LocationService {
 			 location_list.add(choice);
 		  }  
 		  
+		  
 		  List<LocationDTO> list = dao.selectlocationList(location_list);
 		  
 		  // 리스트 - 페이징 처리
@@ -268,6 +277,7 @@ public class LocationServiceImpl implements LocationService {
 		  map.put("end", end);
 		  
 		  // 해당 리스트들 jsp에 전달
+		  model.addAttribute("si_list", si_list);
 		  model.addAttribute("list", list);
 		  model.addAttribute("selcet_gu", selcet_gu);
 		  model.addAttribute("tc_si_num", tc_si_num);

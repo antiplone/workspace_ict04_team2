@@ -7,6 +7,9 @@ import com.spring.travel_planner.dto.LocationDTO;
 
 public interface LocationDAO {
 	
+	// 지역 - 메인('시' 리스트)
+	public List<LocationDTO> location_siList();
+	
 	// 지역 - 메인(기본값 = '전국'리스트)
 	public List<LocationDTO> locationMainList(Map<String, Object> map);
 	
