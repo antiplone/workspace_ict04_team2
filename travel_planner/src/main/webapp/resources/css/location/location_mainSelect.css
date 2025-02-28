@@ -20,6 +20,12 @@
 	font-family: 'kotra', 'Closeness';
 }
 
+.gu_all {
+	display: flex;
+	margin: 10px;
+	font-family: 'kotra', 'Closeness';
+}
+
 .gu_select input[type=checkbox] {
 	display: none;
 }

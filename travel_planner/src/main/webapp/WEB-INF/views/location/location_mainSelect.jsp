@@ -18,6 +18,25 @@
 
 <title>여기닷 - 여행지</title>
 <script>
+
+// '전체' 선택 시 나머지 '구'들 전체 체크
+$(document).ready(function() {
+	$("#check_0").click(function() {
+		if($("#check_0").is(":checked")) $("input[name=gu_select]").prop("checked", true);
+		else $("input[name=gu_select]").prop("checked", false);
+	});
+	
+	
+	$("input[name=gu_select]").click(function() {
+		var total = $("input[name=gu_select]").length;
+		var checked = $("input[name=gu_select]:checked").length;
+		
+		if(total != checked) $("#check_0").prop("checked", false);
+		else $("#check_0").prop("checked", true); 
+	});
+});
+
+
  function gu_choice() {
 	 // 선택한 '구' 정보 가져오기
 	 let checks = "";
@@ -61,16 +80,23 @@
 		
 		<table>
 			<tbody class="gu_table">
-			<!-- 선택한 '시'에 맞는 '구' 목록 가져오기 -->
-			<tr class="gu_tr">
-				<c:forEach var="list" items="${list}">
-				<td align="center">
-					<div class="gu_select" align="center">
-						<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}" value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
-					</div>
-				</td>
-				</c:forEach>
-			</tr>
+				<!-- 선택한 '시'에 맞는 '구' 목록 가져오기 -->
+				<tr class="gu_tr">
+					<c:forEach var="list" items="${list}">
+						<td align="center">
+							<div class="gu_select" align="center">
+								<c:choose>
+									<c:when test="${fn:contains(list.tc_gu, '전체')}">
+										<input type="checkbox" name="gu_all" id="check_${list.tc_gu_num}" value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" name="gu_select" id="check_${list.tc_gu_num}" value="${list.tc_gu}"><label for="check_${list.tc_gu_num}">${list.tc_gu}</label>
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</td>
+					</c:forEach>
+				</tr>
 			</tbody>
 		</table>
 				

@@ -83,114 +83,16 @@ public class LocationServiceImpl implements LocationService {
 	  // 지역 - '구' 선택 시 해당 리스트들 조회
 	  @Override public void selectListAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			  throws ServletException, IOException { 
-	  System.out.println("LocationServiceImpl - selectListAction()");
+		  System.out.println("LocationServiceImpl - selectListAction()");
+		  
+		  // '구' 팝업창 정보 가져오기
+		  List<LocationDTO> si_list = dao.location_siList();
+		  
+		  // '구' 값 가져오기
+		  String selcet_gu = request.getParameter("location_gu");
+		  System.out.println("서비스!! 구 테스트~~ : " + selcet_gu);
 	  
-	  List<LocationDTO> si_list = dao.location_siList();
-	  
-	  // '구'값 가져오기
-	  String selcet_gu = request.getParameter("location_gu");
-	
-	  // '구' - '전체' 선택 시
-	  if(selcet_gu.equals("전체@")) {
-		  
-		// '시', '구'값 가져오기
-		  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
-		  
-		// num인 '시' 값을 한글로 변경
-		  String select_si = "";
-		  
-		  switch(tc_si_num) {
-		  	case 1:
-		  		select_si = "서울";
-		  		break;
-		  	case 2:
-		  		select_si = "인천";
-		  		break;
-		  	case 3:
-		  		select_si = "대전";
-		  		break;
-		  	case 4:
-		  		select_si = "대구";
-		  		break;
-		  	case 5:
-		  		select_si = "광주";
-		  		break;
-		  	case 6:
-		  		select_si = "부산";
-		  		break;
-		  	case 7:
-		  		select_si = "울산";
-		  		break;
-		  	case 8:
-		  		select_si = "세종";
-		  		break;
-		  	case 31:
-		  		select_si = "경기";
-		  		break;
-		  	case 32:
-		  		select_si = "강원";
-		  		break;
-		  	case 33:
-		  		select_si = "충북";
-		  		break;
-		  	case 34:
-		  		select_si = "충남";
-		  		break;
-		  	case 35:
-		  		select_si = "경북";
-		  		break;
-		  	case 36:
-		  		select_si = "경남";
-		  		break;
-		  	case 37:
-		  		select_si = "전북";
-		  		break;
-		  	case 38:
-		  		select_si = "전남";
-		  		break;
-		  	case 39:
-		  		select_si = "제주";
-		  		break;
-		  }
-		  
-		  String area = "%" + select_si + "%";
-		  System.out.println("전체 선택 시 지역:" + area);
-		  
-		  List<LocationDTO> select_list = dao.selectlocationAllList(area);
-		  System.out.println("전체 선택 시 서비스 지역:" + select_list);
-		  
-		  // 리스트 - 페이징 처리
-		  String pageNum = request.getParameter("pageNum");
-		  
-		  Location_Paging paging = new Location_Paging(pageNum);
-		  
-		  // 선택한 지역 갯수만 조회
-		  paging.setTotalCount(select_list.size());
-		
-			// 리스트 - 목록 조회
-		  int start = paging.getStartRow();
-		  int end = paging.getEndRow();
-				
-			// HashMap 생성, key value 추가
-		  Map<String, Object> map = new HashMap<String, Object>();
-		  map.put("start", start);
-		  map.put("end", end);
-		  map.put("area", area);
-		  
-		  List<LocationDTO> list = dao.selectlocationAll_result(map);
-		  
-		  model.addAttribute("si_list", si_list);
-		  model.addAttribute("list", list);
-		  model.addAttribute("selcet_gu", selcet_gu);
-		  model.addAttribute("tc_si_num", tc_si_num);
-		  model.addAttribute("paging", paging);
-		  model.addAttribute("total", list.size());
-	  }
-	  
-	  // 특정 '구' 지역만 선택 시
-	  else {
-		  
-		  // '시', '구'값 가져오기
+		  // '시' 값 가져오기
 		  int tc_si_num = Integer.parseInt(request.getParameter("location_si"));
 		  
 		  // num인 '시' 값을 한글로 변경 
@@ -250,6 +152,7 @@ public class LocationServiceImpl implements LocationService {
 		  		break;
 		  }
 		  
+		  // '시' '구' 값 담기
 		  List<String> location_list = new ArrayList<String>();
 		  
 		  String[] tc_gu = selcet_gu.split("@");
@@ -269,11 +172,11 @@ public class LocationServiceImpl implements LocationService {
 		  // 선택한 지역 갯수만 조회
 		  paging.setTotalCount(select_list.size());
 		
-			// 리스트 - 목록 조회
+		  // 리스트 - 목록 조회
 		  int start = paging.getStartRow();
 		  int end = paging.getEndRow();
 				
-			// HashMap 생성, key value 추가
+		  // HashMap 생성, key value 추가
 		  Map<String, Object> map = new HashMap<String, Object>();
 		  map.put("start", start);
 		  map.put("end", end);
@@ -288,7 +191,6 @@ public class LocationServiceImpl implements LocationService {
 		  model.addAttribute("tc_si_num", tc_si_num);
 		  model.addAttribute("paging", paging);
 		  model.addAttribute("total", list.size());
-	  	}
 	  }
 
 	// 지역 - 여행지 클릭 시 상세페이지 조회

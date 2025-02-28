@@ -25,12 +25,6 @@ public interface LocationDAO {
 	// 지역 - '구' 선택 시 해당 리스트들 갯수 조회
 	public List<LocationDTO> selectlocation_result(Map<String, Object> map);
 	
-	// 지역 - '구'에서 '전체' 선택 시 해당 리스트들 조회
-	public List<LocationDTO> selectlocationAllList(String area);
-	
-	// 지역 - '구'에서 '전체' 선택 시 해당 리스트들 갯수 조회
-	public List<LocationDTO> selectlocationAll_result(Map<String, Object> map);
-	
 	// 지역 - 여행지 클릭 시 상세페이지 조회
 	public LocationDTO locationDetailPage(int ti_num);
 	
