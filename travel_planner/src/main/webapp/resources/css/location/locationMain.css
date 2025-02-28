@@ -13,7 +13,7 @@
    
 /* '시' 선택 메뉴 */
 .location_si {
-	width: 150px;
+	width: 130px;
 	padding:0px 30px 10px 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -31,13 +31,13 @@
 .container {
 	display: flex;
 	width: 1500px;
-	padding:0px 30px 10px 30px;
+	padding:50px 30px 50px 30px;
 	align: center;
 }
 .main_select td {
 	text-align: center;
-	padding-top: 50px;
-    padding-bottom: 50px;
+	padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* .si_seconde {

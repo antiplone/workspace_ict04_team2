@@ -16,7 +16,6 @@
 
 <!-- 지역 - 메인(전체) 리스트들 조회 -->
 <select id="locationMainList" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
-	 	
 	SELECT *
 	  FROM
 		  (SELECT A.*,
@@ -54,17 +53,56 @@
 	 	   )
 </select>
 
+<!-- 지역 - '구' 선택 시 해당 리스트들 갯수 조회 -->
+<select id="selectlocation_result" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
+	SELECT *
+	  FROM
+		  (SELECT A.*,
+			      rownum AS rn
+		     FROM
+				 (SELECT * FROM travel_tourInfo_tbl 
+				  WHERE ti_location IN (
+	 <foreach collection="list" item="location_list" separator=",">
+	 	 <![CDATA[ #{location_list}]]>
+	 </foreach> 
+	 	   )
+	 	   ORDER BY ti_num DESC) A
+		   )
+	 <![CDATA[  WHERE rn >= #{start}
+	  AND rn <= #{end}  ]]>
+</select>
+
+
 <!-- '구'에서 '전체' 선택 시 해당 리스트들 조회 -->
 <select id="selectlocationAllList" parameterType="String" resultType="com.spring.travel_planner.dto.LocationDTO">
 	
+	SELECT * FROM travel_tourInfo_tbl 
+	 WHERE ti_location <![CDATA[ LIKE #{area} ]]>
+	 ORDER BY ti_num DESC
+   <!-- 
      SELECT i.*, c.*
       FROM travel_tourInfo_tbl i, travel_tourcity_tbl c
      WHERE i.tc_num = c.tc_num
 	 AND i.ti_location <![CDATA[ LIKE #{area} ]]>
      ORDER BY i.ti_num DESC
-     
+      -->
 </select>
 
+<!-- '구'에서 '전체' 선택 시 해당 리스트들 갯수 조회 -->
+<select id="selectlocationAll_result" parameterType="java.util.Map" resultType="com.spring.travel_planner.dto.LocationDTO">
+	SELECT *
+	  FROM
+		  (SELECT A.*,
+			      rownum AS rn
+		     FROM
+				 (SELECT * FROM travel_tourInfo_tbl 
+				   WHERE ti_location <![CDATA[ LIKE #{area} ]]>
+				  ORDER BY ti_num DESC) A
+		   )
+	<![CDATA[WHERE rn >= #{start}
+	  AND rn <= #{end}
+   ]]>
+</select>
 
 <!-- 여행지 클릭 시 상세페이지 조회 -->
 <select id="locationDetailPage" parameterType="int" resultType="com.spring.travel_planner.dto.LocationDTO">
