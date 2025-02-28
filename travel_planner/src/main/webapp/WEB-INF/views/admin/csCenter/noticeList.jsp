@@ -87,7 +87,7 @@
 												</c:if>
 											</div>
 										<c:choose>
-											<c:when test="${m_name != null}">
+											<c:when test="${fn:contains(m_name, 'admin')}">
 												<div class="writeNotice">
 													<div colspan="5">
 														<input type="button" value="글쓰기" style="padding:10px;" id="btnInsert" onclick="homeMove('${path}/notice_insert.nt')">

@@ -167,6 +167,7 @@ public class LocationController {
 	
 ////////////////////////api 테스트 끝 /////////////////////
 	
+    
 	// 여행지 메인(기본값 = '전국'리스트)
 	@RequestMapping("/location_main.lc")
 	public String local_main(HttpServletRequest request, HttpServletResponse response, Model model)
@@ -178,7 +179,7 @@ public class LocationController {
 		
 		return "location/location_main";
 	}
-	
+    
 	// 여행지 선택 - 상세페이지
 	@RequestMapping("/location_detailAction.lc")
 	public String location_datailAction(HttpServletRequest request, HttpServletResponse response, Model model)
