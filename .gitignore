@@ -3,13 +3,11 @@
 
 ### Added ###
 target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!.mvn/wrapper/maven-wrapper.jar
+.metadata/
 Tomcat v9.0 Server at localhost-config/
-.metadata/.plugins/org.eclipse.m2e.core.ui/
-.metadata/.plugins/org.eclipse.wst.server.core/
-.metadata/.plugins/org.eclipse.wst.sse.ui/
-.metadata/.plugins/org.springsource.ide.eclipse.commons.gettingstarted/dashboard/
-.metadata/.plugins/org.springsource.ide.eclipse.dashboard.ui/
-
 
 ### Needs untrack-list ###
 # .metadata/.plugins/org.eclipse.core.runtime/.settings/
@@ -67,19 +65,8 @@ tmp/
 # Java annotation processor (APT)
 .factorypath
 
-## 불필요 #
-# PDT-specific (PHP Development Tools)
-# .buildpath
-
 # sbteclipse plugin
 .target
-
-# Tern plugin
-.tern-project
-
-## 불필요 #
-# TeXlipse plugin
-# .texlipse
 
 # Code Recommenders
 .recommenders/
@@ -89,12 +76,6 @@ tmp/
 .apt_generated/
 .apt_generated_test/
 
-## 스칼라? #
-# Scala IDE specific (Scala & Java development for Eclipse)
-# .cache-main
-# .scala_dependencies
-# .worksheet
-
 # Uncomment this line if you wish to ignore the project description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
@@ -102,11 +83,21 @@ tmp/
 ## 필요 #
 ### Eclipse Patch ###
 # Spring Boot Tooling
+.springBeans
 .sts4-cache/
 
 ## 필요 #
 ### ElasticBeanstalk ###
 .elasticbeanstalk/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
 
 ## 필요 #
 ### Java ###
@@ -176,4 +167,3 @@ local
 # *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,elasticbeanstalk,splunk
-/.metadata/
